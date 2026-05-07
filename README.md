@@ -9,5 +9,5 @@ Processo escolhido:
 
 Davi - Primeira chamada ao OpenRouter
 Murilo - Modelagem do estado
-Paola - Datset sintético inicial
+Paola - Datset sintético inicial (e formatar readme)
 Wellington - Stub do grafo
