@@ -1,0 +1,4 @@
+# Copie este arquivo para um novo arquivo chamado .env no root e insira a chave do discord
+OPENROUTER_API_KEY=
+MODEL_NAME=google/gemma-3-27b-it
+

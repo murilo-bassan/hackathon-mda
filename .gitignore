@@ -1,0 +1,14 @@
+# chave de api:
+.env
+
+# evitar que envie coisas desncessárias
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
