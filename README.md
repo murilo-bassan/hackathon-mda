@@ -8,7 +8,7 @@ Processo escolhido:
 3.1. AGETIC - Triagem Inteligente de Chamados de Suporte de TIC
 
 Davi - Primeira chamada ao OpenRouter
-Murilo - Modelagem do estado
+Murilo - Modelagem do estado e Definição dos nós
 Paola - Datset sintético inicial (e formatar readme)
 Wellington - Stub do grafo
 
