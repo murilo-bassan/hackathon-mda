@@ -1,18 +1,18 @@
-Membros time 1:
-Davi Gaborim
-Murilo Bassan
-Paola Campos
-Wellington Cintra
+# Hackathon
 
-Processo escolhido: 
-3.1. AGETIC - Triagem Inteligente de Chamados de Suporte de TIC
+## Membros do Time 1
+- Davi Gaborim
+- Murilo Bassan
+- Paola Campos
+- Wellington Cintra
 
-Davi - Primeira chamada ao OpenRouter
-Murilo - Modelagem do estado e Definição dos nós
-Paola - Datset sintético inicial (e formatar readme)
-Wellington - Stub do grafo
+## Processo escolhido
+3.1. AGETIC - Triagem Inteligente de Chamados de Suporte de TIC.
 
-### Tipos de commit
+## Responsabilidades de cada integrante
+Estão dispostas no Issues do repositório.
+
+## Tipos de commit
 
 | Tipo       | Descrição                                                                 |
 |------------|---------------------------------------------------------------------------|
