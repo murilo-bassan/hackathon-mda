@@ -1,5 +1,5 @@
 from typing import Optional, TypedDict
-from langgraph.graph import StateGraph
+from langgraph.graph import StateGraph, START, END
 
 # Definição inicial do estado do agente para o processo de atendimento de chamados de TIC, considerando todas as sugestões de etapas a serem automatizadas.
 class State(TypedDict):
