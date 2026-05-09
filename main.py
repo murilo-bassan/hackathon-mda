@@ -1,7 +1,8 @@
 from langgraph.graph import END, START, StateGraph
-from nodes import classify_type, draft_response, emit, ingest, route, score_priority
-from nodes import decide_response
 from state import State
+from nodes.flow import ingest, route, decide_response, draft_response, emit
+from nodes.classify import classify_type
+from nodes.score_priority import score_priority
 
 builder = StateGraph(State)
 
