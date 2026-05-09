@@ -1,23 +1,33 @@
-from typing import Optional, TypedDict
+from typing import List, Optional, TypedDict
+
+class Ticket(TypedDict):
+    id: str
+    timestamp: str
+    channel: str
+    requester_profile: str
+    free_text: str
+
+class Response(TypedDict):
+    category: str
+    resulting_priority: int
+    priority_justification: str 
+    department: str
+    response_draft: str
 
 # Definição inicial do estado do agente para o processo de atendimento de chamados de TIC, considerando todas as sugestões de etapas a serem automatizadas.
 class State(TypedDict):
     #etapa 1 (identificação e priorização)
-    ticket_text: str
+    tickets: List[Ticket] #fila de chamados a serem processados
     urgency: int #com base em palavras-chave, sistemas afetados e perfil do solicitante
     impact: int #com base em palavras-chave, sistemas afetados e perfil do solicitante
-    resulting_priority: int
-    priority_justification: str 
 
     #etapa 2 (Categorização e escalonamento)
-    category: str #requisição, incidente ou problema
+    #category: str #requisição, incidente ou problema
     service_type: str #a partir do catalogo de de TIC
     support_level: int #1, 2 ou 3
     category_justification: str
-    department: str
 
     #etapa 3 (Resposta inicial automatizada) - chamados de baixa complexidade
-    response_draft: str #com base em uma ___base de conhecimento sintética___ para revisão do analista
 
     #etapa 4 (Notificação de encerramento)
     is_finished: bool
