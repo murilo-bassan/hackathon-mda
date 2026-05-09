@@ -8,6 +8,7 @@ class Ticket(TypedDict):
     free_text: str
 
 class Response(TypedDict):
+    ticket_id: str
     category: str
     resulting_priority: int
     priority_justification: str 
@@ -33,3 +34,4 @@ class State(TypedDict):
     is_finished: bool
     closing_message: Optional[str]
     user_feedback: int #satisfação do usuário (de 1 a 5)
+    responses: List[Response] #histórico de respostas geradas para cada ticket, incluindo rascunhos e mensagens de encerramento
