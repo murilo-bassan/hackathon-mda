@@ -23,3 +23,4 @@ Estão dispostas no Issues do repositório.
 | `refactor` | Refatorações (alteração de código que não corrige nem adiciona funcionalidade) |
 | `test`     | Adição ou alteração de testes                                             |
 | `chore`    | Tarefas de manutenção (ex: build, configs, atualização de dependências)   |
+| `add`      | Adição de novos arquivos, recursos (assets) ou textos estáticos           |
