@@ -1,7 +1,7 @@
 # chave de api:
 .env
 
-# evitar que envie coisas desncessárias
+# evitar que envie coisas desnecessárias
 __pycache__/
 *.py[cod]
 *$py.class
@@ -12,3 +12,6 @@ env/
 # IDE
 .vscode/
 .idea/
+
+# macOS
+.DS_Store
