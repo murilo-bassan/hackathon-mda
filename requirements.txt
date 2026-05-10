@@ -15,6 +15,7 @@ trustcall
 langgraph-cli[inmem]
 python-dotenv
 requests
+pandas
 
 aiohttp>=3.13.4
 Pygments>=2.20.0
