@@ -1,4 +1,6 @@
 from langgraph.graph import END, START, StateGraph
+import pandas as pd
+
 from state import State
 from nodes.ingest import ingest
 from nodes.classify_type import classify_type
@@ -7,6 +9,8 @@ from nodes.route import route
 from nodes.decide_response import decide_response
 from nodes.draft_response import draft_response
 from nodes.emit import emit
+
+data = pd.read_json('data.json')
 
 builder = StateGraph(State)
 
@@ -57,8 +61,10 @@ if __name__ == "__main__":
         "feedback_usuario": 0,
     }
 
-    resultado = graph.invoke(chamado_exemplo)
+    # Chamada de cada call um a um
+    for call in data:
+        resultado = graph.invoke({"ticket": call})
 
-    print("\n=== ESTADO FINAL ===")
-    for campo, valor in resultado.items():
-        print(f"  {campo}: {valor}")
+        print("\n=== ESTADO FINAL ===")
+        for campo, valor in resultado.items():
+            print(f"  {campo}: {valor}")
