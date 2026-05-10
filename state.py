@@ -1,4 +1,4 @@
-from typing import List, Optional, TypedDict
+from typing import Optional, TypedDict
 
 class Ticket(TypedDict):
     id: str
@@ -8,7 +8,7 @@ class Ticket(TypedDict):
     free_text: str
 
 class Response(TypedDict):
-    ticket_id: str #referência ao Ticket original
+    #ticket_id: str #referência ao Ticket original
     category: str #"Incidente"
     urgency: int #5
     impact: int #5
@@ -23,12 +23,12 @@ class Response(TypedDict):
 # Definição inicial do estado do agente para o processo de atendimento de chamados de TIC, considerando todas as sugestões de etapas a serem automatizadas.
 class State(TypedDict):
     # 1. PERMANENTES — existem do início ao fim
-    tickets: List[Ticket] #fila completa, nunca muda
-    current_ticket_index: int #qual ticket está sendo processado
-    is_finished: bool
+    ticket: Ticket
+    '''current_ticket_index: int #qual ticket está sendo processado
+    is_finished: bool'''
     closing_message: Optional[str]
     user_feedback: Optional[int]
-    responses: List[Response] # acumula um Response por ticket
+    response: Response
 
     # 2. RESULTADOS DOS NÓS — preenchidos e lidos diretamente
     urgency: Optional[int] #score_priority → emit
@@ -38,8 +38,8 @@ class State(TypedDict):
     category_justification: Optional[str] #classify_type → emit
 
     # 3. _current_* — temporários de coordenação entre nós
-    _current_category: Optional[str]
+    '''_current_category: Optional[str]
     _current_department: Optional[str]
     _current_priority: Optional[int]
     _current_priority_justification: Optional[str]
-    _current_draft: Optional[str]
+    _current_draft: Optional[str]'''
