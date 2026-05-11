@@ -1,5 +1,5 @@
 from state import State
-from nodes.utils import call_llm
+from utilities.utils import call_llm
 
 def score_priority(state: State) -> dict:
     ticket_text = state.get("free_text", "").lower()
@@ -13,9 +13,10 @@ def score_priority(state: State) -> dict:
     
     response_data = call_llm(system_prompt, f"Ticket: {ticket_text}")
     
-    return {
-        "urgency": response_data.get("urgency", 2),
-        "impact": response_data.get("impact", 2),
-        "resulting_priority": response_data.get("resulting_priority", 2),
-        "priority_justification": response_data.get("priority_justification", "Calculado pela IA.")
-    }
+    partial = dict(state.get("response", {}))
+    partial["urgency"] = response_data.get("urgency", 2)
+    partial["impact"] = response_data.get("impact", 2)
+    partial["resulting_priority"] = response_data.get("resulting_priority", 2)
+    partial["priority_justification"] = response_data.get("priority_justification", "Calculado pela IA.")
+    
+    return {"response": partial}
