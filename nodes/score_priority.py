@@ -4,16 +4,6 @@ from nodes.utils import call_llm
 def score_priority(state: State) -> dict:
     ticket_text = state.get("free_text", "").lower()
     
-    critical_words = ['caiu', 'servidor', 'vazamento', 'hacker', 'parou']
-    
-    if any(word in ticket_text for word in critical_words):
-        return {
-            "urgency": 5,
-            "impact": 5,
-            "resulting_priority": 4,
-            "priority_justification": "Regra deterministica: Risco critico identificado."
-        }
-        
     system_prompt = """
     Evaluate urgency and impact of an IT ticket.
     Values: 1 to 5 for urgency and impact.
