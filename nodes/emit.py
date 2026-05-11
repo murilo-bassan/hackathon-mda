@@ -34,6 +34,6 @@ def emit(state: State) -> dict:
     )
 
     return {
-        "responses": response,
+        "response": response,
         "closing_message": closing,
     }
