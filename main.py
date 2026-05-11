@@ -7,24 +7,44 @@ from nodes.classify_type import classify_type
 from nodes.score_priority import score_priority
 from nodes.route import route
 from nodes.decide_response import decide_response
+#from nodes.decide_validation_response import decide_validation_response
 from nodes.draft_response import draft_response
 from nodes.emit import emit
+from nodes.queue_only import queue_only
 
-data = pd.read_json('data.json')
+from IPython.display import Image, display
+
+data = pd.read_json('data/data.json')
 
 builder = StateGraph(State)
 
 # Registro dos nós
 builder.add_node("ingest", ingest)
+builder.add_node("validation_route", queue_only)
 builder.add_node("classify_type", classify_type)
 builder.add_node("score_priority", score_priority)
 builder.add_node("route", route)
 builder.add_node("draft_response", draft_response)
+builder.add_node("queue_only", queue_only)
 builder.add_node("emit", emit)
 
 # Arestas normais (fluxo sequencial principal)
 builder.add_edge(START, "ingest")
-builder.add_edge("ingest", "classify_type")
+#builder.add_edge("ingest", "validation_route")
+
+# Aresta condicional: após aditional_route, decide o próximo nó
+"""
+builder.add_conditional_edges(
+    "validation_route",
+    decide_validation_response,
+    {
+        "classify_type": "classify_type",
+        "emit": "emit",
+    }
+)
+"""
+
+builder.add_edge("ingest", "classify_type") # tirar depois
 builder.add_edge("classify_type", "score_priority")
 builder.add_edge("score_priority", "route")
 
@@ -34,17 +54,20 @@ builder.add_conditional_edges(
     decide_response,
     {
         "draft_response": "draft_response",
-        "emit": "emit",
+        "queue_only": "queue_only",
     }
 )
 
 # draft_response sempre desemboca em emit
 builder.add_edge("draft_response", "emit")
+builder.add_edge("queue_only", "emit")
 builder.add_edge("emit", END)
 
 # Compilação do grafo
 graph = builder.compile()
 
+# Apresentação do grafo
+display(Image(graph.get_graph().draw_mermaid_png()))
 
 if __name__ == "__main__":
     chamado_exemplo = {
