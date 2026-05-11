@@ -1,7 +1,7 @@
 from typing import Optional, TypedDict, Annotated
 
-from ticket import Ticket
-from response import Response
+from .ticket import Ticket
+from .response import Response
 
 """
 def merge_response(current: dict, update: dict) -> dict:

@@ -1,11 +1,15 @@
+import csv
 import json
 from datetime import datetime
-from state import State
+import os
+from state.state import State
 from typing import List
 
 def emit(state: State) -> dict:
     ticket = state["ticket"]
     partial = state.get("response", {})
+
+    CSV_FILE = "report.csv"
 
     response = {
         "ticket_id": ticket["id"],
@@ -26,6 +30,20 @@ def emit(state: State) -> dict:
     print("=" * 60)
     print(json.dumps(response, ensure_ascii=False, indent=2))
 
+    # SALVAR JSON INDIVIDUAL
+    with open(f"responses_json/ticket_{ticket['id']}.json", "w", encoding="utf-8") as f:
+        json.dump(response, f, ensure_ascii=False, indent=2)
+
+    # GERAR / ATUALIZAR CSV
+    file_exists = os.path.isfile(CSV_FILE)
+
+    with open(CSV_FILE, mode="a", newline="", encoding="utf-8") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=response.keys())
+
+        if not file_exists:
+            writer.writeheader()
+
+        writer.writerow(response)
     
     closing = (
         "Seu chamado foi encerrado pela equipe da AGETIC/UFMS. "

@@ -1,4 +1,4 @@
-from state import State
+from state.state import State
 from utilities.ingest_ticket import IngestTicket
 from pydantic import ValidationError
 

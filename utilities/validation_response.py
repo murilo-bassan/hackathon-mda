@@ -1,5 +1,5 @@
 # Após o nó `validation`, encaminha conforme o resultado do ingest (via `response`).
-from state import State
+from state.state import State
 
 def validation_response(state: State) -> str:
     """

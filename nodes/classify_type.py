@@ -1,4 +1,4 @@
-from state import State
+from state.state import State
 from utilities.utils import call_llm
 
 def classify_type(state: State) -> dict:

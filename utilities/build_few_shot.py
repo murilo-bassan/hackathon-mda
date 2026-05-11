@@ -1,5 +1,5 @@
 import json
-from state import State
+from state.state import State
 
 with open("data/data.json", "r", encoding="utf-8") as f:
     tickets_kb = json.load(f)

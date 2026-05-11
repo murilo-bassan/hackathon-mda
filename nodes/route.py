@@ -1,4 +1,4 @@
-from state import State
+from state.state import State
 
 def route(state: State) -> dict:
     #nó de passagem

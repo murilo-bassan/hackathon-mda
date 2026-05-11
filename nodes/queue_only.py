@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-from state import State
+from state.state import State
 
 QUEUE_PATH = "data/human_queue.json"
 
