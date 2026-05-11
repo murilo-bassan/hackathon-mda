@@ -1,7 +1,7 @@
 # Hackathon
 
 ## Membros do Time 1
-- Davi Gaborim
+- Davi Gaborim 
 - Murilo Bassan
 - Paola Campos
 - Wellington Cintra
