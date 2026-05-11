@@ -1,6 +1,5 @@
 from state import State
 
 def validation(state: State) -> dict:
-    #nó de passagem
-    #decisão na conditional edge decide_response
+    # Nó de passagem; o roteamento condicional é feito por validation_response.
     return {}
