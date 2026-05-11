@@ -8,7 +8,7 @@ class Ticket(TypedDict):
     free_text: str
 
 class Response(TypedDict):
-    #ticket_id: str #referência ao Ticket original
+    ticket_id: str #referência ao Ticket original
     category: str #"Incidente"
     urgency: int #5
     impact: int #5
@@ -19,6 +19,7 @@ class Response(TypedDict):
     category_justification: str # "Falha em equipamento..."
     department: str # "N2 - Suporte de Campo"
     response_draft: str # "Olá Professor, registramos..."
+    validation_status: bool = True # verifica se os dados foram validados corretamente ou não
 
 # Definição inicial do estado do agente para o processo de atendimento de chamados de TIC, considerando todas as sugestões de etapas a serem automatizadas.
 class State(TypedDict):
