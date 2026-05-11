@@ -1,37 +1,27 @@
-from state import State, Ticket
+from state import State
+from utilities.ingest_ticket import IngestTicket
+from pydantic import ValidationError
 
 def ingest(state: State) -> dict:
     """
     Valida o JSON de entrada e normaliza o texto.
     """
-    # Resgata sempre a primeira entrada do JSON, com a intenção de deletar ela depois
-    raw_ticket = None;
-    
-    # verificar se o chamado esta vazio
-    if not raw_ticket:
-        return {}
-    
+    # Resgata a entrada do JSON
+    raw_ticket = state.get("ticket")
 
-    # checar se todas os campos existem?
+    try:
+        # Validando e processando os dados
+        validated_ticket = IngestTicket.model_validate(raw_ticket)
     
-    # verificar se o free_text esta vazio (ja que todo o processamento depende dele)
-    if not raw_ticket["free_text"]:
-        return {}
-    
-    # Limpa o free_text
-    clean_text =  " ".join((raw_ticket["free_text"]).lower().strip().split())
-    
-    # mais metodos de limpar o texto?
+        # Atualiza os campos com os dados validados
+        normalized_ticket = validated_ticket.model_dump(mode='json')
 
-    # chamar uma LLM para arrumar erros ortográficos para melhorar o desempenho dos categorizadores?
+    # Caso aconteça algum erro de validação
+    except ValidationError as error:
+        partial = dict(state.get("response", {}))
+        partial["response_draft"] = error.json()
+        partial["validation_status"] = False
 
-    # Atualiza o campo com o clean_text
-    normalized_text: Ticket = {
-        "id": raw_ticket["id"],
-        "timestamp": raw_ticket["timestamp"],
-        "channel": raw_ticket["channel"],
-        "requester_profile": raw_ticket["requester_profile"],
-        "free_text": clean_text
-    }
-    
-    return {"ticket": [normalized_text]}
+        return {"ticket": normalized_ticket, "response": partial}
+
+    return {"ticket": normalized_ticket}
