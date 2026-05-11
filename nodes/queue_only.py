@@ -5,16 +5,16 @@ from state import State
 QUEUE_PATH = "data/human_queue.json"
 
 def queue_only(state: State) -> dict:
-    idx = state.get("current_ticket_index", 0)
-    ticket = state["tickets"][idx]
+    ticket = state["ticket"]
+    partial = state.get("response", {})
 
     entry = {
         "timestamp": datetime.now().isoformat(),
         "ticket_id": ticket["id"],
         "free_text": ticket["free_text"],
-        "category": state.get("_current_category"),
-        "priority": state.get("_current_priority"),
-        "department": state.get("_current_department"),
+        "category": partial.get("category"),
+        "priority": partial.get("resulting_priority"),
+        "department": partial.get("department"),
         "reason": "Alta prioridade ou categoria complexa — requer analista humano.",
     }
 
@@ -30,4 +30,7 @@ def queue_only(state: State) -> dict:
         json.dump(queue, f, ensure_ascii=False, indent=2)
 
     print(f"[queue_only] Ticket {ticket['id']} adicionado à fila. Total: {len(queue)}")
-    return {"_current_draft": "[FILA HUMANA] Encaminhado ao analista responsável."}
+
+    partial_out = dict(partial)
+    partial_out["response_draft"] = "[FILA HUMANA] Encaminhado ao analista responsável."
+    return {"response": partial_out}
