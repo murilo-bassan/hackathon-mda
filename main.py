@@ -1,13 +1,13 @@
 from langgraph.graph import END, START, StateGraph
 import pandas as pd
-
 from state import State
 from nodes.ingest import ingest
+from nodes.validation import validation
 from nodes.classify_type import classify_type
 from nodes.score_priority import score_priority
 from nodes.route import route
 from nodes.decide_response import decide_response
-#from nodes.decide_validation_response import decide_validation_response
+from nodes.validation_response import validation_response
 from nodes.draft_response import draft_response
 from nodes.emit import emit
 from nodes.queue_only import queue_only
@@ -20,7 +20,7 @@ builder = StateGraph(State)
 
 # Registro dos nós
 builder.add_node("ingest", ingest)
-builder.add_node("validation_route", queue_only)
+builder.add_node("validation", validation)
 builder.add_node("classify_type", classify_type)
 builder.add_node("score_priority", score_priority)
 builder.add_node("route", route)
@@ -30,21 +30,18 @@ builder.add_node("emit", emit)
 
 # Arestas normais (fluxo sequencial principal)
 builder.add_edge(START, "ingest")
-#builder.add_edge("ingest", "validation_route")
+builder.add_edge("ingest", "validation")
 
 # Aresta condicional: após aditional_route, decide o próximo nó
-"""
 builder.add_conditional_edges(
-    "validation_route",
-    decide_validation_response,
+    "validation",
+    validation_response,
     {
         "classify_type": "classify_type",
         "emit": "emit",
     }
 )
-"""
 
-builder.add_edge("ingest", "classify_type") # tirar depois
 builder.add_edge("classify_type", "score_priority")
 builder.add_edge("score_priority", "route")
 
@@ -67,8 +64,12 @@ builder.add_edge("emit", END)
 graph = builder.compile()
 
 # Apresentação do grafo
-display(Image(graph.get_graph().draw_mermaid_png()))
+png_data = graph.get_graph().draw_mermaid_png()
 
+with open("graph.png", "wb") as f:
+    f.write(png_data)
+
+""""
 if __name__ == "__main__":
     chamado_exemplo = {
         "txt_chamado": "Não consigo acessar o sistema de e-mail institucional desde hoje cedo.",
@@ -91,3 +92,4 @@ if __name__ == "__main__":
         print("\n=== ESTADO FINAL ===")
         for campo, valor in resultado.items():
             print(f"  {campo}: {valor}")
+"""

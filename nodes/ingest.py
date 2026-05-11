@@ -1,12 +1,11 @@
 from state import State, Ticket
-from main import data
 
 def ingest(state: State) -> dict:
     """
     Valida o JSON de entrada e normaliza o texto.
     """
     # Resgata sempre a primeira entrada do JSON, com a intenção de deletar ela depois
-    raw_ticket = data[0]
+    raw_ticket = None;
     
     # verificar se o chamado esta vazio
     if not raw_ticket:
