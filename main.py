@@ -6,13 +6,11 @@ from nodes.validation import validation
 from nodes.classify_type import classify_type
 from nodes.score_priority import score_priority
 from nodes.route import route
-from nodes.decide_response import decide_response
-from nodes.validation_response import validation_response
+from utilities.decide_response import decide_response
+from utilities.validation_response import validation_response
 from nodes.draft_response import draft_response
 from nodes.emit import emit
 from nodes.queue_only import queue_only
-
-from IPython.display import Image, display
 
 data = pd.read_json('data/data.json')
 
@@ -32,7 +30,7 @@ builder.add_node("emit", emit)
 builder.add_edge(START, "ingest")
 builder.add_edge("ingest", "validation")
 
-# Aresta condicional: após aditional_route, decide o próximo nó
+# Aresta condicional: após validation, decide o próximo nó
 builder.add_conditional_edges(
     "validation",
     validation_response,
@@ -69,27 +67,10 @@ png_data = graph.get_graph().draw_mermaid_png()
 with open("graph.png", "wb") as f:
     f.write(png_data)
 
-""""
 if __name__ == "__main__":
-    chamado_exemplo = {
-        "txt_chamado": "Não consigo acessar o sistema de e-mail institucional desde hoje cedo.",
-        "urgencia": 0,
-        "impacto": 0,
-        "prioridade_resultante": 0,
-        "categoria": "",
-        "tipo_servico": "",
-        "nivel_atendimento": 0,
-        "rascunho_resposta": "",
-        "finalizado": False,
-        "mensagem_encerramento": "",
-        "feedback_usuario": 0,
-    }
-
-    # Chamada de cada call um a um
-    for call in data:
-        resultado = graph.invoke({"ticket": call})
-
-        print("\n=== ESTADO FINAL ===")
-        for campo, valor in resultado.items():
-            print(f"  {campo}: {valor}")
-"""
+    for ticket in data.to_dict(orient="records"):
+        response = graph.invoke({"ticket": ticket})
+        
+        print("\n=== RESPONSE ===")
+        for key, value in response.items():
+            print(f"  {key}: {value}")
