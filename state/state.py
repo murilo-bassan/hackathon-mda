@@ -1,25 +1,12 @@
-from typing import Optional, TypedDict
+from typing import Optional, TypedDict, Annotated
 
-class Ticket(TypedDict):
-    id: str
-    timestamp: str
-    channel: str
-    requester_profile: str
-    free_text: str
+from ticket import Ticket
+from response import Response
 
-class Response(TypedDict):
-    ticket_id: str #referência ao Ticket original
-    category: str #"Incidente"
-    urgency: int #5
-    impact: int #5
-    resulting_priority: int 
-    priority_justification: str #"Risco crítico identificado"
-    service_type: str #"Suporte de Campo"
-    support_level: int #2
-    category_justification: str # "Falha em equipamento..."
-    department: str # "N2 - Suporte de Campo"
-    response_draft: str # "Olá Professor, registramos..."
-    validation_status: bool = True # verifica se os dados foram validados corretamente ou não
+"""
+def merge_response(current: dict, update: dict) -> dict:
+    return {**(current or {}), **(update or {})}
+"""
 
 # Definição inicial do estado do agente para o processo de atendimento de chamados de TIC, considerando todas as sugestões de etapas a serem automatizadas.
 class State(TypedDict):
@@ -30,6 +17,7 @@ class State(TypedDict):
     closing_message: Optional[str]
     user_feedback: Optional[int]
     response: Response
+    #response: Annotated[Response, merge_response]
 
     # 2. RESULTADOS DOS NÓS — preenchidos e lidos diretamente
     #urgency: Optional[int] #score_priority → emit
