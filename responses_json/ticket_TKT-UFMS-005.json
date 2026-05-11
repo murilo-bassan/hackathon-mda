@@ -1,0 +1,13 @@
+{
+  "ticket_id": "TKT-UFMS-005",
+  "category": "Incidente",
+  "urgency": 3,
+  "impact": 3,
+  "resulting_priority": 3,
+  "priority_justification": "A urgência e o impacto são considerados médios a altos. Isso indica um problema que afeta um número razoável de usuários ou um sistema importante, mas que ainda permite algum tempo para ser resolvido sem causar interrupções críticas imediatas. A prioridade 'Alta' é apropriada para garantir que o problema seja tratado com atenção e resolvido em tempo hábil.",
+  "service_type": "Software",
+  "support_level": 1,
+  "category_justification": "Reporte de funcionalidade com comportamento inesperado (app bugado) que impede o acesso a informação.",
+  "department": "",
+  "response_draft": "[FILA HUMANA] Encaminhado ao analista responsável."
+}

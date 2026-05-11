@@ -1,0 +1,13 @@
+{
+  "ticket_id": "TKT-UFMS-004",
+  "category": "Incidente",
+  "urgency": 3,
+  "impact": 3,
+  "resulting_priority": 3,
+  "priority_justification": "A urgência classificada como 3 indica que o problema precisa ser resolvido em um prazo razoável, mas não impede o trabalho de forma total. O impacto de 3 significa que o número de usuários afetados é considerável, e a funcionalidade impactada é importante. Combinando esses fatores, a prioridade definida é 'Alta', exigindo uma atenção rápida para minimizar interrupções.",
+  "service_type": "Impressão",
+  "support_level": 1,
+  "category_justification": "Falha em funcionalidade (impressão) impactando o usuário, necessita investigação imediata para restabelecer o serviço.",
+  "department": "",
+  "response_draft": "[FILA HUMANA] Encaminhado ao analista responsável."
+}
