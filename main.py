@@ -1,6 +1,6 @@
 from langgraph.graph import END, START, StateGraph
 import pandas as pd
-from state import State
+from state.state import State
 from nodes.ingest import ingest
 from nodes.validation import validation
 from nodes.classify_type import classify_type
@@ -68,9 +68,17 @@ with open("graph.png", "wb") as f:
     f.write(png_data)
 
 if __name__ == "__main__":
+    cont = 0
     for ticket in data.to_dict(orient="records"):
+        cont+=1
+        if (cont >=1 and cont <= 3):
+            continue
+        if(cont == 7):
+            break
+        
         response = graph.invoke({"ticket": ticket})
         
         print("\n=== RESPONSE ===")
         for key, value in response.items():
             print(f"  {key}: {value}")
+
