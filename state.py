@@ -12,7 +12,7 @@ class Response(TypedDict):
     category: str #"Incidente"
     urgency: int #5
     impact: int #5
-    resulting_priority: int #4
+    resulting_priority: int 
     priority_justification: str #"Risco crítico identificado"
     service_type: str #"Suporte de Campo"
     support_level: int #2
@@ -32,11 +32,11 @@ class State(TypedDict):
     response: Response
 
     # 2. RESULTADOS DOS NÓS — preenchidos e lidos diretamente
-    urgency: Optional[int] #score_priority → emit
-    impact: Optional[int] #score_priority → emit
-    service_type: Optional[str] #classify_type → emit
-    support_level: Optional[int] #classify_type → emit
-    category_justification: Optional[str] #classify_type → emit
+    #urgency: Optional[int] #score_priority → emit
+    #impact: Optional[int] #score_priority → emit
+    #service_type: Optional[str] #classify_type → emit
+    #support_level: Optional[int] #classify_type → emit
+    #category_justification: Optional[str] #classify_type → emit
 
     # 3. _current_* — temporários de coordenação entre nós
     '''_current_category: Optional[str]
