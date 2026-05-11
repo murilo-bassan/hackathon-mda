@@ -23,9 +23,8 @@ def _build_few_shot(department: str, n: int = 3) -> str:
     return few_shot.strip()
 
 def draft_response(state: State) -> dict:
-    idx = state.get("current_ticket_index", 0)
-    ticket = state["tickets"][idx]
-    department = state.get("_current_department", "")
+    ticket = state["ticket"]
+    department = state.get("response", {}).get("department", "")
     few_shot = _build_few_shot(department)
 
     system_prompt = """
@@ -40,4 +39,6 @@ def draft_response(state: State) -> dict:
         f"Examples:\n{few_shot}\n\nNow respond to: \"{ticket['free_text']}\""
     )
 
-    return {"_current_draft": response_data.get("response_draft", "")}
+    partial = dict(state.get("response", {}))
+    partial["response_draft"] = response_data.get("response_draft", "")
+    return {"response": partial}
