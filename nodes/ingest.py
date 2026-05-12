@@ -22,6 +22,8 @@ def ingest(state: State) -> dict:
         partial["response_draft"] = error.json()
         partial["validation_status"] = False
 
-        return {"ticket": normalized_ticket, "response": partial}
+        return {
+            "response": partial
+        }
 
     return {"ticket": normalized_ticket}
