@@ -1,9 +1,10 @@
 from state.state import State
 from utilities.utils import call_llm
+from utilities.config import CLASSIFY_PROMPT_PATH
 
 def classify_type(state: State) -> dict:
     # A variável abaixo guarda todo o manual de instruções e os exemplos
-    with open("prompts/classify_type_prompt.md", "r", encoding="utf-8") as file:
+    with open(CLASSIFY_PROMPT_PATH, "r", encoding="utf-8") as file:
         system_prompt = file.read()
     
     # Aqui o código pega o texto do chamado do usuário

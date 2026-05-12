@@ -1,11 +1,12 @@
 from state.state import State
 from utilities.utils import call_llm
+from utilities.config import SCORE_PROMPT_PATH
 
 def score_priority(state: State) -> dict:
     ticket = state.get("ticket", {})
     ticket_text = ticket.get("free_text", "")
     
-    with open("prompts/score_priority_prompt.md", "r", encoding="utf-8") as file:
+    with open(SCORE_PROMPT_PATH, "r", encoding="utf-8") as file:
         system_prompt = file.read()
     
     response_data = call_llm(system_prompt, f"Ticket: {ticket_text}")

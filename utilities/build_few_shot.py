@@ -1,7 +1,8 @@
 import json
 from state.state import State
+from config import DATA_PATH
 
-with open("data/data.json", "r", encoding="utf-8") as f:
+with open(DATA_PATH, "r", encoding="utf-8") as f:
     tickets_kb = json.load(f)
 
 def build_few_shot(department: str, n: int = 3) -> str:

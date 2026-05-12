@@ -9,8 +9,9 @@ from utilities.validation_response import validation_response
 from nodes.draft_response import draft_response
 from nodes.emit import emit
 from nodes.queue_only import queue_only
+from utilities.config import DATA_PATH, GRAPH_PNG
 
-data = pd.read_json('data/data.json')
+data = pd.read_json(DATA_PATH)
 
 builder = StateGraph(State)
 
@@ -58,7 +59,7 @@ graph = builder.compile()
 # Apresentação do grafo
 png_data = graph.get_graph().draw_mermaid_png()
 
-with open("graph.png", "wb") as f:
+with open(GRAPH_PNG, "wb") as f:
     f.write(png_data)
 
 if __name__ == "__main__":

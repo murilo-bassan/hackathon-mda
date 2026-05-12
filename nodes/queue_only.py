@@ -1,8 +1,7 @@
 import json
 from datetime import datetime
 from state.state import State
-
-QUEUE_PATH = "data/human_queue.json"
+from utilities.config import QUEUE_PATH
 
 def queue_only(state: State) -> dict:
     ticket = state["ticket"]

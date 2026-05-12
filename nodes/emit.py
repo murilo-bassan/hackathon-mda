@@ -4,6 +4,7 @@ from datetime import datetime
 import os
 from state.state import State
 from typing import List
+from utilities.config import RESPONSES_DIR, REPORT_CSV
 
 def emit(state: State) -> dict:
     ticket = state["ticket"]
@@ -31,13 +32,13 @@ def emit(state: State) -> dict:
     print(json.dumps(response, ensure_ascii=False, indent=2))
 
     # SALVAR JSON INDIVIDUAL
-    with open(f"responses_json/ticket_{ticket['id']}.json", "w", encoding="utf-8") as f:
+    with open(RESPONSES_DIR / f"ticket_{ticket['id']}.json", "w", encoding="utf-8") as f:
         json.dump(response, f, ensure_ascii=False, indent=2)
 
     # GERAR / ATUALIZAR CSV
-    file_exists = os.path.isfile(CSV_FILE)
+    file_exists = REPORT_CSV.is_file()
 
-    with open(CSV_FILE, mode="a", newline="", encoding="utf-8") as csvfile:
+    with open(REPORT_CSV, mode="a", newline="", encoding="utf-8") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=response.keys())
 
         if not file_exists:
