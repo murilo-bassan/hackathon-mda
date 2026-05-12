@@ -12,9 +12,6 @@ python-dotenv
 requests
 pandas
 pydantic
-
 aiohttp>=3.13.4
 Pygments>=2.20.0
 cryptography>=46.0.7
-
-#Requisitos do curso de langgraph (por enquanto)
