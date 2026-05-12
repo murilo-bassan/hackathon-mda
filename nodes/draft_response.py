@@ -7,12 +7,8 @@ def draft_response(state: State) -> dict:
     department = state.get("response", {}).get("department", "")
     few_shot = build_few_shot(department)
 
-    system_prompt = """
-    You are a Level 1 IT analyst at AGETIC/UFMS.
-    Write a response email in Brazilian Portuguese: cordial, objective, max 120 words.
-    Base your response ONLY on the ticket and the examples provided.
-    Respond with a JSON with the key "response_draft".
-    """
+    with open("prompts/draft_response_prompt.md", "r", encoding="utf-8") as file:
+        system_prompt = file.read()
 
     response_data = call_llm(
         system_prompt,

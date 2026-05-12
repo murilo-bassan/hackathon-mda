@@ -4,12 +4,8 @@ from utilities.utils import call_llm
 def score_priority(state: State) -> dict:
     ticket_text = state.get("free_text", "").lower()
     
-    system_prompt = """
-    Evaluate urgency and impact of an IT ticket.
-    Values: 1 to 5 for urgency and impact.
-    Resulting priority: 1 (Baixa), 2 (Media), 3 (Alta), 4 (Critica), 5 (Imediata).
-    Respond in JSON with keys: "urgency", "impact", "resulting_priority" and "priority_justification (in Portuguese-BR)".
-    """
+    with open("prompts/score_priority_prompt.md", "r", encoding="utf-8") as file:
+        system_prompt = file.read()
     
     response_data = call_llm(system_prompt, f"Ticket: {ticket_text}")
     
