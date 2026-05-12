@@ -1,16 +1,11 @@
 import csv
 import json
-from datetime import datetime
-import os
 from state.state import State
-from typing import List
 from utilities.config import RESPONSES_DIR, REPORT_CSV
 
 def emit(state: State) -> dict:
     ticket = state["ticket"]
     partial = state.get("response", {})
-
-    CSV_FILE = "report.csv"
 
     response = {
         "ticket_id": ticket["id"],
