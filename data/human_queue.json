@@ -1,0 +1,20 @@
+[
+  {
+    "timestamp": "2026-05-12T18:37:45.803507",
+    "ticket_id": "TKT-UFMS-004",
+    "free_text": "não consigo imprimir na recepção diz q o pin ta errado sempre q eu coloco",
+    "category": "Incidente",
+    "priority": 1,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-12T18:38:14.411709",
+    "ticket_id": "TKT-UFMS-005",
+    "free_text": "onde eu vejo o horario do capi shuttle no sou ufms?? ta bugado o app",
+    "category": "Incidente",
+    "priority": 0.6,
+    "department": "N2 - Sistemas",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  }
+]

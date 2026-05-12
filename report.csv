@@ -1,0 +1,11 @@
+ticket_id,category,urgency,impact,resulting_priority,priority_justification,service_type,support_level,category_justification,department,response_draft
+TKT-UFMS-004,Incidente,3,2,1,"A impressão na recepção está falhando devido a um erro de PIN. Afeta a recepção, mas não parece ser uma interrupção generalizada. Urgência média, pois impede uma tarefa, mas não é crítica para todos.",Impressão,1,"Falha ao imprimir, indicando possivel problema com autenticação ou configuração da impressora.",N2 - Suporte de Campo,[FILA HUMANA] Encaminhado ao analista responsável.
+TKT-UFMS-005,Incidente,3,1,0.6,"O usuário está com problemas no aplicativo para verificar o horário do transporte, mas não impede o acesso a outros serviços. A urgência é moderada pois afeta a rotina do usuário, mas não é crítico.",Sou UFMS,1,Relato de mau funcionamento de plataforma/aplicativo.,N2 - Sistemas,[FILA HUMANA] Encaminhado ao analista responsável.
+TKT-UFMS-006,Requisição,2,3,1,"A solicitação envolve a preparação de equipamentos para o início das aulas, o que não é uma interrupção imediata, mas afeta um número considerável de usuários (15 computadores). Portanto, uma prioridade baixa é adequada.",Software,1,Solicitação de instalação e configuração de software em múltiplos equipamentos.,N2 - Sistemas,"Olá!
+
+Recebemos sua solicitação para formatação e instalação de softwares nos computadores do laboratório 3 da Facfan.
+
+Para darmos continuidade, poderia informar quais softwares básicos são necessários? Assim, podemos verificar a viabilidade e agendar o serviço.
+
+Atenciosamente,
+Suporte AGETIC/UFMS"
