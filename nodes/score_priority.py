@@ -2,7 +2,8 @@ from state.state import State
 from utilities.utils import call_llm
 
 def score_priority(state: State) -> dict:
-    ticket_text = state.get("free_text", "").lower()
+    ticket = state.get("ticket", {})
+    ticket_text = ticket.get("free_text", "")
     
     with open("prompts/score_priority_prompt.md", "r", encoding="utf-8") as file:
         system_prompt = file.read()
