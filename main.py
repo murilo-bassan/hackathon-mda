@@ -18,21 +18,18 @@ builder = StateGraph(State)
 
 # Registro dos nós
 builder.add_node("ingest", ingest)
-builder.add_node("validation", validation)
 builder.add_node("classify_type", classify_type)
 builder.add_node("score_priority", score_priority)
-builder.add_node("route", route)
 builder.add_node("draft_response", draft_response)
 builder.add_node("queue_only", queue_only)
 builder.add_node("emit", emit)
 
 # Arestas normais (fluxo sequencial principal)
 builder.add_edge(START, "ingest")
-builder.add_edge("ingest", "validation")
 
 # Aresta condicional: após validation, decide o próximo nó
 builder.add_conditional_edges(
-    "validation",
+    "ingest",
     validation_response,
     {
         "classify_type": "classify_type",
@@ -41,11 +38,10 @@ builder.add_conditional_edges(
 )
 
 builder.add_edge("classify_type", "score_priority")
-builder.add_edge("score_priority", "route")
 
 # Aresta condicional: após route, decide o próximo nó
 builder.add_conditional_edges(
-    "route",
+    "score_priority",
     decide_response,
     {
         "draft_response": "draft_response",
@@ -81,4 +77,3 @@ if __name__ == "__main__":
         print("\n=== RESPONSE ===")
         for key, value in response.items():
             print(f"  {key}: {value}")
-
