@@ -12,4 +12,4 @@ class Response(TypedDict):
     category_justification: str # "Falha em equipamento..."
     department: str # "N2 - Suporte de Campo"
     response_draft: str # "Olá Professor, registramos..."
-    validation_status: bool = True # verifica se os dados foram validados corretamente ou não
+    validation_status: bool # verifica se os dados foram validados corretamente ou não
