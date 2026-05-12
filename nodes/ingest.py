@@ -9,6 +9,9 @@ def ingest(state: State) -> dict:
     # Resgata a entrada do JSON
     raw_ticket = state.get("ticket")
 
+    partial = dict(state.get("response", {}))
+    partial["validation_status"] = True #default validation_status
+
     try:
         # Validando e processando os dados
         validated_ticket = IngestTicket.model_validate(raw_ticket)
@@ -18,7 +21,6 @@ def ingest(state: State) -> dict:
 
     # Caso aconteça algum erro de validação
     except ValidationError as error:
-        partial = dict(state.get("response", {}))
         partial["response_draft"] = error.json()
         partial["validation_status"] = False
 
@@ -26,4 +28,7 @@ def ingest(state: State) -> dict:
             "response": partial
         }
 
-    return {"ticket": normalized_ticket}
+    return {
+        "ticket": normalized_ticket,
+        "response": partial
+    }
