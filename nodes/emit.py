@@ -1,11 +1,14 @@
 import csv
 import json
+import os
 from state.state import State
 from utilities.config import RESPONSES_DIR, REPORT_CSV
 
 def emit(state: State) -> dict:
     ticket = state["ticket"]
     partial = state.get("response", {})
+
+    os.makedirs(RESPONSES_DIR, exist_ok=True)
 
     response = {
         "ticket_id": ticket["id"],
