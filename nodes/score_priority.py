@@ -26,10 +26,7 @@ def score_priority(state: State) -> dict:
     )
     impact = impact_response.get("impact", 2)
 
-    resulting_priority = max(
-        1,
-        min(5, (urgency * impact) // 5)
-    )
+    resulting_priority = max(1, min(5, round((urgency + impact) / 2)))
 
     justification_prompt = load_prompt(
         JUSTIFY_PRIORITY_PROMPT_PATH
