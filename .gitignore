@@ -4,9 +4,10 @@
 # logs
 logs/
 *.log
+human_queue.json
 
 # responses
-responses.json
+responses.json/
 
 # evitar que envie coisas desnecessárias
 __pycache__/
