@@ -105,11 +105,11 @@ for ticket in dataset:
     
     priority_map = {
         "baixa":   "1",
-        "média":   "3",
-        "media":   "3",
-        "alta":    "4",
-        "crítica": "5",
-        "critica": "5",
+        "média":   "2",
+        "media":   "2",
+        "alta":    "3",
+        "crítica": "4",
+        "critica": "4",
     }
 
     expected_priority = priority_map.get(
