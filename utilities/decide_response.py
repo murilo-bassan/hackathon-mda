@@ -4,12 +4,6 @@ from state.state import State
 def decide_response(state: State) -> str:
     """
     Retorna o nome do próximo nó com base nas regras de negócio.
-    
-    if state["prioridade_resultante"] <= 3 and state["categoria"] == "requisição":
-        print("[decide_response] → draft_response")
-        return "draft_response"
-    print("[decide_response] → queue_only")
-    return "queue_only"
     """
     partial = state.get("response", {})
     prioridade = partial.get("resulting_priority", 99)
