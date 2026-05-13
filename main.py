@@ -1,93 +1,75 @@
-from langgraph.graph import END, START, StateGraph
+from pathlib import Path
 import pandas as pd
-from state.state import State
-from nodes.ingest import ingest
-from nodes.classify_type import classify_type
-from nodes.score_priority import score_priority
-from utilities.decide_response import decide_response
-from utilities.validation_response import validation_response
-from nodes.draft_response import draft_response
-from nodes.emit import emit
-from nodes.queue_only import queue_only
 from utilities.config import DATA_PATH, GRAPH_PNG
 from utilities.logger_config import setup_logger
+from graph_builder import graph
 
 logger = setup_logger(__name__)
 
-data = pd.read_json(DATA_PATH)
 
-builder = StateGraph(State)
+def save_graph_visualization() -> None:
+    
+    logger.info("Gerando visualização do grafo...")
 
-# Registro dos nós
-builder.add_node("ingest", ingest)
-builder.add_node("classify_type", classify_type)
-builder.add_node("score_priority", score_priority)
-builder.add_node("draft_response", draft_response)
-builder.add_node("queue_only", queue_only)
-builder.add_node("emit", emit)
+    png_data = graph.get_graph().draw_mermaid_png()
 
-# Arestas normais (fluxo sequencial principal)
-builder.add_edge(START, "ingest")
+    output_path = Path(GRAPH_PNG)
 
-# Aresta condicional: após validation, decide o próximo nó
-builder.add_conditional_edges(
-    "ingest",
-    validation_response,
-    {
-        "classify_type": "classify_type",
-        "emit": "emit",
-    }
-)
+    with open(output_path, "wb") as file:
+        file.write(png_data)
 
-builder.add_edge("classify_type", "score_priority")
+    logger.info(f"Grafo salvo em: {output_path}")
 
-# Aresta condicional: após route, decide o próximo nó
-builder.add_conditional_edges(
-    "score_priority",
-    decide_response,
-    {
-        "draft_response": "draft_response",
-        "queue_only": "queue_only",
-    }
-)
 
-# draft_response sempre desemboca em emit
-builder.add_edge("draft_response", "emit")
-builder.add_edge("queue_only", "emit")
-builder.add_edge("emit", END)
+def load_tickets() -> list[dict]:
 
-# Compilação do grafo
-graph = builder.compile()
+    logger.info(f"Carregando dados de: {DATA_PATH}")
+    data = pd.read_json(DATA_PATH)
+    tickets = data.to_dict(orient="records")
+    logger.info(f"{len(tickets)} tickets carregados.")
 
-# Apresentação do grafo
-png_data = graph.get_graph().draw_mermaid_png()
+    return tickets
 
-with open(GRAPH_PNG, "wb") as f:
-    f.write(png_data)
 
-if __name__ == "__main__":
-    cont = 0
-    for ticket in data.to_dict(orient="records"):
-        cont+=1
-        if (cont >=1 and cont <= 3):
+def process_ticket(ticket_id: int, ticket: dict) -> None:
+
+    logger.info("=" * 60)
+    logger.info(f"Iniciando processamento do ticket {ticket_id}")
+
+    try:
+        response = graph.invoke({"ticket": ticket})
+        logger.info("Processamento concluído com sucesso.")
+
+        print("\n=== RESPONSE ===")
+
+        for key, value in response.items():
+            print(f"{key}: {value}")
+
+    except Exception:
+        logger.exception(
+            f"Erro ao processar ticket {ticket_id}"
+        )
+
+
+def main() -> None:
+
+    save_graph_visualization()
+
+    tickets = load_tickets()
+
+    START_INDEX = 7
+    END_INDEX = 8
+
+    for idx, ticket in enumerate(tickets, start=1):
+
+        if idx <= START_INDEX:
             continue
-        if(cont == 7):
+
+        if idx > END_INDEX:
             break
 
-        logger.info("=" * 60)
-        logger.info(f"Iniciando processamento do ticket {cont}")
+        process_ticket(idx, ticket)
 
-        try:
-            response = graph.invoke({"ticket": ticket})
 
-            logger.info(f"Estado final: {response}")
-
-            print("\n=== RESPONSE ===")
-            for key, value in response.items():
-                print(f"  {key}: {value}")
-
-        except Exception as e:
-            logger.exception(
-                f"Erro ao processar ticket {cont}: {e}"
-            )
-            continue
+if __name__ == "__main__":
+    main()
