@@ -187,5 +187,86 @@
     "priority": 2,
     "department": "N3 - Sistemas Administrativos",
     "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T18:07:53.192691",
+    "ticket_id": "TKT-UFMS-144",
+    "free_text": "tentei imprimir 5 vezes e fala q o pin ta bloqueado como desbloqueia???",
+    "category": "Incidente",
+    "priority": 2,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T18:08:21.563870",
+    "ticket_id": "TKT-UFMS-007",
+    "free_text": "a internet do setor sumiu do nada",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T18:08:30.670017",
+    "ticket_id": "TKT-UFMS-170",
+    "free_text": "as ligações externas no meu ramal ip estão com muito eco. escuto minha própria voz com atraso e dificulta o atendimento ao público.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T18:08:39.683576",
+    "ticket_id": "TKT-UFMS-071",
+    "free_text": "qr code presenca da aplicativo sou ufms ta dando q to fora da area da faculdade mas eu to dentro da sala da famed",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T18:08:48.078710",
+    "ticket_id": "TKT-UFMS-063",
+    "free_text": "não consigo liberar a impressão na máquina do corredor. eu digito meu pin e dá 'usuário desconhecido'.",
+    "category": "Incidente",
+    "priority": 2,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T18:08:58.177592",
+    "ticket_id": "TKT-UFMS-058",
+    "free_text": "o mouse do pc da portaria principal estragou, ta com mal contato no cabo e o clique esquerdo afundou.",
+    "category": "Incidente",
+    "priority": 2,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T18:09:12.858662",
+    "ticket_id": "TKT-UFMS-036",
+    "free_text": "n recebo email nenhum ajuda",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T18:09:19.720207",
+    "ticket_id": "TKT-UFMS-169",
+    "free_text": "ao gerar o relatório final de notas e frequências no sigaa, recebo um http error 500 na tela e nada acontece.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T18:09:28.628656",
+    "ticket_id": "TKT-UFMS-027",
+    "free_text": "o capi shuttle sumiu do mapa do app sou ufms!! to no ponto esperando a 40 minutos e o onibus não aparece no aplicativo.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
   }
 ]
