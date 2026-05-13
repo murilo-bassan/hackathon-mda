@@ -10,6 +10,9 @@ from nodes.draft_response import draft_response
 from nodes.emit import emit
 from nodes.queue_only import queue_only
 from utilities.config import DATA_PATH, GRAPH_PNG
+from utilities.logger_config import setup_logger
+
+logger = setup_logger(__name__)
 
 data = pd.read_json(DATA_PATH)
 
@@ -70,9 +73,21 @@ if __name__ == "__main__":
             continue
         if(cont == 7):
             break
-        
-        response = graph.invoke({"ticket": ticket})
-        
-        print("\n=== RESPONSE ===")
-        for key, value in response.items():
-            print(f"  {key}: {value}")
+
+        logger.info("=" * 60)
+        logger.info(f"Iniciando processamento do ticket {cont}")
+
+        try:
+            response = graph.invoke({"ticket": ticket})
+
+            logger.info(f"Estado final: {response}")
+
+            print("\n=== RESPONSE ===")
+            for key, value in response.items():
+                print(f"  {key}: {value}")
+
+        except Exception as e:
+            logger.exception(
+                f"Erro ao processar ticket {cont}: {e}"
+            )
+            continue

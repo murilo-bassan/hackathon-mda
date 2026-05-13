@@ -1,6 +1,13 @@
 # chave de api:
 .env
 
+# logs
+logs/
+*.log
+
+# responses
+responses.json
+
 # evitar que envie coisas desnecessárias
 __pycache__/
 *.py[cod]
