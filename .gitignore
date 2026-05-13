@@ -4,7 +4,7 @@
 # logs
 logs/
 *.log
-human_queue.json
+human_queue
 
 # responses
 responses.json/
