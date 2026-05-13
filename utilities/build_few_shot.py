@@ -1,6 +1,5 @@
 import json
-from state.state import State
-from config import DATA_PATH
+from utilities.config import DATA_PATH
 
 with open(DATA_PATH, "r", encoding="utf-8") as f:
     tickets_kb = json.load(f)
