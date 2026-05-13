@@ -1,19 +1,18 @@
 import json
 
-from nodes.ingest import ingest
-from nodes.classify_type import classify_type
-from nodes.score_priority import score_priority
+from graph_builder import graph
 from utilities.decide_response import decide_response
 import random
 
 # ==========================================
 # CARREGA DATASET
 # ==========================================
-TEST_SIZE = 5
+TEST_SIZE = 10
 
 with open("data/data.json", "r", encoding="utf-8") as f:
     dataset = json.load(f)
 
+random.seed(42)
 dataset = random.sample(dataset, TEST_SIZE)
 # ==========================================
 # MÉTRICAS
@@ -47,25 +46,8 @@ for ticket in dataset:
         "response": {}
     }
 
-    # ======================================
-    # CLASSIFICAÇÃO
-    # ======================================
-    ingest_result = ingest(state)
-    state["ticket"]   = ingest_result.get("ticket",   state["ticket"])
-    state["response"] = ingest_result.get("response", state["response"])   
-    result = classify_type(state)
-
-    state["response"] = result["response"]
-
-    # ======================================
-    # PRIORIDADE
-    # ======================================
-
-    result = score_priority(state)
-
-    state["response"] = result["response"]
-
-    response = state["response"]
+    final_state = graph.invoke(state)
+    response = final_state["response"]
 
     # ======================================
     # CATEGORY ACCURACY
@@ -150,7 +132,7 @@ for ticket in dataset:
     # AUTOMAÇÃO
     # ======================================
 
-    next_route = decide_response(state)
+    next_route = decide_response(final_state)
 
     if next_route == "draft_response":
         resolved_by_llm += 1
