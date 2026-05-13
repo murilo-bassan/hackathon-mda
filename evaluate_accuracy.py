@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 import json
 
 from graph_builder import graph
@@ -32,6 +33,8 @@ total = len(dataset)
 # ==========================================
 # LOOP
 # ==========================================
+total_resolution_time = 0.0
+closed_same_day = 0
 
 for ticket in dataset:
 
@@ -46,8 +49,42 @@ for ticket in dataset:
         "response": {}
     }
 
+    start_time = datetime.now(timezone.utc)
     final_state = graph.invoke(state)
+    end_time = datetime.now(timezone.utc)
+
+    elapsed_seconds = (end_time - start_time).total_seconds()
+    total_resolution_time += elapsed_seconds
+
     response = final_state["response"]
+
+    # ======================================
+    # AUTOMAÇÃO
+    # ======================================
+
+    next_route = decide_response(final_state)
+
+    if next_route == "draft_response":
+        resolved_by_llm += 1
+    else:
+        routed_to_human += 1
+
+    # ======================================
+    # ENCERRADOS NO DIA
+    # ======================================
+
+    ticket_date = datetime.fromisoformat(
+        ticket["timestamp"].replace("Z", "+00:00")
+    ).date()
+
+    resolved_today = (
+        next_route == "draft_response" and
+        ticket_date == datetime.now(timezone.utc).date()
+    )
+
+    if resolved_today:
+        closed_same_day += 1
+
 
     # ======================================
     # CATEGORY ACCURACY
@@ -143,6 +180,13 @@ for ticket in dataset:
 # RESULTADOS
 # ==========================================
 
+avg_resolution_time = total_resolution_time / total
+print(f"Tempo médio de resolução: {avg_resolution_time:.2f}s")
+
+same_day_rate = (closed_same_day / total) * 100
+print(f"Encerrados no dia: {closed_same_day}")
+print(f"Taxa de encerramento no dia: {same_day_rate:.2f}%")
+
 category_accuracy = (
     category_hits / total
 ) * 100
@@ -173,15 +217,20 @@ print("=" * 60)
 
 print(f"Total de tickets: {total}")
 
-print("\nCLASSIFICAÇÃO")
-print(f"Accuracy Categoria: {category_accuracy:.2f}%")
-print(f"Accuracy Prioridade: {priority_accuracy:.2f}%")
+print("\nQUALIDADE DO MODELO")
+print(f"Accuracy Categoria:    {category_accuracy:.2f}%")
+print(f"Accuracy Prioridade:   {priority_accuracy:.2f}%")
 print(f"Accuracy Departamento: {department_accuracy:.2f}%")
 
+print("\nINDICADORES DE SERVIÇO")
+print(f"Tempo médio de resolução: {avg_resolution_time:.2f}s")
+print(f"Encerrados no dia:        {closed_same_day}/{total}")
+print(f"Taxa de encerramento:     {same_day_rate:.2f}%")
+
 print("\nAUTOMAÇÃO")
-print(f"Resolvidos pela LLM: {resolved_by_llm}")
-print(f"Encaminhados para humano: {routed_to_human}")
-print(f"Taxa de automação: {automation_rate:.2f}%")
+print(f"Resolvidos pela LLM:    {resolved_by_llm}")
+print(f"Encaminhados p/ humano: {routed_to_human}")
+print(f"Taxa de automação:      {automation_rate:.2f}%")
 
 print("\nVALIDAÇÃO")
 print(f"Taxa de validação: {validation_rate:.2f}%")
