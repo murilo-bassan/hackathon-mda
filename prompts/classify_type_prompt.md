@@ -35,10 +35,11 @@ Category rules:
 - "Problema" = recurring or large-scale issue requiring deeper analysis
 
 Department rules:
-- Access/password/account → "N1 - Service Desk"
+- Access/password/account → "N1 - Atendimento Direto"
 - Hardware/projector/printer/computer → "N2 - Suporte de Campo"
-- Network/infrastructure/server instability → "N3 - Redes e Infraestrutura"
-- Systems/software/academic platforms → "N2 - Sistemas"
+- Network/infrastructure → "N3 - Infraestrutura e Redes"
+- Administrative systems (SEI, etc.) → "N3 - Sistemas Administrativos"
+- Academic systems/software → "N3 - Sistemas Acadêmicos"
 
 Response draft rules:
 - Write in Brazilian Portuguese
