@@ -7,7 +7,7 @@ logs/
 human_queue
 
 # responses
-responses.json/
+responses_json/
 
 # evitar que envie coisas desnecessárias
 __pycache__/
