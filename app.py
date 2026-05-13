@@ -4,9 +4,10 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from main import graph
+from graph_builder import graph
 from utilities.config import DATA_PATH
 from utilities.logger_config import setup_logger
+from datetime import datetime
 
 logger = setup_logger(__name__)
 
@@ -112,7 +113,7 @@ if processar:
         logger.info("Processamento iniciado via Interface Web")
         ticket_payload = selected_ticket if usar_ticket_real else {
             "id": "TKT-MANUAL-001",
-            "timestamp": str(time.time()),
+            "timestamp": datetime.now().isoformat(),
             "channel": "Web",
             "requester_profile": "Usuário",
             "free_text": texto_chamado
