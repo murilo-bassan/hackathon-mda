@@ -2,12 +2,12 @@
   "ticket_id": "TKT-UFMS-004",
   "category": "Incidente",
   "urgency": 3,
-  "impact": 2,
+  "impact": 1,
   "resulting_priority": 1,
-  "priority_justification": "A impressão na recepção está falhando devido a um erro de PIN. Afeta a recepção, mas não parece ser uma interrupção generalizada. Urgência média, pois impede uma tarefa, mas não é crítica para todos.",
-  "service_type": "Impressão",
+  "priority_justification": "A prioridade é Baixa (1) porque o impacto do problema é limitado (1) e a urgência é média (3). A impressão na recepção afetada não impede o funcionamento geral da empresa.",
+  "service_type": "Hardware",
   "support_level": 1,
-  "category_justification": "Falha ao imprimir, indicando possivel problema com autenticação ou configuração da impressora.",
+  "category_justification": "Falha ao imprimir, possivelmente relacionada a credenciais ou configuração da impressora.",
   "department": "N2 - Suporte de Campo",
   "response_draft": "[FILA HUMANA] Encaminhado ao analista responsável."
 }

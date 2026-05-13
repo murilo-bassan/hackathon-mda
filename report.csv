@@ -1,11 +1,4 @@
 ticket_id,category,urgency,impact,resulting_priority,priority_justification,service_type,support_level,category_justification,department,response_draft
-TKT-UFMS-004,Incidente,3,2,1,"A impressão na recepção está falhando devido a um erro de PIN. Afeta a recepção, mas não parece ser uma interrupção generalizada. Urgência média, pois impede uma tarefa, mas não é crítica para todos.",Impressão,1,"Falha ao imprimir, indicando possivel problema com autenticação ou configuração da impressora.",N2 - Suporte de Campo,[FILA HUMANA] Encaminhado ao analista responsável.
-TKT-UFMS-005,Incidente,3,1,0.6,"O usuário está com problemas no aplicativo para verificar o horário do transporte, mas não impede o acesso a outros serviços. A urgência é moderada pois afeta a rotina do usuário, mas não é crítico.",Sou UFMS,1,Relato de mau funcionamento de plataforma/aplicativo.,N2 - Sistemas,[FILA HUMANA] Encaminhado ao analista responsável.
-TKT-UFMS-006,Requisição,2,3,1,"A solicitação envolve a preparação de equipamentos para o início das aulas, o que não é uma interrupção imediata, mas afeta um número considerável de usuários (15 computadores). Portanto, uma prioridade baixa é adequada.",Software,1,Solicitação de instalação e configuração de software em múltiplos equipamentos.,N2 - Sistemas,"Olá!
-
-Recebemos sua solicitação para formatação e instalação de softwares nos computadores do laboratório 3 da Facfan.
-
-Para darmos continuidade, poderia informar quais softwares básicos são necessários? Assim, podemos verificar a viabilidade e agendar o serviço.
-
-Atenciosamente,
-Suporte AGETIC/UFMS"
+TKT-UFMS-004,Incidente,3,1,1,A prioridade é Baixa (1) porque o impacto do problema é limitado (1) e a urgência é média (3). A impressão na recepção afetada não impede o funcionamento geral da empresa.,Hardware,1,"Falha ao imprimir, possivelmente relacionada a credenciais ou configuração da impressora.",N2 - Suporte de Campo,[FILA HUMANA] Encaminhado ao analista responsável.
+TKT-UFMS-005,Incidente,2,1,1,A prioridade foi definida como Baixa (1) devido à combinação de urgência (2) e impacto (1) conforme as regras estabelecidas.,Sistemas,1,Relato de falha no funcionamento de sistema/aplicativo (Sou UFMS e CAPI Shuttle).,N2 - Sistemas,[FILA HUMANA] Encaminhado ao analista responsável.
+TKT-UFMS-006,Requisição,2,4,1,"A prioridade foi definida como Baixa (1) devido à combinação da urgência (2) e impacto (4). Apesar do impacto ser alto, a urgência é relativamente baixa, resultando em uma prioridade geral classificada como Baixa.",Instalação de Software,1,Solicitação de instalação de software e configuração de computadores para uso acadêmico.,N2 - Suporte de Campo,"Olá Professor, sua solicitação foi recebida. Para que possamos dar andamento, poderia informar quais são os softwares básicos necessários para instalação? O chamado foi encaminhado para a equipe de Suporte de Campo (N2), que entrará em contato para agendar o serviço no laboratório 3 da Facfan."

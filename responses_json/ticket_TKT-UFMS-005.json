@@ -1,13 +1,13 @@
 {
   "ticket_id": "TKT-UFMS-005",
   "category": "Incidente",
-  "urgency": 3,
+  "urgency": 2,
   "impact": 1,
-  "resulting_priority": 0.6,
-  "priority_justification": "O usuário está com problemas no aplicativo para verificar o horário do transporte, mas não impede o acesso a outros serviços. A urgência é moderada pois afeta a rotina do usuário, mas não é crítico.",
-  "service_type": "Sou UFMS",
+  "resulting_priority": 1,
+  "priority_justification": "A prioridade foi definida como Baixa (1) devido à combinação de urgência (2) e impacto (1) conforme as regras estabelecidas.",
+  "service_type": "Sistemas",
   "support_level": 1,
-  "category_justification": "Relato de mau funcionamento de plataforma/aplicativo.",
+  "category_justification": "Relato de falha no funcionamento de sistema/aplicativo (Sou UFMS e CAPI Shuttle).",
   "department": "N2 - Sistemas",
   "response_draft": "[FILA HUMANA] Encaminhado ao analista responsável."
 }

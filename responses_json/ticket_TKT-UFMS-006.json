@@ -2,12 +2,12 @@
   "ticket_id": "TKT-UFMS-006",
   "category": "Requisição",
   "urgency": 2,
-  "impact": 3,
+  "impact": 4,
   "resulting_priority": 1,
-  "priority_justification": "A solicitação envolve a preparação de equipamentos para o início das aulas, o que não é uma interrupção imediata, mas afeta um número considerável de usuários (15 computadores). Portanto, uma prioridade baixa é adequada.",
-  "service_type": "Software",
+  "priority_justification": "A prioridade foi definida como Baixa (1) devido à combinação da urgência (2) e impacto (4). Apesar do impacto ser alto, a urgência é relativamente baixa, resultando em uma prioridade geral classificada como Baixa.",
+  "service_type": "Instalação de Software",
   "support_level": 1,
-  "category_justification": "Solicitação de instalação e configuração de software em múltiplos equipamentos.",
-  "department": "N2 - Sistemas",
-  "response_draft": "Olá!\n\nRecebemos sua solicitação para formatação e instalação de softwares nos computadores do laboratório 3 da Facfan.\n\nPara darmos continuidade, poderia informar quais softwares básicos são necessários? Assim, podemos verificar a viabilidade e agendar o serviço.\n\nAtenciosamente,\nSuporte AGETIC/UFMS"
+  "category_justification": "Solicitação de instalação de software e configuração de computadores para uso acadêmico.",
+  "department": "N2 - Suporte de Campo",
+  "response_draft": "Olá Professor, sua solicitação foi recebida. Para que possamos dar andamento, poderia informar quais são os softwares básicos necessários para instalação? O chamado foi encaminhado para a equipe de Suporte de Campo (N2), que entrará em contato para agendar o serviço no laboratório 3 da Facfan."
 }
