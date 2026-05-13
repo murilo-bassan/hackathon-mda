@@ -9,6 +9,7 @@ human_queue
 # responses
 responses_json/
 report.csv
+data/human_queue.json
 
 # evitar que envie coisas desnecessárias
 __pycache__/
