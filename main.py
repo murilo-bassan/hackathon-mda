@@ -40,10 +40,10 @@ def process_ticket(ticket_id: int, ticket: dict) -> None:
         response = graph.invoke({"ticket": ticket})
         logger.info("Processamento concluído com sucesso.")
 
-        print("\n=== RESPONSE ===")
+        logger.info("=== RESPONSE ===")
 
         for key, value in response.items():
-            print(f"{key}: {value}")
+            logger.info(f"{key}: {value}")
 
     except Exception:
         logger.exception(

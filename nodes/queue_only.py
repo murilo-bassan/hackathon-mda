@@ -2,6 +2,9 @@ import json
 from datetime import datetime
 from state.state import State
 from utilities.config import QUEUE_PATH
+from utilities.logger_config import setup_logger
+
+logger = setup_logger(__name__)
 
 def queue_only(state: State) -> dict:
     ticket = state["ticket"]
@@ -28,7 +31,8 @@ def queue_only(state: State) -> dict:
     with open(QUEUE_PATH, "w", encoding="utf-8") as f:
         json.dump(queue, f, ensure_ascii=False, indent=2)
 
-    print(f"[queue_only] Ticket {ticket['id']} adicionado à fila. Total: {len(queue)}")
+    # Trocando print pelo logger
+    logger.info(f"Ticket {ticket['id']} adicionado à fila humana. Total: {len(queue)}")
 
     partial_out = dict(partial)
     partial_out["response_draft"] = "[FILA HUMANA] Encaminhado ao analista responsável."

@@ -16,7 +16,6 @@ def decide_response(state: State) -> str:
     categoria  = partial.get("category", "").strip().lower()
 
     if prioridade <= 2 and normalize_str(categoria) == "requisicao":
-        print("[decide_response] → draft_response")
         return "draft_response"
     print("[decide_response] → queue_only")
     return "queue_only"

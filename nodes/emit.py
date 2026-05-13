@@ -3,6 +3,10 @@ import json
 import os
 from state.state import State
 from utilities.config import RESPONSES_DIR, REPORT_CSV
+from utilities.logger_config import setup_logger
+
+# Inicializando o logger padronizado
+logger = setup_logger(__name__)
 
 def emit(state: State) -> dict:
     ticket = state["ticket"]
@@ -24,10 +28,8 @@ def emit(state: State) -> dict:
         "response_draft": partial.get("response_draft", ""),
     }
 
-    print("\n" + "=" * 60)
-    print(f"LOG — Ticket {ticket['id']}")
-    print("=" * 60)
-    print(json.dumps(response, ensure_ascii=False, indent=2))
+    # Substituindo os prints poluídos pelo logger
+    logger.info(f"Emitindo resultados para o Ticket {ticket['id']}")
 
     # SALVAR JSON INDIVIDUAL
     with open(RESPONSES_DIR / f"ticket_{ticket['id']}.json", "w", encoding="utf-8") as f:
