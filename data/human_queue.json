@@ -16,5 +16,41 @@
     "priority": 1,
     "department": "N2 - Sistemas",
     "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T08:37:53.284645",
+    "ticket_id": "TKT-UFMS-007",
+    "free_text": "a internet do setor sumiu do nada",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T08:40:02.385586",
+    "ticket_id": "TKT-UFMS-031",
+    "free_text": "socorro n consgo fazer mnha matricula pq o sigaa diz q minha senha ta invalida e o prazo acaba a meia noite pfvr me ajudem",
+    "category": "Requisição",
+    "priority": 4,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T08:58:22.297645",
+    "ticket_id": "TKT-UFMS-008",
+    "free_text": "n consigo acessar o eduroam no meu celular novo de jeito nenhum , ja tentei de tudo aqui na cidade universitária. fica pedindo certificado",
+    "category": "Incidente",
+    "priority": 2,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T09:35:42.932824",
+    "ticket_id": "TKT-UFMS-034",
+    "free_text": "estou em sala de aula agora. fui gerar o qr code pro sou ufms para os alunos marcarem presença, mas o app diz que a disciplina não está vinculada a mim.",
+    "category": "Incidente",
+    "priority": 2,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
   }
 ]
