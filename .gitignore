@@ -8,6 +8,7 @@ human_queue
 
 # responses
 responses_json/
+report
 
 # evitar que envie coisas desnecessárias
 __pycache__/
