@@ -1,5 +1,11 @@
 # Decide, após o nó `route`, se o chamado vai para draft_response ou direto para emit 
 from state.state import State
+import unicodedata
+
+def normalize_str(s: str) -> str:
+    s = unicodedata.normalize("NFKD", s)
+    return s.encode("ascii", "ignore").decode().lower().strip()
+
 
 def decide_response(state: State) -> str:
     """
@@ -9,7 +15,7 @@ def decide_response(state: State) -> str:
     prioridade = partial.get("resulting_priority", 99)
     categoria  = partial.get("category", "").strip().lower()
 
-    if prioridade <= 2 and categoria == "requisição":
+    if prioridade <= 2 and normalize_str(categoria) == "requisicao":
         print("[decide_response] → draft_response")
         return "draft_response"
     print("[decide_response] → queue_only")

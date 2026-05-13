@@ -1,8 +1,7 @@
 import logging
 from pathlib import Path
+from utilities.config import LOG_DIR
 
-
-LOG_DIR = Path("logs")
 LOG_DIR.mkdir(exist_ok=True)
 
 LOG_FILE = LOG_DIR / "execucao.log"
