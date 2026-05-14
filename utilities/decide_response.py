@@ -17,5 +17,4 @@ def decide_response(state: State) -> str:
 
     if prioridade <= 2 and normalize_str(categoria) == "requisicao":
         return "draft_response"
-    print("[decide_response] → queue_only")
     return "queue_only"
