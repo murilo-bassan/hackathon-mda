@@ -10,7 +10,7 @@ def main() -> None:
     tickets = load_tickets()
 
     START_INDEX = 20
-    END_INDEX = 21
+    END_INDEX = 20
 
     for idx, ticket in enumerate(tickets, start=1):
 

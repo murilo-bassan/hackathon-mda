@@ -51,10 +51,9 @@ def run_accuracy() -> None:
     department_hits    = 0
     resolved_by_llm    = 0
     routed_to_human    = 0
-    validation_success = 0
     closed_same_day    = 0
     processed_total    = 0
-
+    needs_more_info_total = 0
 
     for response in responses:
 
@@ -63,6 +62,10 @@ def run_accuracy() -> None:
         # Ignora respostas sem correspondência no dataset
         if ticket_id not in dataset:
             print(f"[AVISO] ticket_id '{ticket_id}' não encontrado no dataset — ignorado.")
+            continue
+
+        if response.get("needs_more_info") is True:
+            needs_more_info_total += 1
             continue
 
         expected_ticket = dataset[ticket_id]
@@ -124,7 +127,7 @@ def run_accuracy() -> None:
     category_accuracy   = (category_hits   / processed_total) * 100
     priority_accuracy   = (priority_hits   / processed_total) * 100
     department_accuracy = (department_hits / processed_total) * 100
-    automation_rate     = (resolved_by_llm / processed_total) * 100
+    automation_rate     = ((resolved_by_llm+needs_more_info_total) / (processed_total+needs_more_info_total)) * 100
     same_day_rate       = (closed_same_day / processed_total) * 100
 
     # ==========================================
@@ -136,6 +139,7 @@ def run_accuracy() -> None:
     print("=" * 60)
 
     print(f"Total de tickets avaliados: {processed_total}")
+    print(f"Pedidos de mais informação: {needs_more_info_total}")
 
     print("\nQUALIDADE DO MODELO")
     print(f"Accuracy Categoria:    {category_accuracy:.2f}%")
@@ -147,7 +151,7 @@ def run_accuracy() -> None:
     print(f"Taxa de encerramento: {same_day_rate:.2f}%")
 
     print("\nAUTOMAÇÃO")
-    print(f"Resolvidos pela LLM:    {resolved_by_llm}")
+    print(f"Resolvidos pela LLM:    {resolved_by_llm+needs_more_info_total}")
     print(f"Encaminhados p/ humano: {routed_to_human}")
     print(f"Taxa de automação:      {automation_rate:.2f}%")
 
