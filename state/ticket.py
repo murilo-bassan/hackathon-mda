@@ -6,3 +6,5 @@ class Ticket(TypedDict):
     channel: str
     requester_profile: str
     free_text: str
+    needs_more_info: bool
+    info_justification: str 
