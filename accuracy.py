@@ -22,7 +22,7 @@ PRIORITY_MAP = {
 def decide_route(response: dict) -> str:
 
     prioridade = response.get("resulting_priority", 99)
-    categoria  = normalize_str(response.get("category", ""))
+    categoria  = normalize_str(response.get("category") or "")
 
     if prioridade <= 2 and categoria == "requisicao":
         return "draft_response"
@@ -92,8 +92,8 @@ def run_accuracy() -> None:
             pass
 
         #category
-        predicted_category = normalize_str(response.get("category", ""))
-        expected_category  = normalize_str(expected_ticket.get("category", ""))
+        predicted_category = normalize_str(response.get("category") or "")
+        expected_category  = normalize_str(expected_ticket.get("category") or "")
 
         if predicted_category == expected_category:
             category_hits += 1
@@ -101,15 +101,15 @@ def run_accuracy() -> None:
         #priority
         predicted_priority = str(response.get("resulting_priority", "")).strip()
 
-        expected_priority_raw = normalize_str(expected_ticket.get("priority", ""))
+        expected_priority_raw = normalize_str(expected_ticket.get("priority") or "")
         expected_priority     = PRIORITY_MAP.get(expected_priority_raw, expected_priority_raw)
 
         if predicted_priority == expected_priority:
             priority_hits += 1
 
         #departament
-        predicted_department = normalize_str(response.get("department", ""))
-        expected_department  = normalize_str(expected_ticket.get("suggested_sector", ""))
+        predicted_department = normalize_str(response.get("department") or "")
+        expected_department  = normalize_str(expected_ticket.get("suggested_sector") or "")
 
         # Aceita match parcial (ex: "n2 - suporte de campo" in "n2 - suporte de campo e field")
         if expected_department and expected_department in predicted_department:
