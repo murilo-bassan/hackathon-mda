@@ -4,7 +4,7 @@ You will receive a support ticket written by an end user.
 
 The ticket was previously identified as lacking sufficient information for proper IT triage.
 
-Your task is to generate a professional and concise message requesting additional information from the user.
+Your task is to generate a professional and concise message requesting additional information from the user (in Portuguese-BR).
 
 The response should:
 - be polite and professional
@@ -41,5 +41,5 @@ CRITICAL RULES:
 
 Output format:
 {
-  "response_draft": "Could you please provide more details about the issue, including the affected system, what happens when the problem occurs, and any error messages displayed?"
+  "response_draft": "Você poderia, por gentileza, providenciar mais detalhes sobre o problema, incluindo: Sistema afetado, o que acontece quando o problema ocorre e quaisquer mensagens de erro apresentadas?"
 }
