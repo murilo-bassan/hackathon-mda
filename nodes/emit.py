@@ -26,6 +26,8 @@ def emit(state: State) -> dict:
         "category_justification": partial.get("category_justification", ""),
         "department": partial.get("department", ""),
         "response_draft": partial.get("response_draft", ""),
+        "needs_more_info": ticket.get("needs_more_info", False),
+        "info_justification": ticket.get("info_justification", "")
     }
 
     # Substituindo os prints poluídos pelo logger
