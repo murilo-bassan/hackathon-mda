@@ -1,4 +1,4 @@
-# Decide, após o nó `route`, se o chamado vai para draft_response ou direto para emit 
+# Decide, após o nó `ingest`, se o chamado vai para draft_response ou direto para emit 
 from state.state import State
 import unicodedata
 
