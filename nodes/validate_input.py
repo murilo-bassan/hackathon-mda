@@ -14,5 +14,5 @@ def validate_input(state: State) -> dict:
 
     partial = dict(state.get("ticket", {}))
     partial["needs_more_info"] = response_data.get("needs_more_info", False)
-    partial["info_justification"] = response_data.get("justification", "")
+    partial["info_justification"] = response_data.get("info_justification", "")
     return {"ticket": partial}

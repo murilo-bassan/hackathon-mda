@@ -42,6 +42,8 @@ CRITICAL RULES:
 - "justification" MUST be concise and objective
 - Do NOT invent details not present in the ticket
 
+the info_justification must be written in PT-BR
+
 Output format:
 {
   "needs_more_info": true,
