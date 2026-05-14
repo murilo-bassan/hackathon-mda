@@ -1,319 +1,546 @@
 """
-Suíte de Testes Unitários — Arestas Condicionais (Conditional Edges)
-====================================================================
+test_edges.py — Testes Unitários das Arestas Condicionais (Conditional Edges)
+==============================================================================
 Projeto : Triagem de Chamados de TIC (AGETIC/UFMS)
-Arquivo : test_edges.py
-Cobertura: validation_response | decide_response | normalize_str
 
-As funções de roteamento são testadas como puras:
-recebem um State e retornam uma string com o nome do próximo nó.
-Nenhum grafo é compilado.
+Estratégia
+----------
+• Cada função de roteamento é testada de forma isolada, passando diferentes
+  dicionários de estado e verificando qual string de roteamento é retornada.
+• Nenhum grafo é compilado. Não se usa app.compile().
+• Os testes verificam TODOS os caminhos de cada função de decisão.
 
-Execução:
-    pytest tests/test_edges.py -v
+Funções de roteamento cobertas
+--------------------------------
+  1. validation_response  — Pós-ingest: emit (falha) vs validate_input (ok)
+  2. decide_content       — Pós-validate_input: draft_request vs classify_type
+  3. decide_response      — Pós-score_priority: draft_response vs queue_only
 """
 
 import pytest
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 1.  ARESTA CONDICIONAL: validation_response
-#     Rota saída de `ingest` → "classify_type" ou "emit"
-# ─────────────────────────────────────────────────────────────────────────────
+# ═══════════════════════════════════════════════════════════════════════════════
+# FIXTURES LOCAIS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+@pytest.fixture
+def ticket_base():
+    return {
+        "id": "TKT-EDGE-001",
+        "timestamp": "2025-05-14T10:00:00",
+        "channel": "sistema de chamados",
+        "requester_profile": "professor",
+        "free_text": "Impressora não funciona.",
+        "needs_more_info": False,
+        "info_justification": "",
+    }
+
+
+@pytest.fixture
+def response_base():
+    return {
+        "ticket_id": "TKT-EDGE-001",
+        "category": "Requisição",
+        "category_justification": "Pedido de instalação.",
+        "urgency": 2,
+        "impact": 2,
+        "resulting_priority": 2,
+        "priority_justification": "Baixa urgência.",
+        "service_type": "Suporte de Campo",
+        "support_level": 1,
+        "department": "N1 - Atendimento",
+        "response_draft": "",
+        "validation_status": True,
+    }
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 1. ARESTA CONDICIONAL: validation_response
+#    Localização: utilities/validation_response.py
+#    Usada em   : builder.add_conditional_edges("ingest", validation_response, ...)
+#    Caminhos   : "emit" | "validate_input"
+# ═══════════════════════════════════════════════════════════════════════════════
 
 class TestValidationResponseEdge:
     """
-    validation_response(state) -> str
-    ─────────────────────────────────
-    Regra: se response.validation_status is False → "emit"
-        caso contrário (True ou ausente)          → "classify_type"
+    validation_response(state) -> "emit" | "validate_input"
+
+    Regra de negócio:
+      • Se response.validation_status is False  → "emit"  (erro de validação, encerra)
+      • Qualquer outro caso                     → "validate_input"
     """
 
-    def test_validation_true_vai_para_classify_type(self):
-        """validation_status=True → próximo nó deve ser 'classify_type'."""
+    def test_validation_response_falha_retorna_emit(self, ticket_base):
+        """validation_status=False → rota para 'emit'."""
         from utilities.validation_response import validation_response
 
-        state = {"response": {"validation_status": True}}
-        assert validation_response(state) == "classify_type"
-
-    def test_validation_false_vai_para_emit(self):
-        """validation_status=False (ticket inválido) → próximo nó deve ser 'emit'."""
-        from utilities.validation_response import validation_response
-
-        state = {"response": {"validation_status": False}}
+        state = {
+            "ticket": ticket_base,
+            "response": {"validation_status": False},
+            "closing_message": None,
+        }
         assert validation_response(state) == "emit"
 
-    def test_validation_status_ausente_vai_para_classify_type(self):
-        """Sem a chave validation_status no response → considera válido → 'classify_type'."""
+    def test_validation_response_sucesso_retorna_validate_input(self, ticket_base):
+        """validation_status=True → rota para 'validate_input'."""
         from utilities.validation_response import validation_response
 
-        state = {"response": {}}
-        assert validation_response(state) == "classify_type"
+        state = {
+            "ticket": ticket_base,
+            "response": {"validation_status": True},
+            "closing_message": None,
+        }
+        assert validation_response(state) == "validate_input"
 
-    def test_validation_response_none_vai_para_classify_type(self):
-        """response=None → deve se comportar como válido e retornar 'classify_type'."""
+    def test_validation_response_ausente_retorna_validate_input(self, ticket_base):
+        """Sem validation_status no response → rota para 'validate_input' (default)."""
         from utilities.validation_response import validation_response
 
-        state = {"response": None}
-        assert validation_response(state) == "classify_type"
+        state = {
+            "ticket": ticket_base,
+            "response": {},   # chave ausente
+            "closing_message": None,
+        }
+        assert validation_response(state) == "validate_input"
 
-    def test_validation_sem_chave_response_vai_para_classify_type(self):
-        """Estado sem a chave 'response' → deve retornar 'classify_type' sem levantar exceção."""
+    def test_validation_response_response_none_retorna_validate_input(self, ticket_base):
+        """response=None → não deve explodir, deve rotear para 'validate_input'."""
         from utilities.validation_response import validation_response
 
-        state = {}
-        assert validation_response(state) == "classify_type"
+        state = {
+            "ticket": ticket_base,
+            "response": None,   # Edge case
+            "closing_message": None,
+        }
+        assert validation_response(state) == "validate_input"
 
-    def test_validation_status_none_vai_para_classify_type(self):
-        """validation_status=None não é False → deve seguir o fluxo normal."""
+    def test_validation_response_status_true_explicito(self, ticket_base, response_base):
+        """Estado completo com validation_status=True → 'validate_input'."""
         from utilities.validation_response import validation_response
 
-        state = {"response": {"validation_status": None}}
-        # None is not False → elif branch → classify_type
-        assert validation_response(state) == "classify_type"
+        state = {
+            "ticket": ticket_base,
+            "response": response_base,  # validation_status=True
+            "closing_message": None,
+        }
+        assert validation_response(state) == "validate_input"
 
-    def test_validation_retorna_string(self):
-        """O retorno deve sempre ser uma string (nome de nó)."""
+    def test_validation_response_status_false_com_estado_completo(
+        self, ticket_base, response_base
+    ):
+        """Estado completo mas validation_status=False → 'emit'."""
         from utilities.validation_response import validation_response
 
-        for status in [True, False]:
-            state = {"response": {"validation_status": status}}
-            result = validation_response(state)
-            assert isinstance(result, str), f"Esperado str, recebido {type(result)}"
+        response = dict(response_base)
+        response["validation_status"] = False
+
+        state = {
+            "ticket": ticket_base,
+            "response": response,
+            "closing_message": None,
+        }
+        assert validation_response(state) == "emit"
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 2.  ARESTA CONDICIONAL: decide_response
-#     Rota saída de `score_priority` → "draft_response" ou "queue_only"
-# ─────────────────────────────────────────────────────────────────────────────
+# ═══════════════════════════════════════════════════════════════════════════════
+# 2. ARESTA CONDICIONAL: decide_content
+#    Localização: utilities/decide_content.py
+#    Usada em   : builder.add_conditional_edges("validate_input", decide_content, ...)
+#    Caminhos   : "draft_request" | "classify_type"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class TestDecideContentEdge:
+    """
+    decide_content(state) -> "draft_request" | "classify_type"
+
+    Regra de negócio:
+      • ticket.needs_more_info is True  → "draft_request"
+      • ticket.needs_more_info is False → "classify_type"
+    """
+
+    def test_decide_content_needs_more_info_true_retorna_draft_request(
+        self, ticket_base, response_base
+    ):
+        """needs_more_info=True → 'draft_request'."""
+        from utilities.decide_content import decide_content
+
+        ticket = dict(ticket_base)
+        ticket["needs_more_info"] = True
+
+        state = {
+            "ticket": ticket,
+            "response": response_base,
+            "closing_message": None,
+        }
+        assert decide_content(state) == "draft_request"
+
+    def test_decide_content_needs_more_info_false_retorna_classify_type(
+        self, ticket_base, response_base
+    ):
+        """needs_more_info=False → 'classify_type'."""
+        from utilities.decide_content import decide_content
+
+        ticket = dict(ticket_base)
+        ticket["needs_more_info"] = False
+
+        state = {
+            "ticket": ticket,
+            "response": response_base,
+            "closing_message": None,
+        }
+        assert decide_content(state) == "classify_type"
+
+    def test_decide_content_chave_ausente_retorna_classify_type(self, response_base):
+        """Sem a chave needs_more_info → default False → 'classify_type'."""
+        from utilities.decide_content import decide_content
+
+        state = {
+            "ticket": {},   # chave ausente
+            "response": response_base,
+            "closing_message": None,
+        }
+        assert decide_content(state) == "classify_type"
+
+    def test_decide_content_ticket_ausente_retorna_classify_type(self, response_base):
+        """Sem a chave 'ticket' no state → 'classify_type'."""
+        from utilities.decide_content import decide_content
+
+        state = {
+            "response": response_base,
+            "closing_message": None,
+        }
+        assert decide_content(state) == "classify_type"
+
+    def test_decide_content_retorna_apenas_strings_validas(self, ticket_base, response_base):
+        """O retorno deve ser sempre uma das duas strings esperadas."""
+        from utilities.decide_content import decide_content
+
+        valid_routes = {"draft_request", "classify_type"}
+
+        for needs_more in [True, False]:
+            ticket = dict(ticket_base)
+            ticket["needs_more_info"] = needs_more
+            state = {"ticket": ticket, "response": response_base, "closing_message": None}
+            assert decide_content(state) in valid_routes
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 3. ARESTA CONDICIONAL: decide_response
+#    Localização: utilities/decide_response.py
+#    Usada em   : builder.add_conditional_edges("score_priority", decide_response, ...)
+#    Caminhos   : "draft_response" | "queue_only"
+# ═══════════════════════════════════════════════════════════════════════════════
 
 class TestDecideResponseEdge:
     """
-    decide_response(state) -> str
-    ──────────────────────────────
-    Regra de negócio:
-        prioridade <= 2  E  categoria == "requisição"  →  "draft_response"
-        qualquer outra combinação                      →  "queue_only"
+    decide_response(state) -> "draft_response" | "queue_only"
+
+    Regra de negócio (conforme utilities/decide_response.py):
+      • resulting_priority <= 2  AND  category normalizada == "requisicao"
+          → "draft_response"  (automatiza a resposta)
+      • Qualquer outro caso
+          → "queue_only"  (escala para humano)
+
+    Normalização: acento removido, lowercase, strip
+      ex: "Requisição" → "requisicao"
     """
 
-    def _state(self, prioridade: int, categoria: str) -> dict:
-        return {
-            "response": {
-                "resulting_priority": prioridade,
-                "category": categoria,
-            }
+    # ── Caminho "draft_response" ──────────────────────────────────────────────
+
+    def test_decide_response_requisicao_baixa_prioridade_retorna_draft_response(
+        self, ticket_base
+    ):
+        """categoria='Requisição', prioridade=1 → 'draft_response'."""
+        from utilities.decide_response import decide_response
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 1, "category": "Requisição"},
+            "closing_message": None,
         }
+        assert decide_response(state) == "draft_response"
 
-    # ── Caso: deve ir para draft_response ────────────────────────────────────
-
-    def test_prioridade_1_requisicao_vai_para_draft(self):
-        """Prioridade 1 + Requisição → 'draft_response'."""
+    def test_decide_response_requisicao_prioridade_2_retorna_draft_response(
+        self, ticket_base
+    ):
+        """categoria='Requisição', prioridade=2 → 'draft_response' (limite exato)."""
         from utilities.decide_response import decide_response
 
-        assert decide_response(self._state(1, "Requisição")) == "draft_response"
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 2, "category": "Requisição"},
+            "closing_message": None,
+        }
+        assert decide_response(state) == "draft_response"
 
-    def test_prioridade_2_requisicao_vai_para_draft(self):
-        """Prioridade 2 + Requisição (limite máximo) → 'draft_response'."""
+    def test_decide_response_requisicao_sem_acento_retorna_draft_response(
+        self, ticket_base
+    ):
+        """categoria='requisicao' (sem acento), prioridade=1 → 'draft_response'."""
         from utilities.decide_response import decide_response
 
-        assert decide_response(self._state(2, "Requisição")) == "draft_response"
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 1, "category": "requisicao"},
+            "closing_message": None,
+        }
+        assert decide_response(state) == "draft_response"
 
-    def test_categoria_minuscula_vai_para_draft(self):
-        """Categoria em minúsculas deve ser normalizada e reconhecida."""
+    def test_decide_response_requisicao_maiuscula_retorna_draft_response(
+        self, ticket_base
+    ):
+        """categoria='REQUISIÇÃO' (maiúscula com acento), prioridade=1 → 'draft_response'."""
         from utilities.decide_response import decide_response
 
-        assert decide_response(self._state(1, "requisição")) == "draft_response"
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 1, "category": "REQUISIÇÃO"},
+            "closing_message": None,
+        }
+        assert decide_response(state) == "draft_response"
 
-    def test_categoria_maiuscula_vai_para_draft(self):
-        """Categoria em maiúsculas deve ser normalizada e reconhecida."""
+    # ── Caminho "queue_only" ──────────────────────────────────────────────────
+
+    def test_decide_response_incidente_retorna_queue_only(self, ticket_base):
+        """categoria='Incidente' (qualquer prioridade) → 'queue_only'."""
         from utilities.decide_response import decide_response
 
-        assert decide_response(self._state(2, "REQUISIÇÃO")) == "draft_response"
-
-    def test_categoria_com_acentuacao_alternativa(self):
-        """Categoria 'Requisicao' (sem til) deve ser reconhecida via normalize_str."""
-        from utilities.decide_response import decide_response
-
-        assert decide_response(self._state(1, "Requisicao")) == "draft_response"
-
-    # ── Caso: deve ir para queue_only ────────────────────────────────────────
-
-    def test_prioridade_3_requisicao_vai_para_queue(self):
-        """Prioridade 3 (acima do limiar) + Requisição → 'queue_only'."""
-        from utilities.decide_response import decide_response
-
-        assert decide_response(self._state(3, "Requisição")) == "queue_only"
-
-    def test_prioridade_4_vai_para_queue(self):
-        """Prioridade alta (4) → 'queue_only', independente da categoria."""
-        from utilities.decide_response import decide_response
-
-        assert decide_response(self._state(4, "Requisição")) == "queue_only"
-
-    def test_prioridade_5_vai_para_queue(self):
-        """Prioridade máxima (5) → 'queue_only' (fail-safe do LLM)."""
-        from utilities.decide_response import decide_response
-
-        assert decide_response(self._state(5, "Incidente")) == "queue_only"
-
-    def test_categoria_incidente_vai_para_queue(self):
-        """Categoria 'Incidente' nunca vai para draft_response."""
-        from utilities.decide_response import decide_response
-
-        assert decide_response(self._state(1, "Incidente")) == "queue_only"
-
-    def test_categoria_indefinida_vai_para_queue(self):
-        """Categoria 'Indefinida' (default do classify) → 'queue_only'."""
-        from utilities.decide_response import decide_response
-
-        assert decide_response(self._state(1, "Indefinida")) == "queue_only"
-
-    def test_prioridade_ausente_usa_99_e_vai_para_queue(self):
-        """Sem resulting_priority no estado → default 99 → 'queue_only'."""
-        from utilities.decide_response import decide_response
-
-        state = {"response": {"category": "Requisição"}}
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 1, "category": "Incidente"},
+            "closing_message": None,
+        }
         assert decide_response(state) == "queue_only"
 
-    def test_categoria_ausente_vai_para_queue(self):
-        """Sem 'category' no estado → default '' → não é 'requisição' → 'queue_only'."""
+    def test_decide_response_requisicao_alta_prioridade_retorna_queue_only(
+        self, ticket_base
+    ):
+        """categoria='Requisição', prioridade=3 → 'queue_only' (acima do limiar)."""
         from utilities.decide_response import decide_response
 
-        state = {"response": {"resulting_priority": 1}}
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 3, "category": "Requisição"},
+            "closing_message": None,
+        }
         assert decide_response(state) == "queue_only"
 
-    def test_response_vazio_vai_para_queue(self):
-        """Estado com response={} → defaults extremos → 'queue_only'."""
+    def test_decide_response_requisicao_prioridade_4_retorna_queue_only(
+        self, ticket_base
+    ):
+        """categoria='Requisição', prioridade=4 → 'queue_only'."""
         from utilities.decide_response import decide_response
 
-        state = {"response": {}}
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 4, "category": "Requisição"},
+            "closing_message": None,
+        }
         assert decide_response(state) == "queue_only"
 
-    def test_decide_retorna_string(self):
-        """O retorno deve sempre ser uma string."""
+    def test_decide_response_requisicao_prioridade_5_retorna_queue_only(
+        self, ticket_base
+    ):
+        """categoria='Requisição', prioridade=5 (máxima) → 'queue_only'."""
         from utilities.decide_response import decide_response
 
-        for prio, cat in [(1, "Requisição"), (5, "Incidente"), (3, "")]:
-            result = decide_response({"response": {"resulting_priority": prio, "category": cat}})
-            assert isinstance(result, str)
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 5, "category": "Requisição"},
+            "closing_message": None,
+        }
+        assert decide_response(state) == "queue_only"
 
-    # ── Testes de valores limite (boundary) ──────────────────────────────────
-
-    def test_limite_exato_2_requisicao_draft(self):
-        """Exatamente no limiar 2 → 'draft_response' (≤ 2 é inclusivo)."""
+    def test_decide_response_categoria_vazia_retorna_queue_only(self, ticket_base):
+        """categoria='' → 'queue_only' (não satisfaz a condição de requisição)."""
         from utilities.decide_response import decide_response
 
-        assert decide_response(self._state(2, "Requisição")) == "draft_response"
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 1, "category": ""},
+            "closing_message": None,
+        }
+        assert decide_response(state) == "queue_only"
 
-    def test_limite_exato_3_queue(self):
-        """Exatamente no limiar 3 → 'queue_only' (> 2)."""
+    def test_decide_response_sem_categoria_retorna_queue_only(self, ticket_base):
+        """Sem chave 'category' no response → 'queue_only'."""
         from utilities.decide_response import decide_response
 
-        assert decide_response(self._state(3, "Requisição")) == "queue_only"
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 1},
+            "closing_message": None,
+        }
+        assert decide_response(state) == "queue_only"
+
+    def test_decide_response_sem_prioridade_retorna_queue_only(self, ticket_base):
+        """Sem 'resulting_priority' → default 99 → 'queue_only'."""
+        from utilities.decide_response import decide_response
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"category": "Requisição"},
+            "closing_message": None,
+        }
+        assert decide_response(state) == "queue_only"
+
+    def test_decide_response_categoria_com_espacos_e_acentos(self, ticket_base):
+        """'  Requisição  ' (com espaços) → normalização → 'draft_response'."""
+        from utilities.decide_response import decide_response
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 1, "category": "  Requisição  "},
+            "closing_message": None,
+        }
+        assert decide_response(state) == "draft_response"
+
+    def test_decide_response_retorna_apenas_strings_validas(self, ticket_base):
+        """O retorno deve ser sempre uma das duas strings esperadas."""
+        from utilities.decide_response import decide_response
+
+        valid_routes = {"draft_response", "queue_only"}
+
+        cenarios = [
+            {"resulting_priority": 1, "category": "Requisição"},
+            {"resulting_priority": 2, "category": "Requisição"},
+            {"resulting_priority": 3, "category": "Requisição"},
+            {"resulting_priority": 1, "category": "Incidente"},
+            {"resulting_priority": 5, "category": "Incidente"},
+            {"resulting_priority": 1, "category": ""},
+            {"resulting_priority": 99},   # sem category
+        ]
+
+        for response in cenarios:
+            state = {"ticket": ticket_base, "response": response, "closing_message": None}
+            result = decide_response(state)
+            assert result in valid_routes, (
+                f"Rota inesperada '{result}' para response={response}"
+            )
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 3.  UTILITÁRIO: normalize_str
-#     Usado internamente por decide_response para normalizar categorias
-# ─────────────────────────────────────────────────────────────────────────────
+# ═══════════════════════════════════════════════════════════════════════════════
+# 4. TESTES DE INTEGRAÇÃO LEVE: fluxos completos de roteamento
+#    Verifica sequências de chamadas aos roteadores encadeados
+# ═══════════════════════════════════════════════════════════════════════════════
 
-class TestNormalizeStr:
-    """Testa a função auxiliar de normalização de strings."""
-
-    def test_remove_acentos(self):
-        """Deve remover acentos (NFKD + ascii ignore)."""
-        from utilities.decide_response import normalize_str
-
-        assert normalize_str("Requisição") == "requisicao"
-
-    def test_converte_para_minusculo(self):
-        from utilities.decide_response import normalize_str
-
-        assert normalize_str("INCIDENTE") == "incidente"
-
-    def test_remove_espacos_laterais(self):
-        from utilities.decide_response import normalize_str
-
-        assert normalize_str("  Requisição  ") == "requisicao"
-
-    def test_string_vazia(self):
-        from utilities.decide_response import normalize_str
-
-        assert normalize_str("") == ""
-
-    def test_sem_acentos_retorna_minusculo(self):
-        from utilities.decide_response import normalize_str
-
-        assert normalize_str("Incidente") == "incidente"
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# 4.  TESTE DE INTEGRAÇÃO LEVE — sequência de roteamento completa
-#     (sem compilar o grafo, apenas encadeando as funções de rota)
-# ─────────────────────────────────────────────────────────────────────────────
-
-class TestRoutingSequence:
+class TestFluxosDeRoteamento:
     """
-    Verifica que a cadeia de roteamento produz o caminho esperado
-    para diferentes cenários de estado, sem instanciar o StateGraph.
+    Testa sequências de roteamento encadeadas sem compilar o grafo.
+    Confirma que a combinação de decisões produz o caminho correto.
     """
 
-    def test_caminho_feliz_requisicao_baixa_prioridade(self):
+    def test_fluxo_ticket_invalido_vai_direto_para_emit(self, ticket_base):
         """
-        Ticket válido + Requisição + Prioridade 1
-        → ingest OK → classify_type → score_priority → draft_response → emit
+        Ticket com validation_status=False após ingest deve ir direto para emit,
+        ignorando toda a cadeia de classificação.
         """
         from utilities.validation_response import validation_response
-        from utilities.decide_response import decide_response
 
-        state_apos_ingest = {
-            "response": {"validation_status": True},
-        }
-        assert validation_response(state_apos_ingest) == "classify_type"
-
-        state_apos_score = {
-            "response": {
-                "resulting_priority": 1,
-                "category": "Requisição",
-            }
-        }
-        assert decide_response(state_apos_score) == "draft_response"
-
-    def test_caminho_ticket_invalido_vai_direto_emit(self):
-        """
-        Ticket inválido → ingest falha → validation_response → emit (sem passar por classify)
-        """
-        from utilities.validation_response import validation_response
-
-        state_apos_ingest = {
+        state_pos_ingest = {
+            "ticket": ticket_base,
             "response": {"validation_status": False},
+            "closing_message": None,
         }
-        assert validation_response(state_apos_ingest) == "emit"
+        assert validation_response(state_pos_ingest) == "emit"
 
-    def test_caminho_incidente_alta_prioridade_vai_para_fila(self):
+    def test_fluxo_ticket_incompleto_vai_para_draft_request(self, ticket_base):
         """
-        Ticket válido + Incidente + Prioridade 5 (fail-safe LLM)
-        → classify_type → score_priority → queue_only
+        Ticket válido mas incompleto (needs_more_info=True) deve seguir:
+        ingest → validate_input → draft_request → emit
         """
         from utilities.validation_response import validation_response
-        from utilities.decide_response import decide_response
+        from utilities.decide_content import decide_content
 
-        state_apos_ingest = {"response": {"validation_status": True}}
-        assert validation_response(state_apos_ingest) == "classify_type"
-
-        state_apos_score = {
-            "response": {
-                "resulting_priority": 5,
-                "category": "Incidente",
-            }
+        # Pós-ingest: validação estrutural OK
+        state_pos_ingest = {
+            "ticket": ticket_base,
+            "response": {"validation_status": True},
+            "closing_message": None,
         }
-        assert decide_response(state_apos_score) == "queue_only"
+        assert validation_response(state_pos_ingest) == "validate_input"
 
-    def test_caminho_requisicao_prioridade_alta_vai_para_fila(self):
+        # Pós-validate_input: LLM pediu mais informações
+        ticket_with_flag = dict(ticket_base)
+        ticket_with_flag["needs_more_info"] = True
+
+        state_pos_validate = {
+            "ticket": ticket_with_flag,
+            "response": {"validation_status": True},
+            "closing_message": None,
+        }
+        assert decide_content(state_pos_validate) == "draft_request"
+
+    def test_fluxo_requisicao_baixa_prioridade_vai_para_draft_response(
+        self, ticket_base
+    ):
         """
-        Mesmo sendo Requisição, prioridade 4 → queue_only (analista humano).
+        Fluxo de requisição simples com prioridade baixa:
+        ingest → validate_input → classify_type → score_priority → draft_response → emit
         """
+        from utilities.validation_response import validation_response
+        from utilities.decide_content import decide_content
         from utilities.decide_response import decide_response
 
-        state = {"response": {"resulting_priority": 4, "category": "Requisição"}}
-        assert decide_response(state) == "queue_only"
+        # Pós-ingest: OK
+        state_pos_ingest = {
+            "ticket": ticket_base,
+            "response": {"validation_status": True},
+            "closing_message": None,
+        }
+        assert validation_response(state_pos_ingest) == "validate_input"
+
+        # Pós-validate_input: ticket completo
+        ticket_completo = dict(ticket_base)
+        ticket_completo["needs_more_info"] = False
+
+        state_pos_validate = {
+            "ticket": ticket_completo,
+            "response": {"validation_status": True},
+            "closing_message": None,
+        }
+        assert decide_content(state_pos_validate) == "classify_type"
+
+        # Pós-score_priority: requisição de baixa prioridade
+        state_pos_score = {
+            "ticket": ticket_completo,
+            "response": {"resulting_priority": 1, "category": "Requisição"},
+            "closing_message": None,
+        }
+        assert decide_response(state_pos_score) == "draft_response"
+
+    def test_fluxo_incidente_alta_prioridade_vai_para_queue_only(
+        self, ticket_base
+    ):
+        """
+        Fluxo de incidente crítico:
+        ingest → validate_input → classify_type → score_priority → queue_only → emit
+        """
+        from utilities.validation_response import validation_response
+        from utilities.decide_content import decide_content
+        from utilities.decide_response import decide_response
+
+        # Pós-ingest: OK
+        assert validation_response({
+            "ticket": ticket_base,
+            "response": {"validation_status": True},
+            "closing_message": None,
+        }) == "validate_input"
+
+        # Pós-validate_input: completo
+        ticket_completo = dict(ticket_base)
+        ticket_completo["needs_more_info"] = False
+
+        assert decide_content({
+            "ticket": ticket_completo,
+            "response": {"validation_status": True},
+            "closing_message": None,
+        }) == "classify_type"
+
+        # Pós-score_priority: incidente crítico (prioridade 5)
+        assert decide_response({
+            "ticket": ticket_completo,
+            "response": {"resulting_priority": 5, "category": "Incidente"},
+            "closing_message": None,
+        }) == "queue_only"
