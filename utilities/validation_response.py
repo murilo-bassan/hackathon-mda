@@ -9,4 +9,4 @@ def validation_response(state: State) -> str:
     if resp.get("validation_status") is False:
         return "emit"
     
-    return "classify_type"
+    return "validate_input"
