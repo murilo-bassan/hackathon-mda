@@ -13,6 +13,5 @@ class State(TypedDict):
     # 1. PERMANENTES — existem do início ao fim
     ticket: Ticket
     closing_message: Optional[str]
-    user_feedback: Optional[int]
     response: Response
     #response: Annotated[Response, merge_response]
