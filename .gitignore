@@ -1,6 +1,9 @@
 # chave de api:
 .env
 
+# tests
+.coverage
+
 # logs
 logs/
 *.log
