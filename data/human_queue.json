@@ -52,5 +52,14 @@
     "priority": 2,
     "department": "N3 - Sistemas Acadêmicos",
     "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-13T14:27:19.087176",
+    "ticket_id": "TKT-UFMS-008",
+    "free_text": "n consigo acessar o eduroam no meu celular novo de jeito nenhum , ja tentei de tudo aqui na cidade universitária. fica pedindo certificado",
+    "category": "Incidente",
+    "priority": 2,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
   }
 ]
