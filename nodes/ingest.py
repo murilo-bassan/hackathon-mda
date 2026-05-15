@@ -1,3 +1,4 @@
+from utilities.clean_text import clean_text
 from state.state import State
 from utilities.ingest_ticket import IngestTicket
 from pydantic import ValidationError
@@ -13,6 +14,11 @@ def ingest(state: State) -> dict:
     partial["validation_status"] = True #default validation_status
 
     try:
+        # Limpa o texto antes da validação
+        if raw_ticket and "free_text" in raw_ticket:
+            raw_ticket["free_text"] = clean_text(
+                raw_ticket["free_text"]
+            )
         # Validando e processando os dados
         validated_ticket = IngestTicket.model_validate(raw_ticket)
     
