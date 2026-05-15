@@ -6,11 +6,16 @@
 - Paola Campos
 - Wellington Cintra
 
+## Responsabilidades de cada integrante
+Estão dispostas no Issues do repositório.
+
 ## Processo escolhido
 3.1. AGETIC - Triagem Inteligente de Chamados de Suporte de TIC.
 
-## Responsabilidades de cada integrante
-Estão dispostas no Issues do repositório.
+## Documentação
+Está localizada no arquivo `documentation.md` no repositório.
+
+---
 
 ## Tipos de commit
 
@@ -83,8 +88,6 @@ streamlit run app.py
 
 Acesse em: `http://localhost:8501`
 
----
-
 ### Modo Batch (CLI)
 
 ```bash
@@ -99,6 +102,8 @@ END_INDEX   = 10  # índice de fim (exclusive)
 ```
 
 Ao finalizar, executa automaticamente `run_accuracy()` para calcular as métricas.
+
+---
 
 ## Testes
 
