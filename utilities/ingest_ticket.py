@@ -3,12 +3,10 @@ from datetime import datetime
 
 class IngestTicket(BaseModel):
     id: str = Field(
-        min_length=1,
         description="Identificador único do chamado"
     )
     
     timestamp: datetime = Field(
-        min_length=1,
         description="Data e hora do chamado"
     )
     
