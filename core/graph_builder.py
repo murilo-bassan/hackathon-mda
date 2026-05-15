@@ -8,8 +8,8 @@ from core.nodes_35.recommend_containment import recommend_containment
 from core.nodes_35.request_report import request_report
 from core.nodes_general.classify_input import classify_input
 from core.nodes_general.normalize_input import normalize_input
-from state.state import State
-from nodes.ingest import ingest
+from core.state.state import State
+from core.nodes.ingest import ingest
 from utilities.decide_input import decide_input
 from utilities.decide_content import decide_content
 from utilities.validation_response import validation_response
@@ -18,9 +18,9 @@ from core.nodes.draft_request import draft_request
 from core.nodes.classify_type import classify_type
 from core.nodes.score_priority import score_priority
 from utilities.decide_response import decide_response_from_state
-from nodes.draft_response import draft_response
-from nodes.emit import emit
-from nodes.queue_only import queue_only
+from core.nodes.draft_response import draft_response
+from core.nodes.emit import emit
+from core.nodes.queue_only import queue_only
 
 def build_graph():
 
