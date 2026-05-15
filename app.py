@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from graph_builder import graph
+from core.graph_builder import graph
 from utilities.config import DATA_PATH
 from utilities.logger_config import setup_logger
 from datetime import datetime

@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-from state.state import State
+from core.state.state import State
 from utilities.config import QUEUE_PATH
 from utilities.logger_config import setup_logger
 

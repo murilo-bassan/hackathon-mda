@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 import json
-from utilities.config import DATA_PATH, RESPONSES_DIR
+from utilities.config import DATA_PATH, RESPONSES_PATH
 from utilities.normalize import normalize_str
 from utilities.decide_response import decide_response
 
@@ -11,7 +11,7 @@ def run_accuracy() -> None:
     dataset = {ticket["id"]: ticket for ticket in raw_dataset}
 
 
-    response_files = sorted(RESPONSES_DIR.glob("*.json"))
+    response_files = sorted(RESPONSES_PATH.glob("*.json"))
 
     responses: list[dict] = []
     for file_path in response_files:

@@ -1,7 +1,7 @@
 from utilities.load_tickets import load_tickets
 from utilities.save_graph_visualization import save_graph_visualization
 from utilities.process_ticket import process_ticket
-from accuracy import run_accuracy
+from utilities.accuracy import run_accuracy
 
 def main() -> None:
 
@@ -9,8 +9,8 @@ def main() -> None:
 
     tickets = load_tickets()
 
-    START_INDEX = 0
-    END_INDEX = 0
+    START_INDEX = 20
+    END_INDEX = 21
 
     for idx, ticket in enumerate(tickets, start=1):
 

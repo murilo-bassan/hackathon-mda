@@ -1,5 +1,5 @@
 from pathlib import Path
-from graph_builder import graph
+from core.graph_builder import graph
 from utilities.logger_config import setup_logger
 from utilities.config import GRAPH_PNG
 

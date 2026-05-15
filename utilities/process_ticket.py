@@ -1,4 +1,4 @@
-from graph_builder import graph
+from core.graph_builder import graph
 from utilities.logger_config import setup_logger
 
 logger = setup_logger(__name__)

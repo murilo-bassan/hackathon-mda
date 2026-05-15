@@ -1,5 +1,5 @@
 from concurrent.futures import ThreadPoolExecutor, Future
-from state.state import State
+from core.state.state import State
 from utilities.utils import call_llm
 from utilities.config import (
     SCORE_URGENCY_PROMPT_PATH,

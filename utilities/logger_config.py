@@ -1,10 +1,10 @@
 import logging
 import sys
 from pathlib import Path
-from utilities.config import LOG_DIR
+from utilities.config import LOG_PATH
 
-LOG_DIR.mkdir(exist_ok=True)
-LOG_FILE = LOG_DIR / "execucao.log"
+LOG_PATH.mkdir(parents=True, exist_ok=True)
+LOG_FILE = LOG_PATH / "execucao.log"
 
 def setup_logger(name: str):
     logger = logging.getLogger(name)

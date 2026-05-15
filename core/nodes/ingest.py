@@ -1,5 +1,5 @@
 from utilities.clean_text import clean_text
-from state.state import State
+from core.state.state import State
 from utilities.ingest_ticket import IngestTicket
 from pydantic import ValidationError
 
