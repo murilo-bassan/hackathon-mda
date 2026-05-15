@@ -28,7 +28,6 @@ def build_graph():
 
     # Arestas normais (fluxo sequencial principal)
     builder.add_edge(START, "ingest")
-    builder.add_edge("ingest", "validate_input")
 
     # Aresta condicional: após ingest, decide o próximo nó
     builder.add_conditional_edges(
