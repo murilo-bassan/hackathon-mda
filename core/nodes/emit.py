@@ -2,7 +2,7 @@ import csv
 import json
 import os
 from state.state import State
-from utilities.config import RESPONSES_DIR, REPORT_CSV
+from utilities.config import RESPONSES_PATH, REPORT_CSV
 from utilities.logger_config import setup_logger
 
 # Inicializando o logger padronizado
@@ -12,7 +12,7 @@ def emit(state: State) -> dict:
     ticket = state["ticket"]
     partial = state.get("response", {})
 
-    os.makedirs(RESPONSES_DIR, exist_ok=True)
+    os.makedirs(RESPONSES_PATH, exist_ok=True)
 
     response = {
         "ticket_id": ticket["id"],
@@ -34,7 +34,7 @@ def emit(state: State) -> dict:
     logger.info(f"Emitindo resultados para o Ticket {ticket['id']}")
 
     # SALVAR JSON INDIVIDUAL
-    with open(RESPONSES_DIR / f"ticket_{ticket['id']}.json", "w", encoding="utf-8") as f:
+    with open(RESPONSES_PATH / f"ticket_{ticket['id']}.json", "w", encoding="utf-8") as f:
         json.dump(response, f, ensure_ascii=False, indent=2)
 
     # GERAR / ATUALIZAR CSV
