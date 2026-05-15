@@ -6,8 +6,8 @@ def decide_input(state: State) -> dict:
     """
     """
     if state.get("input_type") == "incident":
-        return {"node": "ingest_incident"}
+        return "ingest_incident"
     else:
-        return {"node": "ingest"}
+        return "ingest"
     """
-    return {"node": "ingest"}
+    return "ingest"
