@@ -4,12 +4,16 @@ from utilities.config import DATA_PATH, RESPONSES_PATH
 from utilities.normalize import normalize_str
 from utilities.decide_response import decide_response
 
+with open(DATA_PATH, "r", encoding="utf-8") as f:
+    raw_dataset = json.load(f)
+
+DATASET_INDEX = {
+    ticket["id"]: ticket
+    for ticket in raw_dataset
+}
+
+
 def run_accuracy() -> None:
-    with open(DATA_PATH, "r", encoding="utf-8") as f:
-        raw_dataset = json.load(f)
-
-    dataset = {ticket["id"]: ticket for ticket in raw_dataset}
-
 
     response_files = sorted(RESPONSES_PATH.glob("*.json"))
 
@@ -36,7 +40,7 @@ def run_accuracy() -> None:
         ticket_id = response.get("ticket_id")
 
         # Ignora respostas sem correspondência no dataset
-        if ticket_id not in dataset:
+        if ticket_id not in DATASET_INDEX:
             print(f"[AVISO] ticket_id '{ticket_id}' não encontrado no dataset — ignorado.")
             continue
 
@@ -44,7 +48,7 @@ def run_accuracy() -> None:
             needs_more_info_total += 1
             continue
 
-        expected_ticket = dataset[ticket_id]
+        expected_ticket = DATASET_INDEX[ticket_id]
         processed_total += 1
 
 
@@ -132,4 +136,13 @@ def run_accuracy() -> None:
 
     print("\n" + "=" * 60)
 
-    
+def expected_ticket(id: str) -> dict:
+
+    ticket = DATASET_INDEX[id]
+
+    return {
+        "category": ticket["category"],
+        "priority": ticket["resulting_priority"],
+        "department": ticket["department"],
+        "needs_more_info": ticket["needs_more_info"]
+    }
