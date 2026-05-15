@@ -48,7 +48,7 @@ def run_accuracy() -> None:
         processed_total += 1
 
 
-        next_route = decide_response(response)
+        next_route = decide_response(response.get("resulting_priority"),response.get("category"))
 
         if next_route == "draft_response":
             resolved_by_llm += 1
