@@ -12,10 +12,11 @@ DATASET_INDEX = {
     for ticket in raw_dataset
 }
 
-
-def run_accuracy() -> None:
+def run_accuracy() -> list:
 
     response_files = sorted(RESPONSES_PATH.glob("*.json"))
+
+    errors= [];
 
     responses: list[dict] = []
     for file_path in response_files:
@@ -92,6 +93,9 @@ def run_accuracy() -> None:
         predicted_department = normalize_str(response.get("department") or "")
         expected_department  = normalize_str(expected_ticket.get("department") or "")
 
+        if (predicted_priority != expected_priority) or (predicted_category != expected_category) or not(expected_department and expected_department in predicted_department):
+            errors.append(ticket_id) 
+
         # Aceita match parcial (ex: "n2 - suporte de campo" in "n2 - suporte de campo e field")
         if expected_department and expected_department in predicted_department:
             department_hits += 1
@@ -134,6 +138,8 @@ def run_accuracy() -> None:
     print(f"Taxa de automação:      {automation_rate:.2f}%")
 
     print("\n" + "=" * 60)
+
+    return errors
 
 def expected_ticket(id: str) -> dict:
 
