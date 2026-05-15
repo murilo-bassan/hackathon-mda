@@ -1,4 +1,4 @@
-from state.state import State
+from core.state.state import State
 from utilities.utils import call_llm
 from utilities.config import CLASSIFY_PROMPT_PATH
 from utilities.prompt_loader import load_prompt

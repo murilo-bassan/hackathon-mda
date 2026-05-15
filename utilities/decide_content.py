@@ -1,4 +1,4 @@
-from state.state import State
+from core.state.state import State
 
 def decide_content(state: State) -> str:
     partial = state.get("ticket", {})

@@ -1,26 +1,16 @@
 from langgraph.graph import END, START, StateGraph
-from core.nodes_general.classify_input import classify_input
-from core.nodes_general.normalize_input import normalize_input
 from state.state import State
 from nodes.ingest import ingest
-from utilities.decide_input import decide_input
 from utilities.decide_content import decide_content
 from utilities.validation_response import validation_response
-from nodes.validate_input import validate_input
-from nodes.draft_request import draft_request
-from nodes.classify_type import classify_type
-from nodes.score_priority import score_priority
+from core.nodes.validate_input import validate_input
+from core.nodes.draft_request import draft_request
+from core.nodes.classify_type import classify_type
+from core.nodes.score_priority import score_priority
 from utilities.decide_response import decide_response_from_state
 from nodes.draft_response import draft_response
 from nodes.emit import emit
 from nodes.queue_only import queue_only
-from nodes_35.ingest_incident import ingest_incident
-from nodes_35.classify_criticality import classify_criticality 
-from nodes_35.lookup_owner import lookup_owner
-from nodes_35.recommend_containment import recommend_containment
-from nodes_35.draft_alert import draft_alert
-from nodes_35.request_report import request_report
-from nodes_35.emit_incident import emit_incident
 
 def build_graph():
 

@@ -1,4 +1,4 @@
-from state.state import State
+from core.state.state import State
 
 def validation_response(state: State) -> str:
     """

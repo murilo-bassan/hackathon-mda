@@ -1,7 +1,7 @@
 import csv
 import json
 import os
-from state.state import State
+from core.state.state import State
 from utilities.config import RESPONSES_PATH, REPORT_CSV
 from utilities.logger_config import setup_logger
 

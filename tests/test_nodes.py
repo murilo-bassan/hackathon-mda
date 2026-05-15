@@ -87,7 +87,7 @@ class TestIngestNode:
     def test_ingest_ticket_valido_retorna_ticket_normalizado(self, valid_ticket):
         """Com um ticket válido, deve retornar o ticket normalizado e
         validation_status=True."""
-        from nodes.ingest import ingest
+        from core.nodes.ingest import ingest
 
         state = {
             "ticket": valid_ticket,
@@ -103,7 +103,7 @@ class TestIngestNode:
 
     def test_ingest_valida_status_True_quando_valido(self, valid_ticket):
         """validation_status deve ser True quando o ticket é válido."""
-        from nodes.ingest import ingest
+        from core.nodes.ingest import ingest
 
         state = {"ticket": valid_ticket, "response": {}, "closing_message": None}
         result = ingest(state)
@@ -112,7 +112,7 @@ class TestIngestNode:
 
     def test_ingest_normaliza_free_text(self):
         """O free_text com espaços e maiúsculas deve ser normalizado."""
-        from nodes.ingest import ingest
+        from core.nodes.ingest import ingest
 
         ticket = {
             "id": "TKT-NORM-001",
@@ -131,7 +131,7 @@ class TestIngestNode:
     def test_ingest_ticket_invalido_sem_id(self):
         """Ticket sem campo obrigatório 'id' deve resultar em
         validation_status=False e não retornar 'ticket' no update."""
-        from nodes.ingest import ingest
+        from core.nodes.ingest import ingest
 
         ticket_invalido = {
             # 'id' ausente propositalmente
@@ -150,7 +150,7 @@ class TestIngestNode:
 
     def test_ingest_ticket_invalido_free_text_curto(self):
         """free_text com menos de 2 caracteres deve falhar validação."""
-        from nodes.ingest import ingest
+        from core.nodes.ingest import ingest
 
         ticket_invalido = {
             "id": "TKT-BAD-001",
@@ -168,7 +168,7 @@ class TestIngestNode:
 
     def test_ingest_ticket_invalido_channel_vazio(self):
         """Channel vazio deve falhar a validação Pydantic."""
-        from nodes.ingest import ingest
+        from core.nodes.ingest import ingest
 
         ticket_invalido = {
             "id": "TKT-BAD-002",
@@ -186,7 +186,7 @@ class TestIngestNode:
 
     def test_ingest_preserva_estado_parcial_de_response(self, valid_ticket):
         """Campos já existentes em 'response' não devem ser apagados pelo ingest."""
-        from nodes.ingest import ingest
+        from core.nodes.ingest import ingest
 
         state = {
             "ticket": valid_ticket,
@@ -199,7 +199,7 @@ class TestIngestNode:
 
     def test_ingest_ticket_invalido_response_draft_contem_json_do_erro(self):
         """Em caso de ValidationError, response_draft deve conter o JSON do erro."""
-        from nodes.ingest import ingest
+        from core.nodes.ingest import ingest
 
         ticket_invalido = {
             "id": "TKT-ERR-001",
@@ -227,13 +227,13 @@ class TestIngestNode:
 class TestValidateInputNode:
     """Testa o nó `validate_input` que consulta o LLM para checar completude."""
 
-    @patch("nodes.validate_input.load_prompt", return_value="system_prompt_mock")
-    @patch("nodes.validate_input.call_llm")
+    @patch("core.nodes.validate_input.load_prompt", return_value="system_prompt_mock")
+    @patch("core.nodes.validate_input.call_llm")
     def test_validate_input_completo_needs_more_info_false(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """LLM indica que o ticket está completo → needs_more_info=False."""
-        from nodes.validate_input import validate_input
+        from core.nodes.validate_input import validate_input
 
         mock_call_llm.return_value = {
             "needs_more_info": False,
@@ -246,13 +246,13 @@ class TestValidateInputNode:
         assert result["ticket"]["needs_more_info"] is False
         assert result["ticket"]["info_justification"] == "O ticket contém informações suficientes."
 
-    @patch("nodes.validate_input.load_prompt", return_value="system_prompt_mock")
-    @patch("nodes.validate_input.call_llm")
+    @patch("core.nodes.validate_input.load_prompt", return_value="system_prompt_mock")
+    @patch("core.nodes.validate_input.call_llm")
     def test_validate_input_incompleto_needs_more_info_true(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """LLM indica que o ticket está incompleto → needs_more_info=True."""
-        from nodes.validate_input import validate_input
+        from core.nodes.validate_input import validate_input
 
         mock_call_llm.return_value = {
             "needs_more_info": True,
@@ -264,13 +264,13 @@ class TestValidateInputNode:
         assert result["ticket"]["needs_more_info"] is True
         assert "patrimônio" in result["ticket"]["info_justification"]
 
-    @patch("nodes.validate_input.load_prompt", return_value="system_prompt_mock")
-    @patch("nodes.validate_input.call_llm")
+    @patch("core.nodes.validate_input.load_prompt", return_value="system_prompt_mock")
+    @patch("core.nodes.validate_input.call_llm")
     def test_validate_input_llm_retorna_vazio_usa_defaults(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Quando o LLM retorna {} o nó deve usar os valores default."""
-        from nodes.validate_input import validate_input
+        from core.nodes.validate_input import validate_input
 
         mock_call_llm.return_value = {}
 
@@ -279,13 +279,13 @@ class TestValidateInputNode:
         assert result["ticket"]["needs_more_info"] is False
         assert result["ticket"]["info_justification"] == ""
 
-    @patch("nodes.validate_input.load_prompt", return_value="system_prompt_mock")
-    @patch("nodes.validate_input.call_llm")
+    @patch("core.nodes.validate_input.load_prompt", return_value="system_prompt_mock")
+    @patch("core.nodes.validate_input.call_llm")
     def test_validate_input_preserva_outros_campos_do_ticket(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Campos pré-existentes no ticket não devem ser removidos."""
-        from nodes.validate_input import validate_input
+        from core.nodes.validate_input import validate_input
 
         mock_call_llm.return_value = {"needs_more_info": False, "info_justification": "OK"}
 
@@ -294,13 +294,13 @@ class TestValidateInputNode:
         assert result["ticket"]["id"] == "TKT-TEST-001"
         assert result["ticket"]["channel"] == "sistema de chamados"
 
-    @patch("nodes.validate_input.load_prompt", return_value="prompt")
-    @patch("nodes.validate_input.call_llm")
+    @patch("core.nodes.validate_input.load_prompt", return_value="prompt")
+    @patch("core.nodes.validate_input.call_llm")
     def test_validate_input_chama_llm_com_free_text(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """O nó deve passar o free_text do ticket para o call_llm."""
-        from nodes.validate_input import validate_input
+        from core.nodes.validate_input import validate_input
 
         mock_call_llm.return_value = {"needs_more_info": False, "info_justification": ""}
 
@@ -317,13 +317,13 @@ class TestValidateInputNode:
 class TestClassifyTypeNode:
     """Testa o nó `classify_type` que classifica categoria, serviço e nível."""
 
-    @patch("nodes.classify_type.load_prompt", return_value="system_prompt_mock")
-    @patch("nodes.classify_type.call_llm")
+    @patch("core.nodes.classify_type.load_prompt", return_value="system_prompt_mock")
+    @patch("core.nodes.classify_type.call_llm")
     def test_classify_type_retorna_campos_corretos(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """O update deve conter category, service_type, support_level, etc."""
-        from nodes.classify_type import classify_type
+        from core.nodes.classify_type import classify_type
 
         mock_call_llm.return_value = {
             "category": "Incidente",
@@ -342,13 +342,13 @@ class TestClassifyTypeNode:
         assert result["response"]["department"] == "N2 - Suporte de Campo"
         assert result["response"]["ticket_id"] == "TKT-TEST-001"
 
-    @patch("nodes.classify_type.load_prompt", return_value="prompt")
-    @patch("nodes.classify_type.call_llm")
+    @patch("core.nodes.classify_type.load_prompt", return_value="prompt")
+    @patch("core.nodes.classify_type.call_llm")
     def test_classify_type_llm_retorna_vazio_usa_defaults(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Quando o LLM retorna {} devem ser usados os valores default."""
-        from nodes.classify_type import classify_type
+        from core.nodes.classify_type import classify_type
 
         mock_call_llm.return_value = {}
 
@@ -360,13 +360,13 @@ class TestClassifyTypeNode:
         assert result["response"]["department"] == "Geral"
         assert result["response"]["category_justification"] == "Sem justificativa"
 
-    @patch("nodes.classify_type.load_prompt", return_value="prompt")
-    @patch("nodes.classify_type.call_llm")
+    @patch("core.nodes.classify_type.load_prompt", return_value="prompt")
+    @patch("core.nodes.classify_type.call_llm")
     def test_classify_type_preserva_campos_existentes_em_response(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Campos já presentes em response (ex: urgency) não devem ser apagados."""
-        from nodes.classify_type import classify_type
+        from core.nodes.classify_type import classify_type
 
         mock_call_llm.return_value = {
             "category": "Requisição",
@@ -382,13 +382,13 @@ class TestClassifyTypeNode:
         assert result["response"]["urgency"] == 3
         assert result["response"]["impact"] == 3
 
-    @patch("nodes.classify_type.load_prompt", return_value="prompt")
-    @patch("nodes.classify_type.call_llm")
+    @patch("core.nodes.classify_type.load_prompt", return_value="prompt")
+    @patch("core.nodes.classify_type.call_llm")
     def test_classify_type_chama_load_prompt_e_call_llm(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Os helpers load_prompt e call_llm devem ser chamados exatamente 1 vez."""
-        from nodes.classify_type import classify_type
+        from core.nodes.classify_type import classify_type
 
         mock_call_llm.return_value = {
             "category": "Incidente",
@@ -415,46 +415,46 @@ class TestScorePriorityNode:
 
     def test_calculate_priority_valores_iguais(self):
         """urgency==impact==3 deve resultar em prioridade 3."""
-        from nodes.score_priority import _calculate_priority
+        from core.nodes.score_priority import _calculate_priority
         assert _calculate_priority(3, 3) == 3
 
     def test_calculate_priority_maximo(self):
         """urgency=5, impact=5 → prioridade máxima (5)."""
-        from nodes.score_priority import _calculate_priority
+        from core.nodes.score_priority import _calculate_priority
         assert _calculate_priority(5, 5) == 5
 
     def test_calculate_priority_minimo(self):
         """urgency=1, impact=1 → prioridade mínima (1)."""
-        from nodes.score_priority import _calculate_priority
+        from core.nodes.score_priority import _calculate_priority
         assert _calculate_priority(1, 1) == 1
 
     def test_calculate_priority_assimetrico(self):
         """urgency=5, impact=1 → prioridade deve ser dominada pelo max=5."""
-        from nodes.score_priority import _calculate_priority
+        from core.nodes.score_priority import _calculate_priority
         result = _calculate_priority(5, 1)
         assert 1 <= result <= 5
 
     def test_calculate_priority_clamp_superior(self):
         """A função nunca retorna valor acima de PRIORITY_MAX (5)."""
-        from nodes.score_priority import _calculate_priority
+        from core.nodes.score_priority import _calculate_priority
         result = _calculate_priority(5, 5)
         assert result <= 5
 
     def test_calculate_priority_clamp_inferior(self):
         """A função nunca retorna valor abaixo de PRIORITY_MIN (1)."""
-        from nodes.score_priority import _calculate_priority
+        from core.nodes.score_priority import _calculate_priority
         result = _calculate_priority(1, 1)
         assert result >= 1
 
     # ── Testes do nó score_priority com LLM mockado ──────────────────────────
 
-    @patch("nodes.score_priority.load_prompt", return_value="prompt")
-    @patch("nodes.score_priority.call_llm")
+    @patch("core.nodes.score_priority.load_prompt", return_value="prompt")
+    @patch("core.nodes.score_priority.call_llm")
     def test_score_priority_caminho_feliz(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Fluxo normal: urgência e impacto retornados, prioridade calculada."""
-        from nodes.score_priority import score_priority
+        from core.nodes.score_priority import score_priority
 
         # call_llm é chamado 3x: urgência, impacto, justificativa
         mock_call_llm.side_effect = [
@@ -471,13 +471,13 @@ class TestScorePriorityNode:
         assert 1 <= result["response"]["resulting_priority"] <= 5
         assert result["response"]["priority_justification"] == "Alta urgência detectada."
 
-    @patch("nodes.score_priority.load_prompt", return_value="prompt")
-    @patch("nodes.score_priority.call_llm")
+    @patch("core.nodes.score_priority.load_prompt", return_value="prompt")
+    @patch("core.nodes.score_priority.call_llm")
     def test_score_priority_failsafe_quando_urgency_falha(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Falha no LLM de urgência → prioridade escalada ao máximo (5)."""
-        from nodes.score_priority import score_priority, FAILSAFE_PRIORITY, DEFAULT_SCORE
+        from core.nodes.score_priority import score_priority, FAILSAFE_PRIORITY, DEFAULT_SCORE
 
         mock_call_llm.side_effect = [
             {},            # urgência falha
@@ -490,13 +490,13 @@ class TestScorePriorityNode:
         assert result["response"]["urgency"] == DEFAULT_SCORE
         assert "llm_error" in result["response"]
 
-    @patch("nodes.score_priority.load_prompt", return_value="prompt")
-    @patch("nodes.score_priority.call_llm")
+    @patch("core.nodes.score_priority.load_prompt", return_value="prompt")
+    @patch("core.nodes.score_priority.call_llm")
     def test_score_priority_failsafe_quando_impact_falha(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Falha no LLM de impacto → prioridade escalada ao máximo (5)."""
-        from nodes.score_priority import score_priority, FAILSAFE_PRIORITY
+        from core.nodes.score_priority import score_priority, FAILSAFE_PRIORITY
 
         mock_call_llm.side_effect = [
             {"urgency": 3},
@@ -508,13 +508,13 @@ class TestScorePriorityNode:
         assert result["response"]["resulting_priority"] == FAILSAFE_PRIORITY
         assert "llm_error" in result["response"]
 
-    @patch("nodes.score_priority.load_prompt", return_value="prompt")
-    @patch("nodes.score_priority.call_llm")
+    @patch("core.nodes.score_priority.load_prompt", return_value="prompt")
+    @patch("core.nodes.score_priority.call_llm")
     def test_score_priority_justificativa_fallback(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Quando o LLM de justificativa retorna {} usa texto de fallback."""
-        from nodes.score_priority import score_priority
+        from core.nodes.score_priority import score_priority
 
         mock_call_llm.side_effect = [
             {"urgency": 2},
@@ -527,13 +527,13 @@ class TestScorePriorityNode:
         justification = result["response"]["priority_justification"]
         assert isinstance(justification, str) and len(justification) > 0
 
-    @patch("nodes.score_priority.load_prompt", return_value="prompt")
-    @patch("nodes.score_priority.call_llm")
+    @patch("core.nodes.score_priority.load_prompt", return_value="prompt")
+    @patch("core.nodes.score_priority.call_llm")
     def test_score_priority_preserva_campos_anteriores(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Campos pré-existentes em response (category, etc.) devem persistir."""
-        from nodes.score_priority import score_priority
+        from core.nodes.score_priority import score_priority
 
         mock_call_llm.side_effect = [
             {"urgency": 3},
@@ -554,14 +554,14 @@ class TestScorePriorityNode:
 class TestDraftResponseNode:
     """Testa o nó `draft_response` que gera o rascunho de resposta ao usuário."""
 
-    @patch("nodes.draft_response.load_prompt", return_value="prompt")
-    @patch("nodes.draft_response.build_few_shot", return_value="few_shot_examples")
-    @patch("nodes.draft_response.call_llm")
+    @patch("core.nodes.draft_response.load_prompt", return_value="prompt")
+    @patch("core.nodes.draft_response.build_few_shot", return_value="few_shot_examples")
+    @patch("core.nodes.draft_response.call_llm")
     def test_draft_response_retorna_response_draft(
         self, mock_call_llm, mock_few_shot, mock_load_prompt, base_state
     ):
         """O nó deve retornar a chave 'response' com 'response_draft' preenchido."""
-        from nodes.draft_response import draft_response
+        from core.nodes.draft_response import draft_response
 
         mock_call_llm.return_value = {
             "response_draft": "Olá professor, seu chamado foi registrado."
@@ -572,14 +572,14 @@ class TestDraftResponseNode:
         assert "response" in result
         assert result["response"]["response_draft"] == "Olá professor, seu chamado foi registrado."
 
-    @patch("nodes.draft_response.load_prompt", return_value="prompt")
-    @patch("nodes.draft_response.build_few_shot", return_value="")
-    @patch("nodes.draft_response.call_llm")
+    @patch("core.nodes.draft_response.load_prompt", return_value="prompt")
+    @patch("core.nodes.draft_response.build_few_shot", return_value="")
+    @patch("core.nodes.draft_response.call_llm")
     def test_draft_response_llm_vazio_retorna_string_vazia(
         self, mock_call_llm, mock_few_shot, mock_load_prompt, base_state
     ):
         """Quando o LLM retorna {} o response_draft deve ser string vazia."""
-        from nodes.draft_response import draft_response
+        from core.nodes.draft_response import draft_response
 
         mock_call_llm.return_value = {}
 
@@ -587,14 +587,14 @@ class TestDraftResponseNode:
 
         assert result["response"]["response_draft"] == ""
 
-    @patch("nodes.draft_response.load_prompt", return_value="prompt")
-    @patch("nodes.draft_response.build_few_shot", return_value="exemplos")
-    @patch("nodes.draft_response.call_llm")
+    @patch("core.nodes.draft_response.load_prompt", return_value="prompt")
+    @patch("core.nodes.draft_response.build_few_shot", return_value="exemplos")
+    @patch("core.nodes.draft_response.call_llm")
     def test_draft_response_chama_build_few_shot_com_department(
         self, mock_call_llm, mock_few_shot, mock_load_prompt, base_state
     ):
         """O nó deve usar o department do state para construir few-shot."""
-        from nodes.draft_response import draft_response
+        from core.nodes.draft_response import draft_response
 
         mock_call_llm.return_value = {"response_draft": "Resposta."}
 
@@ -602,14 +602,14 @@ class TestDraftResponseNode:
 
         mock_few_shot.assert_called_once_with("N2 - Suporte de Campo")
 
-    @patch("nodes.draft_response.load_prompt", return_value="prompt")
-    @patch("nodes.draft_response.build_few_shot", return_value="exemplos")
-    @patch("nodes.draft_response.call_llm")
+    @patch("core.nodes.draft_response.load_prompt", return_value="prompt")
+    @patch("core.nodes.draft_response.build_few_shot", return_value="exemplos")
+    @patch("core.nodes.draft_response.call_llm")
     def test_draft_response_preserva_campos_existentes_em_response(
         self, mock_call_llm, mock_few_shot, mock_load_prompt, base_state
     ):
         """Campos pré-existentes como urgency/impact devem sobreviver."""
-        from nodes.draft_response import draft_response
+        from core.nodes.draft_response import draft_response
 
         mock_call_llm.return_value = {"response_draft": "Rascunho gerado."}
 
@@ -626,13 +626,13 @@ class TestDraftResponseNode:
 class TestDraftRequestNode:
     """Testa o nó `draft_request` que gera solicitação de mais informações."""
 
-    @patch("nodes.draft_request.load_prompt", return_value="prompt")
-    @patch("nodes.draft_request.call_llm")
+    @patch("core.nodes.draft_request.load_prompt", return_value="prompt")
+    @patch("core.nodes.draft_request.call_llm")
     def test_draft_request_retorna_response_draft(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """O nó deve retornar 'response' com 'response_draft' preenchido."""
-        from nodes.draft_request import draft_request
+        from core.nodes.draft_request import draft_request
 
         mock_call_llm.return_value = {
             "response_draft": "Por favor, informe o número de patrimônio do equipamento."
@@ -643,13 +643,13 @@ class TestDraftRequestNode:
         assert "response" in result
         assert "patrimônio" in result["response"]["response_draft"]
 
-    @patch("nodes.draft_request.load_prompt", return_value="prompt")
-    @patch("nodes.draft_request.call_llm")
+    @patch("core.nodes.draft_request.load_prompt", return_value="prompt")
+    @patch("core.nodes.draft_request.call_llm")
     def test_draft_request_llm_vazio_retorna_string_vazia(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Quando o LLM retorna {} o response_draft deve ser string vazia."""
-        from nodes.draft_request import draft_request
+        from core.nodes.draft_request import draft_request
 
         mock_call_llm.return_value = {}
 
@@ -657,13 +657,13 @@ class TestDraftRequestNode:
 
         assert result["response"]["response_draft"] == ""
 
-    @patch("nodes.draft_request.load_prompt", return_value="prompt")
-    @patch("nodes.draft_request.call_llm")
+    @patch("core.nodes.draft_request.load_prompt", return_value="prompt")
+    @patch("core.nodes.draft_request.call_llm")
     def test_draft_request_passa_free_text_ao_llm(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """O free_text do ticket deve estar presente no user_prompt enviado ao LLM."""
-        from nodes.draft_request import draft_request
+        from core.nodes.draft_request import draft_request
 
         mock_call_llm.return_value = {"response_draft": "Solicito mais informações."}
 
@@ -672,13 +672,13 @@ class TestDraftRequestNode:
         user_prompt = mock_call_llm.call_args[0][1]
         assert "Meu computador não está ligando" in user_prompt
 
-    @patch("nodes.draft_request.load_prompt", return_value="prompt")
-    @patch("nodes.draft_request.call_llm")
+    @patch("core.nodes.draft_request.load_prompt", return_value="prompt")
+    @patch("core.nodes.draft_request.call_llm")
     def test_draft_request_preserva_campos_de_response(
         self, mock_call_llm, mock_load_prompt, base_state
     ):
         """Campos existentes em response não devem ser removidos."""
-        from nodes.draft_request import draft_request
+        from core.nodes.draft_request import draft_request
 
         mock_call_llm.return_value = {"response_draft": "Preciso de mais dados."}
 
@@ -695,61 +695,61 @@ class TestDraftRequestNode:
 class TestQueueOnlyNode:
     """Testa o nó `queue_only` que encaminha o ticket para fila humana."""
 
-    @patch("nodes.queue_only.open", new_callable=mock_open, read_data="[]")
-    @patch("nodes.queue_only.json.dump")
-    @patch("nodes.queue_only.json.load", return_value=[])
+    @patch("core.nodes.queue_only.open", new_callable=mock_open, read_data="[]")
+    @patch("core.nodes.queue_only.json.dump")
+    @patch("core.nodes.queue_only.json.load", return_value=[])
     def test_queue_only_retorna_response_draft_fila(
         self, mock_json_load, mock_json_dump, mock_file, base_state
     ):
         """O nó deve definir response_draft como a mensagem de fila humana."""
-        from nodes.queue_only import queue_only
+        from core.nodes.queue_only import queue_only
 
         result = queue_only(base_state)
 
         assert "response" in result
         assert "[FILA HUMANA]" in result["response"]["response_draft"]
 
-    @patch("nodes.queue_only.open", new_callable=mock_open, read_data="[]")
-    @patch("nodes.queue_only.json.dump")
-    @patch("nodes.queue_only.json.load", return_value=[])
+    @patch("core.nodes.queue_only.open", new_callable=mock_open, read_data="[]")
+    @patch("core.nodes.queue_only.json.dump")
+    @patch("core.nodes.queue_only.json.load", return_value=[])
     def test_queue_only_preserva_campos_existentes(
         self, mock_json_load, mock_json_dump, mock_file, base_state
     ):
         """Campos pré-existentes em response devem ser preservados."""
-        from nodes.queue_only import queue_only
+        from core.nodes.queue_only import queue_only
 
         result = queue_only(base_state)
 
         assert result["response"]["category"] == "Incidente"
         assert result["response"]["urgency"] == 3
 
-    @patch("nodes.queue_only.open", new_callable=mock_open)
-    @patch("nodes.queue_only.json.dump")
+    @patch("core.nodes.queue_only.open", new_callable=mock_open)
+    @patch("core.nodes.queue_only.json.dump")
     def test_queue_only_cria_fila_quando_arquivo_nao_existe(
         self, mock_json_dump, mock_file, base_state
     ):
         """Quando o arquivo da fila não existe, começa com lista vazia."""
-        from nodes.queue_only import queue_only
+        from core.nodes.queue_only import queue_only
 
         # Simula FileNotFoundError na leitura
         mock_file.side_effect = [FileNotFoundError, mock_open()()]
 
-        with patch("nodes.queue_only.json.load", side_effect=FileNotFoundError):
+        with patch("core.nodes.queue_only.json.load", side_effect=FileNotFoundError):
             # Re-patch open sem side_effect
-            with patch("nodes.queue_only.open", mock_open()) as mocked:
-                with patch("nodes.queue_only.json.dump") as mocked_dump:
+            with patch("core.nodes.queue_only.open", mock_open()) as mocked:
+                with patch("core.nodes.queue_only.json.dump") as mocked_dump:
                     result = queue_only(base_state)
 
         assert "[FILA HUMANA]" in result["response"]["response_draft"]
 
-    @patch("nodes.queue_only.open", new_callable=mock_open, read_data="[]")
-    @patch("nodes.queue_only.json.load", return_value=[{"ticket_id": "ANTIGO"}])
-    @patch("nodes.queue_only.json.dump")
+    @patch("core.nodes.queue_only.open", new_callable=mock_open, read_data="[]")
+    @patch("core.nodes.queue_only.json.load", return_value=[{"ticket_id": "ANTIGO"}])
+    @patch("core.nodes.queue_only.json.dump")
     def test_queue_only_adiciona_entrada_a_fila_existente(
         self, mock_json_dump, mock_json_load, mock_file, base_state
     ):
         """O ticket novo deve ser adicionado à fila existente (append)."""
-        from nodes.queue_only import queue_only
+        from core.nodes.queue_only import queue_only
 
         queue_only(base_state)
 
@@ -777,23 +777,23 @@ class TestEmitNode:
             "closing_message": None,
         }
 
-    @patch("nodes.emit.open", new_callable=mock_open)
-    @patch("nodes.emit.os.makedirs")
-    @patch("nodes.emit.REPORT_CSV")
-    @patch("nodes.emit.RESPONSES_DIR")
+    @patch("core.nodes.emit.open", new_callable=mock_open)
+    @patch("core.nodes.emit.os.makedirs")
+    @patch("core.nodes.emit.REPORT_CSV")
+    @patch("core.nodes.emit.RESPONSES_PATH")
     def test_emit_retorna_closing_message(
         self, mock_dir, mock_csv, mock_makedirs, mock_file,
         valid_ticket, valid_response
     ):
         """O nó deve retornar closing_message com texto padrão de encerramento."""
-        from nodes.emit import emit
+        from core.nodes.emit import emit
 
         mock_dir.__truediv__ = lambda self, other: Path(f"/tmp/{other}")
         mock_csv.is_file.return_value = False
 
         state = self._make_emit_state(valid_ticket, valid_response)
 
-        with patch("nodes.emit.csv.DictWriter") as mock_writer_cls:
+        with patch("core.nodes.emit.csv.DictWriter") as mock_writer_cls:
             mock_writer = MagicMock()
             mock_writer_cls.return_value = mock_writer
             result = emit(state)
@@ -802,46 +802,46 @@ class TestEmitNode:
         assert "AGETIC/UFMS" in result["closing_message"]
         assert "suporte.agetic@ufms.br" in result["closing_message"]
 
-    @patch("nodes.emit.open", new_callable=mock_open)
-    @patch("nodes.emit.os.makedirs")
-    @patch("nodes.emit.REPORT_CSV")
-    @patch("nodes.emit.RESPONSES_DIR")
+    @patch("core.nodes.emit.open", new_callable=mock_open)
+    @patch("core.nodes.emit.os.makedirs")
+    @patch("core.nodes.emit.REPORT_CSV")
+    @patch("core.nodes.emit.RESPONSES_PATH")
     def test_emit_retorna_response_com_ticket_id(
         self, mock_dir, mock_csv, mock_makedirs, mock_file,
         valid_ticket, valid_response
     ):
         """O response retornado deve conter o ticket_id correto."""
-        from nodes.emit import emit
+        from core.nodes.emit import emit
 
         mock_dir.__truediv__ = lambda self, other: Path(f"/tmp/{other}")
         mock_csv.is_file.return_value = False
 
         state = self._make_emit_state(valid_ticket, valid_response)
 
-        with patch("nodes.emit.csv.DictWriter") as mock_writer_cls:
+        with patch("core.nodes.emit.csv.DictWriter") as mock_writer_cls:
             mock_writer = MagicMock()
             mock_writer_cls.return_value = mock_writer
             result = emit(state)
 
         assert result["response"]["ticket_id"] == "TKT-TEST-001"
 
-    @patch("nodes.emit.open", new_callable=mock_open)
-    @patch("nodes.emit.os.makedirs")
-    @patch("nodes.emit.REPORT_CSV")
-    @patch("nodes.emit.RESPONSES_DIR")
+    @patch("core.nodes.emit.open", new_callable=mock_open)
+    @patch("core.nodes.emit.os.makedirs")
+    @patch("core.nodes.emit.REPORT_CSV")
+    @patch("core.nodes.emit.RESPONSES_PATH")
     def test_emit_retorna_campos_obrigatorios(
         self, mock_dir, mock_csv, mock_makedirs, mock_file,
         valid_ticket, valid_response
     ):
         """O response deve conter todos os campos esperados no output."""
-        from nodes.emit import emit
+        from core.nodes.emit import emit
 
         mock_dir.__truediv__ = lambda self, other: Path(f"/tmp/{other}")
         mock_csv.is_file.return_value = False
 
         state = self._make_emit_state(valid_ticket, valid_response)
 
-        with patch("nodes.emit.csv.DictWriter") as mock_writer_cls:
+        with patch("core.nodes.emit.csv.DictWriter") as mock_writer_cls:
             mock_writer = MagicMock()
             mock_writer_cls.return_value = mock_writer
             result = emit(state)
@@ -855,23 +855,23 @@ class TestEmitNode:
         for key in expected_keys:
             assert key in result["response"], f"Chave '{key}' ausente no response"
 
-    @patch("nodes.emit.open", new_callable=mock_open)
-    @patch("nodes.emit.os.makedirs")
-    @patch("nodes.emit.REPORT_CSV")
-    @patch("nodes.emit.RESPONSES_DIR")
+    @patch("core.nodes.emit.open", new_callable=mock_open)
+    @patch("core.nodes.emit.os.makedirs")
+    @patch("core.nodes.emit.REPORT_CSV")
+    @patch("core.nodes.emit.RESPONSES_PATH")
     def test_emit_chama_makedirs(
         self, mock_dir, mock_csv, mock_makedirs, mock_file,
         valid_ticket, valid_response
     ):
         """O nó deve garantir que o diretório de respostas exista."""
-        from nodes.emit import emit
+        from core.nodes.emit import emit
 
         mock_dir.__truediv__ = lambda self, other: Path(f"/tmp/{other}")
         mock_csv.is_file.return_value = False
 
         state = self._make_emit_state(valid_ticket, valid_response)
 
-        with patch("nodes.emit.csv.DictWriter") as mock_writer_cls:
+        with patch("core.nodes.emit.csv.DictWriter") as mock_writer_cls:
             mock_writer = MagicMock()
             mock_writer_cls.return_value = mock_writer
             emit(state)
