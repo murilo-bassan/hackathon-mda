@@ -8,6 +8,7 @@ Priority Mapping:
 2 = Média
 3 = Alta
 4 = Crítica
+5 = Imediata
 
 CRITICAL RULES FOR THE JUSTIFICATION:
 - Write strictly in Brazilian Portuguese (PT-BR).

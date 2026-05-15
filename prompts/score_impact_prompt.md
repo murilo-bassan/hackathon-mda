@@ -13,6 +13,8 @@ CRITICAL RULES:
 - Physical hardware issues for a single person (e.g., broken cable, broken mouse) MUST be Impact 1.
 - Do NOT assume missing information.
 - Output ONLY valid JSON. No markdown, no extra text.
+- The value MUST be an integer between 1 and 5.
+- Never output values outside the 1-5 scale.
 
 Format:
 {

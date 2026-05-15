@@ -12,6 +12,8 @@ CRITICAL RULES:
 - Active security threats (hackers, phishing, malware) or physical dangers MUST be Urgency 5 to prevent spread.
 - If the user has a workaround or the deadline is far, Urgency is 1 or 2.
 - Output ONLY valid JSON. No markdown, no extra text.
+- The value MUST be an integer between 1 and 5.
+- Never output values outside the 1-5 scale.
 
 Format:
 {
