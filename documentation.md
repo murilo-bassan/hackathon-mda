@@ -57,48 +57,54 @@ O sistema expõe **duas interfaces**:
 Entrada (ticket JSON)
         │
         ▼
-  ┌──────────┐
-  │  ingest  │  ← Valida schema Pydantic e normaliza o ticket
-  └────┬─────┘
-       │ conditional edge (validation_response)
-       ├─── [validation_status] ──────────────────────────────────────┐
-       │                                                      │
-       ▼                                                      │
-┌───────────────┐                                            │
-│ validate_input│  ← LLM avalia se o texto tem informação    │
-└──────┬────────┘    suficiente para ser processado          │
-       │ conditional edge (decide_content)                   │
-       ├─── [needs_more_info] ──────────────────────────┐    │
-       │                                                 │    │
-       ▼                                                 │    │
-┌───────────────┐                                        │    │
-│ classify_type │  ← LLM classifica categoria, serviço,  │    │
-└──────┬────────┘    nível e departamento               │    │
-       │                                                 │    │
-       ▼                                                 │    │
-┌───────────────┐                                        │    │
-│score_priority │  ← Urgência e Impacto em paralelo      │    │
-└──────┬────────┘    + prioridade determinística         │    │
-       │ conditional edge (decide_response)              │    │
-       ├─── [prioridade ≤ 3 e requisição ou prioridade ≤ 2 e incidente] ──┐                  │    │
-       │                               │                  │    │
-       ▼                               ▼                  ▼    ▼
-┌────────────┐              ┌──────────────┐   ┌──────────────────┐
-│ queue_only │              │draft_response│   │  draft_request   │
-│            │              │              │   │                  │
-│ Alta prioridade  │              │ Gera rascunho│   │ Pede mais infos  │
-│ → humano   │              │ de resposta  │   │ ao usuário       │
-└─────┬──────┘              └──────┬───────┘   └────────┬─────────┘
-      │                            │                    │
-      └────────────────────────────┴────────────────────┘
-                                   │
-                                   ▼
-                             ┌──────────┐
-                             │   emit   │  ← Salva JSON, atualiza CSV
-                             └────┬─────┘
-                                  │
-                                  ▼
-                               [ END ]
+  ┌───────────┐
+  │  ingest   │ ← Valida schema Pydantic e normaliza o ticket
+  └─────┬─────┘
+        │
+        │ conditional edge (validation_response)
+        │
+        ├─── [validation_status == False] ─────────────────────────────────────────────────┐
+        │                                                                                  │
+        ▼ [True]                                                                           │
+ ┌──────────────┐                                                                          │
+ │validate_input│ ← LLM avalia se o texto tem informação                                   │
+ └──────┬───────┘   suficiente para ser processado                                         │
+        │                                                                                  │
+        │ conditional edge (decide_content)                                                │
+        │                                                                                  │
+        ├─── [needs_more_info == False] ──────────────────────────────┐                    │
+        │                                                             │                    │
+        ▼ [True]                                                      │                    │
+ ┌───────────────┐                                                    │                    │
+ │ classify_type │ ← LLM classifica categoria, serviço,               │                    │
+ └──────┬────────┘   nível e departamento                             │                    │
+        │                                                             │                    │
+        ▼                                                             │                    │
+ ┌───────────────┐                                                    │                    │
+ │score_priority │ ← Urgência e Impacto em paralelo                   │                    │
+ └──────┬────────┘   + prioridade determinística                      │                    │
+        │                                                             │                    │
+        │ conditional edge (decide_response)                          │                    │
+        │                                                             │                    │
+        ├─── [(Prio ≤ 3 & Req) ou (Prio ≤ 2 & Incidente)] ──┐         │                    │       
+        │                                                   │         │                    │
+        ▼ [Outros casos]                                    ▼         ▼                    │
+┌─────────────────┐                              ┌────────────────┐ ┌────────────────┐     │
+│   queue_only    │                              │ draft_response │ │ draft_request  │     │
+│                 │                              │                │ │                │     │
+│ Alta prioridade │                              │ Gera rascunho  │ │ Pede mais infos│     │
+│ → humano        │                              │ de resposta    │ │ ao usuário     │     │
+└───────┬─────────┘                              └────────┬───────┘ └───────┬────────┘     |
+        │                                                 │                 │              |
+        └─────────────────────────────────────────────────┴─────────────────┴──────────────┘
+                                        │
+                                        ▼
+                                  ┌──────────┐
+                                  │   emit   │ ← Salva JSON, atualiza CSV
+                                  └────┬─────┘
+                                       │
+                                       ▼
+                                    [ END ]
 ```
 
 ---
@@ -216,14 +222,14 @@ Nó terminal do pipeline. Consolida o estado final e:
 
 ```
 hackathon-mda/
-├── app.py                    # Interface web Streamlit
-├── main.py                   # Execução em batch (CLI)
-├── graph_builder.py          # Definição e compilação do grafo LangGraph
-├── accuracy.py               # Cálculo de métricas de acurácia
+├── app.py                           # Interface web Streamlit
+├── main.py                          # Execução em batch (CLI)
+├── graph_builder.py                 # Definição e compilação do grafo LangGraph
+├── accuracy.py                      # Cálculo de métricas de acurácia
 ├── requirements.txt
-├── .env.example              # Template de variáveis de ambiente
+├── .env.example                     # Template de variáveis de ambiente
 │
-├── nodes/                    # Nós do grafo (um arquivo por nó)
+├── nodes/                           # Nós do grafo (um arquivo por nó)
 │   ├── ingest.py
 │   ├── validate_input.py
 │   ├── classify_type.py
@@ -233,12 +239,12 @@ hackathon-mda/
 │   ├── queue_only.py
 │   └── emit.py
 │
-├── state/                    # Tipagem do estado do LangGraph
-│   ├── state.py              # State (TypedDict principal)
-│   ├── ticket.py             # Tipo Ticket
-│   └── response.py           # Tipo Response
+├── state/                           # Tipagem do estado do LangGraph
+│   ├── state.py                     # State (TypedDict principal)
+│   ├── ticket.py                    # Tipo Ticket
+│   └── response.py                  # Tipo Response
 │
-├── prompts/                  # System prompts dos nós LLM (Markdown)
+├── prompts/                         # System prompts dos nós LLM (Markdown)
 │   ├── classify_type_prompt.md
 │   ├── validate_input_prompt.md
 │   ├── draft_response_prompt.md
@@ -247,29 +253,29 @@ hackathon-mda/
 │   ├── score_impact_prompt.md
 │   └── justify_priority_prompt.md
 │
-├── utilities/                # Funções auxiliares
-│   ├── config.py             # Caminhos centralizados (Path)
-│   ├── utils.py              # call_llm() — cliente OpenRouter
-│   ├── decide_content.py     # Edge: validate_input → próximo nó
-│   ├── decide_response.py    # Edge: score_priority → próximo nó
-│   ├── validation_response.py# Edge: ingest → próximo nó
-│   ├── build_few_shot.py     # Monta exemplos few-shot por departamento
-│   ├── ingest_ticket.py      # Modelo Pydantic IngestTicket
-│   ├── load_tickets.py       # Carrega dataset JSON
-│   ├── process_ticket.py     # Processa um ticket individualmente
-│   ├── prompt_loader.py      # Lê arquivos .md de prompts
-│   ├── save_graph_visualization.py # Gera graph.png
-│   └── logger_config.py      # Configuração do logger
+├── utilities/                       # Funções auxiliares
+│   ├── config.py                    # Caminhos centralizados (Path)
+│   ├── utils.py                     # call_llm() — cliente OpenRouter
+│   ├── decide_content.py            # Edge: validate_input → próximo nó
+│   ├── decide_response.py           # Edge: score_priority → próximo nó
+│   ├── validation_response.py       # Edge: ingest → próximo nó
+│   ├── build_few_shot.py            # Monta exemplos few-shot por departamento
+│   ├── ingest_ticket.py             # Modelo Pydantic IngestTicket
+│   ├── load_tickets.py              # Carrega dataset JSON
+│   ├── process_ticket.py            # Processa um ticket individualmente
+│   ├── prompt_loader.py             # Lê arquivos .md de prompts
+│   ├── save_graph_visualization.py  # Gera graph.png
+│   └── logger_config.py             # Configuração do logger
 │
 ├── data/
-│   ├── data.json             # Dataset de chamados (ground truth)
-│   └── human_queue.json      # Fila de chamados para humanos (gerado)
+│   ├── data.json                    # Dataset de chamados (ground truth)
+│   └── human_queue.json             # Fila de chamados para humanos (gerado)
 │
-├── responses_json/           # JSONs individuais por ticket (gerado)
+├── responses_json/                  # JSONs individuais por ticket (gerado)
 ├── logs/
-│   └── execucao.log          # Log de execução (gerado)
-├── report.csv                # Relatório consolidado (gerado)
-└── graph.png                 # Visualização do grafo (gerado)
+│   └── execucao.log                 # Log de execução (gerado)
+├── report.csv                       # Relatório consolidado (gerado)
+└── graph.png                        # Visualização do grafo (gerado)
 ```
 
 ---
@@ -444,26 +450,30 @@ pytest tests/ -v --cov=nodes --cov=utilities --cov-report=term-missing
 ## Fluxo de Decisão — Resumo Visual
 
 ```
-ticket recebido
-      │
-      ▼
- schema válido? ──── NÃO ──→ emit (erro de validação)
-      │ SIM
-      ▼
- texto suficiente? ── NÃO ─→ draft_request → emit
-      │ SIM
-      ▼
- classificar tipo
-      │
-      ▼
- calcular urgência + impacto (paralelo) → prioridade
-      │
- prioridade ≤ 3
- e categoria = "Requisição" ou prioridade ≤ 2
- e categoria = "Incidente"? ── SIM ──→ draft_response → emit
-      │ NÃO
-      ▼
- queue_only → emit (fila humana)
+          ticket recebido
+                 │
+                 ▼
+          schema válido? ────────── NÃO ──→ emit (erro de validação)
+                 │
+                 ▼ SIM
+         texto suficiente? ──────── NÃO ──→ draft_request → emit
+                 │
+                 ▼ SIM
+          classificar tipo
+                 │
+                 ▼
+ calcular urgência + impacto (paralelo)
+           → prioridade
+                 │
+                 ▼
+prioridade ≤ 3 e categoria = "Requisição"
+                 OU
+prioridade ≤ 2 e categoria = "Incidente"?
+                 │
+                 ├── SIM ──→ draft_response → emit
+                 │
+                 ▼ NÃO
+            queue_only → emit (fila humana)
 ```
 
 ---
