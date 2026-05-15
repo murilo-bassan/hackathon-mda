@@ -1,6 +1,16 @@
 from langgraph.graph import END, START, StateGraph
+from core.nodes_35.classify_criticality import classify_criticality
+from core.nodes_35.draft_alert import draft_alert
+from core.nodes_35.emit_incident import emit_incident
+from core.nodes_35.ingest_incident import ingest_incident
+from core.nodes_35.lookup_owner import lookup_owner
+from core.nodes_35.recommend_containment import recommend_containment
+from core.nodes_35.request_report import request_report
+from core.nodes_general.classify_input import classify_input
+from core.nodes_general.normalize_input import normalize_input
 from state.state import State
 from nodes.ingest import ingest
+from utilities.decide_input import decide_input
 from utilities.decide_content import decide_content
 from utilities.validation_response import validation_response
 from core.nodes.validate_input import validate_input
