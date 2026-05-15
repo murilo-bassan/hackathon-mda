@@ -1,9 +1,9 @@
 from typing import Optional, TypedDict, Annotated
 
-from ticket import Ticket
-from response import Response
-from incident import Incident
-from email import Email
+from .ticket import Ticket
+from .response import Response
+from .incident import Incident
+from .email import Email
 
 """
 def merge_response(current: dict, update: dict) -> dict:
