@@ -82,8 +82,7 @@ def run_accuracy() -> None:
             category_hits += 1
 
         #priority
-        predicted_priority = str(response.get("resulting_priority", "")).strip()
-
+        predicted_priority = response.get("resulting_priority", 0)
         expected_priority = expected_ticket.get("resulting_priority",0)
 
         if predicted_priority == expected_priority:
