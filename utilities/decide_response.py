@@ -1,20 +1,22 @@
-# Decide, após o nó `ingest`, se o chamado vai para draft_response ou direto para emit 
 from state.state import State
-import unicodedata
-
-def normalize_str(s: str) -> str:
-    s = unicodedata.normalize("NFKD", s)
-    return s.encode("ascii", "ignore").decode().lower().strip()
+from utilities.normalize import normalize_str
 
 
-def decide_response(state: State) -> str:
-    """
-    Retorna o nome do próximo nó com base nas regras de negócio.
-    """
+def decide_response_from_state(state: State) -> str:
     partial = state.get("response", {})
-    prioridade = partial.get("resulting_priority", 99)
-    categoria  = partial.get("category", "").strip().lower()
 
-    if (prioridade <= 3 and normalize_str(categoria) == "requisicao") or (prioridade <= 2 and normalize_str(categoria) == "incidente") :
+    priority = partial.get("resulting_priority", 99)
+    category = partial.get("category", "")
+
+    return decide_response(priority, category)
+
+
+def decide_response(priority: int, category: str) -> str:
+    if (
+        (priority <= 3 and normalize_str(category) == "requisicao")
+        or
+        (priority <= 2 and normalize_str(category) == "incidente")
+    ):
         return "draft_response"
+
     return "queue_only"

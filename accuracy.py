@@ -1,32 +1,8 @@
 from datetime import datetime, timezone
 import json
-import unicodedata
 from utilities.config import DATA_PATH, RESPONSES_DIR
-
-def normalize_str(s: str) -> str:
-    """Remove acentos, converte para minúsculas e strip."""
-    s = unicodedata.normalize("NFKD", s)
-    return s.encode("ascii", "ignore").decode().lower().strip()
-
-
-PRIORITY_MAP = {
-    "baixa":   "1",
-    "média":   "2",
-    "media":   "2",
-    "alta":    "3",
-    "crítica": "4",
-    "critica": "4",
-}
-
-
-def decide_route(response: dict) -> str:
-
-    prioridade = response.get("resulting_priority", 99)
-    categoria  = normalize_str(response.get("category") or "")
-
-    if prioridade <= 2 and categoria == "requisicao":
-        return "draft_response"
-    return "queue_only"
+from utilities.normalize import normalize_str
+from utilities.decide_response import decide_response
 
 def run_accuracy() -> None:
     with open(DATA_PATH, "r", encoding="utf-8") as f:
@@ -72,7 +48,7 @@ def run_accuracy() -> None:
         processed_total += 1
 
 
-        next_route = decide_route(response)
+        next_route = decide_response(response)
 
         if next_route == "draft_response":
             resolved_by_llm += 1
@@ -104,15 +80,14 @@ def run_accuracy() -> None:
         #priority
         predicted_priority = str(response.get("resulting_priority", "")).strip()
 
-        expected_priority_raw = normalize_str(expected_ticket.get("priority") or "")
-        expected_priority     = PRIORITY_MAP.get(expected_priority_raw, expected_priority_raw)
+        expected_priority = expected_ticket.get("resulting_priority",0)
 
         if predicted_priority == expected_priority:
             priority_hits += 1
 
         #departament
         predicted_department = normalize_str(response.get("department") or "")
-        expected_department  = normalize_str(expected_ticket.get("suggested_sector") or "")
+        expected_department  = normalize_str(expected_ticket.get("department") or "")
 
         # Aceita match parcial (ex: "n2 - suporte de campo" in "n2 - suporte de campo e field")
         if expected_department and expected_department in predicted_department:
@@ -156,3 +131,5 @@ def run_accuracy() -> None:
     print(f"Taxa de automação:      {automation_rate:.2f}%")
 
     print("\n" + "=" * 60)
+
+    

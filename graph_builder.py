@@ -7,7 +7,7 @@ from nodes.validate_input import validate_input
 from nodes.draft_request import draft_request
 from nodes.classify_type import classify_type
 from nodes.score_priority import score_priority
-from utilities.decide_response import decide_response
+from utilities.decide_response import decide_response_from_state
 from nodes.draft_response import draft_response
 from nodes.emit import emit
 from nodes.queue_only import queue_only
@@ -45,7 +45,7 @@ def build_graph():
     # Aresta condicional: após score_priority, decide o próximo nó
     builder.add_conditional_edges(
         "score_priority",
-        decide_response,
+        decide_response_from_state,
         {
             "draft_response": "draft_response",
             "queue_only": "queue_only",
