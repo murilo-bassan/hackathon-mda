@@ -1,25 +1,6 @@
-from typing import Optional, TypedDict, Annotated
-
-from .ticket import Ticket
-from .response import Response
-from .incident import Incident
-from .email import Email
-
-"""
-def merge_response(current: dict, update: dict) -> dict:
-    return {**(current or {}), **(update or {})}
-"""
+from typing import TypedDict, Literal
 
 class State(TypedDict):
-    # 1. PERMANENTES — existem do início ao fim
-    input_text: str
-    input_type: str
-    # Processo 3.1
-    ticket: Optional[Ticket]
-    closing_message: Optional[str]
-    response: Optional[Response]
-    #response: Annotated[Response, merge_response]
-
-    # Processo 3.5
-    incident: Optional[Incident]
-    email: Optional[Email]
+    raw_input: dict
+    input_type: Literal["request", "incident"]
+    result: dict
