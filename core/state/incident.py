@@ -3,7 +3,7 @@ from typing import TypedDict
 class Incident(TypedDict):
     id: str
     timestamp: str
-    report_text: str
+    free_text: str
     category: str
     category_justification: str
     critical: bool
