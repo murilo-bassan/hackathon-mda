@@ -10,7 +10,7 @@ def classify_criticality(state: State) -> dict:
     incident = state.get("incident", {})
 
     text = incident.get(
-        "normalized_text",
+        "free_text",
         ""
     )
     system_prompt = load_prompt(CLASSIFY_CRITICALITY_PROMPT_PATH)
