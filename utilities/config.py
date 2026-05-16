@@ -19,3 +19,5 @@ SCORE_URGENCY_PROMPT_PATH    = PROMPTS_PATH / "score_urgency_prompt.md"
 JUSTIFY_PRIORITY_PROMPT_PATH = PROMPTS_PATH / "justify_priority_prompt.md"
 VALIDATE_INPUT_PROMPT_PATH   = PROMPTS_PATH / "validate_input_prompt.md"
 DRAFT_REQUEST_PROMPT_PATH    = PROMPTS_PATH / "draft_request_prompt.md"
+
+CLASSIFY_INPUT_PROMPT_PATH   = PROMPTS_PATH / "classify_input_prompt.md"
