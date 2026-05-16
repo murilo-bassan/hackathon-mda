@@ -15,11 +15,11 @@ class State(TypedDict):
     input: str
     
     # Processo 3.1
-    ticket: Ticket
+    ticket: Optional[Ticket]
     closing_message: Optional[str]
-    response: Response
+    response: Optional[Response]
     #response: Annotated[Response, merge_response]
 
     # Processo 3.5
-    incident: Incident
-    email: Email
+    incident: Optional[Incident]
+    email: Optional[Email]
