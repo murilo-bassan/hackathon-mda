@@ -21,3 +21,4 @@ VALIDATE_INPUT_PROMPT_PATH   = PROMPTS_PATH / "validate_input_prompt.md"
 DRAFT_REQUEST_PROMPT_PATH    = PROMPTS_PATH / "draft_request_prompt.md"
 
 CLASSIFY_INPUT_PROMPT_PATH   = PROMPTS_PATH / "classify_input_prompt.md"
+CLASSIFY_CRITICALITY_PROMPT_PATH = PROMPTS_PATH / "classify_criticality_prompt.md"
