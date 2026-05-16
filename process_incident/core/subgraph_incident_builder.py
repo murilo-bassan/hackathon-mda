@@ -10,6 +10,8 @@ from process_incident.core.nodes.lookup_owner import lookup_owner
 from process_incident.core.nodes.recommend_containment import recommend_containment
 from process_incident.core.nodes.request_report import request_report
 
+from process_incident.utilities.incident_validation import incident_validation
+
 
 def build_incident_subgraph():
 
@@ -26,7 +28,16 @@ def build_incident_subgraph():
 
     #fluxo 3.5
     builder.add_edge(START, "ingest_incident")
-    builder.add_edge("ingest_incident", "classify_criticality")
+
+    builder.add_conditional_edges(
+        "ingest_incident",
+        incident_validation,
+        {
+            "classify_criticality": "classify_criticality",
+            "emit_incident": "emit_incident",
+        }
+    )
+
     builder.add_edge("classify_criticality", "lookup_owner")
     builder.add_edge("lookup_owner", "recommend_containment")
     builder.add_edge("recommend_containment", "draft_alert")
