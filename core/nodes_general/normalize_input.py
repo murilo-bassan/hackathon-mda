@@ -6,13 +6,8 @@ def normalize_input(state: State) -> dict:
     Normaliza texto para processamento pela IA.
     """
 
-    ticket = dict(state.get("ticket", {}))
+    raw_input_text = state.get("input_text", "")
 
-    raw_text = ticket.get("free_text", "")
+    normalized_input_text = normalize_text(raw_input_text)
 
-    normalized_text = normalize_text(raw_text)
-
-    ticket["raw_text"] = raw_text
-    ticket["normalized_text"] = normalized_text
-
-    return {"ticket": ticket}
+    return {"input_text": normalized_input_text}

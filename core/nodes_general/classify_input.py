@@ -4,10 +4,7 @@ from utilities.prompt_loader import load_prompt
 from utilities.config import CLASSIFY_INPUT_PROMPT_PATH
 
 def classify_input(state: State) -> dict:
-
-    ticket = state.get("ticket", {})
-
-    text = ticket.get("normalized_text", "")
+    text = state.get("input_text", "")
 
     system_prompt = load_prompt(
         CLASSIFY_INPUT_PROMPT_PATH
@@ -24,4 +21,5 @@ def classify_input(state: State) -> dict:
         temperature=0
     )
     
-    return {"input_type": response.get("input_type"), "input_justification": response.get("justification")}
+    return {
+        "input_type": response.get("input_type"), "input_justification": response.get("justification")}
