@@ -109,6 +109,7 @@ def build_graph():
     builder.add_edge("recommend_containment", "draft_alert")
     builder.add_edge("draft_alert", "request_report")
     builder.add_edge("request_report", "emit_incident")
+    builder.add_edge("emit_incident", END)
 
 
     return builder.compile()
