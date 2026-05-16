@@ -1,0 +1,62 @@
+[
+  {
+    "system": "Passaporte UFMS",
+    "aliases": ["passaporte", "sso", "login único", "autenticação", "senha institucional"],
+    "responsible_person": "Fernanda Lima",
+    "contact_info": "fernanda.lima@agetic.ufms.br | (67) 3345-7215"
+  },
+  {
+    "system": "VPN",
+    "aliases": ["vpn", "acesso remoto", "rede privada", "tunnel"],
+    "responsible_person": "Rafael Sousa",
+    "contact_info": "rafael.sousa@agetic.ufms.br | (67) 3345-7220"
+  },
+  {
+    "system": "E-mail Institucional",
+    "aliases": ["e-mail", "email", "correio", "outlook", "webmail", "mensagem"],
+    "responsible_person": "Ana Paula Ramos",
+    "contact_info": "ana.ramos@agetic.ufms.br | (67) 3345-7225"
+  },
+  {
+    "system": "Firewall",
+    "aliases": ["firewall", "bloqueio de rede", "filtro de tráfego", "acesso bloqueado"],
+    "responsible_person": "Thiago Nunes",
+    "contact_info": "thiago.nunes@agetic.ufms.br | (67) 3345-7230"
+  },
+  {
+    "system": "SEI",
+    "aliases": ["sei", "processo eletrônico", "documento digital", "protocolo"],
+    "responsible_person": "Mariana Costa",
+    "contact_info": "mariana.costa@agetic.ufms.br | (67) 3345-7235"
+  },
+  {
+    "system": "Siscad",
+    "aliases": ["siscad", "cadastro", "sistema de cadastro"],
+    "responsible_person": "Murilo Bassan",
+    "contact_info": "murilo.bassan@agetic.ufms.br | (67) 3345-7240"
+  },
+  {
+    "system": "Rede Wi-Fi",
+    "aliases": ["wi-fi", "wifi", "wireless", "rede sem fio", "internet sem fio", "eduroam"],
+    "responsible_person": "Paola Campos",
+    "contact_info": "paola.campos@agetic.ufms.br | (67) 3345-7245"
+  },
+  {
+    "system": "Servidores",
+    "aliases": ["servidor", "hospedagem", "data center", "infraestrutura", "vm", "máquina virtual"],
+    "responsible_person": "wellington cintra",
+    "contact_info": "wellington.cintra@agetic.ufms.br | (67) 3345-7250"
+  },
+  {
+    "system": "AVA UFMS",
+    "aliases": ["ava", "ambiente virtual de aprendizagem", "sistema de ensino", "plataforma de cursos"],
+    "responsible_person": "Davi Gaborim",
+    "contact_info": "davi.gaborim@agetic.ufms.br | (67) 3345-7255"
+  },
+  {
+    "system": "Desconhecido",
+    "aliases": [],
+    "responsible_person": "ETIR - Equipe de Tratamento e Resposta a Incidentes",
+    "contact_info": "etir@agetic.ufms.br | (67) 3345-7200"
+  }
+]
