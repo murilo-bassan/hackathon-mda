@@ -14,4 +14,4 @@ class Incident(TypedDict):
     contact_info: str
     alert_draft: str
     report_template: str
-    #structured_log_: str
+    validation_status: bool
