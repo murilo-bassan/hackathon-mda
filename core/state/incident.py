@@ -7,6 +7,7 @@ class Incident(TypedDict):
     category: str
     category_justification: str
     critical: bool
+    critical_justification: str
     scope: str
     affected_systems: str
     responsible_person: str
