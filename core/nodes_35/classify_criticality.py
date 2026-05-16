@@ -22,5 +22,9 @@ def classify_criticality(state: State) -> dict:
     )
     incident["critical"] = response.get("critical", False)
     incident["critical_justification"] = response.get("justification", "")
+    incident["category"] = response.get("category", "Indefinida")
+    incident["category_justification"] = response.get("category_justification","")
+    incident["scope"] = response.get("scope", "Indefinido")
+    incident["affected_systems"] = response.get("affected_systems", "indefinido")
 
     return {"incident": incident}
