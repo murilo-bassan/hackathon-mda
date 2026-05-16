@@ -12,7 +12,7 @@ def merge_response(current: dict, update: dict) -> dict:
 
 class State(TypedDict):
     # 1. PERMANENTES — existem do início ao fim
-    input: str
+    input_text: str
     
     # Processo 3.1
     ticket: Optional[Ticket]
