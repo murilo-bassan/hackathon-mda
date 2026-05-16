@@ -10,7 +10,7 @@ class IncidentTicket(BaseModel):
         description="Data e hora do chamado"
     )
     
-    report_text: str = Field(
+    free_text: str = Field(
         min_length=2, 
         description="Texto digitado pelo usuário"
     )
