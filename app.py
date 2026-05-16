@@ -4,9 +4,9 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from core.graph_builder import graph
-from utilities.config import DATA_PATH
-from utilities.logger_config import setup_logger
+from general_process.core.graph_builder import graph
+from process_request.utilities.config import DATA_PATH
+from general_process.utilities.logger_config import setup_logger
 from datetime import datetime
 
 logger = setup_logger(__name__)

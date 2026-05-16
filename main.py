@@ -1,7 +1,7 @@
-from utilities.load_tickets import load_tickets
-from utilities.save_graph_visualization import save_graph_visualization
-from utilities.process_ticket import process_ticket
-from utilities.accuracy import run_accuracy
+from general_process.utilities.save_graph_visualization import save_graph_visualization
+from process_request.utilities.load_tickets import load_tickets
+from process_request.utilities.process_ticket import process_ticket
+from process_request.utilities.accuracy import run_accuracy
 
 def main() -> None:
 

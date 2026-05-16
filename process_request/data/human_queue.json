@@ -1,0 +1,83 @@
+[
+  {
+    "timestamp": "2026-05-14T10:27:20.761849",
+    "ticket_id": "TKT-UFMS-002",
+    "free_text": "o projetor da sala 104 do pantanal não liga e os alunos já estão aqui. ajuda urgente!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-14T10:28:57.634639",
+    "ticket_id": "TKT-UFMS-010",
+    "free_text": "preciso assinar o termo do passaporte mas a pagina do sistema fica totalmente em branco qnd eu logo.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-14T10:33:01.915172",
+    "ticket_id": "TKT-MANUAL-001",
+    "free_text": "olá!! não estou conseguindo acessar o app da uf, ajuda pfvvvvvvvvvv",
+    "category": "Requisição",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-14T10:37:29.897385",
+    "ticket_id": "TKT-MANUAL-001",
+    "free_text": "boa tarde, tudo bem?",
+    "category": "Incidente",
+    "priority": 1,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-14T10:41:11.892232",
+    "ticket_id": "TKT-MANUAL-001",
+    "free_text": "boa tarde, tudo bem? eu sou a paola, estou com um problema",
+    "category": "Incidente",
+    "priority": 1,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-14T13:56:57.867026",
+    "ticket_id": "TKT-UFMS-194",
+    "free_text": "ninguém no andar térreo da reitoria consegue acessar a rede ufms-adm. olhei no quartinho de rede e o aparelho cheio de luzes fica apagando e acendendo sem parar.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-14T14:03:56.707243",
+    "ticket_id": "TKT-MANUAL-001",
+    "free_text": "estou faminto!",
+    "category": "Indefinida",
+    "priority": 5,
+    "department": "Geral",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-15T16:16:35.638490",
+    "ticket_id": "TKT-2026-0021",
+    "free_text": "O computador da coordenação está extremamente lento e abrindo janelas de propaganda sozinho.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-15T19:17:10.457841",
+    "ticket_id": "TKT-2026-0021",
+    "free_text": "O computador da coordenação está extremamente lento e abrindo janelas de propaganda sozinho.",
+    "category": "Indefinida",
+    "priority": 3,
+    "department": "Geral",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  }
+]
