@@ -17,4 +17,10 @@ def find_owner(affected_systems: str, inventory: list[dict]) -> dict:
             if match_term(alias, text_lower):
                 return entry
 
-    return inventory[-1]
+    return next(
+        (e for e in inventory if e["system"].lower() == "desconhecido"),
+        {
+            "responsible_person": "ETIR", 
+            "contact_info": "etir@agetic.ufms.br"
+        } # default info
+    )
