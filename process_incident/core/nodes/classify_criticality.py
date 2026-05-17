@@ -7,7 +7,7 @@ def classify_criticality(state: State) -> dict:
     """
     Classifica criticidade do incidente via LLM.
     """
-    incident = state.get("incident", {})
+    incident = dict(state.get("incident", {}))
 
     text = incident.get(
         "free_text",
