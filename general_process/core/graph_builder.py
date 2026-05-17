@@ -1,5 +1,6 @@
 from langgraph.graph import END, START, StateGraph
 
+from general_process.core.nodes.prepare_incident import prepare_incident
 from general_process.core.nodes.classify_input import classify_input
 from general_process.core.nodes.normalize_input import normalize_input
 from general_process.core.state.state import State
@@ -12,6 +13,7 @@ def build_graph():
 
     request_subgraph = build_request_subgraph()
     incident_subgraph = build_incident_subgraph()
+    builder.add_node("prepare_incident", prepare_incident) 
 
     builder = StateGraph(State)
 
@@ -32,11 +34,12 @@ def build_graph():
         decide_input,
         {
             "request": "request_workflow",
-            "incident": "incident_workflow",
+            "incident": "prepare_incident",
         }
     )
 
     builder.add_edge("request_workflow", END)
+    builder.add_edge("prepare_incident", "incident_workflow")
     builder.add_edge("incident_workflow", END)
 
     return builder.compile()
