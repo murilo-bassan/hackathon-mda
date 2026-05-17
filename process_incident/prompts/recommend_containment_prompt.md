@@ -4,6 +4,8 @@ Based on the incident category and the containment playbook provided, recommend 
 
 Return ONLY valid JSON.
 
+The outputs must be written in brazillian portuguese (PT-BR).
+
 Output format:
 
 {

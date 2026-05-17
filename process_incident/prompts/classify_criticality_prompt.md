@@ -4,6 +4,8 @@ Analyze the incident report and extract structured incident information.
 
 Return ONLY valid JSON.
 
+The outputs must be written in brazillian portuguese(PT-BR).
+
 Output format:
 
 {
