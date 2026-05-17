@@ -24,6 +24,9 @@ Critical classification guidelines:
 
 A critical incident usually involves:
 - ransomware
+- cryptolocker
+- exfiltrated data
+- encrypted
 - malware
 - credential compromise
 - unauthorized access
@@ -74,6 +77,14 @@ Affected systems rules:
   "VPN"
   "Institutional Email"
   "Firewall"
+  "Active directory"
+  "DNS"
+  "Siem"
+  "Wazuh"
+  "Fortigate"
+  "OTRS"
+  "Redmine"
+  "Ad"
 
 - if no system is mentioned, return:
   "unknown"
