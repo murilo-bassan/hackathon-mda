@@ -727,5 +727,41 @@
     "priority": 4,
     "department": "N3 - Infraestrutura e Redes",
     "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-17T12:07:07.601660",
+    "ticket_id": "TKT-2026-0035",
+    "free_text": "Preciso de ajuda com o SIAFI, tá dando erro de integração na hora de empenhar o contrato de limpeza que vence hoje.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Sistemas Administrativos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-17T12:25:52.647458",
+    "ticket_id": "TKT-2026-0052",
+    "free_text": "Estão fazendo obra aqui perto do bloco e acho que romperam o cabo de fibra ótica! O campus inteiro de Chapadão do Sul tá sem internet!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-17T12:59:49.183903",
+    "ticket_id": "TKT-2026-0113",
+    "free_text": "Vou dar uma palestra online agora e o Google Meet diz que não consegue detectar a câmera do meu notebook institucional.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-17T13:00:56.565457",
+    "ticket_id": "TKT-2026-0072",
+    "free_text": "O ar condicionado da sala de servidores do Inisa desligou e tá apitando alarme de temperatura no painel dos racks!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
   }
 ]
