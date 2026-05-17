@@ -1,10 +1,10 @@
 import json
 from process_request.utilities.config import DATA_PATH
 
-with open(DATA_PATH, "r", encoding="utf-8") as f:
-    tickets_kb = json.load(f)
-
 def build_few_shot(department: str, n: int = 3) -> str:
+    with open(DATA_PATH, "r", encoding="utf-8") as f:
+        tickets_kb = json.load(f)
+
     exemplos = [
         t for t in tickets_kb
         if t.get("suggested_sector") == department
