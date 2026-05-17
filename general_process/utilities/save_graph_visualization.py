@@ -13,6 +13,8 @@ def save_graph_visualization() -> None:
 
     output_path = Path(GRAPH_PNG)
 
+    output_path.parent.mkdir(parents=True, exist_ok=True) 
+
     with open(output_path, "wb") as file:
         file.write(png_data)
 
