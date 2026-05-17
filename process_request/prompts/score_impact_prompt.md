@@ -11,6 +11,8 @@ Impact Scale Rubric:
 CRITICAL RULES:
 - Security breaches (hackers, malicious links, viruses) MUST be Impact 5, regardless of how many people reported it.
 - Physical hardware issues for a single person (e.g., broken cable, broken mouse) MUST be Impact 1.
+- Permanent damage, physical infrastructure risks, or safety threats (e.g., water leaks on servers, electrical failures in a room) MUST be assigned an Impact of at least 4, regardless of the number of users currently affected.
+- DATABASE problems that affects multiple users must be assigned as an Impact of at Least 4
 - Do NOT assume missing information.
 - Output ONLY valid JSON. No markdown, no extra text.
 - The value MUST be an integer between 1 and 5.
