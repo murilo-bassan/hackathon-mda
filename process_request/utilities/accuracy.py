@@ -35,6 +35,8 @@ def run_accuracy() -> list:
     closed_same_day    = 0
     processed_total    = 0
     needs_more_info_total = 0
+    t_mae_priority = 0
+    mae_priority = 0
 
     for response in responses:
 
@@ -86,6 +88,8 @@ def run_accuracy() -> list:
         predicted_priority = response.get("resulting_priority", 0)
         expected_priority = expected_ticket.get("resulting_priority",0)
 
+        t_mae_priority+= abs(predicted_priority - expected_priority)
+
         if predicted_priority == expected_priority:
             priority_hits += 1
 
@@ -111,6 +115,7 @@ def run_accuracy() -> list:
     department_accuracy = (department_hits / processed_total) * 100
     automation_rate     = ((resolved_by_llm+needs_more_info_total) / (processed_total+needs_more_info_total)) * 100
     same_day_rate       = (closed_same_day / processed_total) * 100
+    mae_priority        = t_mae_priority / processed_total
 
     # ==========================================
     # PRINT FINAL
@@ -126,6 +131,7 @@ def run_accuracy() -> list:
     print("\nQUALIDADE DO MODELO")
     print(f"Accuracy Categoria:    {category_accuracy:.2f}%")
     print(f"Accuracy Prioridade:   {priority_accuracy:.2f}%")
+    print(f"MAE Prioridade: {mae_priority:.2f}")
     print(f"Accuracy Departamento: {department_accuracy:.2f}%")
 
     print("\nINDICADORES DE SERVIÇO")
