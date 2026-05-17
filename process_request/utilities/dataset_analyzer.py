@@ -6,11 +6,15 @@ def datasetAnalyzer():
     analyzer = DatasetAnalyzer(DATA_PATH)
 
     print("=" * 60)
-    print("ANALISE DATASET")
+    print("\nANALISE DATASET\n")
+    print("=" * 60)
 
-    print("\n Distribuição de Categoria")
+    print("\nDistribuição de Categoria")
+    print("-" * 25)
     print(analyzer.category_distribution())
-    print("\n Distribuição de Prioridade")
+    
+    print("\nDistribuição de Prioridade")
+    print("-" * 43)
     print(analyzer.priority_by_category())
 
     print("=" * 60) 
