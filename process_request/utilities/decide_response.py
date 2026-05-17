@@ -12,6 +12,10 @@ def decide_response_from_state(state: State) -> str:
 
 
 def decide_response(priority: int, category: str) -> str:
+    """
+    Chamados do tipo "Problema" sempre vão para fila humana, independente da prioridade. Problemas recorrentes requerem análise especializada que não deve ser automatizada.
+    """
+    
     if (
         (priority <= 3 and normalize_str(category) == "requisicao")
         or
