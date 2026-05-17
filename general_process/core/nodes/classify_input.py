@@ -22,4 +22,4 @@ def classify_input(state: State) -> dict:
     )
     
     return {
-        "input_type": response.get("input_type"), "input_justification": response.get("justification")}
+        "input_type": response.get("input_type"), "input_justification": response.get("input_type_justification")}
