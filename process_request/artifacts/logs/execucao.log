@@ -1,0 +1,284 @@
+2026-05-17 12:45:45,076 | INFO | general_process.utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-17 12:45:45,882 | INFO | general_process.utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\docs\graph.png
+2026-05-17 12:45:45,882 | INFO | process_request.utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\process_incident\data\incidents.json
+2026-05-17 12:45:45,895 | INFO | process_request.utilities.load_tickets | 40 tickets carregados.
+2026-05-17 12:45:45,895 | INFO | process_request.utilities.process_ticket | ============================================================
+2026-05-17 12:45:45,895 | INFO | process_request.utilities.process_ticket | Iniciando processamento do ticket 1
+2026-05-17 12:45:45,907 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 12:45:50,709 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 12:45:50,709 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 12:45:50,725 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 12:45:54,994 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 12:45:54,994 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 12:45:54,996 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 12:45:55,006 | ERROR | process_request.utilities.process_ticket | Erro ao processar ticket 1
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\hackathon-mda\process_request\utilities\process_ticket.py", line 12, in process_ticket
+    response = graph.invoke({"ticket": ticket})
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\main.py", line 3365, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<10 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\main.py", line 2759, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\_runner.py", line 167, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\_retry.py", line 126, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\_internal\_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\main.py", line 3365, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<10 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\main.py", line 2759, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\_runner.py", line 167, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\_retry.py", line 126, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\_internal\_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\_internal\_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Users\muril\Documents\hackathon-mda\process_incident\core\nodes\lookup_owner.py", line 20, in lookup_owner
+    owner = find_owner(affected_systems, inventory)
+  File "C:\Users\muril\Documents\hackathon-mda\process_incident\utilities\find_owner.py", line 14, in find_owner
+    if match_term(entry["system"], text_lower):
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+During task with name 'lookup_owner' and id 'c49f31e5-b9aa-b33c-e799-f8dc23890dc2'
+During task with name 'incident_workflow' and id 'a447824b-1fb4-6ad2-0634-915e4d10c072'
+2026-05-17 12:48:06,867 | INFO | general_process.utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-17 12:48:08,040 | INFO | general_process.utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\docs\graph.png
+2026-05-17 12:48:08,041 | INFO | process_request.utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\process_incident\data\incidents.json
+2026-05-17 12:48:08,075 | INFO | process_request.utilities.load_tickets | 40 tickets carregados.
+2026-05-17 12:48:08,076 | INFO | process_request.utilities.process_ticket | ============================================================
+2026-05-17 12:48:08,077 | INFO | process_request.utilities.process_ticket | Iniciando processamento do ticket 1
+2026-05-17 12:48:08,112 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 12:48:11,828 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 12:48:11,829 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 12:48:11,846 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 12:48:14,144 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 12:48:14,144 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 12:48:14,145 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: indefinido
+2026-05-17 12:48:14,164 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: ETIR - Equipe de Tratamento e Resposta a Incidentes
+2026-05-17 12:48:14,166 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Indefinida | crítico: False
+2026-05-17 12:48:14,183 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 12:48:23,561 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 12:48:23,561 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 12:48:23,562 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: ETIR - Equipe de Tratamento e Resposta a Incidentes | crítico: False
+2026-05-17 12:48:23,572 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 12:48:30,615 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 12:48:30,615 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 12:48:30,617 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-2026-0001
+2026-05-17 12:48:30,626 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 12:48:45,746 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 12:48:45,746 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 12:48:45,749 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0001
+2026-05-17 12:48:45,755 | INFO | process_request.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-17 12:48:45,755 | INFO | process_request.utilities.process_ticket | === RESPONSE ===
+2026-05-17 12:48:45,755 | INFO | process_request.utilities.process_ticket | input_type: incident
+2026-05-17 12:48:45,756 | INFO | process_request.utilities.process_ticket | input_justification: None
+2026-05-17 12:48:45,756 | INFO | process_request.utilities.process_ticket | input_text: recebi um e-mail suspeito pedindo para confirmar meus dados do passaporte ufms em um link externo. o link parece falso. não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem.
+2026-05-17 12:48:45,758 | INFO | process_request.utilities.process_ticket | ticket: {'id': 'INC-2026-0001', 'timestamp': Timestamp('2026-03-10 07:42:00+0000', tz='UTC'), 'free_text': 'Recebi um e-mail suspeito pedindo para confirmar meus dados do Passaporte UFMS em um link externo. O link parece falso. Não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem.'}
+2026-05-17 12:48:45,759 | INFO | process_request.utilities.process_ticket | incident: {'id': 'INC-2026-0001', 'category': 'Indefinida', 'category_justification': '', 'critical': False, 'critical_justification': '', 'scope': 'Indefinido', 'affected_systems': 'indefinido', 'responsible_person': 'ETIR - Equipe de Tratamento e Resposta a Incidentes', 'contact_info': 'etir@agetic.ufms.br | (67) 3345-7200', 'containment_steps': ['Documentar detalhadamente o incidente antes de qualquer ação.', 'Acionar o responsável técnico do sistema ou ativo afetado.', 'Escalar para ETIR se houver dúvida sobre gravidade ou escopo.', 'Preservar logs e evidências durante toda a investigação.'], 'containment_justification': "The incident category is 'Indefinida' (undefined) with low criticality. Therefore, a cautious approach focusing on documentation, initial notification, and escalation if needed is the most appropriate course of action. This ensures proper investigation without prematurely disrupting systems when the nature of the incident is unknown.", 'alert_draft': '[ATENÇÃO] Incidente de Segurança Indefinida — Análise Necessária\n\nPrezado(a) ETIR - Equipe de Tratamento e Resposta a Incidentes,\n\nEste e-mail tem como objetivo informar sobre um incidente de segurança detectado.\n\nResumo do Incidente:\nCategoria: Indefinida\nCriticidade: Baixa\nEscopo: Indefinido\nSistemas Afetados: Indefinido\n\nDescrição: Recebemos relatos de e-mails suspeitos solicitando a confirmação de dados de passaporte UFMS através de um link externo. O link aparenta ser falso e, embora não tenha sido clicado pelo reportante, vários colegas de laboratório receberam a mesma mensagem.\n\nPassos de Contenção Recomendados:\n- Documentar detalhadamente o incidente antes de qualquer ação.\n- Acionar o responsável técnico do sistema ou ativo afetado.\n- Escalar para ETIR se houver dúvida sobre gravidade ou escopo.\n- Preservar logs e evidências durante toda a investigação.\n\nPrazo para Resposta: 4 horas.\n\nSolicitamos que confirme o recebimento deste alerta respondendo a etir@agetic.ufms.br.\n\nAtenciosamente,\n\nETIR — Equipe de Tratamento e Resposta a Incidentes / AGETIC/UFMS', 'report_template': '---\n# Relatório Parcial de Incidente - UFMS ETIR\n---\n\n## 1. Identificação do Incidente\n\n*   **ID do Incidente:** INC-2026-0001\n*   **Data/Hora da Ocorrência:** 2026-03-10T07:42:00Z\n*   **Categoria:** Indefinida\n*   **Sistemas Afetados:** indefinido\n*   **Escopo:** Indefinido\n*   **Responsável:** ETIR - Equipe de Tratamento e Resposta a Incidentes\n\n## 2. Descrição Detalhada do Ocorrido\n\n[PREENCHER] - Descreva detalhadamente o que aconteceu, incluindo como o incidente foi detectado, quais sinais foram observados e qualquer informação relevante.\n\n## 3. Sistemas e Ativos Afetados\n\n*   **Sistemas Primários Afetados:** indefinido\n*   **Outros Ativos Afetados:** [PREENCHER] - Inclua servidores, estações de trabalho, aplicações, bancos de dados, etc.\n*   **Lista de IPs/Nomes de Host:** [PREENCHER]\n\n## 4. Ações de Contenção Realizadas\n\n*   [ ] Documentar detalhadamente o incidente antes de qualquer ação.\n*   [ ] Acionar o responsável técnico do sistema ou ativo afetado.\n*   [ ] Escalar para ETIR se houver dúvida sobre gravidade ou escopo.\n*   [ ] Preservar logs e evidências durante toda a investigação.\n*   [ ] Outras ações de contenção realizadas: [PREENCHER] - Detalhe quaisquer outras medidas tomadas para limitar o impacto do incidente.\n\n## 5. Impacto Estimado\n\n*   **Número de Usuários Afetados (Estimativa):** [PREENCHER]\n*   **Impacto Operacional:** [PREENCHER] - Descreva o impacto nas operações da UFMS (e.g., interrupção de serviços, perda de produtividade).\n*   **Risco de Exposição de Dados:** [PREENCHER] - Avalie o risco potencial de exposição de dados confidenciais (e.g., alto, médio, baixo).\n\n## 6. Status Atual\n\n*   (Escolha uma opção): \n    *   [ ] Em investigação\n    *   [ ] Contido\n    *   [ ] Resolvido\n    *   [ ] Escalado\n\n## 7. Próximos Passos Planejados\n\n[PREENCHER] - Descreva as próximas etapas a serem tomadas para investigar e resolver o incidente.\n\n## 8. Observações Adicionais\n\n[PREENCHER] - Inclua quaisquer outras informações relevantes que possam auxiliar na investigação ou resolução do incidente.\n\n## 9. Assinatura e Data\n\n*   **Nome:** [PREENCHER]\n*   **Cargo:** [PREENCHER]\n*   **Data:** [PREENCHER]'}
+2026-05-17 13:03:08,557 | INFO | general_process.utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-17 13:03:09,287 | INFO | general_process.utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\docs\graph.png
+2026-05-17 13:03:09,288 | INFO | process_request.utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\process_incident\data\incidents.json
+2026-05-17 13:03:09,296 | INFO | process_request.utilities.load_tickets | 40 tickets carregados.
+2026-05-17 13:03:09,296 | INFO | process_request.utilities.process_ticket | ============================================================
+2026-05-17 13:03:09,296 | INFO | process_request.utilities.process_ticket | Iniciando processamento do ticket 1
+2026-05-17 13:03:09,300 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 13:03:16,780 | ERROR | general_process.utilities.utils | Erro HTTP: 504 Server Error: Gateway Timeout for url: https://openrouter.ai/api/v1/chat/completions
+2026-05-17 13:03:16,780 | ERROR | general_process.utilities.utils | Resposta da API: {"error":{"message":"The operation was aborted","code":504,"metadata":{"provider_name":"Nebius"}},"user_id":"user_399xlng1xpDV6CdQokR40AIXdHL"}
+2026-05-17 13:03:16,787 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket INC-2026-0001
+2026-05-17 13:03:16,789 | INFO | process_request.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-17 13:03:16,789 | INFO | process_request.utilities.process_ticket | === RESPONSE ===
+2026-05-17 13:03:16,789 | INFO | process_request.utilities.process_ticket | input_type: None
+2026-05-17 13:03:16,790 | INFO | process_request.utilities.process_ticket | input_justification: None
+2026-05-17 13:03:16,790 | INFO | process_request.utilities.process_ticket | input_text: recebi um e-mail suspeito pedindo para confirmar meus dados do passaporte ufms em um link externo. o link parece falso. não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem.
+2026-05-17 13:03:16,790 | INFO | process_request.utilities.process_ticket | ticket: {'id': 'INC-2026-0001', 'timestamp': Timestamp('2026-03-10 07:42:00+0000', tz='UTC'), 'free_text': 'Recebi um e-mail suspeito pedindo para confirmar meus dados do Passaporte UFMS em um link externo. O link parece falso. Não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem.'}
+2026-05-17 13:03:16,790 | INFO | process_request.utilities.process_ticket | response: {'ticket_id': 'INC-2026-0001', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': '[{"type":"missing","loc":["channel"],"msg":"Field required","input":{"id":"INC-2026-0001","timestamp":"2026-03-10T07:42:00Z","free_text":"Recebi um e-mail suspeito pedindo para confirmar meus dados do Passaporte UFMS em um link externo. O link parece falso. Não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem."},"url":"https://errors.pydantic.dev/2.13/v/missing"},{"type":"missing","loc":["requester_profile"],"msg":"Field required","input":{"id":"INC-2026-0001","timestamp":"2026-03-10T07:42:00Z","free_text":"Recebi um e-mail suspeito pedindo para confirmar meus dados do Passaporte UFMS em um link externo. O link parece falso. Não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem."},"url":"https://errors.pydantic.dev/2.13/v/missing"}]', 'needs_more_info': False, 'info_justification': '', 'validation_status': False}
+2026-05-17 13:03:16,790 | INFO | process_request.utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-17 13:20:40,077 | INFO | general_process.utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-17 13:20:40,720 | INFO | general_process.utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\docs\graph.png
+2026-05-17 13:20:40,720 | INFO | general_process.utilities.load_input | Carregando dados de: process_incident/data/incidents.json
+2026-05-17 13:20:40,731 | INFO | general_process.utilities.load_input | 40 dados carregados.
+2026-05-17 13:20:40,731 | INFO | __main__ | Processando incidente 1
+2026-05-17 13:20:40,735 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 13:20:43,058 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 13:20:43,059 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 13:20:43,062 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 13:20:45,645 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 13:20:45,645 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 13:20:45,646 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 13:20:45,650 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: Ana Paula Ramos
+2026-05-17 13:20:45,651 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: phishing | crítico: True
+2026-05-17 13:20:45,652 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 13:20:52,615 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 13:20:52,615 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 13:20:52,616 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: Ana Paula Ramos | crítico: True
+2026-05-17 13:20:52,617 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 13:21:11,218 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 13:21:11,218 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 13:21:11,220 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-2026-0001
+2026-05-17 13:21:11,221 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 13:21:43,444 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 13:21:43,445 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 13:21:43,446 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0001
+2026-05-17 13:21:43,448 | INFO | __main__ | Concluído: {'input_type': 'incident', 'input_justification': 'Report of a suspicious email requesting sensitive information (passport data) via an external link, potentially a phishing attempt affecting multiple users.', 'input_text': 'recebi um e-mail suspeito pedindo para confirmar meus dados do passaporte ufms em um link externo. o link parece falso. não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem.', 'ticket': {'id': 'INC-2026-0001', 'timestamp': Timestamp('2026-03-10 07:42:00+0000', tz='UTC'), 'free_text': 'Recebi um e-mail suspeito pedindo para confirmar meus dados do Passaporte UFMS em um link externo. O link parece falso. Não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem.'}, 'incident': {'id': 'INC-2026-0001', 'category': 'phishing', 'category_justification': 'The report clearly describes a phishing attempt requesting sensitive information (passport data) via a suspicious link.', 'critical': True, 'critical_justification': '', 'scope': 'department_wide', 'affected_systems': 'Institutional Email', 'responsible_person': 'Ana Paula Ramos', 'contact_info': 'ana.ramos@agetic.ufms.br | (67) 3345-7225', 'containment_steps': ['Instruct the user to NOT click on links or download attachments from the suspicious email.', 'Forward the original email (as an attachment) to etir@agetic.ufms.br.', 'Reset the password of the potentially compromised account via Passaporte UFMS.', 'Activate two-factor authentication on the affected account.'], 'containment_justification': 'Given the critical nature and department-wide scope of this phishing incident, these steps prioritize immediate account protection and evidence gathering. Resetting passwords and enabling 2FA mitigates potential damage, while forwarding the email aids in analysis and wider threat detection.', 'alert_draft': '[CRÍTICO] Incidente de Phishing Detectado — Ação Imediata Necessária\n\nPrezada Sra. Ana Paula Ramos,\n\nInformamos sobre um incidente de segurança que requer sua atenção imediata.\n\nResumo do Incidente:\nCategoria: Phishing\nCriticidade: Crítica\nEscopo: Departamento\nSistemas Afetados: E-mail Institucional\n\nRelatório original do incidente: Um usuário reportou o recebimento de um e-mail suspeito solicitando a confirmação de dados do passaporte UFMS através de um link externo. O link aparenta ser falso. Embora o usuário não tenha clicado no link, vários colegas do mesmo laboratório receberam a mesma mensagem.\n\nMedidas de Contenção Recomendadas:\n- Orientar os usuários a NÃO clicarem em links ou baixarem anexos de e-mails suspeitos.\n- Encaminhar o e-mail original (como anexo) para etir@agetic.ufms.br.\n- Resetar a senha da conta potencialmente comprometida através do Passaporte UFMS.\n- Ativar a autenticação de dois fatores na conta afetada.\n\nSolicitamos que as ações de contenção sejam implementadas no prazo máximo de 1 hora.\n\nPor favor, confirme o recebimento deste alerta respondendo a etir@agetic.ufms.br.\n\nAtenciosamente,\n\nETIR — Equipe de Tratamento e Resposta a Incidentes / AGETIC/UFMS', 'report_template': '---\n**RELATÓRIO PARCIAL DE INCIDENTE DE SEGURANÇA – ETIR/UFMS**\n\n**1. Identificação do Incidente**\n\n*   **ID do Incidente:** INC-2026-0001\n*   **Data/Hora da Ocorrência:** 2026-03-10T07:42:00Z\n*   **Categoria:** Phishing\n*   **Sistemas Afetados Inicialmente:** E-mail Institucional\n*   **Escopo:** Abrangente – Nível de Departamento\n*   **Responsável pela Análise:** Ana Paula Ramos\n\n---\n\n**2. Descrição Detalhada do Ocorrido**\n\n[PREENCHER] – Detalhar o incidente, incluindo o vetor de ataque, a natureza do ataque, e quaisquer evidências coletadas.\n\n---\n\n**3. Sistemas e Ativos Afetados**\n\n*   **Sistemas Afetados:** E-mail Institucional\n*   **Ativos Afetados:** Contas de e-mail de usuários do departamento.\n*   **Adicionar Ativos/Sistemas Afetados:** [PREENCHER] – Listar quaisquer outros sistemas ou ativos que possam ter sido impactados.\n\n---\n\n**4. Ações de Contenção Realizadas**\n\nVerificar as seguintes ações de contenção:\n\n[ ] Instruir o usuário a NÃO clicar em links ou baixar anexos do e-mail suspeito.\n[ ] Encaminhar o e-mail original (como anexo) para etir@agetic.ufms.br.\n[ ] Reiniciar a senha da conta potencialmente comprometida via Passaporte UFMS.\n[ ] Ativar a autenticação de dois fatores na conta afetada.\n[ ] Isolar o sistema comprometido da rede (se aplicável).\n[ ] Bloquear o remetente do e-mail (se aplicável).\n[ ] Outras ações de contenção: [PREENCHER]\n\n---\n\n**5. Impacto Estimado**\n\n*   **Número de Usuários Afetados:** [PREENCHER]\n*   **Impacto Operacional:** [PREENCHER] – Descrever o impacto nas operações da UFMS.\n*   **Risco de Exposição de Dados:** [PREENCHER] – Avaliar o risco de comprometimento de dados confidenciais.\n\n---\n\n**6. Status Atual**\n\n(Escolher uma opção)\n\n[ ] Em Investigação\n[ ] Contido\n[ ] Resolvido\n[ ] Escalado\n\n---\n\n**7. Próximos Passos Planejados**\n\n[PREENCHER] – Descrever os próximos passos a serem tomados para investigar e resolver o incidente.\n\n---\n\n**8. Observações Adicionais**\n\n[PREENCHER] – Incluir quaisquer observações adicionais relevantes.\n\n---\n\n**9. Assinatura e Data**\n\n*   **Nome:** [PREENCHER]\n*   **Função:** [PREENCHER]\n*   **Data:** [PREENCHER]'}}
+2026-05-17 14:39:30,199 | INFO | general_process.utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-17 14:39:31,115 | INFO | general_process.utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\docs\graph.png
+2026-05-17 14:39:31,116 | INFO | general_process.utilities.load_input | Carregando dados de: process_incident/data/incidents.json
+2026-05-17 14:39:31,136 | INFO | general_process.utilities.load_input | 40 dados carregados.
+2026-05-17 14:39:31,137 | INFO | __main__ | Processando incidente 1
+2026-05-17 14:39:31,142 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 14:39:35,247 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 14:39:35,247 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 14:39:35,255 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 14:39:37,356 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 14:39:37,356 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 14:39:37,358 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: indefinido
+2026-05-17 14:39:37,380 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: ETIR - Equipe de Tratamento e Resposta a Incidentes
+2026-05-17 14:39:37,381 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Indefinida | crítico: False
+2026-05-17 14:39:37,382 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 14:39:45,245 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 14:39:45,246 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 14:39:45,247 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: ETIR - Equipe de Tratamento e Resposta a Incidentes | crítico: False
+2026-05-17 14:39:45,248 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 14:40:07,451 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 14:40:07,452 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 14:40:07,453 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-2026-0001
+2026-05-17 14:40:07,454 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 14:40:29,106 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 14:40:29,106 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 14:40:29,108 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0001
+2026-05-17 14:40:29,111 | INFO | __main__ | Concluído: {'input_type': 'incident', 'input_justification': 'Report of a suspicious email requesting sensitive personal data (passport information) via an external link, potentially a phishing attempt affecting multiple users.', 'input_text': 'recebi um e-mail suspeito pedindo para confirmar meus dados do passaporte ufms em um link externo. o link parece falso. não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem.', 'ticket': {'id': 'INC-2026-0001', 'timestamp': Timestamp('2026-03-10 07:42:00+0000', tz='UTC'), 'free_text': 'Recebi um e-mail suspeito pedindo para confirmar meus dados do Passaporte UFMS em um link externo. O link parece falso. Não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem.'}, 'incident': {'id': 'INC-2026-0001', 'category': 'Indefinida', 'category_justification': '', 'critical': False, 'critical_justification': '', 'scope': 'Indefinido', 'affected_systems': 'indefinido', 'responsible_person': 'ETIR - Equipe de Tratamento e Resposta a Incidentes', 'contact_info': 'etir@agetic.ufms.br | (67) 3345-7200', 'containment_steps': ['Documentar detalhadamente o incidente antes de qualquer ação.', 'Acionar o responsável técnico do sistema ou ativo afetado.', 'Escalar para ETIR se houver dúvida sobre gravidade ou escopo.', 'Preservar logs e evidências durante toda a investigação.', 'Seguir o Plano de Gestão de Incidentes de SI institucional.'], 'containment_justification': 'Como a categoria do incidente é indefinida e a criticidade é baixa, as ações iniciais devem focar na coleta de informações, comunicação com as partes relevantes e adesão aos procedimentos padrão da UFMS para garantir uma resposta adequada e documentada.', 'alert_draft': '[ATENÇÃO] Incidente de Segurança Indefinida — Investigação Necessária\n\nPrezado(a) ETIR - Equipe de Tratamento e Resposta a Incidentes,\n\nComunico a ocorrência de um incidente de segurança que requer sua atenção. Abaixo, apresento um resumo da situação:\n\n* **Categoria:** Indefinida\n* **Criticidade:** Não Crítico\n* **Escopo:** Indefinido\n* **Sistemas Afetados:** Indefinido\n\nO incidente foi reportado como o recebimento de um e-mail suspeito solicitando a confirmação de dados do passaporte UFMS através de um link externo. O link aparenta ser falso, e, embora o remetente não tenha clicado nele, vários colegas do laboratório relataram ter recebido a mesma mensagem.\n\nAs seguintes medidas de contenção já foram recomendadas:\n\n- Documentar detalhadamente o incidente antes de qualquer ação.\n- Acionar o responsável técnico do sistema ou ativo afetado.\n- Escalar para ETIR se houver dúvida sobre gravidade ou escopo.\n- Preservar logs e evidências durante toda a investigação.\n- Seguir o Plano de Gestão de Incidentes de SI institucional.\n\nSolicito que analisem a situação e forneçam orientações adicionais o mais breve possível. Aguardamos um retorno em até 4 horas.\n\nSolicitamos gentilmente que confirmem o recebimento deste alerta respondendo a etir@agetic.ufms.br.\n\nAtenciosamente,\n\nETIR — Equipe de Tratamento e Resposta a Incidentes / AGETIC/UFMS', 'report_template': '---\n**RELATÓRIO PARCIAL DE INCIDENTE - UFMS/ETIR**\n\n**1. Identificação do Incidente**\n\n*   ID do Incidente: INC-2026-0001\n*   Data/Hora da Ocorrência: 2026-03-10T07:42:00Z\n*   Categoria: Indefinida\n*   Sistemas Afetados: indefinido\n*   Escopo: Indefinido\n*   Responsável (ETIR): ETIR - Equipe de Tratamento e Resposta a Incidentes\n\n--- \n\n**2. Descrição Detalhada do Ocorrido**\n\n[PREENCHER] - Descreva detalhadamente o que aconteceu, incluindo o contexto, as ações observadas e quaisquer mensagens de erro relevantes.\n\n--- \n\n**3. Sistemas e Ativos Afetados**\n\n*   Sistemas Identificados: indefinido\n*   Ativos Identificados: [PREENCHER] - Liste os ativos de TI específicos (servidores, estações de trabalho, aplicativos, etc.) que foram afetados.\n*   Outros Ativos Afetados: [PREENCHER]\n\n--- \n\n**4. Ações de Contenção Realizadas**\n\nRealize as seguintes ações e marque as caixas correspondentes:\n\n[ ] Documentar detalhadamente o incidente antes de qualquer ação.\n[ ] Acionar o responsável técnico do sistema ou ativo afetado.\n[ ] Escalar para ETIR se houver dúvida sobre gravidade ou escopo.\n[ ] Preservar logs e evidências durante toda a investigação.\n[ ] Seguir o Plano de Gestão de Incidentes de SI institucional.\n[ ] [PREENCHER] - Outras ações de contenção realizadas. Detalhe-as aqui.\n\n--- \n\n**5. Impacto Estimado**\n\n*   Número de Usuários Afetados: [PREENCHER]\n*   Impacto Operacional: [PREENCHER] - Descreva o impacto nas operações normais (e.g., interrupção de serviços, lentidão, etc.).\n*   Risco de Exposição de Dados: [PREENCHER] - Avalie o risco de exposição de dados confidenciais (e.g., alto, médio, baixo).\n\n--- \n\n**6. Status Atual**\n\n(Selecione uma opção):\n\n( ) Em investigação\n( ) Contido\n( ) Resolvido\n( ) Escalado\n\n--- \n\n**7. Próximos Passos Planejados**\n\n[PREENCHER] - Descreva os próximos passos a serem tomados para investigar, conter ou resolver o incidente.\n\n--- \n\n**8. Observações Adicionais**\n\n[PREENCHER] - Inclua quaisquer observações adicionais relevantes sobre o incidente.\n\n--- \n\n**9. Assinatura e Data**\n\n*   Nome Completo: [PREENCHER]\n*   Cargo: [PREENCHER]\n*   Data: [PREENCHER]'}}
+2026-05-17 15:01:08,178 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 15:01:08,179 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 15:01:08,181 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: webmail
+2026-05-17 15:01:08,182 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 15:01:08,185 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: sistema_inexistente_xpto
+2026-05-17 15:01:08,187 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: ETIR - Equipe de Tratamento e Resposta a Incidentes
+2026-05-17 15:01:08,275 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 15:01:08,275 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 15:01:08,279 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 15:01:08,283 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 15:01:08,287 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 15:01:08,293 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Indisponibilidade Crítica | crítico: True
+2026-05-17 15:01:08,307 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 15:01:08,310 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 15:01:08,313 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 15:01:08,324 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 15:01:08,336 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 15:01:08,339 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 15:01:08,342 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 15:01:08,344 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 15:01:08,356 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 15:01:08,369 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 15:01:08,373 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 15:01:08,380 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 15:01:08,388 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 15:01:08,394 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 15:01:08,402 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 15:01:19,885 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 15:01:19,888 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 15:01:19,891 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: webmail
+2026-05-17 15:01:19,893 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 15:01:19,896 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: sistema_inexistente_xpto
+2026-05-17 15:01:19,900 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: ETIR - Equipe de Tratamento e Resposta a Incidentes
+2026-05-17 15:01:20,027 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 15:01:20,027 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 15:01:20,034 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 15:01:20,040 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 15:01:20,044 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 15:01:20,050 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Indisponibilidade Crítica | crítico: True
+2026-05-17 15:01:20,073 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 15:01:20,076 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 15:01:20,080 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 15:01:20,102 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 15:01:20,121 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 15:01:20,126 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 15:01:20,129 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 15:01:20,134 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 15:01:20,155 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 15:01:20,173 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 15:01:20,179 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 15:01:20,193 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 15:01:20,204 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 15:01:20,213 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 15:01:20,224 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 15:12:52,856 | INFO | general_process.utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-17 15:13:00,575 | INFO | general_process.utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\docs\graph.png
+2026-05-17 15:13:00,576 | INFO | general_process.utilities.load_input | Carregando dados de: process_incident/data/incidents.json
+2026-05-17 15:13:00,587 | INFO | general_process.utilities.load_input | 40 dados carregados.
+2026-05-17 15:13:00,587 | INFO | __main__ | Processando incidente 1
+2026-05-17 15:13:00,591 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 15:13:06,672 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 15:13:06,673 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 15:13:06,677 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 15:13:13,265 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 15:13:13,265 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 15:13:13,267 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 15:13:13,269 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: Ana Paula Ramos
+2026-05-17 15:13:13,270 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: phishing | crítico: True
+2026-05-17 15:13:13,271 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 15:13:30,862 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 15:13:30,865 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 15:13:30,867 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: Ana Paula Ramos | crítico: True
+2026-05-17 15:13:30,871 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 15:14:08,715 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 15:14:08,715 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 15:14:08,717 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-2026-0001
+2026-05-17 15:14:08,717 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 15:14:25,283 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 15:14:25,284 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 15:14:25,285 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0001
+2026-05-17 15:14:25,286 | INFO | __main__ | Concluído: {'input_type': 'incident', 'input_justification': 'Report of a suspicious email requesting sensitive information (passport data) with a potentially malicious link, affecting multiple users. This indicates a possible phishing attack.', 'input_text': 'recebi um e-mail suspeito pedindo para confirmar meus dados do passaporte ufms em um link externo. o link parece falso. não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem.', 'ticket': {'id': 'INC-2026-0001', 'timestamp': Timestamp('2026-03-10 07:42:00+0000', tz='UTC'), 'free_text': 'Recebi um e-mail suspeito pedindo para confirmar meus dados do Passaporte UFMS em um link externo. O link parece falso. Não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem.'}, 'incident': {'id': 'INC-2026-0001', 'category': 'phishing', 'category_justification': 'O relato descreve explicitamente um e-mail suspeito com o objetivo de coletar informações pessoais através de um link externo, caracterizando um ataque de phishing.', 'critical': True, 'critical_justification': '', 'scope': 'multiple_users', 'affected_systems': 'Institutional Email', 'responsible_person': 'Ana Paula Ramos', 'contact_info': 'ana.ramos@agetic.ufms.br | (67) 3345-7225', 'containment_steps': ['Orientar o usuário a NÃO clicar em links ou baixar anexos do e-mail suspeito.', 'Encaminhar o e-mail original (como anexo) para etir@agetic.ufms.br.', 'Redefinir a senha da conta possivelmente comprometida via Passaporte UFMS.', 'Ativar autenticação em dois fatores na conta afetada.', 'Verificar regras de encaminhamento indevidas na caixa de e-mail do usuário.'], 'containment_justification': 'O incidente de phishing é crítico e de escopo múltiplo, afetando o email institucional. As etapas visam mitigar o risco de comprometimento da conta, conter a disseminação da ameaça e coletar evidências para análise.', 'alert_draft': '[CRÍTICO] Incidente de Phishing Detectado — Ação Imediata Necessária\n\nPrezada Sra. Ana Paula Ramos,\n\nInformamos sobre um incidente de segurança que requer sua atenção imediata.\n\n**Resumo do Incidente:**\nCategoria: Phishing\nCriticidade: Crítica\nEscopo: Múltiplos Usuários\nSistemas Afetados: E-mail Institucional\n\nRelatos indicam o recebimento de e-mails suspeitos solicitando a confirmação de dados do Passaporte UFMS através de um link externo. O link aparenta ser falso. Vários usuários do laboratório relataram receber a mesma mensagem. O relatório original do incidente está detalhado abaixo:\n\n"recebi um e-mail suspeito pedindo para confirmar meus dados do passaporte ufms em um link externo. o link parece falso. não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem."\n\n**Medidas de Contenção Recomendadas:**\n- Orientar os usuários a NÃO clicarem em links ou baixarem anexos do e-mail suspeito.\n- Encaminhar o e-mail original (como anexo) para etir@agetic.ufms.br.\n- Redefinir a senha da conta possivelmente comprometida via Passaporte UFMS.\n- Ativar a autenticação em dois fatores na conta afetada.\n- Verificar regras de encaminhamento indevidas na caixa de e-mail dos usuários.\n\nSolicitamos sua resposta e início das ações de remediação em até 1 (uma) hora.\n\nPedimos que confirme o recebimento deste alerta respondendo a etir@agetic.ufms.br.\n\nAtenciosamente,\n\nETIR — Equipe de Tratamento e Resposta a Incidentes / AGETIC/UFMS', 'report_template': '---\n# Relatório Parcial de Incidente de Segurança - ETIR/UFMS\n---\n\n## 1. Identificação do Incidente\n\n*   **ID do Incidente:** INC-2026-0001\n*   **Data/Hora da Ocorrência:** 2026-03-10T07:42:00Z\n*   **Categoria:** Phishing\n*   **Sistemas Afetados Inicialmente:** E-mail Institucional\n*   **Escopo:** Múltiplos Usuários\n*   **Responsável pela Análise:** Ana Paula Ramos\n\n## 2. Descrição Detalhada do Ocorrido\n\n[PREENCHER] - Descreva detalhadamente o incidente, incluindo como foi descoberto, o que aconteceu e quaisquer evidências coletadas.\n\n## 3. Sistemas e Ativos Afetados\n\n*   **Sistemas Afetados:** E-mail Institucional\n*   **Ativos Afetados:** Contas de e-mail de múltiplos usuários.\n*   **Adicionais:** [PREENCHER] - Liste quaisquer outros sistemas ou ativos que foram afetados ou potencialmente afetados.\n\n## 4. Ações de Contenção Realizadas\n\nRecomenda-se a execução das seguintes ações de contenção (marque com [x] ao concluir):\n\n*   [ ] Orientar o usuário a NÃO clicar em links ou baixar anexos do e-mail suspeito.\n*   [ ] Encaminhar o e-mail original (como anexo) para etir@agetic.ufms.br.\n*   [ ] Redefinir a senha da conta possivelmente comprometida via Passaporte UFMS.\n*   [ ] Ativar autenticação em dois fatores na conta afetada.\n*   [ ] Verificar regras de encaminhamento indevidas na caixa de e-mail do usuário.\n*   [ ] Outras ações: [PREENCHER] - Descreva outras ações de contenção realizadas.\n\n## 5. Impacto Estimado\n\n*   **Número de Usuários Afetados:** [PREENCHER]\n*   **Impacto Operacional:** [PREENCHER] - Descreva o impacto nas operações normais da UFMS.\n*   **Risco de Exposição de Dados:** [PREENCHER] - Avalie o risco de exposição de dados confidenciais (Alto, Médio, Baixo).\n\n## 6. Status Atual\n\n(Selecione uma opção):\n\n*   [ ] Em investigação\n*   [ ] Contido\n*   [ ] Resolvido\n*   [ ] Escalado\n\n## 7. Próximos Passos Planejados\n\n[PREENCHER] - Descreva os próximos passos a serem tomados para investigar e resolver o incidente.\n\n## 8. Observações Adicionais\n\n[PREENCHER] - Inclua quaisquer observações adicionais relevantes.\n\n## 9. Assinatura e Data\n\n*   **Nome:** [PREENCHER]\n*   **Cargo:** [PREENCHER]\n*   **Data:** [PREENCHER]'}}
