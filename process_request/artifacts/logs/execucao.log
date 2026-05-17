@@ -418,3 +418,205 @@ During task with name 'incident_workflow' and id 'a447824b-1fb4-6ad2-0634-915e4d
 2026-05-17 15:34:49,625 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
 2026-05-17 15:34:49,633 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
 >>>>>>> 5b2dd7416c47a3193a3d55893ce05b17768be74f
+2026-05-17 19:11:50,721 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:11:50,723 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=4 | Impacto=3
+2026-05-17 19:11:50,724 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=4
+2026-05-17 19:11:50,727 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:11:50,728 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['urgency']. Aplicando fail-safe.
+2026-05-17 19:11:50,731 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:11:50,732 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['impact']. Aplicando fail-safe.
+2026-05-17 19:11:50,735 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:11:50,735 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=2 | Impacto=2
+2026-05-17 19:11:50,736 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=2
+2026-05-17 19:11:50,736 | WARNING | process_request.core.nodes.score_priority | [TKT-TEST-001] LLM não retornou justificativa. Usando fallback textual.
+2026-05-17 19:11:50,739 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:11:50,740 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=3 | Impacto=3
+2026-05-17 19:11:50,740 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=3
+2026-05-17 19:11:50,741 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:11:50,742 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=3 | Impacto=2
+2026-05-17 19:11:50,742 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=2
+2026-05-17 19:11:50,771 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:11:50,775 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:11:50,779 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 2
+2026-05-17 19:11:50,825 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:11:50,830 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:11:50,838 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:11:50,844 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:11:50,850 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:11:50,854 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:12:09,858 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:12:09,861 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=4 | Impacto=3
+2026-05-17 19:12:09,861 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=4
+2026-05-17 19:12:09,863 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:12:09,864 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['urgency']. Aplicando fail-safe.
+2026-05-17 19:12:09,867 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:12:09,868 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['impact']. Aplicando fail-safe.
+2026-05-17 19:12:09,871 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:12:09,872 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=2 | Impacto=2
+2026-05-17 19:12:09,872 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=2
+2026-05-17 19:12:09,872 | WARNING | process_request.core.nodes.score_priority | [TKT-TEST-001] LLM não retornou justificativa. Usando fallback textual.
+2026-05-17 19:12:09,875 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:12:09,875 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=3 | Impacto=3
+2026-05-17 19:12:09,875 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=3
+2026-05-17 19:12:09,878 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:12:09,878 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=3 | Impacto=2
+2026-05-17 19:12:09,878 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=2
+2026-05-17 19:12:09,910 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:12:09,914 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:12:09,919 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 2
+2026-05-17 19:12:09,964 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:12:09,971 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:12:09,977 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:12:09,983 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:12:09,989 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:12:09,995 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:20:32,676 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:20:32,677 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=4 | Impacto=3
+2026-05-17 19:20:32,678 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=4
+2026-05-17 19:20:32,679 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:20:32,680 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['urgency']. Aplicando fail-safe.
+2026-05-17 19:20:32,683 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:20:32,683 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['impact']. Aplicando fail-safe.
+2026-05-17 19:20:32,686 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:20:32,686 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=2 | Impacto=2
+2026-05-17 19:20:32,686 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=2
+2026-05-17 19:20:32,686 | WARNING | process_request.core.nodes.score_priority | [TKT-TEST-001] LLM não retornou justificativa. Usando fallback textual.
+2026-05-17 19:20:32,688 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:20:32,688 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=3 | Impacto=3
+2026-05-17 19:20:32,688 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=3
+2026-05-17 19:20:32,710 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:20:32,713 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:20:32,719 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:20:32,722 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 2
+2026-05-17 19:20:32,725 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:20:32,738 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:20:32,741 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:20:32,745 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:20:32,752 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:20:35,934 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:20:35,937 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=4 | Impacto=3
+2026-05-17 19:20:35,937 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=4
+2026-05-17 19:20:35,940 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:20:35,940 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['urgency']. Aplicando fail-safe.
+2026-05-17 19:20:35,942 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:20:35,943 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['impact']. Aplicando fail-safe.
+2026-05-17 19:20:35,945 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:20:35,946 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=2 | Impacto=2
+2026-05-17 19:20:35,946 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=2
+2026-05-17 19:20:35,946 | WARNING | process_request.core.nodes.score_priority | [TKT-TEST-001] LLM não retornou justificativa. Usando fallback textual.
+2026-05-17 19:20:35,950 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:20:35,951 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=3 | Impacto=3
+2026-05-17 19:20:35,951 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=3
+2026-05-17 19:20:35,980 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:20:35,986 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:20:35,994 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:20:36,000 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 2
+2026-05-17 19:20:36,006 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:20:36,027 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:20:36,034 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:20:36,040 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:20:36,046 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:22:48,642 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:22:48,644 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=4 | Impacto=3
+2026-05-17 19:22:48,644 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=4
+2026-05-17 19:22:48,647 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:22:48,647 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['urgency']. Aplicando fail-safe.
+2026-05-17 19:22:48,650 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:22:48,651 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['impact']. Aplicando fail-safe.
+2026-05-17 19:22:48,654 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:22:48,655 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=2 | Impacto=2
+2026-05-17 19:22:48,655 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=2
+2026-05-17 19:22:48,655 | WARNING | process_request.core.nodes.score_priority | [TKT-TEST-001] LLM não retornou justificativa. Usando fallback textual.
+2026-05-17 19:22:48,657 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:22:48,658 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=3 | Impacto=3
+2026-05-17 19:22:48,658 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=3
+2026-05-17 19:22:48,680 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:22:48,684 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:22:48,690 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:22:48,694 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 2
+2026-05-17 19:22:48,704 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:22:48,713 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:22:48,723 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:22:48,729 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:22:48,737 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:22:51,713 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:22:51,716 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=4 | Impacto=3
+2026-05-17 19:22:51,717 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=4
+2026-05-17 19:22:51,720 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:22:51,720 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['urgency']. Aplicando fail-safe.
+2026-05-17 19:22:51,723 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:22:51,723 | ERROR | process_request.core.nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['impact']. Aplicando fail-safe.
+2026-05-17 19:22:51,726 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:22:51,726 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=2 | Impacto=2
+2026-05-17 19:22:51,726 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=2
+2026-05-17 19:22:51,727 | WARNING | process_request.core.nodes.score_priority | [TKT-TEST-001] LLM não retornou justificativa. Usando fallback textual.
+2026-05-17 19:22:51,729 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-17 19:22:51,729 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Urgência=3 | Impacto=3
+2026-05-17 19:22:51,729 | INFO | process_request.core.nodes.score_priority | [TKT-TEST-001] Prioridade resultante=3
+2026-05-17 19:22:51,759 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:22:51,762 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:22:51,772 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-17 19:22:51,777 | INFO | process_request.core.nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 2
+2026-05-17 19:22:51,782 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:22:51,790 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:22:51,796 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:22:51,805 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:22:51,812 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-17 19:23:04,118 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 19:23:04,119 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 19:23:04,122 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: webmail
+2026-05-17 19:23:04,122 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 19:23:04,123 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: sistema_inexistente_xpto
+2026-05-17 19:23:04,125 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: ETIR - Equipe de Tratamento e Resposta a Incidentes
+2026-05-17 19:23:04,126 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 19:23:04,126 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 19:23:04,129 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 19:23:04,130 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 19:23:04,135 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 19:23:04,138 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 19:23:04,141 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 19:23:04,144 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Indisponibilidade Crítica | crítico: True
+2026-05-17 19:23:04,148 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 19:23:04,150 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 19:23:04,151 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 19:23:04,153 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 19:23:04,156 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 19:23:04,159 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 19:23:04,161 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 19:23:04,165 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 19:23:04,168 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 19:23:04,170 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 19:23:04,182 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 19:23:04,190 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 19:23:04,195 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 19:23:04,200 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 19:23:04,204 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 19:23:14,704 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 19:23:14,706 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 19:23:14,708 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: webmail
+2026-05-17 19:23:14,709 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 19:23:14,712 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: sistema_inexistente_xpto
+2026-05-17 19:23:14,714 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: ETIR - Equipe de Tratamento e Resposta a Incidentes
+2026-05-17 19:23:14,718 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 19:23:14,719 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 19:23:14,722 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 19:23:14,722 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 19:23:14,726 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 19:23:14,729 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 19:23:14,731 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 19:23:14,736 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Indisponibilidade Crítica | crítico: True
+2026-05-17 19:23:14,740 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 19:23:14,742 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 19:23:14,744 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 19:23:14,746 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 19:23:14,751 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 19:23:14,755 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 19:23:14,757 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 19:23:14,759 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 19:23:14,761 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 19:23:14,764 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 19:23:14,771 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 19:23:14,776 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 19:23:14,783 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 19:23:14,789 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 19:23:14,795 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
