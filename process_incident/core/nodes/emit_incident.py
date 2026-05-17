@@ -32,10 +32,10 @@ def emit_incident(state: State) -> dict:
     }
 
     # Substituindo os prints poluídos pelo logger
-    logger.info(f"Emitindo resultados para o incidente {incident['id']}")
+    logger.info(f"Emitindo resultados para o incidente {incident.get("id")}")
 
     # SALVAR JSON INDIVIDUAL
-    with open(RESPONSES_PATH / f"incident_{incident['id']}.json", "w", encoding="utf-8") as f:
+    with open(RESPONSES_PATH / f"incident_{incident.get("id")}.json", "w", encoding="utf-8") as f:
         json.dump(response, f, ensure_ascii=False, indent=2)
 
     # GERAR / ATUALIZAR CSV
