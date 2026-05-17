@@ -2,6 +2,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).parent.parent
 
+DATA_PATH                        = BASE_DIR / "data" / "incidents.json"
 PROMPTS_PATH                     = BASE_DIR / "prompts"
 CLASSIFY_CRITICALITY_PROMPT_PATH = PROMPTS_PATH / "classify_criticality_prompt.md"
 DRAFT_ALERT_PROMPT_PATH          = PROMPTS_PATH / "draft_alert_prompt.md"

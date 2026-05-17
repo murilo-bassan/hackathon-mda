@@ -1,5 +1,6 @@
 import pandas as pd
-from process_request.utilities.config import DATA_PATH
+#from process_request.utilities.config import DATA_PATH
+from process_incident.utilities.config import DATA_PATH
 from general_process.utilities.logger_config import setup_logger
 
 logger = setup_logger(__name__)

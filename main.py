@@ -16,7 +16,7 @@ def main() -> None:
 
     START_INDEX = 0
     END_INDEX = 1
-
+    
     for idx, ticket in enumerate(tickets, start=1):
 
         if idx <= START_INDEX:
