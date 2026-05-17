@@ -20,7 +20,7 @@ def draft_alert(state: State) -> dict:
     scope = incident.get("scope", "unknown")
     affected_systems = incident.get("affected_systems", "unknown")
     containment_steps = incident.get("containment_steps", [])
-    report_text = incident.get("report_text", "")
+    free_text = incident.get("free_text", "")
 
     logger.info(f"Redigindo alerta para: {responsible_person} | crítico: {critical}")
 
@@ -37,7 +37,7 @@ def draft_alert(state: State) -> dict:
         f"Critical: {critical}\n"
         f"Scope: {scope}\n"
         f"Affected systems: {affected_systems}\n"
-        f"Original incident report: {report_text}\n"
+        f"Original incident report: {free_text}\n"
         f"Recommended containment steps:\n{steps_formatted}"
     )
 
