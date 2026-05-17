@@ -27,7 +27,8 @@ def emit(state: State) -> dict:
         "department": partial.get("department", ""),
         "response_draft": partial.get("response_draft", ""),
         "needs_more_info": ticket.get("needs_more_info", False),
-        "info_justification": ticket.get("info_justification", "")
+        "info_justification": ticket.get("info_justification", ""),
+        "validation_status": partial.get("validation_status", "pending")
     }
 
     # Substituindo os prints poluídos pelo logger
