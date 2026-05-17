@@ -25,6 +25,8 @@ def emit_incident(state: State) -> dict:
         ("affected_systems", ""),
         "responsible_person": incident.get("resonsible_person", ""),
         "contact_info": incident.get("contact_info", ""),
+        "containment_steps": incident.get("containment_steps", []),
+        "containment_justification": incident.get("containment_justification", ""),
         "alert_draft": incident.get("alert_draft", ""),
         "report_template": incident.get("report_template", ""),
     }
