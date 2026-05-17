@@ -1,4 +1,4 @@
-from process_incident.utilities import match_term
+from process_incident.utilities.match_term import match_term
 
 def find_owner(affected_systems: str, inventory: list[dict]) -> dict:
     """
