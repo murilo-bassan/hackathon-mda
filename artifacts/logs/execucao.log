@@ -1,0 +1,4 @@
+2026-05-15 17:16:15,775 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-15 17:16:19,348 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\docs\graph.png
+2026-05-15 17:16:19,348 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-15 17:16:19,384 | INFO | utilities.load_tickets | 200 tickets carregados.

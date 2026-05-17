@@ -1,0 +1,1883 @@
+2026-05-13 13:51:37,074 | INFO | __main__ | Gerando visualização do grafo...
+2026-05-13 13:51:51,806 | INFO | __main__ | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-13 13:51:51,809 | INFO | __main__ | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-13 13:51:51,845 | INFO | __main__ | 220 tickets carregados.
+2026-05-13 13:51:51,846 | INFO | __main__ | ============================================================
+2026-05-13 13:51:51,846 | INFO | __main__ | Iniciando processamento do ticket 8
+2026-05-13 13:51:51,858 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 13:52:54,682 | ERROR | utilities.utils | Erro inesperado: HTTPSConnectionPool(host='openrouter.ai', port=443): Read timed out.
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 903, in _error_catcher
+    yield
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 1418, in read_chunked
+    self._update_chunk_length()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 1333, in _update_chunk_length
+    line = self._fp.fp.readline()  # type: ignore[union-attr]
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 822, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 1250, in stream
+    yield from self.read_chunked(amt, decode_content=decode_content)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 1397, in read_chunked
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 908, in _error_catcher
+    raise ReadTimeoutError(self._pool, None, "Read timed out.") from e  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='openrouter.ai', port=443): Read timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\hackathon-mda\utilities\utils.py", line 22, in call_llm
+    response = requests.post(
+        url="https://openrouter.ai/api/v1/chat/completions",
+    ...<20 lines>...
+        timeout=60
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 749, in send
+    r.content
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 904, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 828, in generate
+    raise ConnectionError(e)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='openrouter.ai', port=443): Read timed out.
+2026-05-13 13:52:54,759 | INFO | nodes.score_priority | [TKT-UFMS-008] Calculando urgência e impacto em paralelo
+2026-05-13 13:52:54,760 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 13:52:54,761 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 13:53:00,389 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 13:53:00,389 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 13:53:05,127 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 13:53:05,127 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 13:53:05,128 | INFO | nodes.score_priority | [TKT-UFMS-008] Urgência=2 | Impacto=2
+2026-05-13 13:53:05,129 | INFO | nodes.score_priority | [TKT-UFMS-008] Prioridade resultante=2
+2026-05-13 13:53:05,137 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 13:53:11,131 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 13:53:11,131 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 13:53:11,142 | INFO | nodes.queue_only | Ticket TKT-UFMS-008 adicionado à fila humana. Total: 7
+2026-05-13 13:53:11,143 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-008
+2026-05-13 13:53:11,144 | INFO | __main__ | Processamento concluído com sucesso.
+2026-05-13 13:53:11,145 | INFO | __main__ | === RESPONSE ===
+2026-05-13 13:53:11,145 | INFO | __main__ | ticket: {'id': 'TKT-UFMS-008', 'timestamp': '2026-03-01T09:45:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'n consigo acessar o eduroam no meu celular novo de jeito nenhum , ja tentei de tudo aqui na cidade universitária. fica pedindo certificado'}
+2026-05-13 13:53:11,145 | INFO | __main__ | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-13 13:53:11,145 | INFO | __main__ | response: {'ticket_id': 'TKT-UFMS-008', 'category': 'Indefinida', 'urgency': 2, 'impact': 2, 'resulting_priority': 2, 'priority_justification': 'A prioridade é média, pois o impacto se limita a um único usuário e seu dispositivo (Impacto Médio), e embora a conectividade seja importante, não impede as operações gerais da instituição (Urgência Média). O problema impacta a experiência do usuário com o acesso à rede sem fio, mas não representa uma interrupção em serviços críticos.', 'service_type': 'Geral', 'support_level': 1, 'category_justification': 'Sem justificativa', 'department': 'Geral', 'response_draft': '[FILA HUMANA] Encaminhado ao analista responsável.'}
+2026-05-13 14:10:40,052 | INFO | __main__ | Processamento iniciado via Interface Web
+2026-05-13 14:10:40,114 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:10:51,909 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:10:51,909 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:10:51,913 | INFO | nodes.score_priority | [TKT-UFMS-001] Calculando urgência e impacto em paralelo
+2026-05-13 14:10:51,913 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:10:51,913 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:10:54,402 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:10:54,403 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:10:54,912 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:10:54,912 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:10:54,914 | INFO | nodes.score_priority | [TKT-UFMS-001] Urgência=4 | Impacto=1
+2026-05-13 14:10:54,914 | INFO | nodes.score_priority | [TKT-UFMS-001] Prioridade resultante=3
+2026-05-13 14:10:54,916 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:11:06,456 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:11:06,456 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:11:06,468 | INFO | nodes.queue_only | Ticket TKT-UFMS-001 adicionado à fila humana. Total: 8
+2026-05-13 14:11:06,470 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-001
+2026-05-13 14:16:05,065 | INFO | __main__ | Processamento iniciado via Interface Web
+2026-05-13 14:16:05,130 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:16:11,907 | ERROR | utilities.utils | Erro inesperado: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ConnectionResetError: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\hackathon-mda\utilities\utils.py", line 22, in call_llm
+    response = requests.post(
+        url="https://openrouter.ai/api/v1/chat/completions",
+    ...<20 lines>...
+        timeout=60
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 660, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+2026-05-13 14:16:11,997 | INFO | nodes.score_priority | [TKT-UFMS-021] Calculando urgência e impacto em paralelo
+2026-05-13 14:16:11,998 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:16:11,998 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:16:20,802 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:16:20,803 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:16:20,985 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:16:20,986 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:16:20,989 | INFO | nodes.score_priority | [TKT-UFMS-021] Urgência=2 | Impacto=1
+2026-05-13 14:16:20,989 | INFO | nodes.score_priority | [TKT-UFMS-021] Prioridade resultante=2
+2026-05-13 14:16:20,989 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:16:25,482 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:16:25,482 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:16:25,484 | INFO | nodes.queue_only | Ticket TKT-UFMS-021 adicionado à fila humana. Total: 9
+2026-05-13 14:16:25,485 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-13 14:30:38,559 | INFO | __main__ | Gerando visualização do grafo...
+2026-05-13 14:30:39,263 | INFO | __main__ | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-13 14:30:39,263 | INFO | __main__ | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-13 14:30:39,281 | INFO | __main__ | 220 tickets carregados.
+2026-05-13 14:30:39,282 | INFO | __main__ | ============================================================
+2026-05-13 14:30:39,282 | INFO | __main__ | Iniciando processamento do ticket 10
+2026-05-13 14:30:39,286 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:30:41,351 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:30:41,351 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:30:41,353 | INFO | nodes.score_priority | [TKT-UFMS-010] Calculando urgência e impacto em paralelo
+2026-05-13 14:30:41,354 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:30:41,354 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:30:42,631 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:30:42,631 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:30:43,533 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:30:43,534 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:30:43,535 | INFO | nodes.score_priority | [TKT-UFMS-010] Urgência=3 | Impacto=3
+2026-05-13 14:30:43,536 | INFO | nodes.score_priority | [TKT-UFMS-010] Prioridade resultante=3
+2026-05-13 14:30:43,536 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:31:17,407 | ERROR | utilities.utils | Erro inesperado: ("Connection broken: ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None)", ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 903, in _error_catcher
+    yield
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 1418, in read_chunked
+    self._update_chunk_length()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 1333, in _update_chunk_length
+    line = self._fp.fp.readline()  # type: ignore[union-attr]
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 822, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 1250, in stream
+    yield from self.read_chunked(amt, decode_content=decode_content)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 1397, in read_chunked
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\response.py", line 930, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ("Connection broken: ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None)", ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\hackathon-mda\utilities\utils.py", line 22, in call_llm
+    response = requests.post(
+        url="https://openrouter.ai/api/v1/chat/completions",
+    ...<20 lines>...
+        timeout=60
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 749, in send
+    r.content
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 904, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 824, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None)", ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+2026-05-13 14:31:17,425 | WARNING | nodes.score_priority | [TKT-UFMS-010] LLM não retornou justificativa. Usando fallback textual.
+2026-05-13 14:31:17,427 | INFO | nodes.queue_only | Ticket TKT-UFMS-010 adicionado à fila humana. Total: 10
+2026-05-13 14:31:17,428 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-010
+2026-05-13 14:31:17,429 | INFO | __main__ | Processamento concluído com sucesso.
+2026-05-13 14:31:17,430 | INFO | __main__ | === RESPONSE ===
+2026-05-13 14:31:17,430 | INFO | __main__ | ticket: {'id': 'TKT-UFMS-010', 'timestamp': '2026-02-12T10:05:00Z', 'channel': 'Sistema de Chamados', 'requester_profile': 'Estudante', 'free_text': 'preciso assinar o termo do passaporte mas a pagina do sistema fica totalmente em branco qnd eu logo.'}
+2026-05-13 14:31:17,430 | INFO | __main__ | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-13 14:31:17,430 | INFO | __main__ | response: {'ticket_id': 'TKT-UFMS-010', 'category': 'Incidente', 'urgency': 3, 'impact': 3, 'resulting_priority': 3, 'priority_justification': 'Urgência 3 e Impacto 3 resultaram em prioridade 3.', 'service_type': 'Acesso', 'support_level': 1, 'category_justification': 'Falha na funcionalidade do sistema de passaportes após login.', 'department': 'N1 - Atendimento Direto', 'response_draft': '[FILA HUMANA] Encaminhado ao analista responsável.'}
+2026-05-13 14:38:21,963 | INFO | __main__ | Gerando visualização do grafo...
+2026-05-13 14:38:22,604 | INFO | __main__ | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-13 14:38:22,604 | INFO | __main__ | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-13 14:38:22,618 | INFO | __main__ | 220 tickets carregados.
+2026-05-13 14:38:22,619 | INFO | __main__ | ============================================================
+2026-05-13 14:38:22,619 | INFO | __main__ | Iniciando processamento do ticket 10
+2026-05-13 14:38:22,622 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:38:26,864 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:38:26,864 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:38:26,865 | INFO | nodes.score_priority | [TKT-UFMS-010] Calculando urgência e impacto em paralelo
+2026-05-13 14:38:26,866 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:38:26,866 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:38:37,478 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:38:37,478 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:38:37,871 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:38:37,872 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:38:37,873 | INFO | nodes.score_priority | [TKT-UFMS-010] Urgência=3 | Impacto=3
+2026-05-13 14:38:37,873 | INFO | nodes.score_priority | [TKT-UFMS-010] Prioridade resultante=3
+2026-05-13 14:38:37,873 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:38:50,159 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:38:50,161 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:38:50,173 | INFO | nodes.queue_only | Ticket TKT-UFMS-010 adicionado à fila humana. Total: 11
+2026-05-13 14:38:50,174 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-010
+2026-05-13 14:38:50,175 | INFO | __main__ | Processamento concluído com sucesso.
+2026-05-13 14:38:50,175 | INFO | __main__ | === RESPONSE ===
+2026-05-13 14:38:50,176 | INFO | __main__ | ticket: {'id': 'TKT-UFMS-010', 'timestamp': '2026-02-12T10:05:00Z', 'channel': 'Sistema de Chamados', 'requester_profile': 'Estudante', 'free_text': 'preciso assinar o termo do passaporte mas a pagina do sistema fica totalmente em branco qnd eu logo.'}
+2026-05-13 14:38:50,176 | INFO | __main__ | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-13 14:38:50,176 | INFO | __main__ | response: {'ticket_id': 'TKT-UFMS-010', 'category': 'Incidente', 'urgency': 3, 'impact': 3, 'resulting_priority': 3, 'priority_justification': 'A prioridade é alta devido ao impacto no acesso a um serviço essencial para viagens corporativas (Impacto Médio) e à necessidade de resolução em tempo hábil para não comprometer deslocamentos (Urgência Média). A falha na visualização da página impede a assinatura do termo, bloqueando o processo.', 'service_type': 'Acesso', 'support_level': 1, 'category_justification': 'Falha ao acessar um sistema, impedindo a realização de uma tarefa.', 'department': 'N1 - Atendimento Direto', 'response_draft': '[FILA HUMANA] Encaminhado ao analista responsável.'}
+2026-05-13 14:40:43,094 | INFO | __main__ | Gerando visualização do grafo...
+2026-05-13 14:40:43,462 | INFO | __main__ | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-13 14:40:43,463 | INFO | __main__ | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-13 14:40:43,479 | INFO | __main__ | 220 tickets carregados.
+2026-05-13 14:40:43,479 | INFO | __main__ | ============================================================
+2026-05-13 14:40:43,479 | INFO | __main__ | Iniciando processamento do ticket 10
+2026-05-13 14:40:43,484 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:40:45,733 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:40:45,734 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:40:45,735 | INFO | nodes.score_priority | [TKT-UFMS-010] Calculando urgência e impacto em paralelo
+2026-05-13 14:40:45,737 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:40:45,737 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:40:47,093 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:40:47,093 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:40:48,411 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 14:40:48,411 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 14:40:48,413 | INFO | nodes.score_priority | [TKT-UFMS-010] Urgência=3 | Impacto=3
+2026-05-13 14:40:48,413 | INFO | nodes.score_priority | [TKT-UFMS-010] Prioridade resultante=3
+2026-05-13 14:40:48,413 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 14:40:56,913 | ERROR | utilities.utils | Erro inesperado: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ConnectionResetError: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\hackathon-mda\utilities\utils.py", line 22, in call_llm
+    response = requests.post(
+        url="https://openrouter.ai/api/v1/chat/completions",
+    ...<20 lines>...
+        timeout=60
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 660, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+2026-05-13 14:40:56,930 | WARNING | nodes.score_priority | [TKT-UFMS-010] LLM não retornou justificativa. Usando fallback textual.
+2026-05-13 14:40:56,942 | INFO | nodes.queue_only | Ticket TKT-UFMS-010 adicionado à fila humana. Total: 12
+2026-05-13 14:40:56,943 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-010
+2026-05-13 14:40:56,946 | INFO | __main__ | Processamento concluído com sucesso.
+2026-05-13 14:40:56,946 | INFO | __main__ | === RESPONSE ===
+2026-05-13 14:40:56,946 | INFO | __main__ | ticket: {'id': 'TKT-UFMS-010', 'timestamp': '2026-02-12T10:05:00Z', 'channel': 'Sistema de Chamados', 'requester_profile': 'Estudante', 'free_text': 'preciso assinar o termo do passaporte mas a pagina do sistema fica totalmente em branco qnd eu logo.'}
+2026-05-13 14:40:56,949 | INFO | __main__ | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-13 14:40:56,950 | INFO | __main__ | response: {'ticket_id': 'TKT-UFMS-010', 'category': 'Incidente', 'urgency': 3, 'impact': 3, 'resulting_priority': 3, 'priority_justification': 'Urgência 3 e Impacto 3 resultaram em prioridade 3.', 'service_type': 'Sistema Administrativo', 'support_level': 1, 'category_justification': 'Relato de falha no funcionamento de sistema administrativo.', 'department': 'N3 - Sistemas Administrativos', 'response_draft': '[FILA HUMANA] Encaminhado ao analista responsável.'}
+2026-05-13 15:04:23,381 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:04:25,858 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:04:25,858 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:04:25,860 | INFO | nodes.score_priority | [TKT-UFMS-144] Calculando urgência e impacto em paralelo
+2026-05-13 15:04:25,862 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:04:25,862 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:04:26,977 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:04:26,978 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:04:27,089 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:04:27,089 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:04:27,091 | INFO | nodes.score_priority | [TKT-UFMS-144] Urgência=2 | Impacto=2
+2026-05-13 15:04:27,092 | INFO | nodes.score_priority | [TKT-UFMS-144] Prioridade resultante=2
+2026-05-13 15:04:27,092 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:04:41,411 | ERROR | utilities.utils | Erro inesperado: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 1428, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 1428, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\hackathon-mda\utilities\utils.py", line 22, in call_llm
+    response = requests.post(
+        url="https://openrouter.ai/api/v1/chat/completions",
+    ...<20 lines>...
+        timeout=60
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 660, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+2026-05-13 15:04:41,439 | WARNING | nodes.score_priority | [TKT-UFMS-144] LLM não retornou justificativa. Usando fallback textual.
+2026-05-13 15:04:41,441 | INFO | nodes.queue_only | Ticket TKT-UFMS-144 adicionado à fila humana. Total: 13
+2026-05-13 15:04:41,441 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-144
+2026-05-13 15:04:41,444 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:04:47,423 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:04:47,423 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:04:47,425 | INFO | nodes.score_priority | [TKT-UFMS-029] Calculando urgência e impacto em paralelo
+2026-05-13 15:04:47,430 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:04:47,433 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:04:48,552 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:04:48,552 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:04:49,175 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:04:49,176 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:04:49,178 | INFO | nodes.score_priority | [TKT-UFMS-029] Urgência=1 | Impacto=1
+2026-05-13 15:04:49,178 | INFO | nodes.score_priority | [TKT-UFMS-029] Prioridade resultante=1
+2026-05-13 15:04:49,179 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:04:59,552 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:04:59,555 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:04:59,567 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:05:02,597 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:05:02,597 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:05:02,600 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-029
+2026-05-13 15:05:02,604 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:05:22,929 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:05:22,929 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:05:22,932 | INFO | nodes.score_priority | [TKT-UFMS-007] Calculando urgência e impacto em paralelo
+2026-05-13 15:05:22,932 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:05:22,932 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:05:24,356 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:05:24,356 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:05:25,017 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:05:25,017 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:05:25,019 | INFO | nodes.score_priority | [TKT-UFMS-007] Urgência=3 | Impacto=3
+2026-05-13 15:05:25,019 | INFO | nodes.score_priority | [TKT-UFMS-007] Prioridade resultante=3
+2026-05-13 15:05:25,019 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:05:29,895 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:05:29,896 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:05:29,905 | INFO | nodes.queue_only | Ticket TKT-UFMS-007 adicionado à fila humana. Total: 14
+2026-05-13 15:05:29,912 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-007
+2026-05-13 15:05:29,914 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:05:32,940 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:05:32,940 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:05:32,942 | INFO | nodes.score_priority | [TKT-UFMS-170] Calculando urgência e impacto em paralelo
+2026-05-13 15:05:32,942 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:05:32,943 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:05:34,123 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:05:34,123 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:05:50,648 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:05:50,649 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:05:50,650 | INFO | nodes.score_priority | [TKT-UFMS-170] Urgência=3 | Impacto=3
+2026-05-13 15:05:50,650 | INFO | nodes.score_priority | [TKT-UFMS-170] Prioridade resultante=3
+2026-05-13 15:05:50,650 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:05:52,723 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:05:52,724 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:05:52,732 | INFO | nodes.queue_only | Ticket TKT-UFMS-170 adicionado à fila humana. Total: 15
+2026-05-13 15:05:52,733 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-170
+2026-05-13 15:05:52,736 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:06:11,024 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:06:11,025 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:06:11,026 | INFO | nodes.score_priority | [TKT-UFMS-071] Calculando urgência e impacto em paralelo
+2026-05-13 15:06:11,027 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:06:11,028 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:06:18,908 | ERROR | utilities.utils | Erro inesperado: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ConnectionResetError: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\hackathon-mda\utilities\utils.py", line 22, in call_llm
+    response = requests.post(
+        url="https://openrouter.ai/api/v1/chat/completions",
+    ...<20 lines>...
+        timeout=60
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 660, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+2026-05-13 15:06:18,908 | ERROR | utilities.utils | Erro inesperado: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ConnectionResetError: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\hackathon-mda\utilities\utils.py", line 22, in call_llm
+    response = requests.post(
+        url="https://openrouter.ai/api/v1/chat/completions",
+    ...<20 lines>...
+        timeout=60
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 660, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+2026-05-13 15:06:18,925 | ERROR | nodes.score_priority | [TKT-UFMS-071] Falha do LLM nos campos: ['urgency', 'impact']. Aplicando fail-safe.
+2026-05-13 15:06:18,937 | INFO | nodes.queue_only | Ticket TKT-UFMS-071 adicionado à fila humana. Total: 16
+2026-05-13 15:06:18,939 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-071
+2026-05-13 15:06:18,942 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:06:37,349 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:06:37,349 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:06:37,350 | INFO | nodes.score_priority | [TKT-UFMS-063] Calculando urgência e impacto em paralelo
+2026-05-13 15:06:37,350 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:06:37,351 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:06:38,413 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:06:38,414 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:06:41,391 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:06:41,391 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:06:41,393 | INFO | nodes.score_priority | [TKT-UFMS-063] Urgência=2 | Impacto=2
+2026-05-13 15:06:41,393 | INFO | nodes.score_priority | [TKT-UFMS-063] Prioridade resultante=2
+2026-05-13 15:06:41,393 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:06:43,866 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:06:43,866 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:06:43,875 | INFO | nodes.queue_only | Ticket TKT-UFMS-063 adicionado à fila humana. Total: 17
+2026-05-13 15:06:43,877 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-063
+2026-05-13 15:06:43,880 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:06:45,966 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:06:45,966 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:06:45,968 | INFO | nodes.score_priority | [TKT-UFMS-058] Calculando urgência e impacto em paralelo
+2026-05-13 15:06:45,969 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:06:45,969 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:06:47,117 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:06:47,118 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:06:47,585 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:06:47,585 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:06:47,587 | INFO | nodes.score_priority | [TKT-UFMS-058] Urgência=2 | Impacto=1
+2026-05-13 15:06:47,588 | INFO | nodes.score_priority | [TKT-UFMS-058] Prioridade resultante=2
+2026-05-13 15:06:47,588 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:07,177 | ERROR | utilities.utils | Erro inesperado: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ConnectionResetError: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\hackathon-mda\utilities\utils.py", line 22, in call_llm
+    response = requests.post(
+        url="https://openrouter.ai/api/v1/chat/completions",
+    ...<20 lines>...
+        timeout=60
+    )
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 660, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+2026-05-13 15:07:07,181 | WARNING | nodes.score_priority | [TKT-UFMS-058] LLM não retornou justificativa. Usando fallback textual.
+2026-05-13 15:07:07,190 | INFO | nodes.queue_only | Ticket TKT-UFMS-058 adicionado à fila humana. Total: 18
+2026-05-13 15:07:07,191 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-058
+2026-05-13 15:07:07,195 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:10,013 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:07:10,013 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:07:10,015 | INFO | nodes.score_priority | [TKT-UFMS-036] Calculando urgência e impacto em paralelo
+2026-05-13 15:07:10,016 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:10,016 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:10,947 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:07:10,947 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:07:11,135 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:07:11,135 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:07:11,137 | INFO | nodes.score_priority | [TKT-UFMS-036] Urgência=3 | Impacto=3
+2026-05-13 15:07:11,137 | INFO | nodes.score_priority | [TKT-UFMS-036] Prioridade resultante=3
+2026-05-13 15:07:11,137 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:17,941 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:07:17,941 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:07:17,949 | INFO | nodes.queue_only | Ticket TKT-UFMS-036 adicionado à fila humana. Total: 19
+2026-05-13 15:07:17,950 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-036
+2026-05-13 15:07:17,952 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:26,178 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:07:26,178 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:07:26,180 | INFO | nodes.score_priority | [TKT-UFMS-169] Calculando urgência e impacto em paralelo
+2026-05-13 15:07:26,180 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:26,181 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:27,986 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:07:27,986 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:07:28,121 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:07:28,122 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:07:28,123 | INFO | nodes.score_priority | [TKT-UFMS-169] Urgência=3 | Impacto=4
+2026-05-13 15:07:28,124 | INFO | nodes.score_priority | [TKT-UFMS-169] Prioridade resultante=4
+2026-05-13 15:07:28,125 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:30,132 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:07:30,132 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:07:30,141 | INFO | nodes.queue_only | Ticket TKT-UFMS-169 adicionado à fila humana. Total: 20
+2026-05-13 15:07:30,142 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-169
+2026-05-13 15:07:30,144 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:32,637 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:07:32,637 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:07:32,639 | INFO | nodes.score_priority | [TKT-UFMS-027] Calculando urgência e impacto em paralelo
+2026-05-13 15:07:32,642 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:32,642 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:07:38,679 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:07:38,679 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:07:46,746 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:07:46,746 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:07:46,748 | INFO | nodes.score_priority | [TKT-UFMS-027] Urgência=2 | Impacto=3
+2026-05-13 15:07:46,748 | INFO | nodes.score_priority | [TKT-UFMS-027] Prioridade resultante=2
+2026-05-13 15:07:46,748 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 15:08:01,333 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 15:08:01,333 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 15:08:01,347 | INFO | nodes.queue_only | Ticket TKT-UFMS-027 adicionado à fila humana. Total: 21
+2026-05-13 15:08:01,348 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-027
+2026-05-13 16:41:09,773 | INFO | __main__ | Gerando visualização do grafo...
+2026-05-13 16:41:10,378 | INFO | __main__ | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-13 16:41:10,378 | INFO | __main__ | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-13 16:41:10,394 | INFO | __main__ | 220 tickets carregados.
+2026-05-13 16:41:10,394 | INFO | __main__ | ============================================================
+2026-05-13 16:41:10,394 | INFO | __main__ | Iniciando processamento do ticket 21
+2026-05-13 16:41:10,401 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 16:41:13,928 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 16:41:13,929 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 16:41:13,931 | INFO | nodes.score_priority | [TKT-UFMS-021] Calculando urgência e impacto em paralelo
+2026-05-13 16:41:13,933 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 16:41:13,934 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 16:41:15,598 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 16:41:15,598 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 16:41:15,819 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 16:41:15,820 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 16:41:15,822 | INFO | nodes.score_priority | [TKT-UFMS-021] Urgência=2 | Impacto=1
+2026-05-13 16:41:15,822 | INFO | nodes.score_priority | [TKT-UFMS-021] Prioridade resultante=2
+2026-05-13 16:41:15,823 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 16:41:17,639 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 16:41:17,640 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 16:41:17,642 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 16:41:22,371 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 16:41:22,372 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 16:41:22,374 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-13 16:41:22,376 | INFO | __main__ | Processamento concluído com sucesso.
+2026-05-13 16:41:22,376 | INFO | __main__ | === RESPONSE ===
+2026-05-13 16:41:22,381 | INFO | __main__ | ticket: {'id': 'TKT-UFMS-021', 'timestamp': '2026-02-23T10:05:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'moço, não to conseguindo conectar nesse eduroan de jeito nenhum. me ajuda a configurar no meu cel novo?'}
+2026-05-13 16:41:22,381 | INFO | __main__ | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-13 16:41:22,381 | INFO | __main__ | response: {'ticket_id': 'TKT-UFMS-021', 'category': 'Requisição', 'urgency': 2, 'impact': 1, 'resulting_priority': 2, 'priority_justification': 'A prioridade é média, pois o impacto se limita a um único usuário (Baixo Impacto) e a resolução, embora necessária, não é imediata (Urgência Média). Trata-se de uma configuração individual em dispositivo pessoal, não impactando a infraestrutura central.', 'service_type': 'Rede', 'support_level': 1, 'category_justification': 'Solicitação de configuração de acesso à rede sem fio.', 'department': 'N3 - Infraestrutura e Redes', 'response_draft': 'Olá! Agradecemos o contato. Para te ajudar a configurar o eduroam no seu celular novo, poderia informar o modelo do aparelho e o sistema operacional (Android ou iOS)? Assim, poderei fornecer as instruções corretas. Caso precise, temos um tutorial geral disponível em [link para o tutorial, se houver]. Obrigado!'}
+2026-05-13 16:52:57,117 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-13 16:58:11,595 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-13 16:58:12,334 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-13 16:58:12,335 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-13 16:58:12,350 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-13 16:58:12,350 | INFO | utilities.process_ticket | ============================================================
+2026-05-13 16:58:12,350 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-13 16:58:12,351 | ERROR | utilities.process_ticket | Erro ao processar ticket 21
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\hackathon-mda\utilities\process_ticket.py", line 12, in process_ticket
+    response = graph.invoke({"ticket": ticket})
+               ^^^^^^^^^^^^
+AttributeError: module 'langgraph.graph' has no attribute 'invoke'
+2026-05-13 16:58:53,248 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-13 16:58:53,600 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-13 16:58:53,600 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-13 16:58:53,613 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-13 16:58:53,613 | INFO | utilities.process_ticket | ============================================================
+2026-05-13 16:58:53,613 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-13 16:58:53,617 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 16:58:56,113 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 16:58:56,113 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 16:58:56,115 | INFO | nodes.score_priority | [TKT-UFMS-021] Calculando urgência e impacto em paralelo
+2026-05-13 16:58:56,115 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 16:58:56,117 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 16:58:57,035 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 16:58:57,035 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 16:58:57,627 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 16:58:57,628 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 16:58:57,630 | INFO | nodes.score_priority | [TKT-UFMS-021] Urgência=2 | Impacto=1
+2026-05-13 16:58:57,630 | INFO | nodes.score_priority | [TKT-UFMS-021] Prioridade resultante=2
+2026-05-13 16:58:57,630 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 16:58:59,391 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 16:58:59,392 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 16:58:59,393 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 16:59:01,898 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 16:59:01,900 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 16:59:01,902 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-13 16:59:01,903 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-13 16:59:01,904 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-13 16:59:01,904 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': '2026-02-23T10:05:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'moço, não to conseguindo conectar nesse eduroan de jeito nenhum. me ajuda a configurar no meu cel novo?'}
+2026-05-13 16:59:01,904 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-13 16:59:01,904 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': 'Requisição', 'urgency': 2, 'impact': 1, 'resulting_priority': 2, 'priority_justification': 'A prioridade é média pois o impacto se limita a um único usuário (Baixo Impacto) e, embora a conectividade seja necessária, não impede o funcionamento de processos críticos (Urgência Média). A solicitação se refere à configuração de acesso individual e não afeta a infraestrutura central.', 'service_type': 'Rede', 'support_level': 1, 'category_justification': 'Solicitação de auxílio para configuração de acesso à rede em novo dispositivo.', 'department': 'N3 - Infraestrutura e Redes', 'response_draft': 'Prezado(a) usuário(a),\n\nObrigado por entrar em contato com o suporte AGETIC/UFMS.\n\nPara que possamos auxiliar na configuração do eduroam em seu novo celular, poderia, por favor, informar o modelo do aparelho e o sistema operacional (Android ou iOS)? Assim, poderemos fornecer as instruções corretas.\n\nAtenciosamente,\nSuporte AGETIC/UFMS - Nível 1'}
+2026-05-13 18:07:43,386 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:07:48,480 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:07:48,480 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:07:48,482 | INFO | nodes.score_priority | [TKT-UFMS-144] Calculando urgência e impacto em paralelo
+2026-05-13 18:07:48,486 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:07:48,486 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:07:49,812 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:07:49,813 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:07:50,117 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:07:50,118 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:07:50,119 | INFO | nodes.score_priority | [TKT-UFMS-144] Urgência=2 | Impacto=2
+2026-05-13 18:07:50,120 | INFO | nodes.score_priority | [TKT-UFMS-144] Prioridade resultante=2
+2026-05-13 18:07:50,120 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:07:53,189 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:07:53,190 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:07:53,210 | INFO | nodes.queue_only | Ticket TKT-UFMS-144 adicionado à fila humana. Total: 22
+2026-05-13 18:07:53,213 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-144
+2026-05-13 18:07:53,218 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:07:58,678 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:07:58,678 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:07:58,680 | INFO | nodes.score_priority | [TKT-UFMS-029] Calculando urgência e impacto em paralelo
+2026-05-13 18:07:58,680 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:07:58,682 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:07:59,948 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:07:59,949 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:00,204 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:00,204 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:00,206 | INFO | nodes.score_priority | [TKT-UFMS-029] Urgência=1 | Impacto=1
+2026-05-13 18:08:00,206 | INFO | nodes.score_priority | [TKT-UFMS-029] Prioridade resultante=1
+2026-05-13 18:08:00,206 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:03,633 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:03,635 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:03,637 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:07,629 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:07,630 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:07,632 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-029
+2026-05-13 18:08:07,636 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:09,675 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:09,675 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:09,677 | INFO | nodes.score_priority | [TKT-UFMS-007] Calculando urgência e impacto em paralelo
+2026-05-13 18:08:09,678 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:09,679 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:11,011 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:11,011 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:11,108 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:11,109 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:11,111 | INFO | nodes.score_priority | [TKT-UFMS-007] Urgência=3 | Impacto=3
+2026-05-13 18:08:11,112 | INFO | nodes.score_priority | [TKT-UFMS-007] Prioridade resultante=3
+2026-05-13 18:08:11,113 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:21,559 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:21,561 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:21,572 | INFO | nodes.queue_only | Ticket TKT-UFMS-007 adicionado à fila humana. Total: 23
+2026-05-13 18:08:21,573 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-007
+2026-05-13 18:08:21,578 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:26,326 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:26,327 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:26,328 | INFO | nodes.score_priority | [TKT-UFMS-170] Calculando urgência e impacto em paralelo
+2026-05-13 18:08:26,329 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:26,330 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:28,313 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:28,313 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:28,348 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:28,349 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:28,350 | INFO | nodes.score_priority | [TKT-UFMS-170] Urgência=3 | Impacto=3
+2026-05-13 18:08:28,350 | INFO | nodes.score_priority | [TKT-UFMS-170] Prioridade resultante=3
+2026-05-13 18:08:28,350 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:30,666 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:30,667 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:30,681 | INFO | nodes.queue_only | Ticket TKT-UFMS-170 adicionado à fila humana. Total: 24
+2026-05-13 18:08:30,683 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-170
+2026-05-13 18:08:30,688 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:33,227 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:33,227 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:33,229 | INFO | nodes.score_priority | [TKT-UFMS-071] Calculando urgência e impacto em paralelo
+2026-05-13 18:08:33,231 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:33,231 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:34,456 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:34,456 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:35,237 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:35,238 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:35,240 | INFO | nodes.score_priority | [TKT-UFMS-071] Urgência=3 | Impacto=3
+2026-05-13 18:08:35,241 | INFO | nodes.score_priority | [TKT-UFMS-071] Prioridade resultante=3
+2026-05-13 18:08:35,241 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:39,680 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:39,681 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:39,693 | INFO | nodes.queue_only | Ticket TKT-UFMS-071 adicionado à fila humana. Total: 25
+2026-05-13 18:08:39,695 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-071
+2026-05-13 18:08:39,699 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:42,813 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:42,813 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:42,815 | INFO | nodes.score_priority | [TKT-UFMS-063] Calculando urgência e impacto em paralelo
+2026-05-13 18:08:42,815 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:42,816 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:44,249 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:44,249 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:44,286 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:44,286 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:44,289 | INFO | nodes.score_priority | [TKT-UFMS-063] Urgência=2 | Impacto=2
+2026-05-13 18:08:44,289 | INFO | nodes.score_priority | [TKT-UFMS-063] Prioridade resultante=2
+2026-05-13 18:08:44,289 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:48,074 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:48,075 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:48,087 | INFO | nodes.queue_only | Ticket TKT-UFMS-063 adicionado à fila humana. Total: 26
+2026-05-13 18:08:48,089 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-063
+2026-05-13 18:08:48,093 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:52,170 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:52,170 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:52,172 | INFO | nodes.score_priority | [TKT-UFMS-058] Calculando urgência e impacto em paralelo
+2026-05-13 18:08:52,173 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:52,174 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:53,605 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:53,605 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:53,605 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:53,606 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:53,608 | INFO | nodes.score_priority | [TKT-UFMS-058] Urgência=2 | Impacto=1
+2026-05-13 18:08:53,608 | INFO | nodes.score_priority | [TKT-UFMS-058] Prioridade resultante=2
+2026-05-13 18:08:53,608 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:08:58,174 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:08:58,175 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:08:58,186 | INFO | nodes.queue_only | Ticket TKT-UFMS-058 adicionado à fila humana. Total: 27
+2026-05-13 18:08:58,187 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-058
+2026-05-13 18:08:58,191 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:01,536 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:01,536 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:01,537 | INFO | nodes.score_priority | [TKT-UFMS-036] Calculando urgência e impacto em paralelo
+2026-05-13 18:09:01,538 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:01,539 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:07,120 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:07,120 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:07,855 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:07,855 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:07,857 | INFO | nodes.score_priority | [TKT-UFMS-036] Urgência=3 | Impacto=3
+2026-05-13 18:09:07,857 | INFO | nodes.score_priority | [TKT-UFMS-036] Prioridade resultante=3
+2026-05-13 18:09:07,857 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:12,856 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:12,856 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:12,868 | INFO | nodes.queue_only | Ticket TKT-UFMS-036 adicionado à fila humana. Total: 28
+2026-05-13 18:09:12,869 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-036
+2026-05-13 18:09:12,873 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:14,763 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:14,763 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:14,765 | INFO | nodes.score_priority | [TKT-UFMS-169] Calculando urgência e impacto em paralelo
+2026-05-13 18:09:14,766 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:14,768 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:15,968 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:15,968 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:16,134 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:16,135 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:16,137 | INFO | nodes.score_priority | [TKT-UFMS-169] Urgência=3 | Impacto=4
+2026-05-13 18:09:16,138 | INFO | nodes.score_priority | [TKT-UFMS-169] Prioridade resultante=4
+2026-05-13 18:09:16,141 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:19,716 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:19,717 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:19,728 | INFO | nodes.queue_only | Ticket TKT-UFMS-169 adicionado à fila humana. Total: 29
+2026-05-13 18:09:19,729 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-169
+2026-05-13 18:09:19,735 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:22,283 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:22,283 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:22,285 | INFO | nodes.score_priority | [TKT-UFMS-027] Calculando urgência e impacto em paralelo
+2026-05-13 18:09:22,286 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:22,287 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:23,716 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:23,717 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:24,632 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:24,633 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:24,636 | INFO | nodes.score_priority | [TKT-UFMS-027] Urgência=3 | Impacto=3
+2026-05-13 18:09:24,636 | INFO | nodes.score_priority | [TKT-UFMS-027] Prioridade resultante=3
+2026-05-13 18:09:24,637 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-13 18:09:28,626 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-13 18:09:28,626 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-13 18:09:28,647 | INFO | nodes.queue_only | Ticket TKT-UFMS-027 adicionado à fila humana. Total: 30
+2026-05-13 18:09:28,648 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-027
+2026-05-14 15:35:07,963 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 15:35:19,188 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 15:35:19,189 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 15:35:19,222 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 15:35:19,223 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 15:35:19,223 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 15:35:19,234 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:35:22,401 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:35:22,402 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:35:22,403 | INFO | nodes.score_priority | [TKT-UFMS-021] Calculando urgência e impacto em paralelo
+2026-05-14 15:35:22,405 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:35:22,405 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:35:23,402 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:35:23,402 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:35:23,460 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:35:23,460 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:35:23,463 | INFO | nodes.score_priority | [TKT-UFMS-021] Urgência=2 | Impacto=1
+2026-05-14 15:35:23,463 | INFO | nodes.score_priority | [TKT-UFMS-021] Prioridade resultante=2
+2026-05-14 15:35:23,464 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:35:26,284 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:35:26,284 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:35:26,286 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:35:29,896 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:35:29,898 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:35:29,899 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 15:35:29,902 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 15:35:29,902 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 15:35:29,902 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': '2026-02-23T10:05:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'moço, não to conseguindo conectar nesse eduroan de jeito nenhum. me ajuda a configurar no meu cel novo?'}
+2026-05-14 15:35:29,902 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 15:35:29,902 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': 'Requisição', 'urgency': 2, 'impact': 1, 'resulting_priority': 2, 'priority_justification': 'A prioridade é média pois o impacto se restringe a um único usuário (Baixo Impacto) e não há uma interrupção imediata de serviços essenciais, embora a resolução seja desejável em tempo hábil (Média Urgência). Trata-se de uma solicitação de configuração de acesso em dispositivo pessoal, não impactando a infraestrutura central.', 'service_type': 'Rede', 'support_level': 1, 'category_justification': 'Solicitação de auxílio para configuração de acesso à rede.', 'department': 'N3 - Infraestrutura e Redes', 'response_draft': 'Prezado(a) usuário(a),\n\nRecebemos sua solicitação de ajuda para configurar o eduroam em seu novo celular. Para que possamos te auxiliar da melhor forma, poderia nos informar o modelo do seu aparelho e o sistema operacional (Android ou iOS)?\n\nCaso precise, temos um guia geral de configuração disponível em [link para o guia, se houver].\n\nAtenciosamente,\nSuporte AGETIC/UFMS.'}
+2026-05-14 15:36:16,617 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 15:36:17,026 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 15:36:17,026 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 15:36:17,040 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 15:36:17,040 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 15:36:17,040 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 15:36:17,044 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:36:21,051 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:36:21,052 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:36:21,053 | INFO | nodes.score_priority | [TKT-UFMS-021] Calculando urgência e impacto em paralelo
+2026-05-14 15:36:21,054 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:36:21,055 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:36:22,063 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:36:22,064 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:36:22,497 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:36:22,497 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:36:22,499 | INFO | nodes.score_priority | [TKT-UFMS-021] Urgência=3 | Impacto=1
+2026-05-14 15:36:22,500 | INFO | nodes.score_priority | [TKT-UFMS-021] Prioridade resultante=2
+2026-05-14 15:36:22,500 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:36:25,344 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:36:25,345 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:36:25,355 | INFO | nodes.queue_only | Ticket TKT-UFMS-021 adicionado à fila humana. Total: 31
+2026-05-14 15:36:25,356 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 15:36:25,357 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 15:36:25,357 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 15:36:25,357 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': '2026-02-23T10:05:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'moço, não to conseguindo conectar'}
+2026-05-14 15:36:25,357 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 15:36:25,357 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': 'Incidente', 'urgency': 3, 'impact': 1, 'resulting_priority': 2, 'priority_justification': 'A prioridade é média, pois o impacto é limitado a um único usuário (Baixo Impacto), mas a impossibilidade de conexão impede a realização de suas tarefas (Média Urgência). Embora não afete sistemas críticos, a resolução oportuna é importante para a produtividade do usuário.', 'service_type': 'Conectividade', 'support_level': 1, 'category_justification': 'Relato de falha de conexão, interrompendo o uso normal.', 'department': 'N3 - Infraestrutura e Redes', 'response_draft': '[FILA HUMANA] Encaminhado ao analista responsável.'}
+2026-05-14 15:39:54,988 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 15:39:58,138 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 15:39:58,138 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 15:39:58,150 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 15:39:58,151 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 15:39:58,151 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 15:39:58,155 | ERROR | utilities.process_ticket | Erro ao processar ticket 21
+Traceback (most recent call last):
+  File "C:\Users\muril\Documents\hackathon-mda\utilities\process_ticket.py", line 12, in process_ticket
+    response = graph.invoke({"ticket": ticket})
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\main.py", line 3365, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<10 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\main.py", line 2759, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\_runner.py", line 167, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\pregel\_retry.py", line 126, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\_internal\_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Users\muril\AppData\Local\Programs\Python\Python313\Lib\site-packages\langgraph\_internal\_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Users\muril\Documents\hackathon-mda\nodes\validate_input.py", line 9, in validate_input
+    system_prompt = load_prompt(VALIDATE_CONTENT_PROMPT_PATH)
+  File "C:\Users\muril\Documents\hackathon-mda\utilities\prompt_loader.py", line 6, in load_prompt
+    with open(path, "r", encoding="utf-8") as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\muril\\Documents\\hackathon-mda\\prompts\\validate_content_prompt.md'
+During task with name 'validate_input' and id '10c9c6bc-a9e3-9e43-bec7-6b420fdc7f28'
+2026-05-14 15:42:39,453 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 15:42:40,032 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 15:42:40,033 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 15:42:40,048 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 15:42:40,049 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 15:42:40,049 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 15:42:40,055 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:42:49,056 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:42:49,058 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:42:49,060 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:42:51,965 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:42:51,965 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:42:51,967 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 15:42:51,968 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 15:42:51,974 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 15:42:51,974 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': '2026-02-23T10:05:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'moço, não to conseguindo conectar', 'needs_more_info': True, 'justification': 'The ticket is too vague and does not specify what the user is trying to connect to or what kind of connection is failing.'}
+2026-05-14 15:42:51,974 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 15:42:51,974 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Para que eu possa te ajudar a resolver o problema de conexão, você poderia me informar qual sistema ou aplicativo você está tentando usar? Também seria útil saber o que acontece exatamente quando você tenta se conectar - aparece alguma mensagem de erro? Qualquer detalhe adicional será muito útil.'}
+2026-05-14 15:46:40,062 | INFO | __main__ | Processamento iniciado via Interface Web
+2026-05-14 15:46:40,121 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:46:42,634 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:46:42,635 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:46:42,637 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 15:46:45,429 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 15:46:45,429 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 15:46:45,431 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 16:57:25,369 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 16:57:26,032 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 16:57:26,032 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 16:57:26,075 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 16:57:26,076 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 16:57:26,076 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 16:57:26,086 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 16:57:26,086 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 16:57:28,832 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 16:57:28,832 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 16:57:28,834 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 16:57:32,865 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 16:57:32,865 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 16:57:32,867 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 16:57:32,870 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 16:57:32,870 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 16:57:32,871 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': Timestamp('2026-02-23 10:05:00+0000', tz='UTC'), 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': '', 'category': 'Requisição', 'priority': 'Baixa', 'suggested_sector': 'N1 - Atendimento Direto', 'justification': 'Solicitação presencial de configuração de rede sem fio (Eduroam) em dispositivo pessoal. Procedimento padrão de Nível 1.', 'draft_response': 'Olá! O seu dispositivo já foi configurado aqui no balcão de atendimento. Lembre-se sempre de utilizar o seu e-mail institucional completo (usuario@ufms.br) e a senha do Passaporte para conectar.', 'needs_more_info': True, 'info_justification': 'The ticket is empty and provides no information about the problem, affected system, or user request.'}
+2026-05-14 16:57:32,872 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 16:57:32,872 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': "Hi there! Thanks for reaching out. To help me understand what's going on, could you please tell me a little more about the issue you're experiencing? Specifically, what were you trying to do when the problem happened, and on what application or system were you working? Any details about what you see on your screen, or error messages that appear, would also be really helpful."}
+2026-05-14 16:58:01,758 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 16:58:09,128 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 16:58:09,131 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 16:58:09,150 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 16:58:09,150 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 16:58:09,150 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 16:58:09,154 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 16:58:09,155 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 16:58:10,586 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 16:58:10,586 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 16:58:10,587 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 16:58:14,765 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 16:58:14,765 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 16:58:14,766 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 16:58:14,768 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 16:58:14,768 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 16:58:14,768 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': Timestamp('2026-02-23 10:05:00+0000', tz='UTC'), 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': '', 'category': 'Requisição', 'priority': 'Baixa', 'suggested_sector': 'N1 - Atendimento Direto', 'justification': 'Solicitação presencial de configuração de rede sem fio (Eduroam) em dispositivo pessoal. Procedimento padrão de Nível 1.', 'draft_response': 'Olá! O seu dispositivo já foi configurado aqui no balcão de atendimento. Lembre-se sempre de utilizar o seu e-mail institucional completo (usuario@ufms.br) e a senha do Passaporte para conectar.', 'needs_more_info': True, 'info_justification': 'The ticket is empty and contains no information about the issue or affected systems.'}
+2026-05-14 16:58:14,769 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 16:58:14,769 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': "Hi there, \n\nThanks for reaching out! To help me understand what's going on, could you please tell me a little more about the issue you're experiencing? Specifically, it would be helpful to know what you were doing when the problem started, what exactly happens when you encounter it, and if you're seeing any error messages. \n\nAny additional details you can provide will help me investigate this quickly. \n\nThanks!"}
+2026-05-14 17:01:01,570 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 17:01:01,877 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 17:01:01,877 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 17:01:01,891 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 17:01:01,892 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 17:01:01,892 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 17:01:01,896 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 17:01:01,896 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 17:01:04,290 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 17:01:04,290 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 17:01:04,293 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 17:01:09,020 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 17:01:09,021 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 17:01:09,022 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 17:01:09,024 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 17:01:09,024 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 17:01:09,024 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': Timestamp('2026-02-23 10:05:00+0000', tz='UTC'), 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': '', 'category': 'Requisição', 'priority': 'Baixa', 'suggested_sector': 'N1 - Atendimento Direto', 'justification': 'Solicitação presencial de configuração de rede sem fio (Eduroam) em dispositivo pessoal. Procedimento padrão de Nível 1.', 'draft_response': 'Olá! O seu dispositivo já foi configurado aqui no balcão de atendimento. Lembre-se sempre de utilizar o seu e-mail institucional completo (usuario@ufms.br) e a senha do Passaporte para conectar.', 'needs_more_info': True, 'info_justification': 'The ticket is empty and provides no information about the issue.'}
+2026-05-14 17:01:09,024 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 17:01:09,024 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Para que eu possa te ajudar da melhor forma, você poderia me fornecer um pouco mais de detalhes sobre o problema que está enfrentando? Seria útil saber qual sistema ou programa está sendo afetado, o que você estava tentando fazer quando o problema aconteceu, e se aparece alguma mensagem de erro. Qualquer informação adicional que você puder compartilhar será muito valiosa!'}
+2026-05-14 17:01:46,093 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 17:01:46,419 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 17:01:46,419 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 17:01:46,447 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 17:01:46,447 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 17:01:46,447 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 17:01:46,451 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 17:01:46,452 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 17:01:47,632 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 17:01:47,632 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 17:01:47,634 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 17:01:49,974 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 17:01:49,975 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 17:01:49,976 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 17:01:49,977 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 17:01:49,977 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 17:01:49,977 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': Timestamp('2026-02-23 10:05:00+0000', tz='UTC'), 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': nan, 'category': 'Requisição', 'priority': 'Baixa', 'suggested_sector': 'N1 - Atendimento Direto', 'justification': 'Solicitação presencial de configuração de rede sem fio (Eduroam) em dispositivo pessoal. Procedimento padrão de Nível 1.', 'draft_response': 'Olá! O seu dispositivo já foi configurado aqui no balcão de atendimento. Lembre-se sempre de utilizar o seu e-mail institucional completo (usuario@ufms.br) e a senha do Passaporte para conectar.', 'needs_more_info': True, 'info_justification': 'The ticket contains no discernible information about the issue or affected system.'}
+2026-05-14 17:01:49,977 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 17:01:49,978 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Para que eu possa te ajudar da melhor forma possível, poderia me fornecer mais informações sobre o problema que você está enfrentando? Seria útil saber qual sistema ou programa está apresentando dificuldades, o que você estava fazendo quando o problema começou, e se aparece alguma mensagem de erro. Qualquer detalhe adicional será de grande ajuda!'}
+2026-05-14 17:02:57,752 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 17:02:58,231 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 17:02:58,232 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 17:02:58,246 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 17:02:58,246 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 17:02:58,246 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 17:02:58,251 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 17:02:58,252 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 17:03:00,037 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 17:03:00,038 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 17:03:00,040 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 17:03:05,605 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 17:03:05,605 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 17:03:05,606 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 17:03:05,608 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 17:03:05,608 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 17:03:05,608 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': Timestamp('2026-02-23 10:05:00+0000', tz='UTC'), 'channel': nan, 'requester_profile': nan, 'free_text': nan, 'category': nan, 'priority': nan, 'suggested_sector': 'N1 - Atendimento Direto', 'justification': 'Solicitação presencial de configuração de rede sem fio (Eduroam) em dispositivo pessoal. Procedimento padrão de Nível 1.', 'draft_response': 'Olá! O seu dispositivo já foi configurado aqui no balcão de atendimento. Lembre-se sempre de utilizar o seu e-mail institucional completo (usuario@ufms.br) e a senha do Passaporte para conectar.', 'needs_more_info': True, 'info_justification': 'The ticket contains no discernible information and cannot be triaged.'}
+2026-05-14 17:03:05,609 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 17:03:05,609 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Para que eu possa te ajudar da melhor forma, poderia me fornecer mais detalhes sobre o problema que você está enfrentando? Seria útil saber qual sistema ou programa está apresentando dificuldades, o que você estava fazendo quando o problema começou, e se aparece alguma mensagem de erro na tela. Qualquer informação adicional que você possa me dar será muito bem-vinda!'}
+2026-05-14 17:09:14,430 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 17:09:14,913 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 17:09:14,913 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 17:09:14,926 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 17:09:14,927 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 17:09:14,927 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 17:09:14,934 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 17:09:14,935 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 17:09:18,250 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 17:09:18,250 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 17:09:18,251 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 17:09:20,846 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 17:09:20,847 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 17:09:20,848 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 17:09:20,850 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 17:09:20,850 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 17:09:20,850 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': Timestamp('2026-02-23 10:05:00+0000', tz='UTC'), 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': nan, 'category': 'Requisição', 'priority': 'Baixa', 'suggested_sector': 'N1 - Atendimento Direto', 'justification': 'Solicitação presencial de configuração de rede sem fio (Eduroam) em dispositivo pessoal. Procedimento padrão de Nível 1.', 'draft_response': 'Olá! O seu dispositivo já foi configurado aqui no balcão de atendimento. Lembre-se sempre de utilizar o seu e-mail institucional completo (usuario@ufms.br) e a senha do Passaporte para conectar.', 'needs_more_info': True, 'info_justification': 'The ticket contains no discernible information about the issue or affected system.'}
+2026-05-14 17:09:20,850 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 17:09:20,851 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Para que eu possa te ajudar da melhor forma, poderia me fornecer mais detalhes sobre o que está acontecendo? Por exemplo, qual sistema ou programa você estava usando quando o problema ocorreu? Qual ação você estava realizando? Qualquer mensagem de erro que apareceu também seria muito útil. Agradeço a sua colaboração!'}
+2026-05-14 17:47:57,653 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 17:47:58,011 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 17:47:58,011 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 17:47:58,028 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 17:47:58,028 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 17:47:58,028 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 17:47:58,042 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 17:48:00,122 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 17:48:00,122 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 17:48:00,125 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 17:48:02,344 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 17:48:02,344 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 17:48:02,345 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 17:48:02,349 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 17:48:02,350 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 17:48:02,350 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': '2026-02-23T10:05:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'moço, não to conseguindo conectar nesse eduroan de jeito nenhum. me ajuda a configurar no meu cel novo?', 'needs_more_info': True, 'info_justification': "The ticket is vague, mentioning connection issues with 'eduroan' but lacking details about the cellular device or specific connection problems. Configuration request is unclear."}
+2026-05-14 17:48:02,351 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 17:48:02,351 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Para que eu possa te ajudar a conectar no eduroan com seu celular novo, você poderia me informar qual o modelo do seu aparelho e qual sistema operacional ele utiliza (Android ou iOS)? Além disso, seria útil saber se você já tentou conectar outros dispositivos ao eduroan e se eles conseguem se conectar normalmente. Qualquer mensagem de erro que aparecer durante a tentativa de conexão também seria muito importante.'}
+2026-05-14 18:14:52,457 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 18:14:52,873 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 18:14:52,874 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 18:14:52,887 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 18:14:52,887 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 18:14:52,888 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 18:14:52,893 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:14:54,435 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:14:54,435 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:14:54,437 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:14:56,548 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:14:56,548 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:14:56,549 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 18:14:56,551 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 18:14:56,551 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 18:14:56,551 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': '2026-02-23T10:05:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'moço, não to conseguindo conectar', 'needs_more_info': True, 'info_justification': 'The ticket is extremely vague. It does not specify what the user is trying to connect to or what kind of connection is failing.'}
+2026-05-14 18:14:56,551 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 18:14:56,551 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Para que eu possa te ajudar a resolver o problema de conexão, você poderia me informar qual sistema ou aplicativo você está tentando usar? Além disso, seria útil saber o que acontece exatamente quando você tenta se conectar (alguma mensagem de erro aparece?), e desde quando isso está acontecendo. Qualquer detalhe adicional pode nos ajudar a identificar a causa do problema mais rapidamente.', 'needs_more_info': True, 'info_justification': 'The ticket is extremely vague. It does not specify what the user is trying to connect to or what kind of connection is failing.'}
+2026-05-14 18:15:43,184 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 18:15:43,494 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 18:15:43,494 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 18:15:43,507 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 18:15:43,507 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 18:15:43,508 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 18:15:43,512 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:15:45,127 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:15:45,127 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:15:45,128 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:15:47,396 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:15:47,397 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:15:47,398 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 18:15:47,400 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 18:15:47,400 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 18:15:47,400 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': '2026-02-23T10:05:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'moço, não to conseguindo conectar nesse eduroan de jeito nenhum. me ajuda a configurar no meu cel novo?', 'needs_more_info': True, 'info_justification': "The ticket is vague. While 'eduroam' is mentioned, the specific issue ('não to conseguindo conectar') lacks detail and the request is for configuration assistance on a new device, obscuring potential network or device-specific problems."}
+2026-05-14 18:15:47,400 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 18:15:47,400 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Para que eu possa te ajudar a configurar o acesso ao eduroam no seu celular novo, poderia me informar qual o modelo do seu aparelho e o sistema operacional (Android ou iOS)? Além disso, seria útil saber se você já tentou conectar outros dispositivos à rede eduroam com sucesso, e se aparece alguma mensagem de erro durante a tentativa de conexão. Obrigado!', 'needs_more_info': True, 'info_justification': "The ticket is vague. While 'eduroam' is mentioned, the specific issue ('não to conseguindo conectar') lacks detail and the request is for configuration assistance on a new device, obscuring potential network or device-specific problems."}
+2026-05-14 18:16:43,679 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 18:16:44,017 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 18:16:44,017 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 18:16:44,031 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 18:16:44,031 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 18:16:44,032 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 18:16:44,036 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:16:46,251 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:16:46,252 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:16:46,254 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:16:50,472 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:16:50,472 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:16:50,474 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 18:16:50,476 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 18:16:50,476 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 18:16:50,476 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': '2026-02-23T10:05:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'moço, não to conseguindo conectar nesse eduroan de jeito nenhum. me ajuda a configurar no meu cel novo?', 'needs_more_info': True, 'info_justification': 'The ticket is requesting help with configuration but does not specify the cellular device model or operating system, making reliable triage difficult.'}
+2026-05-14 18:16:50,491 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 18:16:50,492 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Entendo que você está com dificuldades para conectar seu celular novo à rede eduroan. Para que eu possa te ajudar da melhor forma, poderia me informar qual o modelo do seu celular e qual sistema operacional (Android ou iOS) ele utiliza? Além disso, seria útil saber se você já tentou conectar outros dispositivos à eduroan e se eles conseguem se conectar normalmente. Qualquer mensagem de erro que aparecer também seria muito importante para identificar o problema.', 'needs_more_info': True, 'info_justification': 'The ticket is requesting help with configuration but does not specify the cellular device model or operating system, making reliable triage difficult.'}
+2026-05-14 18:19:22,511 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 18:19:22,828 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 18:19:22,829 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 18:19:22,843 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 18:19:22,852 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 18:19:22,852 | INFO | utilities.process_ticket | Iniciando processamento do ticket 18
+2026-05-14 18:19:22,859 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:19:24,331 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:19:24,331 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:19:24,333 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:19:26,781 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:19:26,782 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:19:26,814 | INFO | nodes.score_priority | [TKT-UFMS-018] Calculando urgência e impacto em paralelo
+2026-05-14 18:19:26,815 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:19:26,815 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:19:27,677 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:19:27,677 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:19:27,765 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:19:27,765 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:19:27,766 | INFO | nodes.score_priority | [TKT-UFMS-018] Urgência=2 | Impacto=3
+2026-05-14 18:19:27,767 | INFO | nodes.score_priority | [TKT-UFMS-018] Prioridade resultante=2
+2026-05-14 18:19:27,774 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:19:34,823 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:19:34,823 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:19:34,827 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:19:42,821 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:19:42,822 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:19:42,823 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-018
+2026-05-14 18:19:42,824 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 18:19:42,825 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 18:19:42,825 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-018', 'timestamp': '2026-02-26T08:10:00Z', 'channel': 'E-mail', 'requester_profile': 'Técnico-Administrativo', 'free_text': 'solicito liberação de permissão de acesso à intranet ufms para os novos estagiários aqui do setor de finanças.', 'needs_more_info': False, 'info_justification': 'The ticket clearly requests access permission to the UFMS intranet for new finance department interns. Affected system and request are well defined.'}
+2026-05-14 18:19:42,825 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 18:19:42,825 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-018', 'category': 'Requisição', 'urgency': 2, 'impact': 3, 'resulting_priority': 2, 'priority_justification': 'A prioridade é média, pois o impacto se limita ao setor de finanças (Impacto Médio) e a solicitação, embora necessária para o trabalho dos estagiários, não apresenta urgência crítica para as operações da empresa (Urgência Média). A solicitação não impacta a infraestrutura central.', 'service_type': 'Intranet UFMS', 'support_level': 1, 'category_justification': 'Solicitação de permissão de acesso a um sistema.', 'department': 'N1 - Atendimento Direto', 'response_draft': "Olá!\n\nRecebi sua solicitação para liberação de acesso à Intranet UFMS para os novos estagiários do setor de finanças. O acesso à Intranet é feito através do Passaporte UFMS. Por favor, confirme se os estagiários já possuem o Passaporte UFMS criado. Caso precisem de ajuda com a criação, acessem passaporte.ufms.br e cliquem em 'Criar meu Passaporte'.\n\nAtenciosamente,\nAGETIC/UFMS", 'needs_more_info': False, 'info_justification': 'The ticket clearly requests access permission to the UFMS intranet for new finance department interns. Affected system and request are well defined.'}
+2026-05-14 18:22:40,343 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 18:22:41,417 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 18:22:41,418 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 18:22:41,432 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 18:22:41,432 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 18:22:41,432 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 18:22:41,436 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:22:43,319 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:22:43,319 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:22:43,321 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:22:45,246 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:22:45,246 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:22:45,248 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 18:22:45,249 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 18:22:45,249 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 18:22:45,249 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': '2026-02-23T10:05:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'moço, não to conseguindo conectar nesse eduroan de jeito nenhum. me ajuda a configurar no meu cel novo?', 'needs_more_info': True, 'info_justification': ''}
+2026-05-14 18:22:45,249 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 18:22:45,249 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Para te ajudar a configurar a conexão com o eduroam no seu celular novo, preciso de algumas informações adicionais. Poderia me informar qual o modelo do seu celular e qual sistema operacional ele utiliza (Android ou iOS)? Além disso, qual mensagem aparece quando você tenta se conectar, ou qual o comportamento exato que você observa? Qualquer detalhe será útil para que eu possa te auxiliar da melhor forma.', 'needs_more_info': True, 'info_justification': ''}
+2026-05-14 18:24:49,397 | INFO | utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-14 18:24:49,718 | INFO | utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\graph.png
+2026-05-14 18:24:49,718 | INFO | utilities.load_tickets | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\data\data.json
+2026-05-14 18:24:49,732 | INFO | utilities.load_tickets | 220 tickets carregados.
+2026-05-14 18:24:49,732 | INFO | utilities.process_ticket | ============================================================
+2026-05-14 18:24:49,732 | INFO | utilities.process_ticket | Iniciando processamento do ticket 21
+2026-05-14 18:24:49,736 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:24:52,184 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:24:52,185 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:24:52,186 | INFO | utilities.utils | Enviando requisição para OpenRouter
+2026-05-14 18:24:57,761 | INFO | utilities.utils | Resposta recebida com sucesso
+2026-05-14 18:24:57,762 | INFO | utilities.utils | Resposta parseada com sucesso
+2026-05-14 18:24:57,763 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-UFMS-021
+2026-05-14 18:24:57,765 | INFO | utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-14 18:24:57,765 | INFO | utilities.process_ticket | === RESPONSE ===
+2026-05-14 18:24:57,765 | INFO | utilities.process_ticket | ticket: {'id': 'TKT-UFMS-021', 'timestamp': '2026-02-23T10:05:00Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'moço, não to conseguindo conectar nesse eduroan de jeito nenhum. me ajuda a configurar no meu cel novo?', 'needs_more_info': True, 'info_justification': 'A solicitação é vaga e não especifica qual dispositivo móvel ou sistema operacional está sendo usado, dificultando a configuração do eduroan. Também não indica se o problema é recente ou persistente.'}
+2026-05-14 18:24:57,765 | INFO | utilities.process_ticket | closing_message: Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.
+2026-05-14 18:24:57,765 | INFO | utilities.process_ticket | response: {'ticket_id': 'TKT-UFMS-021', 'category': None, 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Entendo que você está com dificuldades para conectar seu celular novo ao eduroam. Para que eu possa te ajudar da melhor forma, você poderia me informar qual o modelo do seu celular e qual sistema operacional (Android ou iOS)? Além disso, seria útil saber se você tentou conectar outros dispositivos ao eduroam e se eles conseguiram se conectar normalmente. Qualquer mensagem de erro que aparecer durante a tentativa de conexão também seria de grande ajuda.', 'needs_more_info': True, 'info_justification': 'A solicitação é vaga e não especifica qual dispositivo móvel ou sistema operacional está sendo usado, dificultando a configuração do eduroan. Também não indica se o problema é recente ou persistente.'}
+2026-05-14 19:28:26,512 | INFO | nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-14 19:28:26,517 | INFO | nodes.score_priority | [TKT-TEST-001] Urgência=4 | Impacto=3
+2026-05-14 19:28:26,517 | INFO | nodes.score_priority | [TKT-TEST-001] Prioridade resultante=4
+2026-05-14 19:28:26,521 | INFO | nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-14 19:28:26,521 | ERROR | nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['urgency']. Aplicando fail-safe.
+2026-05-14 19:28:26,524 | INFO | nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-14 19:28:26,525 | ERROR | nodes.score_priority | [TKT-TEST-001] Falha do LLM nos campos: ['impact']. Aplicando fail-safe.
+2026-05-14 19:28:26,529 | INFO | nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-14 19:28:26,530 | INFO | nodes.score_priority | [TKT-TEST-001] Urgência=2 | Impacto=2
+2026-05-14 19:28:26,530 | INFO | nodes.score_priority | [TKT-TEST-001] Prioridade resultante=2
+2026-05-14 19:28:26,531 | WARNING | nodes.score_priority | [TKT-TEST-001] LLM não retornou justificativa. Usando fallback textual.
+2026-05-14 19:28:26,534 | INFO | nodes.score_priority | [TKT-TEST-001] Calculando urgência e impacto em paralelo
+2026-05-14 19:28:26,535 | INFO | nodes.score_priority | [TKT-TEST-001] Urgência=3 | Impacto=3
+2026-05-14 19:28:26,535 | INFO | nodes.score_priority | [TKT-TEST-001] Prioridade resultante=3
+2026-05-14 19:28:26,569 | INFO | nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-14 19:28:26,574 | INFO | nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-14 19:28:26,581 | INFO | nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 1
+2026-05-14 19:28:26,587 | INFO | nodes.queue_only | Ticket TKT-TEST-001 adicionado à fila humana. Total: 2
+2026-05-14 19:28:26,593 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-14 19:28:26,602 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-14 19:28:26,607 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
+2026-05-14 19:28:26,618 | INFO | nodes.emit | Emitindo resultados para o Ticket TKT-TEST-001
