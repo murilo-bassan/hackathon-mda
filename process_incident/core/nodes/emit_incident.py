@@ -23,7 +23,7 @@ def emit_incident(state: State) -> dict:
         "scope": incident.get("scope", ""),
         "affected_systems": incident.get
         ("affected_systems", ""),
-        "responsible_person": incident.get("resonsible_person", ""),
+        "responsible_person": incident.get("responsible_person", ""),
         "contact_info": incident.get("contact_info", ""),
         "containment_steps": incident.get("containment_steps", []),
         "containment_justification": incident.get("containment_justification", ""),
