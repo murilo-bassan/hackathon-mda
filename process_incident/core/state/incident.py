@@ -1,4 +1,4 @@
-from typing import TypedDict
+from typing import List, TypedDict
 
 class Incident(TypedDict):
     id: str
@@ -12,6 +12,8 @@ class Incident(TypedDict):
     affected_systems: str
     responsible_person: str
     contact_info: str
+    containment_steps: List[str]
+    containment_justification: str
     alert_draft: str
     report_template: str
     validation_status: bool
