@@ -1,4 +1,4 @@
-from core.state.state import State
+from general_process.core.state.state import State
 
 def prepare_incident(state: State) -> dict:
     """
