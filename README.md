@@ -9,11 +9,13 @@
 ## Responsabilidades de cada integrante
 Estão dispostas no Issues do repositório.
 
-## Processo escolhido
-3.1. AGETIC - Triagem Inteligente de Chamados de Suporte de TIC.
+## Processos escolhidos
+**3.1. AGETIC -** Triagem Inteligente de Chamados de Suporte de TIC.
+
+**3.5. AGETIC -** Triagem de Incidentes de Segurança da Informação
 
 ## Documentação
-Está localizada no arquivo `documentation.md` no repositório.
+Está localizada na pasta `docs` no arquivo `documentation.md` no repositório.
 
 ---
 

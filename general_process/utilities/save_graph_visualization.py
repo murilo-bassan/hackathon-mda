@@ -9,7 +9,7 @@ def save_graph_visualization() -> None:
     
     logger.info("Gerando visualização do grafo...")
 
-    png_data = graph.get_graph().draw_mermaid_png()
+    png_data = graph.get_graph(xray=True).draw_mermaid_png()
 
     output_path = Path(GRAPH_PNG)
 
