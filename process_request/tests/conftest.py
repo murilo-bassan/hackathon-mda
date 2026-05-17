@@ -9,14 +9,16 @@ reutilizáveis para os testes de nós e arestas.
 
 Estrutura esperada:
   projeto/
-  ├── nodes/
-  ├── utilities/
-  ├── state/
-  ├── prompts/
-  └── tests/
-      ├── conftest.py       ← este arquivo
-      ├── test_nodes.py
-      └── test_edges.py
+  ├── general_process/
+  ├── process_request/
+  │   ├── core/nodes/
+  │   ├── utilities/
+  │   ├── state/
+  │   ├── prompts/
+  │   └── tests/
+  │       ├── conftest.py       ← este arquivo
+  │       ├── test_nodes.py
+  │       └── test_edges.py
 """
 
 import sys
@@ -27,7 +29,7 @@ from pathlib import Path
 # Garante que a raiz do projeto esteja no sys.path
 # ─────────────────────────────────────────────────────────────────────────────
 _HERE = Path(__file__).resolve().parent
-_PROJECT_ROOT = _HERE.parent.parent if _HERE.name == "tests" else _HERE.parent
+_PROJECT_ROOT = _HERE.parent.parent.parent if _HERE.name == "tests" else _HERE.parent
 
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
@@ -59,6 +61,34 @@ def valid_ticket():
 
 
 @pytest.fixture
+def valid_ticket_requisicao():
+    """Ticket de requisição simples para testes de roteamento."""
+    return {
+        "id": "TKT-REQ-001",
+        "timestamp": "2025-05-14T09:00:00",
+        "channel": "sistema de chamados",
+        "requester_profile": "estudante",
+        "free_text": "Preciso de acesso ao sistema SIGECAD para meu bolsista.",
+        "needs_more_info": False,
+        "info_justification": "",
+    }
+
+
+@pytest.fixture
+def valid_ticket_incidente():
+    """Ticket classificado como incidente para testes de roteamento."""
+    return {
+        "id": "TKT-INC-001",
+        "timestamp": "2025-05-14T03:00:00",
+        "channel": "email",
+        "requester_profile": "técnico-administrativo",
+        "free_text": "O servidor de autenticação caiu e ninguém consegue logar.",
+        "needs_more_info": False,
+        "info_justification": "",
+    }
+
+
+@pytest.fixture
 def valid_response():
     """Objeto Response parcialmente preenchido para uso geral nos testes."""
     return {
@@ -79,9 +109,8 @@ def valid_response():
 
 @pytest.fixture
 def base_state(valid_ticket, valid_response):
-    """Estado completo (State) para uso geral nos testes."""
+    """Estado completo (RequestState) para uso geral nos testes."""
     return {
         "ticket": valid_ticket,
         "response": valid_response,
-        "closing_message": None,
     }

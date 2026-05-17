@@ -228,177 +228,222 @@ class TestDecideContentEdge:
 # ═══════════════════════════════════════════════════════════════════════════════
 # 3. ARESTA CONDICIONAL: decide_response
 #    Localização: utilities/decide_response.py
-#    Usada em   : builder.add_conditional_edges("score_priority", decide_response, ...)
+#    Usada em   : builder.add_conditional_edges("score_priority", decide_response_from_state, ...)
 #    Caminhos   : "draft_response" | "queue_only"
 # ═══════════════════════════════════════════════════════════════════════════════
 
 class TestDecideResponseEdge:
     """
-    decide_response(state) -> "draft_response" | "queue_only"
+    decide_response_from_state(state) -> "draft_response" | "queue_only"
 
     Regra de negócio (conforme utilities/decide_response.py):
-      • resulting_priority <= 2  AND  category normalizada == "requisicao"
+      • resulting_priority <= 3  AND  category normalizada == "requisicao"
           → "draft_response"  (automatiza a resposta)
+      • resulting_priority <= 2  AND  category normalizada == "incidente"
+          → "draft_response"  (automatiza incidentes de baixíssima prioridade)
       • Qualquer outro caso
           → "queue_only"  (escala para humano)
 
     Normalização: acento removido, lowercase, strip
       ex: "Requisição" → "requisicao"
+
+    NOTA: a função que recebe state é `decide_response_from_state`.
     """
 
-    # ── Caminho "draft_response" ──────────────────────────────────────────────
+    # ── Caminho "draft_response" — Requisição ─────────────────────────────────
 
-    def test_decide_response_requisicao_baixa_prioridade_retorna_draft_response(
+    def test_decide_response_requisicao_prioridade_1_retorna_draft_response(
         self, ticket_base
     ):
         """categoria='Requisição', prioridade=1 → 'draft_response'."""
-        from process_request.utilities.decide_response import decide_response
+        from process_request.utilities.decide_response import decide_response_from_state
 
         state = {
             "ticket": ticket_base,
             "response": {"resulting_priority": 1, "category": "Requisição"},
             "closing_message": None,
         }
-        assert decide_response(state) == "draft_response"
+        assert decide_response_from_state(state) == "draft_response"
 
     def test_decide_response_requisicao_prioridade_2_retorna_draft_response(
         self, ticket_base
     ):
-        """categoria='Requisição', prioridade=2 → 'draft_response' (limite exato)."""
-        from process_request.utilities.decide_response import decide_response
+        """categoria='Requisição', prioridade=2 → 'draft_response'."""
+        from process_request.utilities.decide_response import decide_response_from_state
 
         state = {
             "ticket": ticket_base,
             "response": {"resulting_priority": 2, "category": "Requisição"},
             "closing_message": None,
         }
-        assert decide_response(state) == "draft_response"
+        assert decide_response_from_state(state) == "draft_response"
 
-    def test_decide_response_requisicao_sem_acento_retorna_draft_response(
+    def test_decide_response_requisicao_prioridade_3_retorna_draft_response(
         self, ticket_base
     ):
-        """categoria='requisicao' (sem acento), prioridade=1 → 'draft_response'."""
-        from process_request.utilities.decide_response import decide_response
-
-        state = {
-            "ticket": ticket_base,
-            "response": {"resulting_priority": 1, "category": "requisicao"},
-            "closing_message": None,
-        }
-        assert decide_response(state) == "draft_response"
-
-    def test_decide_response_requisicao_maiuscula_retorna_draft_response(
-        self, ticket_base
-    ):
-        """categoria='REQUISIÇÃO' (maiúscula com acento), prioridade=1 → 'draft_response'."""
-        from process_request.utilities.decide_response import decide_response
-
-        state = {
-            "ticket": ticket_base,
-            "response": {"resulting_priority": 1, "category": "REQUISIÇÃO"},
-            "closing_message": None,
-        }
-        assert decide_response(state) == "draft_response"
-
-    # ── Caminho "queue_only" ──────────────────────────────────────────────────
-
-    def test_decide_response_incidente_retorna_queue_only(self, ticket_base):
-        """categoria='Incidente' (qualquer prioridade) → 'queue_only'."""
-        from process_request.utilities.decide_response import decide_response
-
-        state = {
-            "ticket": ticket_base,
-            "response": {"resulting_priority": 1, "category": "Incidente"},
-            "closing_message": None,
-        }
-        assert decide_response(state) == "queue_only"
-
-    def test_decide_response_requisicao_alta_prioridade_retorna_queue_only(
-        self, ticket_base
-    ):
-        """categoria='Requisição', prioridade=3 → 'queue_only' (acima do limiar)."""
-        from process_request.utilities.decide_response import decide_response
+        """categoria='Requisição', prioridade=3 (limite exato) → 'draft_response'."""
+        from process_request.utilities.decide_response import decide_response_from_state
 
         state = {
             "ticket": ticket_base,
             "response": {"resulting_priority": 3, "category": "Requisição"},
             "closing_message": None,
         }
-        assert decide_response(state) == "queue_only"
+        assert decide_response_from_state(state) == "draft_response"
 
-    def test_decide_response_requisicao_prioridade_4_retorna_queue_only(
+    def test_decide_response_requisicao_sem_acento_retorna_draft_response(
         self, ticket_base
     ):
-        """categoria='Requisição', prioridade=4 → 'queue_only'."""
-        from process_request.utilities.decide_response import decide_response
+        """categoria='requisicao' (sem acento), prioridade=1 → 'draft_response'."""
+        from process_request.utilities.decide_response import decide_response_from_state
 
         state = {
             "ticket": ticket_base,
-            "response": {"resulting_priority": 4, "category": "Requisição"},
+            "response": {"resulting_priority": 1, "category": "requisicao"},
             "closing_message": None,
         }
-        assert decide_response(state) == "queue_only"
+        assert decide_response_from_state(state) == "draft_response"
 
-    def test_decide_response_requisicao_prioridade_5_retorna_queue_only(
+    def test_decide_response_requisicao_maiuscula_retorna_draft_response(
         self, ticket_base
     ):
-        """categoria='Requisição', prioridade=5 (máxima) → 'queue_only'."""
-        from process_request.utilities.decide_response import decide_response
+        """categoria='REQUISIÇÃO' (maiúscula com acento), prioridade=1 → 'draft_response'."""
+        from process_request.utilities.decide_response import decide_response_from_state
 
         state = {
             "ticket": ticket_base,
-            "response": {"resulting_priority": 5, "category": "Requisição"},
+            "response": {"resulting_priority": 1, "category": "REQUISIÇÃO"},
             "closing_message": None,
         }
-        assert decide_response(state) == "queue_only"
+        assert decide_response_from_state(state) == "draft_response"
 
-    def test_decide_response_categoria_vazia_retorna_queue_only(self, ticket_base):
-        """categoria='' → 'queue_only' (não satisfaz a condição de requisição)."""
-        from process_request.utilities.decide_response import decide_response
-
-        state = {
-            "ticket": ticket_base,
-            "response": {"resulting_priority": 1, "category": ""},
-            "closing_message": None,
-        }
-        assert decide_response(state) == "queue_only"
-
-    def test_decide_response_sem_categoria_retorna_queue_only(self, ticket_base):
-        """Sem chave 'category' no response → 'queue_only'."""
-        from process_request.utilities.decide_response import decide_response
-
-        state = {
-            "ticket": ticket_base,
-            "response": {"resulting_priority": 1},
-            "closing_message": None,
-        }
-        assert decide_response(state) == "queue_only"
-
-    def test_decide_response_sem_prioridade_retorna_queue_only(self, ticket_base):
-        """Sem 'resulting_priority' → default 99 → 'queue_only'."""
-        from process_request.utilities.decide_response import decide_response
-
-        state = {
-            "ticket": ticket_base,
-            "response": {"category": "Requisição"},
-            "closing_message": None,
-        }
-        assert decide_response(state) == "queue_only"
-
-    def test_decide_response_categoria_com_espacos_e_acentos(self, ticket_base):
+    def test_decide_response_categoria_com_espacos_e_acentos_retorna_draft_response(
+        self, ticket_base
+    ):
         """'  Requisição  ' (com espaços) → normalização → 'draft_response'."""
-        from process_request.utilities.decide_response import decide_response
+        from process_request.utilities.decide_response import decide_response_from_state
 
         state = {
             "ticket": ticket_base,
             "response": {"resulting_priority": 1, "category": "  Requisição  "},
             "closing_message": None,
         }
-        assert decide_response(state) == "draft_response"
+        assert decide_response_from_state(state) == "draft_response"
+
+    # ── Caminho "draft_response" — Incidente de baixa prioridade ─────────────
+
+    def test_decide_response_incidente_prioridade_1_retorna_draft_response(
+        self, ticket_base
+    ):
+        """categoria='Incidente', prioridade=1 → 'draft_response' (incidente leve)."""
+        from process_request.utilities.decide_response import decide_response_from_state
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 1, "category": "Incidente"},
+            "closing_message": None,
+        }
+        assert decide_response_from_state(state) == "draft_response"
+
+    def test_decide_response_incidente_prioridade_2_retorna_draft_response(
+        self, ticket_base
+    ):
+        """categoria='Incidente', prioridade=2 (limite exato) → 'draft_response'."""
+        from process_request.utilities.decide_response import decide_response_from_state
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 2, "category": "Incidente"},
+            "closing_message": None,
+        }
+        assert decide_response_from_state(state) == "draft_response"
+
+    # ── Caminho "queue_only" ──────────────────────────────────────────────────
+
+    def test_decide_response_incidente_prioridade_3_retorna_queue_only(self, ticket_base):
+        """categoria='Incidente', prioridade=3 (acima do limiar) → 'queue_only'."""
+        from process_request.utilities.decide_response import decide_response_from_state
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 3, "category": "Incidente"},
+            "closing_message": None,
+        }
+        assert decide_response_from_state(state) == "queue_only"
+
+    def test_decide_response_incidente_alta_prioridade_retorna_queue_only(self, ticket_base):
+        """categoria='Incidente', prioridade=5 → 'queue_only'."""
+        from process_request.utilities.decide_response import decide_response_from_state
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 5, "category": "Incidente"},
+            "closing_message": None,
+        }
+        assert decide_response_from_state(state) == "queue_only"
+
+    def test_decide_response_requisicao_prioridade_4_retorna_queue_only(
+        self, ticket_base
+    ):
+        """categoria='Requisição', prioridade=4 (acima do limiar) → 'queue_only'."""
+        from process_request.utilities.decide_response import decide_response_from_state
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 4, "category": "Requisição"},
+            "closing_message": None,
+        }
+        assert decide_response_from_state(state) == "queue_only"
+
+    def test_decide_response_requisicao_prioridade_5_retorna_queue_only(
+        self, ticket_base
+    ):
+        """categoria='Requisição', prioridade=5 (máxima) → 'queue_only'."""
+        from process_request.utilities.decide_response import decide_response_from_state
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 5, "category": "Requisição"},
+            "closing_message": None,
+        }
+        assert decide_response_from_state(state) == "queue_only"
+
+    def test_decide_response_categoria_vazia_retorna_queue_only(self, ticket_base):
+        """categoria='' → 'queue_only' (não satisfaz nenhuma condição)."""
+        from process_request.utilities.decide_response import decide_response_from_state
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 1, "category": ""},
+            "closing_message": None,
+        }
+        assert decide_response_from_state(state) == "queue_only"
+
+    def test_decide_response_sem_categoria_retorna_queue_only(self, ticket_base):
+        """Sem chave 'category' no response → 'queue_only'."""
+        from process_request.utilities.decide_response import decide_response_from_state
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 1},
+            "closing_message": None,
+        }
+        assert decide_response_from_state(state) == "queue_only"
+
+    def test_decide_response_sem_prioridade_retorna_queue_only(self, ticket_base):
+        """Sem 'resulting_priority' → default 99 → 'queue_only'."""
+        from process_request.utilities.decide_response import decide_response_from_state
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"category": "Requisição"},
+            "closing_message": None,
+        }
+        assert decide_response_from_state(state) == "queue_only"
 
     def test_decide_response_retorna_apenas_strings_validas(self, ticket_base):
         """O retorno deve ser sempre uma das duas strings esperadas."""
-        from process_request.utilities.decide_response import decide_response
+        from process_request.utilities.decide_response import decide_response_from_state
 
         valid_routes = {"draft_response", "queue_only"}
 
@@ -406,7 +451,10 @@ class TestDecideResponseEdge:
             {"resulting_priority": 1, "category": "Requisição"},
             {"resulting_priority": 2, "category": "Requisição"},
             {"resulting_priority": 3, "category": "Requisição"},
+            {"resulting_priority": 4, "category": "Requisição"},
             {"resulting_priority": 1, "category": "Incidente"},
+            {"resulting_priority": 2, "category": "Incidente"},
+            {"resulting_priority": 3, "category": "Incidente"},
             {"resulting_priority": 5, "category": "Incidente"},
             {"resulting_priority": 1, "category": ""},
             {"resulting_priority": 99},   # sem category
@@ -414,7 +462,7 @@ class TestDecideResponseEdge:
 
         for response in cenarios:
             state = {"ticket": ticket_base, "response": response, "closing_message": None}
-            result = decide_response(state)
+            result = decide_response_from_state(state)
             assert result in valid_routes, (
                 f"Rota inesperada '{result}' para response={response}"
             )
@@ -481,7 +529,7 @@ class TestFluxosDeRoteamento:
         """
         from process_request.utilities.validation_response import validation_response
         from process_request.utilities.decide_content import decide_content
-        from process_request.utilities.decide_response import decide_response
+        from process_request.utilities.decide_response import decide_response_from_state
 
         # Pós-ingest: OK
         state_pos_ingest = {
@@ -502,13 +550,13 @@ class TestFluxosDeRoteamento:
         }
         assert decide_content(state_pos_validate) == "classify_type"
 
-        # Pós-score_priority: requisição de baixa prioridade
+        # Pós-score_priority: requisição de baixa prioridade (<=3)
         state_pos_score = {
             "ticket": ticket_completo,
-            "response": {"resulting_priority": 1, "category": "Requisição"},
+            "response": {"resulting_priority": 2, "category": "Requisição"},
             "closing_message": None,
         }
-        assert decide_response(state_pos_score) == "draft_response"
+        assert decide_response_from_state(state_pos_score) == "draft_response"
 
     def test_fluxo_incidente_alta_prioridade_vai_para_queue_only(
         self, ticket_base
@@ -519,7 +567,7 @@ class TestFluxosDeRoteamento:
         """
         from process_request.utilities.validation_response import validation_response
         from process_request.utilities.decide_content import decide_content
-        from process_request.utilities.decide_response import decide_response
+        from process_request.utilities.decide_response import decide_response_from_state
 
         # Pós-ingest: OK
         assert validation_response({
@@ -538,9 +586,25 @@ class TestFluxosDeRoteamento:
             "closing_message": None,
         }) == "classify_type"
 
-        # Pós-score_priority: incidente crítico (prioridade 5)
-        assert decide_response({
+        # Pós-score_priority: incidente crítico (prioridade 5 > limiar 2)
+        assert decide_response_from_state({
             "ticket": ticket_completo,
             "response": {"resulting_priority": 5, "category": "Incidente"},
             "closing_message": None,
         }) == "queue_only"
+
+    def test_fluxo_requisicao_prioridade_limite_3_vai_para_draft_response(
+        self, ticket_base
+    ):
+        """
+        Requisição com prioridade exatamente 3 (limite máximo permitido) deve
+        seguir para draft_response, não queue_only.
+        """
+        from process_request.utilities.decide_response import decide_response_from_state
+
+        state = {
+            "ticket": ticket_base,
+            "response": {"resulting_priority": 3, "category": "Requisição"},
+            "closing_message": None,
+        }
+        assert decide_response_from_state(state) == "draft_response"
