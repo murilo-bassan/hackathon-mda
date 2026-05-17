@@ -1,4 +1,4 @@
-from typing import TypedDict, Optional
+from typing import TypedDict
 
 from .ticket import Ticket
 from .response import Response
@@ -6,7 +6,6 @@ from .response import Response
 class State(TypedDict): 
     # Processo 3.1
     ticket: Ticket
-    closing_message: Optional[str]
     response: Response
 
 RequestState = State

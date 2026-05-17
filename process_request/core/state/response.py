@@ -1,4 +1,4 @@
-from typing import TypedDict
+from typing import TypedDict, Optional
 
 class Response(TypedDict):
     ticket_id: str #referência ao Ticket original
@@ -12,4 +12,5 @@ class Response(TypedDict):
     support_level: int #2
     department: str # "N2 - Suporte de Campo"
     response_draft: str # "Olá Professor, registramos..."
+    closing_message: Optional[str]
     validation_status: bool # verifica se os dados foram validados corretamente ou não
