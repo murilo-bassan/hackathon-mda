@@ -79,5 +79,653 @@
     "priority": 3,
     "department": "Geral",
     "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:17:25.343932",
+    "ticket_id": "TKT-2026-0002",
+    "free_text": "Bom dia. A rede Eduroam no bloco 6 da Cidade Universitária está inoperante desde as 8h. Diversos alunos não conseguem conectar.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:17:59.021872",
+    "ticket_id": "TKT-2026-0004",
+    "free_text": "Prezados, identifiquei um e-mail de phishing solicitando recadastramento bancário com o logotipo da UFMS enviado para todos os docentes da coordenação. Alguns avisaram que já clicaram no link malicioso.",
+    "category": "Incidente",
+    "priority": 5,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:18:40.961353",
+    "ticket_id": "TKT-2026-0007",
+    "free_text": "Professores no campus de Tres Lagoas nao estao conseguindo fechar pauta. O SIGAA da erro 500 pra todo mundo o tempo inteiro.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:22:39.251573",
+    "ticket_id": "TKT-2026-0012",
+    "free_text": "Prezados, não consigo assinar os documentos no SEI, aparece mensagem de erro de certificado digital.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Administrativos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:23:12.358285",
+    "ticket_id": "TKT-2026-0014",
+    "free_text": "Vou ter defesa amanhã e o meu google meet ufms não deixa gravar a reuniao!!!!!! urgenteeeee",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:24:10.915713",
+    "ticket_id": "TKT-2026-0017",
+    "free_text": "a intranet da ufms ta fora do ar? n abre aq de casa de jeito nenhum da time out",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:24:28.288446",
+    "ticket_id": "TKT-2026-0019",
+    "free_text": "TEM UM CHEIRO DE QUEIMADO E FUMACA SAINDO DO RACK DE REDE AQUI NO PANTANAL!!!! DESLIGAMOS A ENERGIA GERAL DA SALA!!!!",
+    "category": "Incidente",
+    "priority": 5,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:25:46.786655",
+    "ticket_id": "TKT-2026-0021",
+    "free_text": "O computador da coordenação está extremamente lento e abrindo janelas de propaganda sozinho.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:25:58.816898",
+    "ticket_id": "TKT-2026-0022",
+    "free_text": "O AVA Moodle tá fora do ar pra todo mundo da minha turma, a gente tem prova agora de manhã!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:26:33.726809",
+    "ticket_id": "TKT-2026-0025",
+    "free_text": "Estou tentando acessar o SEI e diz que meu usuário não tem permissão para a unidade da PROGRAD, fui transferido hoje.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Administrativos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:26:47.326142",
+    "ticket_id": "TKT-2026-0026",
+    "free_text": "O Wi-Fi da biblioteca central tá caindo toda hora, ninguém no 2º andar consegue estudar direito.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:26:59.243309",
+    "ticket_id": "TKT-2026-0027",
+    "free_text": "O coordenador de curso está enviando e-mails com links estranhos pedindo dinheiro para uma vaquinha. O remetente é o e-mail ufms dele mesmo!",
+    "category": "Incidente",
+    "priority": 5,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:27:41.512393",
+    "ticket_id": "TKT-2026-0029",
+    "free_text": "O ar condicionado da sala de servidores do bloco C quebrou e tá vazando água em cima do rack principal de fibra ótica!!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:28:18.080384",
+    "ticket_id": "TKT-2026-0032",
+    "free_text": "O hotsite do evento da jornada acadêmica (jornada.ufms.br) tá dando erro 404. O evento começa amanhã!",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:28:55.590997",
+    "ticket_id": "TKT-2026-0035",
+    "free_text": "Preciso de ajuda com o SIAFI, tá dando erro de integração na hora de empenhar o contrato de limpeza que vence hoje.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Sistemas Administrativos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:29:27.491433",
+    "ticket_id": "TKT-2026-0038",
+    "free_text": "Caiu a energia no bloco A inteiro e quando voltou os switches dos andares não ligaram mais, o bloco todo tá sem rede e sem telefone IP.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:30:25.439879",
+    "ticket_id": "TKT-2026-0042",
+    "free_text": "Estou tentando lançar as notas no SISCAD e a página simplesmente fica carregando infinitamente.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:31:04.987390",
+    "ticket_id": "TKT-2026-0045",
+    "free_text": "O computador da sala de aula 4 do bloco 6 não liga de jeito nenhum, estou com a turma esperando pra apresentar os slides.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:31:53.569492",
+    "ticket_id": "TKT-2026-0048",
+    "free_text": "Todos os computadores do Laboratório de Informática 2 foram infectados com ransomware! Os arquivos estão com extensão .crypt e tem uma mensagem pedindo resgate em bitcoin na tela!",
+    "category": "Incidente",
+    "priority": 5,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:32:46.021706",
+    "ticket_id": "TKT-2026-0052",
+    "free_text": "Estão fazendo obra aqui perto do bloco e acho que romperam o cabo de fibra ótica! O campus inteiro de Chapadão do Sul tá sem internet!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:32:59.588240",
+    "ticket_id": "TKT-2026-0053",
+    "free_text": "Meu e-mail acadêmico não tá recebendo mensagem nenhuma de fora da UFMS, só de dentro.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:34:19.083644",
+    "ticket_id": "TKT-2026-0059",
+    "free_text": "A VPN da reitoria caiu, ninguém do home office tá conseguindo acessar as pastas de rede corporativas hoje de manhã.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:34:41.282699",
+    "ticket_id": "TKT-2026-0060",
+    "free_text": "Não consigo anexar o plano de ensino no SIGAA, dá erro de tamanho excedido, mas o PDF tem só 3MB.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:34:56.070698",
+    "ticket_id": "TKT-2026-0061",
+    "free_text": "O projetor da sala 4 do bloco 6 não está ligando, as aulas já começaram e a turma está esperando.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:35:40.595616",
+    "ticket_id": "TKT-2026-0063",
+    "free_text": "Recebi um e-mail urgente dizendo que minha conta do banco ia ser bloqueada, cliquei no link e baixou um arquivo .exe estranho. Agora meu antivírus sumiu e a máquina tá muito lenta!!!",
+    "category": "Incidente",
+    "priority": 5,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:37:10.880638",
+    "ticket_id": "TKT-2026-0065",
+    "free_text": "As catracas do Restaurante Universitário estão todas fora do ar, o aplicativo não lê e tem uma fila quilométrica lá fora!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:37:54.053038",
+    "ticket_id": "TKT-2026-0066",
+    "free_text": "Dá erro no SEI toda vez que tento anexar um PDF grande, aparece 'Conexão reiniciada'.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Administrativos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:40:02.644686",
+    "ticket_id": "TKT-2026-0068",
+    "free_text": "O portal principal ufms.br está fora do ar, ninguém de fora consegue entrar pra ver os editais.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:42:08.058561",
+    "ticket_id": "TKT-2026-0072",
+    "free_text": "O ar condicionado da sala de servidores do Inisa desligou e tá apitando alarme de temperatura no painel dos racks!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:42:53.654908",
+    "ticket_id": "TKT-2026-0074",
+    "free_text": "TÁ VAZANDO ÁGUA DO TETO DO BLOCO B DIRETO EM CIMA DO RACK DE SERVIDORES",
+    "category": "Incidente",
+    "priority": 5,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:44:40.276530",
+    "ticket_id": "TKT-2026-0077",
+    "free_text": "O sistema do SIGPROJ travou bem no dia do fechamento da folha de pagamento de bolsas!! Não conseguimos gerar a remessa.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Sistemas Administrativos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:45:57.180042",
+    "ticket_id": "TKT-2026-0081",
+    "free_text": "A internet Wi-Fi da moradia estudantil cai a cada 10 minutos desde ontem à noite, impossível estudar assim.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:48:13.160861",
+    "ticket_id": "TKT-2026-0086",
+    "free_text": "O Moodle deu erro 504 Gateway Timeout bem na hora que eu cliquei em 'Enviar' no questionário de Cálculo! A tentativa vai ser anulada?",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:48:34.758127",
+    "ticket_id": "TKT-2026-0087",
+    "free_text": "Não estou conseguindo assinar os documentos no SEI com o meu certificado digital em nuvem, o botão simplesmente não reage.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Administrativos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:48:53.767042",
+    "ticket_id": "TKT-2026-0088",
+    "free_text": "Recebi um e-mail em inglês pedindo pra atualizar os dados da minha caixa postal ufms em 24h ou seria deletada. É golpe?",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:50:04.182928",
+    "ticket_id": "TKT-2026-0091",
+    "free_text": "Caiu a fase de energia do bloco B todo, os nobreaks dos racks de rede estão apitando muito alto e já vão desligar!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:50:24.496985",
+    "ticket_id": "TKT-2026-0092",
+    "free_text": "Tento gerar meu comprovante de matrícula no SISCAD e dá erro de 'Report Generation Failed'. Preciso mandar pra empresa do estágio urgente.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:52:13.396741",
+    "ticket_id": "TKT-2026-0096",
+    "free_text": "Fui tentar mandar e-mail e apareceu que minha conta foi bloqueada por violar as políticas do Google de envio de spam, mas eu não mandei spam nenhum!!",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T20:53:51.760731",
+    "ticket_id": "TKT-2026-0100",
+    "free_text": "Estou tentando transferir um dataset de 50GB para o servidor de processamento e a velocidade da rede não passa de 2 Megabits, vai demorar dias!",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:03:01.454361",
+    "ticket_id": "TKT-2026-0102",
+    "free_text": "Fui tentar lançar as frequências da minha equipe no SISCAD e apareceu que meu perfil não tem permissão para esta ação.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:04:14.038134",
+    "ticket_id": "TKT-2026-0105",
+    "free_text": "Coloquei meu pen drive no computador do setor e todos os meus arquivos viraram atalhos! Acho que tem um vírus na máquina.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:04:28.806712",
+    "ticket_id": "TKT-2026-0106",
+    "free_text": "O ar condicionado da sala 10 está pingando água bem em cima do projetor no teto! Tive que desligar tudo pra não dar curto.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:04:46.538564",
+    "ticket_id": "TKT-2026-0107",
+    "free_text": "O prazo pra entregar a resenha no Moodle era até 23:59, mas o botão de envio sumiu agora às 19:50!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:05:55.714393",
+    "ticket_id": "TKT-2026-0110",
+    "free_text": "O Eduroam no bloco C não está aceitando a senha de ninguém hoje, todo mundo tá tentando e dá 'falha na autenticação'.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:06:45.235899",
+    "ticket_id": "TKT-2026-0113",
+    "free_text": "Vou dar uma palestra online agora e o Google Meet diz que não consegue detectar a câmera do meu notebook institucional.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:07:00.273688",
+    "ticket_id": "TKT-2026-0114",
+    "free_text": "Recebi um e-mail escrito 'Comunicado Oficial Reitoria' pedindo pra validar meu e-mail, mas o remetente é 'admin-ufms@hotmail.com'. Achei suspeito.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:07:13.926967",
+    "ticket_id": "TKT-2026-0115",
+    "free_text": "O SEI está absurdamente lento hoje, cada clique para abrir um documento leva mais de 2 minutos.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Administrativos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:07:56.915801",
+    "ticket_id": "TKT-2026-0117",
+    "free_text": "Todos os técnicos do nosso setor que tentam acessar o SIGAA estão recebendo a mensagem 'Oracle Database connection failed'.",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:08:32.857627",
+    "ticket_id": "TKT-2026-0119",
+    "free_text": "A energia piscou rápido aqui no prédio, e agora o nobreak do nosso rack de rede não para de apitar continuamente, mas tem internet.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:10:10.721782",
+    "ticket_id": "TKT-2026-0124",
+    "free_text": "O sistema do patrimônio está pedindo para instalar um tal de 'plugin Java' quando tento ler o código de barras, mas eu não tenho a senha de administrador do Windows.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:11:09.344131",
+    "ticket_id": "TKT-2026-0127",
+    "free_text": "Estou tentando acessar o Portal de Transparência da universidade, mas a página não carrega e mostra 'Erro 503 Service Unavailable'.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:13:17.440012",
+    "ticket_id": "TKT-2026-0132",
+    "free_text": "Não consigo acessar a biblioteca digital da Minha Biblioteca, o link no SIGAA fica redirecionando sem parar.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:14:55.015793",
+    "ticket_id": "TKT-2026-0138",
+    "free_text": "As catracas da biblioteca central estão girando em falso, qualquer um entra sem passar a carteirinha.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:15:30.544159",
+    "ticket_id": "TKT-2026-0140",
+    "free_text": "Despejei café acidentalmente em cima do meu notebook institucional. Ele apagou na hora, o que eu faço!?",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:16:09.268756",
+    "ticket_id": "TKT-2026-0142",
+    "free_text": "O aparelho de ar condicionado da nossa sala de servidores setorial está fazendo um barulho estranho e parou de gelar, tá um forno lá dentro!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:16:42.106061",
+    "ticket_id": "TKT-2026-0144",
+    "free_text": "Não consigo anexar o PDF do meu TCC no sistema de submissão de repositório, dá erro de 'File too large'.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:18:33.085226",
+    "ticket_id": "TKT-2026-0151",
+    "free_text": "O software de ponto eletrônico não abre, acusa que não acha o banco de dados.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:19:08.458295",
+    "ticket_id": "TKT-2026-0153",
+    "free_text": "Todos os e-mails que mando para endereços do Gmail estão voltando com uma mensagem de erro de 'SPF validation failed'.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:21:21.369455",
+    "ticket_id": "TKT-2026-0160",
+    "free_text": "Os links dos diários oficiais que o sistema de RH envia por e-mail automaticamente estão quebrando, diz página não encontrada.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:21:43.589247",
+    "ticket_id": "TKT-2026-0161",
+    "free_text": "O SIGAA tá fora do ar desde ontem a noite, preciso ver minhas notas urgentes!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:22:59.463005",
+    "ticket_id": "TKT-2026-0166",
+    "free_text": "A internet da coordenação caiu, estamos sem conseguir enviar os projetos.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:24:15.252396",
+    "ticket_id": "TKT-2026-0172",
+    "free_text": "A VPN da UFMS tá dando erro 'Authentication Timeout' toda vez que tento conectar de casa pra mexer nos processos do SEI.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Sistemas Administrativos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:24:55.096073",
+    "ticket_id": "TKT-2026-0175",
+    "free_text": "ESTOUROU UM CANO NO TETO DA SECRETARIA E TÁ CAINDO ÁGUA DIRETO NO COMPUTADOR E NOS CABOS...",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:25:10.001055",
+    "ticket_id": "TKT-2026-0176",
+    "free_text": "O relógio de ponto está apitando e não lê a digital.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:26:15.649916",
+    "ticket_id": "TKT-2026-0180",
+    "free_text": "A impressora do departamento tá dando erro de memória insuficiente.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:26:33.809500",
+    "ticket_id": "TKT-2026-0181",
+    "free_text": "As catracas do RU tão livres, ninguém consegue passar carteirinha.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:27:24.449699",
+    "ticket_id": "TKT-2026-0185",
+    "free_text": "Os links dos diários oficiais no sistema RH estão dando 404.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N1 - Atendimento Direto",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:28:23.385050",
+    "ticket_id": "TKT-2026-0190",
+    "free_text": "Ar condicionado pingando em cima do rack de rede no bloco B!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:29:35.451421",
+    "ticket_id": "TKT-2026-0195",
+    "free_text": "A VPN desconecta sozinha de 5 em 5 minutos.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:29:56.578732",
+    "ticket_id": "TKT-2026-0197",
+    "free_text": "Minha internet eduroam no bloco A caiu.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:30:15.774934",
+    "ticket_id": "TKT-2026-0198",
+    "free_text": "Troquei de notebook para um com Windows 11 e agora o cliente da VPN da UFMS só dá 'Erro de Autenticação - Credencial Inválida', mesmo com a senha certa...",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N2 - Suporte de Campo",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-16T21:30:41.624315",
+    "ticket_id": "TKT-2026-0200",
+    "free_text": "TEVE UM CURTO CIRCUITO NO SWITCH DA REDE AQUI NO CORREDOR DO INISA! FEZ UM ESTOURO, DEU FAÍSCA E TÁ CHEIRANDO A PLÁSTICO QUEIMADO!",
+    "category": "Incidente",
+    "priority": 4,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
   }
 ]

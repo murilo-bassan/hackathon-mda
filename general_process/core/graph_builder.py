@@ -13,9 +13,10 @@ def build_graph():
 
     request_subgraph = build_request_subgraph()
     incident_subgraph = build_incident_subgraph()
-    builder.add_node("prepare_incident", prepare_incident) 
 
     builder = StateGraph(State)
+    builder.add_node("prepare_incident", prepare_incident) 
+
 
     # Registro de nós gerais
     builder.add_node("normalize_input", normalize_input)
