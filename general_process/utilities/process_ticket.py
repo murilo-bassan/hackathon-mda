@@ -9,7 +9,7 @@ def process_ticket(ticket_id: int, ticket: dict) -> None:
     logger.info(f"Iniciando processamento do ticket {ticket_id}")
 
     try:
-        response = graph.invoke({"ticket": ticket})
+        response = graph.invoke({"raw_input": ticket})
         logger.info("Processamento concluído com sucesso.")
 
         logger.info("=== RESPONSE ===")
