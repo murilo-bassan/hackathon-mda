@@ -4,7 +4,8 @@ from general_process.utilities.prompt_loader import load_prompt
 from general_process.utilities.config import CLASSIFY_INPUT_PROMPT_PATH
 
 def classify_input(state: State) -> dict:
-    text = state.get("input_text", "")
+    raw_input = state.get("raw_input", {})
+    text = raw_input.get("free_text", "")
 
     system_prompt = load_prompt(
         CLASSIFY_INPUT_PROMPT_PATH
