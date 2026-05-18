@@ -16,7 +16,7 @@ def main(PATH: str) -> None:
     tickets = load_input(PATH)
 
     START_INDEX = 0
-    END_INDEX = 1
+    END_INDEX = 10
     
     for idx, ticket in enumerate(tickets, start=1):
         if idx <= START_INDEX:
