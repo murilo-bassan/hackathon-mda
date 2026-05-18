@@ -53,3 +53,133 @@
 2026-05-18 01:40:29,473 | INFO | general_process.utilities.utils | Tokens — prompt: 531 | completion: 694 | total: 1225
 2026-05-18 01:40:29,473 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
 2026-05-18 01:40:29,475 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0009
+2026-05-18 01:49:08,414 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:49:08,414 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:49:15,626 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:49:15,627 | INFO | general_process.utilities.utils | Tokens — prompt: 771 | completion: 155 | total: 926
+2026-05-18 01:49:15,627 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:49:15,629 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Passaporte UFMS
+2026-05-18 01:49:15,630 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: Fernanda Lima
+2026-05-18 01:49:15,630 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: negacao_de_servico | crítico: False
+2026-05-18 01:49:15,631 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:49:15,631 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:49:19,439 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:49:19,439 | INFO | general_process.utilities.utils | Tokens — prompt: 1013 | completion: 169 | total: 1182
+2026-05-18 01:49:19,440 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:49:19,441 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: Fernanda Lima | crítico: False
+2026-05-18 01:49:19,442 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:49:19,442 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:49:35,447 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:49:35,447 | INFO | general_process.utilities.utils | Tokens — prompt: 519 | completion: 327 | total: 846
+2026-05-18 01:49:35,447 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:49:35,449 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-2026-0027
+2026-05-18 01:49:35,449 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:49:35,449 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:50:03,065 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:50:03,066 | INFO | general_process.utilities.utils | Tokens — prompt: 516 | completion: 750 | total: 1266
+2026-05-18 01:50:03,066 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:50:03,068 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0027
+2026-05-18 01:50:03,148 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:50:03,149 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:50:06,148 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:50:06,148 | INFO | general_process.utilities.utils | Tokens — prompt: 755 | completion: 128 | total: 883
+2026-05-18 01:50:06,148 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:50:06,150 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: VPN
+2026-05-18 01:50:06,152 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: Rafael Sousa
+2026-05-18 01:50:06,153 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: acesso_nao_autorizado | crítico: True
+2026-05-18 01:50:06,153 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:50:06,153 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:50:13,786 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:50:13,786 | INFO | general_process.utilities.utils | Tokens — prompt: 1008 | completion: 189 | total: 1197
+2026-05-18 01:50:13,786 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:50:13,788 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: Rafael Sousa | crítico: True
+2026-05-18 01:50:13,788 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:50:13,788 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:50:20,141 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:50:20,141 | INFO | general_process.utilities.utils | Tokens — prompt: 512 | completion: 359 | total: 871
+2026-05-18 01:50:20,142 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:50:20,143 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-2026-0011
+2026-05-18 01:50:20,143 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:50:20,143 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:50:44,137 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:50:44,138 | INFO | general_process.utilities.utils | Tokens — prompt: 523 | completion: 655 | total: 1178
+2026-05-18 01:50:44,138 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:50:44,139 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0011
+2026-05-18 01:50:44,219 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:50:44,219 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:50:53,941 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:50:53,941 | INFO | general_process.utilities.utils | Tokens — prompt: 774 | completion: 189 | total: 963
+2026-05-18 01:50:53,941 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:50:53,943 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: SIGAA
+2026-05-18 01:50:53,952 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: ETIR - Equipe de Tratamento e Resposta a Incidentes
+2026-05-18 01:50:53,953 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: malware | crítico: True
+2026-05-18 01:50:53,954 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:50:53,954 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:51:00,351 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:51:00,351 | INFO | general_process.utilities.utils | Tokens — prompt: 1004 | completion: 196 | total: 1200
+2026-05-18 01:51:00,352 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:51:00,353 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: ETIR - Equipe de Tratamento e Resposta a Incidentes | crítico: True
+2026-05-18 01:51:00,353 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:51:00,353 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:51:08,222 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:51:08,222 | INFO | general_process.utilities.utils | Tokens — prompt: 537 | completion: 383 | total: 920
+2026-05-18 01:51:08,222 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:51:08,224 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-2026-0031
+2026-05-18 01:51:08,224 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:51:08,224 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:51:20,284 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:51:20,284 | INFO | general_process.utilities.utils | Tokens — prompt: 533 | completion: 717 | total: 1250
+2026-05-18 01:51:20,284 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:51:20,286 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0031
+2026-05-18 01:51:20,365 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:51:20,366 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:51:29,166 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:51:29,166 | INFO | general_process.utilities.utils | Tokens — prompt: 776 | completion: 174 | total: 950
+2026-05-18 01:51:29,167 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:51:29,168 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: SIGAA
+2026-05-18 01:51:29,168 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: ETIR - Equipe de Tratamento e Resposta a Incidentes
+2026-05-18 01:51:29,169 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: comprometimento_de_credenciais | crítico: True
+2026-05-18 01:51:29,169 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:51:29,170 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:51:35,956 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:51:35,956 | INFO | general_process.utilities.utils | Tokens — prompt: 1009 | completion: 202 | total: 1211
+2026-05-18 01:51:35,957 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:51:35,958 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: ETIR - Equipe de Tratamento e Resposta a Incidentes | crítico: True
+2026-05-18 01:51:35,958 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:51:35,958 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:51:45,814 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:51:45,815 | INFO | general_process.utilities.utils | Tokens — prompt: 552 | completion: 376 | total: 928
+2026-05-18 01:51:45,815 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:51:45,817 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-2026-0004
+2026-05-18 01:51:45,817 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:51:45,817 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:52:10,153 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:52:10,154 | INFO | general_process.utilities.utils | Tokens — prompt: 546 | completion: 697 | total: 1243
+2026-05-18 01:52:10,154 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:52:10,155 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0004
+2026-05-18 01:52:10,237 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:52:10,237 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:52:17,667 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:52:17,667 | INFO | general_process.utilities.utils | Tokens — prompt: 769 | completion: 141 | total: 910
+2026-05-18 01:52:17,667 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:52:17,669 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Email Institucional
+2026-05-18 01:52:17,669 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: Ana Paula Ramos
+2026-05-18 01:52:17,669 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: malware | crítico: True
+2026-05-18 01:52:17,670 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:52:17,671 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:52:26,042 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:52:26,042 | INFO | general_process.utilities.utils | Tokens — prompt: 1005 | completion: 175 | total: 1180
+2026-05-18 01:52:26,043 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:52:26,044 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: Ana Paula Ramos | crítico: True
+2026-05-18 01:52:26,044 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:52:26,044 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:52:39,228 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:52:39,228 | INFO | general_process.utilities.utils | Tokens — prompt: 507 | completion: 349 | total: 856
+2026-05-18 01:52:39,228 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:52:39,230 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-2026-0021
+2026-05-18 01:52:39,231 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:52:39,231 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:52:51,750 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:52:51,751 | INFO | general_process.utilities.utils | Tokens — prompt: 506 | completion: 747 | total: 1253
+2026-05-18 01:52:51,751 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:52:51,753 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0021
