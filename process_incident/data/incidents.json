@@ -5,7 +5,7 @@
         "free_text": "Recebi um e-mail suspeito pedindo para confirmar meus dados do Passaporte UFMS em um link externo. O link parece falso. Não cliquei, mas vários colegas do meu laboratório receberam a mesma mensagem.",
         "category": "phishing",
         "critical": true,
-        "scope": "multiple_users",
+        "scope": "multiplos_usuarios",
         "affected_systems": "E-mail Institucional, Passaporte UFMS",
         "responsible_person": "Ana Paula Ramos",
         "contact_info": "ana.ramos@agetic.ufms.br | (67) 3345-7225"
@@ -16,7 +16,7 @@
         "free_text": "Meu computador do laboratório de informática começou a apresentar comportamento anormal: janelas abrindo sozinhas, CPU a 100% sem motivo aparente e um arquivo chamado 'README_DECRYPT.txt' apareceu na área de trabalho. Suspeito de ransomware.",
         "category": "ransomware",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "Computador/Workstation",
         "responsible_person": "ETIR - Equipe de Tratamento e Resposta a Incidentes",
         "contact_info": "etir@agetic.ufms.br | (67) 3345-7200"
@@ -27,7 +27,7 @@
         "free_text": "Notei que minha conta de e-mail institucional está enviando mensagens para contatos sem que eu tenha feito isso. Alguns colegas me avisaram que receberam e-mails estranhos vindos do meu endereço com anexos suspeitos.",
         "category": "credential_compromise",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "E-mail Institucional",
         "responsible_person": "Ana Paula Ramos",
         "contact_info": "ana.ramos@agetic.ufms.br | (67) 3345-7225"
@@ -38,7 +38,7 @@
         "free_text": "Ao tentar acessar o SIGAA para lançar notas, recebi a mensagem 'Sessão encerrada por acesso simultâneo de outro dispositivo'. Não estou acessando de outro lugar. Acredito que minha conta foi acessada por terceiros.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "SIGAA, Passaporte UFMS",
         "responsible_person": "Fernanda Lima",
         "contact_info": "fernanda.lima@agetic.ufms.br | (67) 3345-7215"
@@ -49,7 +49,7 @@
         "free_text": "O Wi-Fi do bloco B está completamente indisponível desde as 9h. São aproximadamente 200 alunos sem acesso à rede. As aulas práticas do dia dependem de acesso à internet.",
         "category": "other",
         "critical": true,
-        "scope": "department_wide",
+        "scope": "departamento_inteiro",
         "affected_systems": "Rede Wi-Fi",
         "responsible_person": "Paola Campos",
         "contact_info": "paola.campos@agetic.ufms.br | (67) 3345-7245"
@@ -60,7 +60,7 @@
         "free_text": "Identificamos que um usuário externo está tentando acessar o sistema SEI repetidamente com credenciais diferentes. Os logs mostram mais de 500 tentativas em menos de 10 minutos vindas do mesmo IP.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "SEI",
         "responsible_person": "Mariana Costa",
         "contact_info": "mariana.costa@agetic.ufms.br | (67) 3345-7235"
@@ -71,7 +71,7 @@
         "free_text": "Um pendrive foi encontrado abandonado no corredor do bloco de TI. Alguém o conectou em um computador da secretaria antes de percebermos. Não sabemos o que foi executado.",
         "category": "malware",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "Computador/Workstation",
         "responsible_person": "ETIR - Equipe de Tratamento e Resposta a Incidentes",
         "contact_info": "etir@agetic.ufms.br | (67) 3345-7200"
@@ -82,7 +82,7 @@
         "free_text": "O site institucional da UFMS está fora do ar há 40 minutos. A página retorna erro 503. Não houve nenhuma manutenção programada para hoje.",
         "category": "denial_of_service",
         "critical": true,
-        "scope": "institution_wide",
+        "scope": "instituicao_inteira",
         "affected_systems": "Servidores",
         "responsible_person": "Wellington Cintra",
         "contact_info": "wellington.cintra@agetic.ufms.br | (67) 3345-7250"
@@ -93,7 +93,7 @@
         "free_text": "Recebi uma ligação de alguém se identificando como suporte da AGETIC pedindo minha senha do Passaporte UFMS para 'verificar minha conta'. Não forneci, mas fiquei preocupado. Isso é legítimo?",
         "category": "phishing",
         "critical": false,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "Passaporte UFMS",
         "responsible_person": "Fernanda Lima",
         "contact_info": "fernanda.lima@agetic.ufms.br | (67) 3345-7215"
@@ -104,7 +104,7 @@
         "free_text": "Vários arquivos da pasta compartilhada do departamento de Engenharia foram renomeados com extensão .locked e não conseguimos mais abri-los. Uma nota de resgate apareceu pedindo pagamento em criptomoeda. O servidor de arquivos está afetado.",
         "category": "ransomware",
         "critical": true,
-        "scope": "department_wide",
+        "scope": "departamento_inteiro",
         "affected_systems": "Servidores, Armazenamento de Arquivos",
         "responsible_person": "Wellington Cintra",
         "contact_info": "wellington.cintra@agetic.ufms.br | (67) 3345-7250"
@@ -115,7 +115,7 @@
         "free_text": "A VPN institucional está recusando minha autenticação desde ontem à noite. Trabalho remotamente e não consigo acessar os sistemas internos para realizar minhas atividades administrativas.",
         "category": "other",
         "critical": false,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "VPN, Passaporte UFMS",
         "responsible_person": "Rafael Sousa",
         "contact_info": "rafael.sousa@agetic.ufms.br | (67) 3345-7220"
@@ -126,7 +126,7 @@
         "free_text": "Encontrei um script suspeito em execução no servidor de aplicação da biblioteca digital. O processo consome muita memória e não foi autorizado pela equipe. Nome do processo: 'svchost32.exe' em ambiente Linux.",
         "category": "malware",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "Servidores",
         "responsible_person": "Wellington Cintra",
         "contact_info": "wellington.cintra@agetic.ufms.br | (67) 3345-7250"
@@ -137,7 +137,7 @@
         "free_text": "Um aluno relatou ter acessado dados de outros estudantes no SIGAA após uma falha na sessão. Ele conseguiu visualizar notas e dados pessoais de colegas sem que esses dados fossem os dele.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "multiple_users",
+        "scope": "multiplos_usuarios",
         "affected_systems": "SIGAA",
         "responsible_person": "Fernanda Lima",
         "contact_info": "fernanda.lima@agetic.ufms.br | (67) 3345-7215"
@@ -148,7 +148,7 @@
         "free_text": "Recebi um e-mail com o assunto 'Atualização obrigatória do sistema' com um anexo .exe. O remetente parece ser agetic@ufms.br mas o domínio real é agetic@ufms-br.com. Não abri o arquivo.",
         "category": "phishing",
         "critical": false,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "E-mail Institucional",
         "responsible_person": "Ana Paula Ramos",
         "contact_info": "ana.ramos@agetic.ufms.br | (67) 3345-7225"
@@ -159,7 +159,7 @@
         "free_text": "O firewall bloqueou uma tentativa de conexão de saída do servidor do Siscad para um IP externo não autorizado. O tráfego estava sendo gerado automaticamente a cada 5 minutos. Possível comunicação com servidor de comando e controle.",
         "category": "malware",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "Siscad, Firewall",
         "responsible_person": "Murilo Bassan",
         "contact_info": "murilo.bassan@agetic.ufms.br | (67) 3345-7240"
@@ -170,7 +170,7 @@
         "free_text": "Minha senha do e-mail institucional foi alterada sem minha autorização durante a madrugada. Recebi notificação de alteração às 3h14. Não consigo mais acessar minha caixa de e-mail.",
         "category": "credential_compromise",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "E-mail Institucional",
         "responsible_person": "Ana Paula Ramos",
         "contact_info": "ana.ramos@agetic.ufms.br | (67) 3345-7225"
@@ -181,7 +181,7 @@
         "free_text": "O sistema de câmeras de segurança do campus parou de funcionar. O técnico verificou e os equipamentos estão ligados, mas o software de monitoramento não exibe imagens. Suspeita-se de acesso indevido à rede de câmeras.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "institution_wide",
+        "scope": "instituicao_inteira",
         "affected_systems": "Câmera de Segurança",
         "responsible_person": "ETIR - Equipe de Tratamento e Resposta a Incidentes",
         "contact_info": "etir@agetic.ufms.br | (67) 3345-7200"
@@ -192,7 +192,7 @@
         "free_text": "Identificamos tráfego de rede anômalo saindo do laboratório de pesquisa durante o fim de semana, quando ninguém estava presente. O volume de dados transferidos foi de aproximadamente 2GB para um endereço IP desconhecido.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "department_wide",
+        "scope": "departamento_inteiro",
         "affected_systems": "Servidores",
         "responsible_person": "Wellington Cintra",
         "contact_info": "wellington.cintra@agetic.ufms.br | (67) 3345-7250"
@@ -203,7 +203,7 @@
         "free_text": "Um docente relatou que alguém postou conteúdo ofensivo no fórum do SIGAA usando a conta dele. Ele garante não ter feito isso e estava em sala de aula no momento das postagens.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "SIGAA",
         "responsible_person": "Fernanda Lima",
         "contact_info": "fernanda.lima@agetic.ufms.br | (67) 3345-7215"
@@ -214,7 +214,7 @@
         "free_text": "O servidor de e-mail está rejeitando mensagens externas desde as 8h. Funcionários não conseguem receber nem enviar e-mails para fora do domínio ufms.br. Afeta toda a reitoria.",
         "category": "other",
         "critical": true,
-        "scope": "institution_wide",
+        "scope": "instituicao_inteira",
         "affected_systems": "E-mail Institucional, Servidores",
         "responsible_person": "Ana Paula Ramos",
         "contact_info": "ana.ramos@agetic.ufms.br | (67) 3345-7225"
@@ -225,7 +225,7 @@
         "free_text": "Ao abrir um documento Word recebido por e-mail de um parceiro externo, o antivírus alertou sobre macro maliciosa bloqueada. O documento foi fechado imediatamente. Não sei se houve execução parcial.",
         "category": "malware",
         "critical": false,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "Computador/Workstation, E-mail Institucional",
         "responsible_person": "Ana Paula Ramos",
         "contact_info": "ana.ramos@agetic.ufms.br | (67) 3345-7225"
@@ -236,7 +236,7 @@
         "free_text": "Nosso sistema de backup automatizado falhou esta semana. Ao investigar, descobrimos que os arquivos de backup foram deletados e o serviço foi desativado. Não há nenhuma ordem de serviço autorizada para essa ação.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "department_wide",
+        "scope": "departamento_inteiro",
         "affected_systems": "Servidores",
         "responsible_person": "Wellington Cintra",
         "contact_info": "wellington.cintra@agetic.ufms.br | (67) 3345-7250"
@@ -247,7 +247,7 @@
         "free_text": "Um estudante está tentando acessar áreas administrativas do SIGAA que não correspondem ao seu perfil. Foram feitas 12 tentativas de acesso a páginas de gestão acadêmica usando a conta de aluno dele.",
         "category": "unauthorized_access",
         "critical": false,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "SIGAA",
         "responsible_person": "Fernanda Lima",
         "contact_info": "fernanda.lima@agetic.ufms.br | (67) 3345-7215"
@@ -258,7 +258,7 @@
         "free_text": "Recebi uma mensagem no WhatsApp de alguém dizendo ser da TI da UFMS pedindo para instalar um aplicativo de acesso remoto para 'resolver um problema na minha conta'. O número não é conhecido.",
         "category": "phishing",
         "critical": false,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "Passaporte UFMS",
         "responsible_person": "Fernanda Lima",
         "contact_info": "fernanda.lima@agetic.ufms.br | (67) 3345-7215"
@@ -269,7 +269,7 @@
         "free_text": "O banco de dados do sistema de bibliotecas está inacessível. A mensagem de erro indica que as credenciais de acesso foram alteradas. Nenhum membro da equipe realizou essa alteração.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "department_wide",
+        "scope": "departamento_inteiro",
         "affected_systems": "Servidores",
         "responsible_person": "Wellington Cintra",
         "contact_info": "wellington.cintra@agetic.ufms.br | (67) 3345-7250"
@@ -280,7 +280,7 @@
         "free_text": "Vejo um dispositivo desconhecido conectado à rede do departamento de RH no painel do roteador. O MAC address não corresponde a nenhum equipamento cadastrado. O dispositivo está ativo há dois dias.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "department_wide",
+        "scope": "departamento_inteiro",
         "affected_systems": "Rede Wi-Fi, Active Directory",
         "responsible_person": "Thiago Nunes",
         "contact_info": "thiago.nunes@agetic.ufms.br | (67) 3345-7230"
@@ -291,7 +291,7 @@
         "free_text": "O sistema de autenticação do Passaporte UFMS está apresentando lentidão extrema. O tempo de resposta passou de 2 segundos para mais de 60 segundos. Pode ser sobrecarga ou ataque de negação de serviço.",
         "category": "denial_of_service",
         "critical": true,
-        "scope": "institution_wide",
+        "scope": "instituicao_inteira",
         "affected_systems": "Passaporte UFMS",
         "responsible_person": "Fernanda Lima",
         "contact_info": "fernanda.lima@agetic.ufms.br | (67) 3345-7215"
@@ -302,7 +302,7 @@
         "free_text": "Um ex-funcionário terceirizado ainda consegue acessar o sistema SEI com credenciais ativas, mesmo tendo encerrado o contrato há três semanas. O acesso foi identificado nos logs de auditoria.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "SEI",
         "responsible_person": "Mariana Costa",
         "contact_info": "mariana.costa@agetic.ufms.br | (67) 3345-7235"
@@ -313,7 +313,7 @@
         "free_text": "Recebemos relatos de pelo menos 15 usuários que clicaram em um link de phishing enviado por e-mail se passando pelo sistema de Biblioteca da UFMS. O link solicitava login e senha do Passaporte UFMS em uma página falsa.",
         "category": "phishing",
         "critical": true,
-        "scope": "multiple_users",
+        "scope": "multiplos_usuarios",
         "affected_systems": "E-mail Institucional, Passaporte UFMS",
         "responsible_person": "Ana Paula Ramos",
         "contact_info": "ana.ramos@agetic.ufms.br | (67) 3345-7225"
@@ -324,7 +324,7 @@
         "free_text": "O certificado SSL do portal do aluno expirou e o navegador está exibindo aviso de conexão não segura. Alunos estão relatando que estão ignorando o aviso e continuando. Precisa de atenção mas não é urgente.",
         "category": "other",
         "critical": false,
-        "scope": "multiple_users",
+        "scope": "multiplos_usuarios",
         "affected_systems": "Servidores",
         "responsible_person": "Wellington Cintra",
         "contact_info": "wellington.cintra@agetic.ufms.br | (67) 3345-7250"
@@ -335,7 +335,7 @@
         "free_text": "Encontramos arquivos com nomes suspeitos na pasta temp do servidor de aplicação do SIGAA: 'shell.php', 'cmd.php' e 'upload.php'. Esses arquivos não existiam na última auditoria realizada há duas semanas.",
         "category": "malware",
         "critical": true,
-        "scope": "institution_wide",
+        "scope": "instituicao_inteira",
         "affected_systems": "SIGAA, Servidores",
         "responsible_person": "Wellington Cintra",
         "contact_info": "wellington.cintra@agetic.ufms.br | (67) 3345-7250"
@@ -346,7 +346,7 @@
         "free_text": "O eduroam está apresentando falhas intermitentes no bloco administrativo. Alguns usuários conseguem se conectar, outros não. O problema começou após a manutenção de ontem.",
         "category": "other",
         "critical": false,
-        "scope": "department_wide",
+        "scope": "departamento_inteiro",
         "affected_systems": "Rede Wi-Fi",
         "responsible_person": "Paola Campos",
         "contact_info": "paola.campos@agetic.ufms.br | (67) 3345-7245"
@@ -357,7 +357,7 @@
         "free_text": "Um colaborador clicou em um link de phishing e inseriu suas credenciais do Passaporte UFMS em uma página falsa. Ele percebeu o erro logo em seguida e nos comunicou imediatamente. A conta ainda está ativa.",
         "category": "credential_compromise",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "Passaporte UFMS",
         "responsible_person": "Fernanda Lima",
         "contact_info": "fernanda.lima@agetic.ufms.br | (67) 3345-7215"
@@ -368,7 +368,7 @@
         "free_text": "O sistema de monitoramento identificou que a conta de serviço usada pelo SIGAA está sendo utilizada para consultas incomuns no banco de dados fora do horário comercial, entre 2h e 4h da manhã.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "institution_wide",
+        "scope": "instituicao_inteira",
         "affected_systems": "SIGAA, Servidores",
         "responsible_person": "Wellington Cintra",
         "contact_info": "wellington.cintra@agetic.ufms.br | (67) 3345-7250"
@@ -379,7 +379,7 @@
         "free_text": "Recebemos uma mensagem anônima afirmando que dados de servidores da UFMS foram extraídos e serão publicados em 48 horas caso não seja feito um pagamento. Não sabemos se é verídico.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "institution_wide",
+        "scope": "instituicao_inteira",
         "affected_systems": "Servidores",
         "responsible_person": "ETIR - Equipe de Tratamento e Resposta a Incidentes",
         "contact_info": "etir@agetic.ufms.br | (67) 3345-7200"
@@ -390,7 +390,7 @@
         "free_text": "Um técnico identificou que o firewall está com uma regra permissiva não autorizada que permite tráfego irrestrito de entrada na porta 3389 (RDP). Não sabemos quando essa regra foi criada.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "institution_wide",
+        "scope": "instituicao_inteira",
         "affected_systems": "Firewall",
         "responsible_person": "Thiago Nunes",
         "contact_info": "thiago.nunes@agetic.ufms.br | (67) 3345-7230"
@@ -401,7 +401,7 @@
         "free_text": "Meu notebook pessoal que uso para acessar a VPN da UFMS foi furtado hoje de manhã na biblioteca. Ele estava com a VPN ativa e sessão aberta no momento do furto.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "VPN",
         "responsible_person": "Rafael Sousa",
         "contact_info": "rafael.sousa@agetic.ufms.br | (67) 3345-7220"
@@ -412,7 +412,7 @@
         "free_text": "O sistema de ponto eletrônico dos servidores está registrando entradas e saídas em horários impossíveis, como 03h da manhã. Suspeita-se de manipulação indevida do sistema.",
         "category": "unauthorized_access",
         "critical": true,
-        "scope": "institution_wide",
+        "scope": "instituicao_inteira",
         "affected_systems": "Servidores",
         "responsible_person": "Wellington Cintra",
         "contact_info": "wellington.cintra@agetic.ufms.br | (67) 3345-7250"
@@ -423,7 +423,7 @@
         "free_text": "Recebi um e-mail dizendo que minha senha expirará em 24 horas e preciso renová-la clicando em um link. O e-mail parece oficial mas o link aponta para um domínio diferente. Não cliquei.",
         "category": "phishing",
         "critical": false,
-        "scope": "single_user",
+        "scope": "usuario_unico",
         "affected_systems": "E-mail Institucional, Passaporte UFMS",
         "responsible_person": "Ana Paula Ramos",
         "contact_info": "ana.ramos@agetic.ufms.br | (67) 3345-7225"
@@ -434,7 +434,7 @@
         "free_text": "O servidor de DNS interno está respondendo de forma incorreta para alguns domínios internos, redirecionando usuários para páginas erradas. Isso pode indicar envenenamento de cache DNS ou configuração incorreta após a última atualização.",
         "category": "other",
         "critical": true,
-        "scope": "institution_wide",
+        "scope": "instituicao_inteira",
         "affected_systems": "DNS",
         "responsible_person": "Thiago Nunes",
         "contact_info": "thiago.nunes@agetic.ufms.br | (67) 3345-7230"
