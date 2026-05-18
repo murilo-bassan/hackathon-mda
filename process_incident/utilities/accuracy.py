@@ -11,7 +11,7 @@ DATASET_INDEX = {
     for ticket in raw_dataset
 }
 
-def run_accuracy() -> list:
+def run_accuracy() -> int:
 
     response_files = sorted(RESPONSES_PATH.glob("*.json"))
 
