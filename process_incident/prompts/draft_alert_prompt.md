@@ -4,6 +4,8 @@ Draft a formal alert email to notify the responsible technical person about a se
 
 Return ONLY valid JSON.
 
+The outputs must be written in brazillian portuguese(PT-BR).
+
 Output format:
 
 {
