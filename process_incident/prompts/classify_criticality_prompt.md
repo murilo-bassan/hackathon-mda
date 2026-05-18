@@ -5,8 +5,10 @@ Analyze the incident report and extract structured incident information.
 Return ONLY valid JSON.
 Do not include markdown, explanations, comments, or extra text.
 
-The keys "justification": "...", "category": "...", "category_justification": "...", "scope": "..." values
+The keys "justification": "...", "category_justification": "...", "scope": "...","affected_systems": "..."  values
 MUST be written in Brazilian Portuguese (PT-BR).
+
+The key "category": "...", value MUST be written in English.
 
 Use this exact JSON structure:
 
