@@ -1,6 +1,5 @@
 from langgraph.graph import END, START, StateGraph
 
-from general_process.core.nodes.prepare_incident import prepare_incident
 from general_process.core.nodes.classify_input import classify_input
 from general_process.core.nodes.normalize_input import normalize_input
 from general_process.core.nodes.request_workflow import request_workflow
