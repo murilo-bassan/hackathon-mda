@@ -5,7 +5,7 @@ Analyze the incident report and extract structured incident information.
 Return ONLY valid JSON.
 Do not include markdown, explanations, comments, or extra text.
 
-The keys "justification": "...", "category_justification": "...", "scope": "...","affected_systems": "..."  values
+The keys "critical_justification": "...", "category_justification": "...", "scope": "...","affected_systems": "..."  values
 MUST be written in Brazilian Portuguese (PT-BR).
 
 The key "category": "...", value MUST be written in English.
@@ -14,7 +14,7 @@ Use this exact JSON structure:
 
 {
   "critical": true,
-  "justification": "...",
+  "critical_justification": "...",
 
   "category": "...",
   "category_justification": "...",
@@ -59,7 +59,7 @@ Allowed values ONLY:
 - "outro"
 
 Always provide a concise technical justification in:
-"justificativa_categoria"
+"category_justification"
 
 Rules for "escopo":
 

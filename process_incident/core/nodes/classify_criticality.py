@@ -21,7 +21,7 @@ def classify_criticality(state: State) -> dict:
         user_prompt=user_prompt
     )
     incident["critical"] = response.get("critical", False)
-    incident["critical_justification"] = response.get("justification", "")
+    incident["critical_justification"] = response.get("critical_justification", "")
     incident["category"] = response.get("category", "Indefinida")
     incident["category_justification"] = response.get("category_justification","")
     incident["scope"] = response.get("scope", "Indefinido")
