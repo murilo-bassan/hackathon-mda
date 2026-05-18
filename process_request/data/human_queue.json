@@ -763,5 +763,23 @@
     "priority": 4,
     "department": "N1 - Atendimento Direto",
     "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-17T23:59:54.515467",
+    "ticket_id": "TKT-2026-0002",
+    "free_text": "bom dia. a rede eduroam no bloco 6 da cidade universitária está inoperante desde as 8h. diversos alunos não conseguem conectar.",
+    "category": "Incidente",
+    "priority": 3,
+    "department": "N3 - Infraestrutura e Redes",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
+  },
+  {
+    "timestamp": "2026-05-18T00:01:13.949830",
+    "ticket_id": "TKT-2026-0007",
+    "free_text": "professores no campus de tres lagoas nao estao conseguindo fechar pauta. o sigaa da erro 500 pra todo mundo o tempo inteiro.",
+    "category": "Problema",
+    "priority": 4,
+    "department": "N3 - Sistemas Acadêmicos",
+    "reason": "Alta prioridade ou categoria complexa — requer analista humano."
   }
 ]

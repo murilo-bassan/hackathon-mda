@@ -1,0 +1,389 @@
+2026-05-17 23:59:20,357 | INFO | general_process.utilities.save_graph_visualization | Gerando visualização do grafo...
+2026-05-17 23:59:23,198 | INFO | general_process.utilities.save_graph_visualization | Grafo salvo em: C:\Users\muril\Documents\hackathon-mda\docs\graph.png
+2026-05-17 23:59:23,199 | INFO | general_process.utilities.load_input | Carregando dados de: C:\Users\muril\Documents\hackathon-mda\process_request\data\data.json
+2026-05-17 23:59:23,231 | INFO | general_process.utilities.load_input | 200 dados carregados.
+2026-05-17 23:59:23,232 | INFO | general_process.utilities.process_ticket | ============================================================
+2026-05-17 23:59:23,232 | INFO | general_process.utilities.process_ticket | Iniciando processamento do ticket 1
+2026-05-17 23:59:23,255 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:23,256 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:25,596 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:25,597 | INFO | general_process.utilities.utils | Tokens — prompt: 402 | completion: 48 | total: 450
+2026-05-17 23:59:25,597 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:25,609 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:25,609 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:27,694 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:27,694 | INFO | general_process.utilities.utils | Tokens — prompt: 583 | completion: 56 | total: 639
+2026-05-17 23:59:27,694 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:27,695 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:27,695 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:30,131 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:30,131 | INFO | general_process.utilities.utils | Tokens — prompt: 1891 | completion: 71 | total: 1962
+2026-05-17 23:59:30,132 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:30,153 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0001] Calculando urgência e impacto em paralelo
+2026-05-17 23:59:30,153 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:30,153 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:30,154 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:30,155 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:31,516 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:31,517 | INFO | general_process.utilities.utils | Tokens — prompt: 329 | completion: 12 | total: 341
+2026-05-17 23:59:31,517 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:31,674 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:31,675 | INFO | general_process.utilities.utils | Tokens — prompt: 405 | completion: 7 | total: 412
+2026-05-17 23:59:31,675 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:31,678 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0001] Urgência=3 | Impacto=3
+2026-05-17 23:59:31,678 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0001] Prioridade resultante=3
+2026-05-17 23:59:31,692 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:31,692 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:35,448 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:35,448 | INFO | general_process.utilities.utils | Tokens — prompt: 326 | completion: 77 | total: 403
+2026-05-17 23:59:35,449 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:35,463 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:35,463 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:42,344 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:42,344 | INFO | general_process.utilities.utils | Tokens — prompt: 1262 | completion: 221 | total: 1483
+2026-05-17 23:59:42,345 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:42,346 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-2026-0001
+2026-05-17 23:59:42,347 | INFO | general_process.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-17 23:59:42,347 | INFO | general_process.utilities.process_ticket | === RESPONSE ===
+2026-05-17 23:59:42,349 | INFO | general_process.utilities.process_ticket | raw_input: {'id': 'TKT-2026-0001', 'timestamp': Timestamp('2026-02-15 08:14:00+0000', tz='UTC'), 'channel': 'Sistema de Chamados', 'requester_profile': 'Estudante', 'free_text': 'oiii, esqueci minha senha do passaporte ufms e n consigo acessar o sigaa pra ver minhas aulas ajuda plsss!', 'needs_more_info': False, 'info_justification': nan, 'category': 'Requisição', 'category_justification': 'Solicitação de recuperação de credencial do Passaporte UFMS.', 'urgency': 2.0, 'impact': 1.0, 'resulting_priority': 2.0, 'priority_justification': 'A prioridade é baixa pois trata-se de um problema de acesso individual (Baixo Impacto) e o usuário pode seguir o fluxo padrão de recuperação (Baixa Urgência).', 'service_type': 'Passaporte UFMS', 'support_level': 1.0, 'department': 'N1 - Atendimento Direto', 'response_draft': "Olá! Para recuperar sua senha do Passaporte UFMS, por favor acesse passaporte.ufms.br e clique em 'Recuperar Senha'. Siga as instruções enviadas para o seu e-mail alternativo cadastrado. Acordo de Nível de Serviços (ANS): 12 horas.", 'validation_status': True}
+2026-05-17 23:59:42,350 | INFO | general_process.utilities.process_ticket | input_type: request
+2026-05-17 23:59:42,351 | INFO | general_process.utilities.process_ticket | input_justification: User is requesting help with password recovery for UFMS systems (Passaporte and SIGAA), a common support scenario.
+2026-05-17 23:59:42,351 | INFO | general_process.utilities.process_ticket | result: {'ticket': {'id': 'TKT-2026-0001', 'timestamp': '2026-02-15T08:14:00Z', 'channel': 'Sistema de Chamados', 'requester_profile': 'Estudante', 'free_text': 'oiii, esqueci minha senha do passaporte ufms e n consigo acessar o sigaa pra ver minhas aulas ajuda plsss!', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema claro: esquecimento de senha do Passaporte UFMS, impedindo o acesso ao SIGAA para verificar aulas.'}, 'response': {'ticket_id': 'TKT-2026-0001', 'category': 'Requisição', 'urgency': 3, 'impact': 3, 'resulting_priority': 3, 'priority_justification': 'A prioridade é alta devido ao impacto na capacidade do aluno de acessar informações acadêmicas essenciais (Impacto Médio) e a necessidade de resolução em tempo hábil para não comprometer o acompanhamento das aulas (Urgência Média). A indisponibilidade do acesso ao SIGAA impacta diretamente as atividades do estudante.', 'service_type': 'Passaporte UFMS', 'support_level': 1, 'category_justification': 'Solicitação de recuperação de senha do Passaporte UFMS.', 'department': 'N1 - Atendimento Direto', 'response_draft': 'Prezado(a) usuário(a),\n\nEntendemos que você está com dificuldades para acessar o Passaporte UFMS e, consequentemente, o SIGAA. Para redefinir sua senha, acesse o site passaporte.ufms.br e clique em "Recuperar Senha".\n\nCaso a sua conta seja de colaborador, a solicitação deve ser feita via SEI pela sua chefia imediata.\n\nO prazo de resposta para questões relacionadas ao Passaporte UFMS é de 12 horas.\n\nAtenciosamente,\nEquipe AGETIC/UFMS', 'closing_message': 'Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema claro: esquecimento de senha do Passaporte UFMS, impedindo o acesso ao SIGAA para verificar aulas.', 'validation_status': True}}
+2026-05-17 23:59:42,352 | INFO | general_process.utilities.process_ticket | ============================================================
+2026-05-17 23:59:42,352 | INFO | general_process.utilities.process_ticket | Iniciando processamento do ticket 2
+2026-05-17 23:59:42,353 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:42,353 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:45,262 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:45,263 | INFO | general_process.utilities.utils | Tokens — prompt: 413 | completion: 39 | total: 452
+2026-05-17 23:59:45,263 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:45,265 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:45,265 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:47,643 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:47,643 | INFO | general_process.utilities.utils | Tokens — prompt: 594 | completion: 66 | total: 660
+2026-05-17 23:59:47,644 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:47,645 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:47,645 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:50,168 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:50,168 | INFO | general_process.utilities.utils | Tokens — prompt: 1902 | completion: 84 | total: 1986
+2026-05-17 23:59:50,169 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:50,170 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0002] Calculando urgência e impacto em paralelo
+2026-05-17 23:59:50,172 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:50,172 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:50,172 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:50,173 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:51,435 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:51,435 | INFO | general_process.utilities.utils | Tokens — prompt: 416 | completion: 11 | total: 427
+2026-05-17 23:59:51,436 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:52,790 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:52,790 | INFO | general_process.utilities.utils | Tokens — prompt: 340 | completion: 8 | total: 348
+2026-05-17 23:59:52,791 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:52,795 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0002] Urgência=3 | Impacto=3
+2026-05-17 23:59:52,795 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0002] Prioridade resultante=3
+2026-05-17 23:59:52,795 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:52,796 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:54,513 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:54,514 | INFO | general_process.utilities.utils | Tokens — prompt: 337 | completion: 65 | total: 402
+2026-05-17 23:59:54,514 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:54,525 | INFO | process_request.core.nodes.queue_only | Ticket TKT-2026-0002 adicionado à fila humana. Total: 86
+2026-05-17 23:59:54,526 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-2026-0002
+2026-05-17 23:59:54,527 | INFO | general_process.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-17 23:59:54,527 | INFO | general_process.utilities.process_ticket | === RESPONSE ===
+2026-05-17 23:59:54,527 | INFO | general_process.utilities.process_ticket | raw_input: {'id': 'TKT-2026-0002', 'timestamp': Timestamp('2026-02-15 08:45:22+0000', tz='UTC'), 'channel': 'Balcão', 'requester_profile': 'Professor', 'free_text': 'bom dia. a rede eduroam no bloco 6 da cidade universitária está inoperante desde as 8h. diversos alunos não conseguem conectar.', 'needs_more_info': False, 'info_justification': nan, 'category': 'Incidente', 'category_justification': 'Falha na conectividade sem fio afetando múltiplos usuários em um mesmo bloco.', 'urgency': 3.0, 'impact': 3.0, 'resulting_priority': 3.0, 'priority_justification': 'A prioridade é alta pois afeta um edifício/departamento inteiro (Médio/Alto Impacto) e prejudica as atividades acadêmicas em andamento (Alta Urgência).', 'service_type': 'Wi-fi UFMS', 'support_level': 2.0, 'department': 'N3 - Infraestrutura e Redes', 'response_draft': 'Olá, professor. Agradecemos o relato. Registramos a indisponibilidade da rede Eduroam no bloco 6 e a equipe técnica de redes já foi acionada para verificar o equipamento no local. Acordo de Nível de Serviços (ANS): 12 horas.', 'validation_status': True}
+2026-05-17 23:59:54,528 | INFO | general_process.utilities.process_ticket | input_type: request
+2026-05-17 23:59:54,528 | INFO | general_process.utilities.process_ticket | input_justification: Report of network outage affecting multiple users, a common IT support issue.
+2026-05-17 23:59:54,528 | INFO | general_process.utilities.process_ticket | result: {'ticket': {'id': 'TKT-2026-0002', 'timestamp': '2026-02-15T08:45:22Z', 'channel': 'Balcão', 'requester_profile': 'Professor', 'free_text': 'bom dia. a rede eduroam no bloco 6 da cidade universitária está inoperante desde as 8h. diversos alunos não conseguem conectar.', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema específico (rede Eduroam inoperante) em um local definido (Bloco 6, Cidade Universitária) e indica um impacto (alunos sem conexão).'}, 'response': {'ticket_id': 'TKT-2026-0002', 'category': 'Incidente', 'urgency': 3, 'impact': 3, 'resulting_priority': 3, 'priority_justification': 'A prioridade é Alta, pois a indisponibilidade da rede eduroam afeta múltiplos usuários no Bloco 6 (Impacto Médio) e impede o acesso à rede desde as 8h (Urgência Média), impactando atividades acadêmicas.', 'service_type': 'Wi-fi UFMS', 'support_level': 3, 'category_justification': 'Relato de falha inesperada no acesso à rede Wi-fi Eduroam, impactando múltiplos usuários.', 'department': 'N3 - Infraestrutura e Redes', 'response_draft': '[FILA HUMANA] Encaminhado ao analista responsável.', 'closing_message': 'Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema específico (rede Eduroam inoperante) em um local definido (Bloco 6, Cidade Universitária) e indica um impacto (alunos sem conexão).', 'validation_status': True}}
+2026-05-17 23:59:54,528 | INFO | general_process.utilities.process_ticket | ============================================================
+2026-05-17 23:59:54,529 | INFO | general_process.utilities.process_ticket | Iniciando processamento do ticket 3
+2026-05-17 23:59:54,530 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:54,530 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:56,506 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:56,506 | INFO | general_process.utilities.utils | Tokens — prompt: 387 | completion: 37 | total: 424
+2026-05-17 23:59:56,506 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:56,510 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:56,511 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-17 23:59:59,803 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-17 23:59:59,803 | INFO | general_process.utilities.utils | Tokens — prompt: 569 | completion: 44 | total: 613
+2026-05-17 23:59:59,803 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-17 23:59:59,815 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-17 23:59:59,815 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:03,983 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:03,984 | INFO | general_process.utilities.utils | Tokens — prompt: 393 | completion: 159 | total: 552
+2026-05-18 00:00:03,984 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:03,985 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-2026-0003
+2026-05-18 00:00:03,987 | INFO | general_process.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-18 00:00:03,987 | INFO | general_process.utilities.process_ticket | === RESPONSE ===
+2026-05-18 00:00:03,988 | INFO | general_process.utilities.process_ticket | raw_input: {'id': 'TKT-2026-0003', 'timestamp': Timestamp('2026-02-16 10:05:10+0000', tz='UTC'), 'channel': 'E-mail', 'requester_profile': 'Técnico-Administrativo', 'free_text': 'a net n ta prestando oq eu faco', 'needs_more_info': True, 'info_justification': 'O ticket não especifica o local, qual rede está sendo acessada (Eduroam, UFMS-ADM ou cabeada) nem se o problema ocorre em um dispositivo específico.', 'category': nan, 'category_justification': nan, 'urgency': nan, 'impact': nan, 'resulting_priority': nan, 'priority_justification': nan, 'service_type': nan, 'support_level': nan, 'department': nan, 'response_draft': 'Olá! Você poderia, por gentileza, fornecer mais detalhes sobre o problema? Precisamos saber em qual local (câmpus e bloco) você está, se está tentando usar o Wi-Fi (Eduroam/UFMS-ADM) ou rede a cabo, e se aparece alguma mensagem de erro.', 'validation_status': True}
+2026-05-18 00:00:03,988 | INFO | general_process.utilities.process_ticket | input_type: request
+2026-05-18 00:00:03,988 | INFO | general_process.utilities.process_ticket | input_justification: User reports network connectivity issues, a common technical support request.
+2026-05-18 00:00:03,989 | INFO | general_process.utilities.process_ticket | result: {'ticket': {'id': 'TKT-2026-0003', 'timestamp': '2026-02-16T10:05:10Z', 'channel': 'E-mail', 'requester_profile': 'Técnico-Administrativo', 'free_text': 'a net n ta prestando oq eu faco', 'needs_more_info': True, 'info_justification': 'O chamado é extremamente vago e não fornece detalhes sobre o problema ou o sistema afetado.'}, 'response': {'ticket_id': 'TKT-2026-0003', 'category': '', 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá! Para que possamos te ajudar com a conexão de rede, por favor, informe em qual prédio e sala você está tentando se conectar. Além disso, você está tentando usar o Wi-Fi da UFMS ou uma conexão cabeada? Se possível, informe também sua matrícula ou CPF para agilizarmos o atendimento.', 'closing_message': 'Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.', 'needs_more_info': True, 'info_justification': 'O chamado é extremamente vago e não fornece detalhes sobre o problema ou o sistema afetado.', 'validation_status': True}}
+2026-05-18 00:00:03,989 | INFO | general_process.utilities.process_ticket | ============================================================
+2026-05-18 00:00:03,989 | INFO | general_process.utilities.process_ticket | Iniciando processamento do ticket 4
+2026-05-18 00:00:03,990 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:03,990 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:06,586 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:06,587 | INFO | general_process.utilities.utils | Tokens — prompt: 429 | completion: 41 | total: 470
+2026-05-18 00:00:06,587 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:06,590 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:06,590 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:09,892 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:09,892 | INFO | general_process.utilities.utils | Tokens — prompt: 735 | completion: 154 | total: 889
+2026-05-18 00:00:09,893 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:09,894 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Email Institucional
+2026-05-18 00:00:09,907 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: Ana Paula Ramos
+2026-05-18 00:00:09,909 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: phishing | crítico: True
+2026-05-18 00:00:09,925 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:09,925 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:14,992 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:14,993 | INFO | general_process.utilities.utils | Tokens — prompt: 1005 | completion: 185 | total: 1190
+2026-05-18 00:00:14,994 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:14,995 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: Ana Paula Ramos | crítico: True
+2026-05-18 00:00:14,995 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:14,995 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:20,596 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:20,596 | INFO | general_process.utilities.utils | Tokens — prompt: 541 | completion: 343 | total: 884
+2026-05-18 00:00:20,596 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:20,598 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: TKT-2026-0004
+2026-05-18 00:00:20,598 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:20,599 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:35,011 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:35,011 | INFO | general_process.utilities.utils | Tokens — prompt: 533 | completion: 878 | total: 1411
+2026-05-18 00:00:35,012 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:35,013 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente TKT-2026-0004
+2026-05-18 00:00:35,017 | INFO | general_process.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-18 00:00:35,017 | INFO | general_process.utilities.process_ticket | === RESPONSE ===
+2026-05-18 00:00:35,018 | INFO | general_process.utilities.process_ticket | raw_input: {'id': 'TKT-2026-0004', 'timestamp': Timestamp('2026-02-18 14:30:00+0000', tz='UTC'), 'channel': 'Sistema de Chamados', 'requester_profile': 'Técnico-Administrativo', 'free_text': 'prezados, identifiquei um e-mail de phishing solicitando recadastramento bancário com o logotipo da ufms enviado para todos os docentes da coordenação. alguns avisaram que já clicaram no link malicioso.', 'needs_more_info': False, 'info_justification': nan, 'category': 'Incidente', 'category_justification': 'Incidente grave de segurança da informação envolvendo engenharia social e possível vazamento de credenciais.', 'urgency': 5.0, 'impact': 5.0, 'resulting_priority': 5.0, 'priority_justification': 'A prioridade é crítica devido à violação de segurança envolvendo ataque de phishing ativo (Impacto 5) que exige contenção imediata para evitar danos maiores (Urgência 5).', 'service_type': 'E-mail UFMS', 'support_level': 3.0, 'department': 'N1 - Atendimento Direto', 'response_draft': 'Atenção: Recebemos seu alerta. Por favor, instrua todos que clicaram a alterarem imediatamente suas senhas do Passaporte UFMS e não inserirem dados na página falsa. A equipe de Segurança da Informação já está bloqueando o remetente. Acordo de Nível de Serviços (ANS): 2 horas.', 'validation_status': True}
+2026-05-18 00:00:35,018 | INFO | general_process.utilities.process_ticket | input_type: incident
+2026-05-18 00:00:35,018 | INFO | general_process.utilities.process_ticket | input_justification: Report of a phishing email targeting UFMS faculty with users already clicking the malicious link, indicating a security breach.
+2026-05-18 00:00:35,018 | INFO | general_process.utilities.process_ticket | result: {'incident': {'id': 'TKT-2026-0004', 'category': 'phishing', 'category_justification': 'O relatório descreve explicitamente um e-mail de phishing solicitando informações bancárias e utilizando o logotipo da UFMS.', 'critical': True, 'critical_justification': 'Campanha de phishing direcionada a múltiplos usuários com relatos de acesso ao link malicioso, indicando alto risco de comprometimento de credenciais e sistemas.', 'scope': 'departamento_inteiro', 'affected_systems': 'Email Institucional', 'responsible_person': 'Ana Paula Ramos', 'contact_info': 'ana.ramos@agetic.ufms.br | (67) 3345-7225', 'containment_steps': ['Orientar o usuário a NÃO clicar em links ou baixar anexos do e-mail suspeito.', 'Encaminhar o e-mail original (como anexo) para etir@agetic.ufms.br.', 'Redefinir a senha da conta possivelmente comprometida via Passaporte UFMS.', 'Ativar autenticação em dois fatores na conta afetada.', 'Verificar regras de encaminhamento indevidas na caixa de e-mail do usuário.'], 'containment_justification': 'O incidente é classificado como phishing e é crítico, afetando um departamento inteiro. As ações visam mitigar o risco imediato de comprometimento de credenciais e possíveis ações maliciosas, além de coletar evidências para análise posterior.', 'alert_draft': '[CRÍTICO] Incidente de Phishing Detectado — Ação Imediata Necessária\n\nPrezada Sra. Ana Paula Ramos,\n\nInformamos que foi detectado um incidente de segurança classificado como phishing, com nível de criticidade ALTO, afetando o departamento inteiro. O sistema afetado é o Email Institucional.\n\nO incidente foi reportado por usuários que identificaram um e-mail de phishing solicitando recadastramento bancário com o logotipo da UFMS, enviado para todos os docentes da coordenação. Alguns usuários informaram ter clicado no link malicioso.\n\nAs seguintes medidas de contenção foram recomendadas:\n- Orientar o usuário a NÃO clicar em links ou baixar anexos do e-mail suspeito.\n- Encaminhar o e-mail original (como anexo) para etir@agetic.ufms.br.\n- Redefinir a senha da conta possivelmente comprometida via Passaporte UFMS.\n- Ativar autenticação em dois fatores na conta afetada.\n- Verificar regras de encaminhamento indevidas na caixa de e-mail do usuário.\n\nSolicitamos sua atenção imediata para este incidente. Aguardamos seu retorno com as ações tomadas em até 1 hora.\n\nPor gentileza, confirme o recebimento deste alerta respondendo a etir@agetic.ufms.br.\n\nAtenciosamente,\nETIR — Equipe de Tratamento e Resposta a Incidentes / AGETIC/UFMS', 'report_template': '# Relatório Parcial de Incidente de Segurança - ETIR/UFMS\n\n**Incident ID:** TKT-2026-0004\n**Data/Hora da Ocorrência:** 2026-02-18T14:30:00Z\n**Categoria:** phishing\n**Sistemas Afetados Inicialmente:** Email Institucional\n**Escopo:** departamento_inteiro\n\n--- \n\n## 1. Identificação do Incidente\n\n*   **ID do Incidente:** TKT-2026-0004\n*   **Data/Hora da Detecção:** 2026-02-18T14:30:00Z\n*   **Categoria:** phishing\n*   **Sistemas Afetados Inicialmente:** Email Institucional\n*   **Escopo:** departamento_inteiro\n*   **Responsável pela Análise:** Ana Paula Ramos\n\n--- \n\n## 2. Descrição Detalhada do Ocorrido\n\n[PREENCHER] - Detalhar o ocorrido, incluindo a natureza do ataque, vetores utilizados e quaisquer informações relevantes obtidas até o momento. Ser o mais específico possível.\n\n--- \n\n## 3. Sistemas e Ativos Afetados\n\n*   **Sistemas Afetados Inicialmente:** Email Institucional\n*   **Outros Sistemas/Ativos Afetados:** [PREENCHER] - Listar quaisquer outros sistemas ou ativos identificados como afetados (e.g., servidores, estações de trabalho, contas de usuário).\n\n--- \n\n## 4. Ações de Contenção Realizadas\n\n*   [ ] Orientar o usuário a NÃO clicar em links ou baixar anexos do e-mail suspeito.\n*   [ ] Encaminhar o e-mail original (como anexo) para etir@agetic.ufms.br.\n*   [ ] Redefinir a senha da conta possivelmente comprometida via Passaporte UFMS.\n*   [ ] Ativar autenticação em dois fatores na conta afetada.\n*   [ ] Verificar regras de encaminhamento indevidas na caixa de e-mail do usuário.\n*   [ ] Outras ações de contenção: [PREENCHER] - Descrever quaisquer outras ações de contenção que foram tomadas.\n\n--- \n\n## 5. Impacto Estimado\n\n*   **Número de Usuários Afetados (Estimativa):** [PREENCHER]\n*   **Impacto Operacional:** [PREENCHER] - Descrever o impacto do incidente nas operações da UFMS.\n*   **Risco de Exposição de Dados:** [PREENCHER] - Avaliar o risco de exposição de dados confidenciais (e.g., informações pessoais, dados financeiros).\n\n--- \n\n## 6. Status Atual\n\n(Escolher uma opção)\n\n*   [ ] Em investigação\n*   [ ] Contido\n*   [ ] Resolvido\n*   [ ] Escalado\n\n--- \n\n## 7. Próximos Passos Planejados\n\n[PREENCHER] - Descrever os próximos passos a serem tomados para investigar, conter e resolver o incidente.\n\n--- \n\n## 8. Observações Adicionais\n\n[PREENCHER] - Incluir quaisquer observações adicionais relevantes, como informações sobre a origem do ataque, indicadores de comprometimento (IOCs) ou lições aprendidas.\n\n--- \n\n## 9. Assinatura e Data\n\n*   **Nome:** [PREENCHER]\n*   **Cargo:** [PREENCHER]\n*   **Data:** [PREENCHER]'}}
+2026-05-18 00:00:35,019 | INFO | general_process.utilities.process_ticket | ============================================================
+2026-05-18 00:00:35,019 | INFO | general_process.utilities.process_ticket | Iniciando processamento do ticket 5
+2026-05-18 00:00:35,020 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:35,020 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:36,923 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:36,923 | INFO | general_process.utilities.utils | Tokens — prompt: 397 | completion: 43 | total: 440
+2026-05-18 00:00:36,923 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:36,926 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:36,926 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:39,462 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:39,462 | INFO | general_process.utilities.utils | Tokens — prompt: 578 | completion: 51 | total: 629
+2026-05-18 00:00:39,462 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:39,463 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:39,463 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:41,074 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:41,074 | INFO | general_process.utilities.utils | Tokens — prompt: 1886 | completion: 79 | total: 1965
+2026-05-18 00:00:41,075 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:41,076 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0005] Calculando urgência e impacto em paralelo
+2026-05-18 00:00:41,076 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:41,076 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:41,076 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:41,077 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:42,002 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:42,003 | INFO | general_process.utilities.utils | Tokens — prompt: 400 | completion: 7 | total: 407
+2026-05-18 00:00:42,003 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:42,151 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:42,151 | INFO | general_process.utilities.utils | Tokens — prompt: 324 | completion: 12 | total: 336
+2026-05-18 00:00:42,151 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:42,152 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0005] Urgência=2 | Impacto=1
+2026-05-18 00:00:42,153 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0005] Prioridade resultante=2
+2026-05-18 00:00:42,153 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:42,153 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:44,546 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:44,546 | INFO | general_process.utilities.utils | Tokens — prompt: 321 | completion: 62 | total: 383
+2026-05-18 00:00:44,546 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:44,550 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:44,552 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:49,064 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:49,064 | INFO | general_process.utilities.utils | Tokens — prompt: 1257 | completion: 203 | total: 1460
+2026-05-18 00:00:49,064 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:49,066 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-2026-0005
+2026-05-18 00:00:49,068 | INFO | general_process.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-18 00:00:49,068 | INFO | general_process.utilities.process_ticket | === RESPONSE ===
+2026-05-18 00:00:49,068 | INFO | general_process.utilities.process_ticket | raw_input: {'id': 'TKT-2026-0005', 'timestamp': Timestamp('2026-02-20 09:12:45+0000', tz='UTC'), 'channel': 'Telefone', 'requester_profile': 'Estudante', 'free_text': 'o mouse aq do laboratorio da facfan ta quebrado, o botao direito n clica de jeito nenhum.', 'needs_more_info': False, 'info_justification': nan, 'category': 'Incidente', 'category_justification': 'Falha de hardware em um único periférico utilizado por um usuário.', 'urgency': 2.0, 'impact': 1.0, 'resulting_priority': 2.0, 'priority_justification': 'A prioridade é baixa pois o problema atinge apenas um usuário e dispositivo (Impacto 1) e não impede completamente o funcionamento do laboratório (Urgência 2).', 'service_type': 'Computadores e Softwares UFMS', 'support_level': 2.0, 'department': 'N2 - Suporte de Campo', 'response_draft': 'Olá! Registramos o defeito no mouse do laboratório da Facfan. A equipe de suporte de campo foi acionada para realizar a substituição do equipamento o mais breve possível. Acordo de Nível de Serviços (ANS): 48 horas.', 'validation_status': True}
+2026-05-18 00:00:49,068 | INFO | general_process.utilities.process_ticket | input_type: request
+2026-05-18 00:00:49,068 | INFO | general_process.utilities.process_ticket | input_justification: Report of broken hardware (mouse) requiring repair or replacement - a standard IT support request.
+2026-05-18 00:00:49,068 | INFO | general_process.utilities.process_ticket | result: {'ticket': {'id': 'TKT-2026-0005', 'timestamp': '2026-02-20T09:12:45Z', 'channel': 'Telefone', 'requester_profile': 'Estudante', 'free_text': 'o mouse aq do laboratorio da facfan ta quebrado, o botao direito n clica de jeito nenhum.', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema específico (mouse quebrado) em um local identificável (laboratório da facfan).'}, 'response': {'ticket_id': 'TKT-2026-0005', 'category': 'Incidente', 'urgency': 2, 'impact': 1, 'resulting_priority': 2, 'priority_justification': 'A prioridade é Média, pois o defeito no mouse afeta apenas um usuário em um laboratório específico (Baixo Impacto) e embora cause inconveniente, não impede a continuidade crítica das atividades (Urgência Moderada).', 'service_type': 'Computadores e Softwares UFMS', 'support_level': 2, 'category_justification': 'Falha em equipamento (mouse) impactando o uso de um computador laboratorial.', 'department': 'N2 - Suporte de Campo', 'response_draft': 'Prezado(a) usuário(a),\n\nRecebi sua solicitação referente ao mouse com defeito no laboratório da Facfan. Para darmos andamento à manutenção ou substituição do equipamento, por favor, abra um chamado através do nosso sistema de suporte: suporteagetic.ufms.br ou envie um e-mail para suporte.agetic@ufms.br.\n\nO prazo de resposta para este tipo de solicitação é de 48 horas.\n\nAtenciosamente,\nEquipe de Suporte AGETIC/UFMS.', 'closing_message': 'Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema específico (mouse quebrado) em um local identificável (laboratório da facfan).', 'validation_status': True}}
+2026-05-18 00:00:49,068 | INFO | general_process.utilities.process_ticket | ============================================================
+2026-05-18 00:00:49,068 | INFO | general_process.utilities.process_ticket | Iniciando processamento do ticket 6
+2026-05-18 00:00:49,069 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:49,069 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:50,916 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:50,916 | INFO | general_process.utilities.utils | Tokens — prompt: 385 | completion: 43 | total: 428
+2026-05-18 00:00:50,916 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:50,918 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:50,918 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:52,713 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:52,713 | INFO | general_process.utilities.utils | Tokens — prompt: 567 | completion: 53 | total: 620
+2026-05-18 00:00:52,713 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:52,714 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:52,715 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:00:59,332 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:00:59,332 | INFO | general_process.utilities.utils | Tokens — prompt: 391 | completion: 153 | total: 544
+2026-05-18 00:00:59,332 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:00:59,334 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-2026-0006
+2026-05-18 00:00:59,335 | INFO | general_process.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-18 00:00:59,335 | INFO | general_process.utilities.process_ticket | === RESPONSE ===
+2026-05-18 00:00:59,335 | INFO | general_process.utilities.process_ticket | raw_input: {'id': 'TKT-2026-0006', 'timestamp': Timestamp('2026-02-22 11:45:00+0000', tz='UTC'), 'channel': 'Sistema de Chamados', 'requester_profile': 'Professor', 'free_text': 'meu sistema caiu me ajuda pelo amor de deus', 'needs_more_info': True, 'info_justification': 'Relato demasiadamente vago que não permite identificar o sistema afetado ou a operação que estava sendo realizada.', 'category': nan, 'category_justification': nan, 'urgency': nan, 'impact': nan, 'resulting_priority': nan, 'priority_justification': nan, 'service_type': nan, 'support_level': nan, 'department': nan, 'response_draft': 'Olá! Para que possamos ajudar da melhor forma, poderia nos informar qual sistema você estava utilizando quando o problema ocorreu? Apareceu alguma mensagem de erro na tela?', 'validation_status': True}
+2026-05-18 00:00:59,336 | INFO | general_process.utilities.process_ticket | input_type: request
+2026-05-18 00:00:59,336 | INFO | general_process.utilities.process_ticket | input_justification: User is reporting a system failure and requesting help, which is a common technical support issue.
+2026-05-18 00:00:59,336 | INFO | general_process.utilities.process_ticket | result: {'ticket': {'id': 'TKT-2026-0006', 'timestamp': '2026-02-22T11:45:00Z', 'channel': 'Sistema de Chamados', 'requester_profile': 'Professor', 'free_text': 'meu sistema caiu me ajuda pelo amor de deus', 'needs_more_info': True, 'info_justification': "O chamado é extremamente vago, não especifica qual sistema 'caiu' e carece de detalhes para triagem."}, 'response': {'ticket_id': 'TKT-2026-0006', 'category': '', 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Olá!\n\nPara que eu possa te ajudar da melhor forma, por favor, informe qual sistema específico apresentou o problema. Por exemplo, é o Windows, um programa específico (como o Word ou Excel), ou outro sistema? Se possível, informe também o nome do computador ou o código de patrimônio (asset tag), caso tenha.', 'closing_message': 'Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.', 'needs_more_info': True, 'info_justification': "O chamado é extremamente vago, não especifica qual sistema 'caiu' e carece de detalhes para triagem.", 'validation_status': True}}
+2026-05-18 00:00:59,336 | INFO | general_process.utilities.process_ticket | ============================================================
+2026-05-18 00:00:59,336 | INFO | general_process.utilities.process_ticket | Iniciando processamento do ticket 7
+2026-05-18 00:00:59,337 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:00:59,337 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:01,793 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:01,793 | INFO | general_process.utilities.utils | Tokens — prompt: 410 | completion: 54 | total: 464
+2026-05-18 00:01:01,793 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:01,795 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:01,795 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:04,556 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:04,557 | INFO | general_process.utilities.utils | Tokens — prompt: 591 | completion: 63 | total: 654
+2026-05-18 00:01:04,557 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:04,558 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:04,558 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:07,564 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:07,565 | INFO | general_process.utilities.utils | Tokens — prompt: 1897 | completion: 78 | total: 1975
+2026-05-18 00:01:07,565 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:07,566 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0007] Calculando urgência e impacto em paralelo
+2026-05-18 00:01:07,567 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:07,567 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:07,568 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:07,568 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:08,587 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:08,588 | INFO | general_process.utilities.utils | Tokens — prompt: 335 | completion: 8 | total: 343
+2026-05-18 00:01:08,588 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:09,315 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:09,316 | INFO | general_process.utilities.utils | Tokens — prompt: 411 | completion: 11 | total: 422
+2026-05-18 00:01:09,316 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:09,317 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0007] Urgência=4 | Impacto=4
+2026-05-18 00:01:09,318 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0007] Prioridade resultante=4
+2026-05-18 00:01:09,318 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:09,318 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:13,948 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:13,948 | INFO | general_process.utilities.utils | Tokens — prompt: 332 | completion: 81 | total: 413
+2026-05-18 00:01:13,948 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:13,958 | INFO | process_request.core.nodes.queue_only | Ticket TKT-2026-0007 adicionado à fila humana. Total: 87
+2026-05-18 00:01:13,958 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-2026-0007
+2026-05-18 00:01:13,960 | INFO | general_process.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-18 00:01:13,960 | INFO | general_process.utilities.process_ticket | === RESPONSE ===
+2026-05-18 00:01:13,960 | INFO | general_process.utilities.process_ticket | raw_input: {'id': 'TKT-2026-0007', 'timestamp': Timestamp('2026-02-25 15:20:10+0000', tz='UTC'), 'channel': 'E-mail', 'requester_profile': 'Professor', 'free_text': 'professores no campus de tres lagoas nao estao conseguindo fechar pauta. o sigaa da erro 500 pra todo mundo o tempo inteiro.', 'needs_more_info': False, 'info_justification': nan, 'category': 'Problema', 'category_justification': 'Falha sistêmica e recorrente no principal sistema acadêmico, afetando múltiplos usuários com o mesmo erro de servidor.', 'urgency': 4.0, 'impact': 4.0, 'resulting_priority': 4.0, 'priority_justification': 'A prioridade é crítica pois afeta um sistema núcleo institucional e prejudica centenas de usuários (Impacto 4), bloqueando uma atividade acadêmica com prazo (Urgência 4).', 'service_type': 'Outros', 'support_level': 3.0, 'department': 'N1 - Atendimento Direto', 'response_draft': 'Olá, professor. Detectamos a instabilidade geral no SIGAA (Erro 500) que está impedindo o fechamento das pautas. Nossa equipe de infraestrutura e sistemas já está atuando com urgência para restabelecer o serviço. Avisaremos assim que normalizar.', 'validation_status': True}
+2026-05-18 00:01:13,960 | INFO | general_process.utilities.process_ticket | input_type: request
+2026-05-18 00:01:13,961 | INFO | general_process.utilities.process_ticket | input_justification: Report of a system error (SIGAA returning error 500) affecting multiple users, indicating a service disruption but not a security breach.
+2026-05-18 00:01:13,961 | INFO | general_process.utilities.process_ticket | result: {'ticket': {'id': 'TKT-2026-0007', 'timestamp': '2026-02-25T15:20:10Z', 'channel': 'E-mail', 'requester_profile': 'Professor', 'free_text': 'professores no campus de tres lagoas nao estao conseguindo fechar pauta. o sigaa da erro 500 pra todo mundo o tempo inteiro.', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema específico no sistema SIGAA no campus de Três Lagoas, com erro 500, afetando professores na finalização de pautas.'}, 'response': {'ticket_id': 'TKT-2026-0007', 'category': 'Problema', 'urgency': 4, 'impact': 4, 'resulting_priority': 4, 'priority_justification': 'A prioridade é crítica devido ao impacto generalizado no acesso ao SIGAA para todos os professores do campus de Tres Lagoas (Alto Impacto) e à impossibilidade contínua de realizar uma função essencial como fechar pautas (Alta Urgência). O erro 500 indica uma falha no servidor que impede o uso do sistema.', 'service_type': 'Sistema Acadêmico', 'support_level': 3, 'category_justification': 'Erro generalizado no sistema acadêmico (SIGAA) impactando múltiplos usuários e funcionalidades.', 'department': 'N3 - Sistemas Acadêmicos', 'response_draft': '[FILA HUMANA] Encaminhado ao analista responsável.', 'closing_message': 'Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema específico no sistema SIGAA no campus de Três Lagoas, com erro 500, afetando professores na finalização de pautas.', 'validation_status': True}}
+2026-05-18 00:01:13,961 | INFO | general_process.utilities.process_ticket | ============================================================
+2026-05-18 00:01:13,961 | INFO | general_process.utilities.process_ticket | Iniciando processamento do ticket 8
+2026-05-18 00:01:13,963 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:13,964 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:15,266 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:15,266 | INFO | general_process.utilities.utils | Tokens — prompt: 388 | completion: 30 | total: 418
+2026-05-18 00:01:15,266 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:15,269 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:15,269 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:17,374 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:17,375 | INFO | general_process.utilities.utils | Tokens — prompt: 570 | completion: 57 | total: 627
+2026-05-18 00:01:17,375 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:17,377 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:17,377 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:20,191 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:20,192 | INFO | general_process.utilities.utils | Tokens — prompt: 394 | completion: 143 | total: 537
+2026-05-18 00:01:20,192 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:20,194 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-2026-0008
+2026-05-18 00:01:20,196 | INFO | general_process.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-18 00:01:20,196 | INFO | general_process.utilities.process_ticket | === RESPONSE ===
+2026-05-18 00:01:20,197 | INFO | general_process.utilities.process_ticket | raw_input: {'id': 'TKT-2026-0008', 'timestamp': Timestamp('2026-02-26 14:10:00+0000', tz='UTC'), 'channel': 'Telefone', 'requester_profile': 'Estudante', 'free_text': 'como configuro meu email da ufms no celular novo? iphone', 'needs_more_info': False, 'info_justification': nan, 'category': 'Requisição', 'category_justification': 'Solicitação de orientação para configuração de serviço já existente.', 'urgency': 1.0, 'impact': 1.0, 'resulting_priority': 1.0, 'priority_justification': 'A prioridade é baixa por se tratar de uma dúvida de configuração de um dispositivo particular (Impacto 1) sem caráter emergencial (Urgência 1).', 'service_type': 'E-mail UFMS', 'support_level': 1.0, 'department': 'N1 - Atendimento Direto', 'response_draft': "Olá! Para configurar seu e-mail UFMS no iPhone, você deve baixar o aplicativo do Gmail ou ir nas configurações do aparelho em 'Mail' > 'Contas' > 'Adicionar Conta' > 'Google', e entrar com seu e-mail institucional e senha do Passaporte UFMS. Acordo de Nível de Serviços (ANS): 2 horas.", 'validation_status': True}
+2026-05-18 00:01:20,197 | INFO | general_process.utilities.process_ticket | input_type: request
+2026-05-18 00:01:20,197 | INFO | general_process.utilities.process_ticket | input_justification: User requesting assistance with email configuration on a new device.
+2026-05-18 00:01:20,197 | INFO | general_process.utilities.process_ticket | result: {'ticket': {'id': 'TKT-2026-0008', 'timestamp': '2026-02-26T14:10:00Z', 'channel': 'Telefone', 'requester_profile': 'Estudante', 'free_text': 'como configuro meu email da ufms no celular novo? iphone', 'needs_more_info': True, 'info_justification': 'O chamado não descreve um problema técnico, mas sim uma dúvida sobre configuração. Falta contexto sobre qual serviço de email e qual o problema específico.'}, 'response': {'ticket_id': 'TKT-2026-0008', 'category': '', 'urgency': 0, 'impact': 0, 'resulting_priority': 0, 'priority_justification': '', 'service_type': '', 'support_level': 1, 'category_justification': '', 'department': '', 'response_draft': 'Prezado(a) usuário(a),\n\nPara que possamos te ajudar a configurar seu e-mail UFMS no seu novo iPhone, por favor, informe seu endereço de e-mail completo (seu_nome@ufms.br). Assim, poderemos fornecer as instruções corretas ou verificar o status da sua conta.\n\nAtenciosamente,\nSuporte UFMS', 'closing_message': 'Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.', 'needs_more_info': True, 'info_justification': 'O chamado não descreve um problema técnico, mas sim uma dúvida sobre configuração. Falta contexto sobre qual serviço de email e qual o problema específico.', 'validation_status': True}}
+2026-05-18 00:01:20,197 | INFO | general_process.utilities.process_ticket | ============================================================
+2026-05-18 00:01:20,197 | INFO | general_process.utilities.process_ticket | Iniciando processamento do ticket 9
+2026-05-18 00:01:20,198 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:20,198 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:21,873 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:21,874 | INFO | general_process.utilities.utils | Tokens — prompt: 408 | completion: 37 | total: 445
+2026-05-18 00:01:21,874 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:21,876 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:21,877 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:24,694 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:24,694 | INFO | general_process.utilities.utils | Tokens — prompt: 590 | completion: 66 | total: 656
+2026-05-18 00:01:24,695 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:24,696 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:24,697 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:26,875 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:26,875 | INFO | general_process.utilities.utils | Tokens — prompt: 1897 | completion: 76 | total: 1973
+2026-05-18 00:01:26,876 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:26,877 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0009] Calculando urgência e impacto em paralelo
+2026-05-18 00:01:26,877 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:26,877 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:26,878 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:26,878 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:27,775 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:27,775 | INFO | general_process.utilities.utils | Tokens — prompt: 335 | completion: 8 | total: 343
+2026-05-18 00:01:27,775 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:27,790 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:27,791 | INFO | general_process.utilities.utils | Tokens — prompt: 411 | completion: 7 | total: 418
+2026-05-18 00:01:27,791 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:27,792 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0009] Urgência=3 | Impacto=2
+2026-05-18 00:01:27,792 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0009] Prioridade resultante=2
+2026-05-18 00:01:27,792 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:27,792 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:30,534 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:30,535 | INFO | general_process.utilities.utils | Tokens — prompt: 332 | completion: 83 | total: 415
+2026-05-18 00:01:30,535 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:30,538 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:30,539 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:36,606 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:36,607 | INFO | general_process.utilities.utils | Tokens — prompt: 1269 | completion: 194 | total: 1463
+2026-05-18 00:01:36,607 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:36,608 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-2026-0009
+2026-05-18 00:01:36,610 | INFO | general_process.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-18 00:01:36,610 | INFO | general_process.utilities.process_ticket | === RESPONSE ===
+2026-05-18 00:01:36,610 | INFO | general_process.utilities.process_ticket | raw_input: {'id': 'TKT-2026-0009', 'timestamp': Timestamp('2026-03-02 19:00:20+0000', tz='UTC'), 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'o projetor do complexo multiuso sala 2 ta com a lampada piscando e n da pra ver o slide direito. o professor pediu pra avisar', 'needs_more_info': False, 'info_justification': nan, 'category': 'Incidente', 'category_justification': 'Problema físico de equipamento audiovisual durante a aula.', 'urgency': 3.0, 'impact': 2.0, 'resulting_priority': 3.0, 'priority_justification': 'A prioridade é média pois afeta uma sala inteira (Impacto 2) e está prejudicando uma aula que está ocorrendo no momento (Urgência 3).', 'service_type': 'Computadores e Softwares UFMS', 'support_level': 2.0, 'department': 'N2 - Suporte de Campo', 'response_draft': 'Olá! Obrigado por avisar. Estamos enviando um técnico do suporte de campo à sala 2 do Complexo Multiuso para avaliar e solucionar o problema com a lâmpada do projetor. Acordo de Nível de Serviços (ANS): 48 horas.', 'validation_status': True}
+2026-05-18 00:01:36,611 | INFO | general_process.utilities.process_ticket | input_type: request
+2026-05-18 00:01:36,611 | INFO | general_process.utilities.process_ticket | input_justification: Report of malfunctioning equipment (projector) requiring technical support.
+2026-05-18 00:01:36,611 | INFO | general_process.utilities.process_ticket | result: {'ticket': {'id': 'TKT-2026-0009', 'timestamp': '2026-03-02T19:00:20Z', 'channel': 'Balcão', 'requester_profile': 'Estudante', 'free_text': 'o projetor do complexo multiuso sala 2 ta com a lampada piscando e n da pra ver o slide direito. o professor pediu pra avisar', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema específico com um equipamento (projetor) em um local definido (Complexo Multiuso, Sala 2), permitindo o direcionamento para a equipe responsável.'}, 'response': {'ticket_id': 'TKT-2026-0009', 'category': 'Incidente', 'urgency': 3, 'impact': 2, 'resulting_priority': 2, 'priority_justification': 'A prioridade é Média, pois o problema afeta apenas uma sala específica (Impacto Médio) e, embora impeça a apresentação, não bloqueia operações críticas (Urgência Média). A falha na lâmpada do projetor impacta a qualidade da apresentação, mas não representa uma interrupção total dos serviços.', 'service_type': 'Computadores e Softwares UFMS', 'support_level': 2, 'category_justification': 'Falha em equipamento (projetor) impactando atividade de ensino.', 'department': 'N2 - Suporte de Campo', 'response_draft': 'Prezado(a) usuário(a),\n\nRecebemos sua solicitação referente ao projetor do Complexo Multiúso, Sala 2. Para darmos andamento à resolução, por favor, abra um chamado em suporteagetic.ufms.br, detalhando o problema.\n\nO prazo de resposta para este tipo de demanda é de 48 horas.\n\nAtenciosamente,\nEquipe AGETIC/UFMS', 'closing_message': 'Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema específico com um equipamento (projetor) em um local definido (Complexo Multiuso, Sala 2), permitindo o direcionamento para a equipe responsável.', 'validation_status': True}}
+2026-05-18 00:01:36,611 | INFO | general_process.utilities.process_ticket | ============================================================
+2026-05-18 00:01:36,611 | INFO | general_process.utilities.process_ticket | Iniciando processamento do ticket 10
+2026-05-18 00:01:36,613 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:36,615 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:38,606 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:38,606 | INFO | general_process.utilities.utils | Tokens — prompt: 393 | completion: 44 | total: 437
+2026-05-18 00:01:38,606 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:38,608 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:38,608 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:40,551 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:40,552 | INFO | general_process.utilities.utils | Tokens — prompt: 575 | completion: 49 | total: 624
+2026-05-18 00:01:40,552 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:40,554 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:40,554 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:42,198 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:42,198 | INFO | general_process.utilities.utils | Tokens — prompt: 1882 | completion: 61 | total: 1943
+2026-05-18 00:01:42,198 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:42,199 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0010] Calculando urgência e impacto em paralelo
+2026-05-18 00:01:42,200 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:42,200 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:42,200 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:42,202 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:43,209 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:43,209 | INFO | general_process.utilities.utils | Tokens — prompt: 396 | completion: 11 | total: 407
+2026-05-18 00:01:43,209 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:43,985 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:43,985 | INFO | general_process.utilities.utils | Tokens — prompt: 320 | completion: 12 | total: 332
+2026-05-18 00:01:43,985 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:43,986 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0010] Urgência=2 | Impacto=1
+2026-05-18 00:01:43,986 | INFO | process_request.core.nodes.score_priority | [TKT-2026-0010] Prioridade resultante=2
+2026-05-18 00:01:43,986 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:43,986 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:46,075 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:46,075 | INFO | general_process.utilities.utils | Tokens — prompt: 317 | completion: 61 | total: 378
+2026-05-18 00:01:46,075 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:46,078 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 00:01:46,078 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 00:01:51,665 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 00:01:51,665 | INFO | general_process.utilities.utils | Tokens — prompt: 1254 | completion: 191 | total: 1445
+2026-05-18 00:01:51,665 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 00:01:51,666 | INFO | process_request.core.nodes.emit | Emitindo resultados para o Ticket TKT-2026-0010
+2026-05-18 00:01:51,667 | INFO | general_process.utilities.process_ticket | Processamento concluído com sucesso.
+2026-05-18 00:01:51,668 | INFO | general_process.utilities.process_ticket | === RESPONSE ===
+2026-05-18 00:01:51,668 | INFO | general_process.utilities.process_ticket | raw_input: {'id': 'TKT-2026-0010', 'timestamp': Timestamp('2026-03-04 12:22:15+0000', tz='UTC'), 'channel': 'Sistema de Chamados', 'requester_profile': 'Estudante', 'free_text': 'o app sou ufms ta fechando sozinho no meu android qnd tento ver o ru', 'needs_more_info': False, 'info_justification': nan, 'category': 'Incidente', 'category_justification': 'Falha na execução do aplicativo institucional em um dispositivo móvel específico.', 'urgency': 2.0, 'impact': 1.0, 'resulting_priority': 2.0, 'priority_justification': 'A prioridade é baixa pois o erro afeta apenas o dispositivo de um usuário (Impacto 1) e o serviço do RU ainda pode ser consultado por outras vias (Urgência 2).', 'service_type': 'Aplicativo Sou UFMS', 'support_level': 1.0, 'department': 'N1 - Atendimento Direto', 'response_draft': 'Olá! Para resolver o travamento do aplicativo Sou UFMS, sugerimos limpar o cache do aplicativo nas configurações do seu Android, ou desinstalar e instalá-lo novamente através da Play Store. Faça o login usando seu Passaporte UFMS. Acordo de Nível de Serviços (ANS): 12 horas.', 'validation_status': True}
+2026-05-18 00:01:51,668 | INFO | general_process.utilities.process_ticket | input_type: request
+2026-05-18 00:01:51,668 | INFO | general_process.utilities.process_ticket | input_justification: User is reporting a functional issue with the 'sou ufms' app on their Android device.
+2026-05-18 00:01:51,668 | INFO | general_process.utilities.process_ticket | result: {'ticket': {'id': 'TKT-2026-0010', 'timestamp': '2026-03-04T12:22:15Z', 'channel': 'Sistema de Chamados', 'requester_profile': 'Estudante', 'free_text': 'o app sou ufms ta fechando sozinho no meu android qnd tento ver o ru', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema específico no aplicativo Sou UFMS em um dispositivo Android ao tentar acessar o RU.'}, 'response': {'ticket_id': 'TKT-2026-0010', 'category': 'Incidente', 'urgency': 2, 'impact': 1, 'resulting_priority': 2, 'priority_justification': 'A prioridade é média pois o impacto se limita a um único usuário (Baixo Impacto) e, embora cause inconveniente, não impede o acesso a sistemas críticos ou a realização de tarefas urgentes (Média Urgência).', 'service_type': 'Aplicativo Sou UFMS', 'support_level': 1, 'category_justification': 'Relato de falha no aplicativo Sou UFMS em dispositivo Android.', 'department': 'N1 - Atendimento Direto', 'response_draft': 'Prezado(a) usuário(a),\n\nAgradecemos o seu contato.\n\nVerificamos que você está enfrentando problemas com o aplicativo Sou UFMS no seu dispositivo Android. Por favor, certifique-se de estar utilizando a versão mais recente do aplicativo, disponível na Play Store. O acesso é feito através do seu Passaporte UFMS.\n\nCaso o problema persista, responderemos ao seu chamado em até 12 horas.\n\nAtenciosamente,\nAGETIC/UFMS.', 'closing_message': 'Seu chamado foi encerrado pela equipe da AGETIC/UFMS. Caso o problema persista, reabra o chamado ou entre em contato: suporte.agetic@ufms.br | (67) 3345-7292.', 'needs_more_info': False, 'info_justification': 'O chamado descreve um problema específico no aplicativo Sou UFMS em um dispositivo Android ao tentar acessar o RU.', 'validation_status': True}}
