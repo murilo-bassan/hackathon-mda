@@ -29,6 +29,11 @@ GENERAL_DATA_PATH = ROOT_DIR / "general_process" / "data" / "shuffled_data.json"
 @st.cache_data
 def load_data():
     data = pd.read_json(GENERAL_DATA_PATH)
+    # Garante que 'critical' seja bool nativo Python (pandas pode ler como float/int)
+    if "critical" in data.columns:
+        data["critical"] = data["critical"].apply(
+            lambda x: None if (x is None or (isinstance(x, float) and str(x) == 'nan')) else bool(x)
+        )
     return data.to_dict(orient="records")
 
 if not GENERAL_DATA_PATH.exists():
@@ -362,7 +367,16 @@ with aba2:
             st.session_state.gen_qte_lote = qte_lote
             st.session_state.gen_resultados_req = []
             st.session_state.gen_resultados_inc = []
-            st.session_state.gen_lote_tickets = random.sample(tickets_geral, qte_lote)
+            # Garante pelo menos 40% de incidentes; o resto vem do shuffle geral
+            _incidents = [t for t in tickets_geral if is_incident(t["id"])]
+            _n_inc_min = max(1, round(qte_lote * 0.4))
+            _n_inc_min = min(_n_inc_min, len(_incidents))
+            _inc_fixos = random.sample(_incidents, _n_inc_min)
+            _restantes = [t for t in tickets_geral if t not in _inc_fixos]
+            _complemento = random.sample(_restantes, qte_lote - _n_inc_min)
+            _lote = _inc_fixos + _complemento
+            random.shuffle(_lote)
+            st.session_state.gen_lote_tickets = _lote
             st.session_state.gen_lote_index = 0
             st.session_state.gen_executando_lote = True
             st.rerun()
@@ -476,12 +490,19 @@ with aba2:
                         cat_ia = str(llm_data.get("category") or "none").strip().lower()
                         cat_ok = (cat_real == cat_ia)
 
-                        crit_real = ticket_real.get("critical")
+                        # pandas pode converter bool para int (1/0) ou string — normaliza aqui
+                        _crit_raw = ticket_real.get("critical")
+                        if _crit_raw is None or (isinstance(_crit_raw, float) and str(_crit_raw) == 'nan'):
+                            crit_real = None
+                        else:
+                            crit_real = bool(_crit_raw)
                         crit_ia = llm_data.get("critical")
+                        if crit_ia is not None:
+                            crit_ia = bool(crit_ia)
                         if crit_real is None:
                             crit_ok = "Ignorado"
                         else:
-                            crit_ok = (bool(crit_real) == bool(crit_ia))
+                            crit_ok = (crit_real == crit_ia)
 
                         status_str = "✅ Sucesso" if (cat_ok and (crit_ok is True or crit_ok == "Ignorado")) else "⚠️ Divergência"
 
@@ -490,7 +511,7 @@ with aba2:
                             "Resumo (Input)": ticket_real["free_text"],
                             "Cat. Real": ticket_real.get("category"),
                             "Cat. IA": llm_data.get("category"),
-                            "Crítico Real": "Sim" if crit_real else ("N/A" if crit_real is None else "Não"),
+                            "Crítico Real": "Sim" if crit_real is True else ("N/A" if crit_real is None else "Não"),
                             "Crítico IA": "Sim" if crit_ia else "Não",
                             "Responsável IA": llm_data.get("responsible_person", "N/A"),
                             "Status": status_str,
