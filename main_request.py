@@ -10,7 +10,4 @@ if __name__ == "__main__":
 
     main(DATA_PATH)
 
-    errors = run_accuracy()
-    print("\nTICKET COM PRIORIDADE DIFERENTE (", len(errors), "):")
-    for i in errors:
-        print(i)
+    run_accuracy()

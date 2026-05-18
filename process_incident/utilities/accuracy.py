@@ -15,8 +15,6 @@ def run_accuracy() -> list:
 
     response_files = sorted(RESPONSES_PATH.glob("*.json"))
 
-    errors = []
-
     responses: list[dict] = []
     for file_path in response_files:
         with open(file_path, "r", encoding="utf-8") as f:
@@ -29,6 +27,7 @@ def run_accuracy() -> list:
     scope_hits               = 0
     responsible_person_hits  = 0
     processed_total          = 0
+    errors                   = 0
 
     for response in responses:
 
@@ -36,6 +35,7 @@ def run_accuracy() -> list:
 
         # Ignora respostas sem correspondência no dataset
         if ticket_id not in DATASET_INDEX:
+            errors+=1
             print(f"[AVISO] ticket_id '{ticket_id}' não encontrado no dataset — ignorado.")
             continue
 
@@ -48,9 +48,6 @@ def run_accuracy() -> list:
 
         if predicted_category == expected_category:
             category_hits += 1
-        else:
-            errors.append({"ticket_id": ticket_id, "field": "category",
-                        "expected": expected_category, "predicted": predicted_category})
 
         # CRITICAL
         predicted_critical = response.get("critical")
@@ -58,9 +55,6 @@ def run_accuracy() -> list:
 
         if predicted_critical == expected_critical:
             critical_hits += 1
-        else:
-            errors.append({"ticket_id": ticket_id, "field": "critical",
-                        "expected": expected_critical, "predicted": predicted_critical})
 
         # SCOPE
         predicted_scope = normalize_str(response.get("scope") or "")
@@ -68,9 +62,6 @@ def run_accuracy() -> list:
 
         if predicted_scope == expected_scope:
             scope_hits += 1
-        else:
-            errors.append({"ticket_id": ticket_id, "field": "scope",
-                        "expected": expected_scope, "predicted": predicted_scope})
 
         # RESPONSIBLE PERSON
         predicted_responsible = normalize_str(response.get("responsible_person") or "")
@@ -78,9 +69,6 @@ def run_accuracy() -> list:
 
         if predicted_responsible == expected_responsible:
             responsible_person_hits += 1
-        else:
-            errors.append({"ticket_id": ticket_id, "field": "responsible_person",
-                        "expected": expected_responsible, "predicted": predicted_responsible})
 
 
     if processed_total == 0:

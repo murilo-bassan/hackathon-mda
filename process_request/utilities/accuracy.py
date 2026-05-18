@@ -16,8 +16,6 @@ def run_accuracy() -> list:
 
     response_files = sorted(RESPONSES_PATH.glob("*.json"))
 
-    errors= [];
-
     responses: list[dict] = []
     for file_path in response_files:
         with open(file_path, "r", encoding="utf-8") as f:
@@ -37,6 +35,7 @@ def run_accuracy() -> list:
     needs_more_info_total = 0
     t_mae_priority = 0
     mae_priority = 0
+    errors = 0
 
     for response in responses:
 
@@ -44,6 +43,7 @@ def run_accuracy() -> list:
 
         # Ignora respostas sem correspondência no dataset
         if ticket_id not in DATASET_INDEX:
+            errors+=1
             print(f"[AVISO] ticket_id '{ticket_id}' não encontrado no dataset — ignorado.")
             continue
 
@@ -96,9 +96,6 @@ def run_accuracy() -> list:
         #departament
         predicted_department = normalize_str(response.get("department") or "")
         expected_department  = normalize_str(expected_ticket.get("department") or "")
-
-        if (predicted_priority != expected_priority):
-            errors.append(ticket_id) 
 
         # Aceita match parcial (ex: "n2 - suporte de campo" in "n2 - suporte de campo e field")
         if expected_department and expected_department in predicted_department:

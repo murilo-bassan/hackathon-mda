@@ -7,4 +7,4 @@ if __name__ == "__main__":
     main(DATA_PATH)
 
 
-    errors = run_accuracy()
+    run_accuracy()
