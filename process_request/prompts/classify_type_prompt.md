@@ -88,8 +88,8 @@ Use when: ticket involves the intranet portal at intranet.ufms.br (acesso à int
 service_type "SEI" → department "N3 - Sistemas Administrativos" → support_level 3
 Use when: ticket involves the SEI administrative document system (processo SEI, assinatura eletrônica no SEI, acesso ao SEI, erro no SEI).
 
-service_type "Sistema Acadêmico" → department "N3 - Sistemas Acadêmicos" → support_level 3
-Use when: ticket involves academic systems such as SAGU, UFMS Virtual, or student/enrollment portals (matrícula no sistema, notas, frequência, SAGU, UFMS Virtual, portal do aluno).
+service_type "Sistema Acadêmico" → department "N2 - Sistemas Administrativos" → support_level 2
+Use when: ticket involves academic systems such as SAGU, UFMS Virtual, Siscad or student/enrollment portals (matrícula no sistema, notas, frequência, SAGU, UFMS Virtual, portal do aluno).
 
 service_type "Outros" → department "N1 - Atendimento Direto" → support_level 1
 Use only when the ticket genuinely does not match any of the above services.
