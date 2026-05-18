@@ -39,7 +39,8 @@ def emit(state: State) -> dict:
     }
 
     # Substituindo os prints poluídos pelo logger
-    logger.info(f"Emitindo resultados para o Ticket {ticket.get("id")}")
+    ticket_id = ticket.get("id", "UNKNOWN")
+    logger.info(f"Emitindo resultados para o Ticket {ticket_id}")
 
     # SALVAR JSON INDIVIDUAL
     with open(RESPONSES_PATH / f"ticket_{ticket.get("id")}.json", "w", encoding="utf-8") as f:

@@ -10,7 +10,6 @@ logger = setup_logger(__name__)
 
 def emit_incident(state: State) -> dict:
     incident = state.get("incident", {})
-    partial = state.get("email", {})
 
     os.makedirs(RESPONSES_PATH, exist_ok=True)
 
@@ -32,7 +31,8 @@ def emit_incident(state: State) -> dict:
     }
 
     # Substituindo os prints poluídos pelo logger
-    logger.info(f"Emitindo resultados para o incidente {incident.get("id")}")
+    ticket_id = incident.get("id", "UNKNOWN")
+    logger.info(f"Emitindo resultados para o Ticket {ticket_id}")
 
     # SALVAR JSON INDIVIDUAL
     with open(RESPONSES_PATH / f"incident_{incident.get("id")}.json", "w", encoding="utf-8") as f:
