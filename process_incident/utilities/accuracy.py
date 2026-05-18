@@ -39,48 +39,48 @@ def run_accuracy() -> list:
             print(f"[AVISO] ticket_id '{ticket_id}' não encontrado no dataset — ignorado.")
             continue
 
-        expected_ticket = expected_ticket(ticket_id)
+        expected_t = expected_ticket(ticket_id)
         processed_total += 1
 
         # CATEGORY
         predicted_category = normalize_str(response.get("category") or "")
-        expected_category  = normalize_str(expected_ticket.get("category") or "")
+        expected_category  = normalize_str(expected_t.get("category") or "")
 
         if predicted_category == expected_category:
             category_hits += 1
         else:
             errors.append({"ticket_id": ticket_id, "field": "category",
-                           "expected": expected_category, "predicted": predicted_category})
+                        "expected": expected_category, "predicted": predicted_category})
 
         # CRITICAL
         predicted_critical = response.get("critical")
-        expected_critical  = expected_ticket.get("critical")
+        expected_critical  = expected_t.get("critical")
 
         if predicted_critical == expected_critical:
             critical_hits += 1
         else:
             errors.append({"ticket_id": ticket_id, "field": "critical",
-                           "expected": expected_critical, "predicted": predicted_critical})
+                        "expected": expected_critical, "predicted": predicted_critical})
 
         # SCOPE
         predicted_scope = normalize_str(response.get("scope") or "")
-        expected_scope  = normalize_str(expected_ticket.get("scope") or "")
+        expected_scope  = normalize_str(expected_t.get("scope") or "")
 
         if predicted_scope == expected_scope:
             scope_hits += 1
         else:
             errors.append({"ticket_id": ticket_id, "field": "scope",
-                           "expected": expected_scope, "predicted": predicted_scope})
+                        "expected": expected_scope, "predicted": predicted_scope})
 
         # RESPONSIBLE PERSON
         predicted_responsible = normalize_str(response.get("responsible_person") or "")
-        expected_responsible  = normalize_str(expected_ticket.get("responsible_person") or "")
+        expected_responsible  = normalize_str(expected_t.get("responsible_person") or "")
 
         if predicted_responsible == expected_responsible:
             responsible_person_hits += 1
         else:
             errors.append({"ticket_id": ticket_id, "field": "responsible_person",
-                           "expected": expected_responsible, "predicted": predicted_responsible})
+                        "expected": expected_responsible, "predicted": predicted_responsible})
 
 
     if processed_total == 0:
@@ -121,6 +121,5 @@ def expected_ticket(id: str) -> dict:
         "category":           ticket["category"],
         "critical":           ticket["critical"],
         "scope":              ticket["scope"],
-        "responsible_person": ticket["responsible_person"],
-        "needs_more_info":    ticket["needs_more_info"]
+        "responsible_person": ticket["responsible_person"]
     }

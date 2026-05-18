@@ -11,7 +11,7 @@ def datasetAnalyzer():
 
     print("\nDistribuição de Categoria")
     print("-" * 25)
-    print(analyzer.category_distribution())
+    print(analyzer.category_distribution().to_string())
     
     print("\nDistribuição de Criticidade")
     print("-" * 43)
