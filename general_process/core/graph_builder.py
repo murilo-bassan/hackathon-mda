@@ -8,6 +8,12 @@ from general_process.core.nodes.incident_workflow import incident_workflow
 from general_process.core.state.state import State
 from general_process.utilities.decide_input import decide_input
 
+from functools import lru_cache
+
+@lru_cache(maxsize=1)
+def get_compiled_graph():
+    """Lazy singleton thread-safe via lru_cache."""
+    return build_graph()
 
 def build_graph():
 
@@ -38,6 +44,3 @@ def build_graph():
     builder.add_edge("incident_workflow", END)
 
     return builder.compile()
-
-
-graph = build_graph()
