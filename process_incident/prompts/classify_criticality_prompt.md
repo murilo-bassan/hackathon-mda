@@ -8,7 +8,7 @@ Do not include markdown, explanations, comments, or extra text.
 The keys "critical_justification": "...", "category_justification": "...", "scope": "...","affected_systems": "..."  values
 MUST be written in Brazilian Portuguese (PT-BR).
 
-The key "category": "...", value MUST be written in English.
+The key "category": "..." value MUST be written in English.
 
 Use this exact JSON structure:
 
@@ -52,11 +52,11 @@ Allowed values ONLY:
 - "phishing"
 - "malware"
 - "ransomware"
-- "acesso_nao_autorizado"
-- "comprometimento_de_credenciais"
-- "atividade_suspeita"
-- "negacao_de_servico"
-- "outro"
+- "unauthorized_access"
+- "credential_compromise"
+- "suspicious_activity"
+- "denial_of_service"
+- "other"
 
 Always provide a concise technical justification in:
 "category_justification"
