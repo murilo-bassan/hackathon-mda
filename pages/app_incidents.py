@@ -6,15 +6,22 @@ from datetime import datetime
 import pandas as pd
 import streamlit as st
 
+# OBRIGATÓRIO SER A PRIMEIRA CHAMADA STREAMLIT
+st.set_page_config(layout="wide", page_title="Triagem de Incidentes")
+
 from process_incident.core.subgraph_incident_builder import build_incident_subgraph
 from process_incident.utilities.config import DATA_PATH as INCIDENT_DATA_PATH
 from general_process.utilities.logger_config import setup_logger
 
 logger = setup_logger(__name__)
 
-LOG_FILE = Path("logs/execucao.log")
+# =========================================================
+# CONFIGURAÇÃO DE CAMINHOS
+# =========================================================
+ROOT_DIR = Path(__file__).resolve().parent.parent
+LOG_FILE = ROOT_DIR / "general_process" / "artifacts" / "logs" / "execucao.log"
 
-# Grafo dedicado a incidentes (sem passar pelo classify_input do grafo geral)
+# Grafo dedicado a incidentes
 incident_graph = build_incident_subgraph()
 
 # =========================================================
@@ -32,10 +39,19 @@ incidents = load_data()
 # =========================================================
 def get_logs():
     if not LOG_FILE.exists():
-        return "Aguardando execução..."
+        return f"Aguardando execução...\n\n[DEBUG] O sistema está procurando o log em:\n{LOG_FILE.absolute()}"
     logs = LOG_FILE.read_text(encoding="utf-8").splitlines()
     logs.reverse()
     return "\n".join(logs)
+
+def get_incident_logs(incident_id):
+    if not LOG_FILE.exists():
+        return "Arquivo de log não encontrado."
+    lines = LOG_FILE.read_text(encoding="utf-8").splitlines()
+    inc_lines = [line for line in lines if incident_id in line]
+    if not inc_lines:
+        return f"Nenhum log registrado para o incidente {incident_id} no arquivo atual."
+    return "\n".join(inc_lines)
 
 def limpar_logs():
     if LOG_FILE.exists():
@@ -43,7 +59,7 @@ def limpar_logs():
     st.rerun()
 
 # =========================================================
-# BARRA LATERAL: TERMINAL DE LOGS
+# BARRA LATERAL: TERMINAL DE LOGS GLOBAL
 # =========================================================
 with st.sidebar:
     st.markdown("### :material/terminal: Terminal de Execução")
@@ -81,6 +97,9 @@ with aba1:
 
     incident_options = {format_incident_label(t): t for t in incidents}
 
+    if "inc_last_selected" not in st.session_state:
+        st.session_state.inc_last_selected = None
+
     with st.container(border=True):
         col_sel, col_tog = st.columns([4, 1], vertical_alignment="center")
 
@@ -97,30 +116,52 @@ with aba1:
 
         selected_incident = incident_options[selected_label]
 
+        if st.session_state.inc_last_selected != selected_label:
+            st.session_state.inc_last_selected = selected_label
+            if usar_ticket_real:
+                st.session_state.inc_textarea = selected_incident["free_text"]
+
         texto_chamado = st.text_area(
             "Descrição do Incidente:",
-            value=selected_incident["free_text"] if usar_ticket_real else "",
             height=120,
             placeholder="Descreva o incidente reportado aqui...",
             key="inc_textarea"
         )
 
     st.write("")
-    processar = st.button(
-        "Executar Triagem de Incidente",
-        type="primary",
-        use_container_width=True,
-        icon=":material/play_arrow:",
-        key="inc_processar"
-    )
 
-    if processar:
+    if "inc_executando" not in st.session_state:
+        st.session_state.inc_executando = False
+
+    if not st.session_state.inc_executando:
+        processar = st.button(
+            "Executar Triagem de Incidente",
+            type="primary",
+            use_container_width=True,
+            icon=":material/play_arrow:",
+            key="inc_processar"
+        )
+        if processar:
+            st.session_state.inc_executando = True
+            st.rerun()
+    else:
+        col_exec, col_canc = st.columns(2)
+        with col_exec:
+            st.button("⏳ Analisando incidente...", disabled=True, use_container_width=True)
+        with col_canc:
+            if st.button("❌ Cancelar análise", use_container_width=True):
+                st.session_state.inc_executando = False
+                st.warning("Processamento interrompido pelo usuário.")
+                st.rerun()
+
+    if st.session_state.inc_executando:
         if not texto_chamado.strip():
             st.warning("O texto do incidente não pode estar vazio.", icon=":material/warning:")
+            st.session_state.inc_executando = False
             st.stop()
 
         try:
-            logger.info("Processamento de incidente individual iniciado via Interface Web")
+            logger.info(f"Processamento de incidente individual iniciado via Interface Web para ID: {selected_incident.get('id', 'MANUAL')}")
 
             incident_payload = selected_incident if usar_ticket_real else {
                 "id": "INC-MANUAL-001",
@@ -134,6 +175,8 @@ with aba1:
                 time.sleep(0.5)
                 st.write("Classificando criticidade e identificando responsável...")
                 status.update(label="Análise concluída com sucesso!", state="complete", expanded=False)
+
+            st.session_state.inc_executando = False
 
             resultado = response.get("incident", {})
             categoria = resultado.get("category", "N/A")
@@ -166,6 +209,27 @@ with aba1:
                 st.metric(label="Escopo", value=escopo)
 
             st.write("")
+
+            if usar_ticket_real:
+                st.markdown("#### 🎯 Validação vs Dataset Original")
+                
+                real_cat = selected_incident.get("category", "N/A")
+                real_crit = selected_incident.get("critical")
+                
+                if str(real_cat).strip().lower() == str(categoria).strip().lower():
+                    st.success(f"**Categoria:** Acerto ({categoria})")
+                else:
+                    st.error(f"**Categoria:** Divergência (IA: {categoria} | Real: {real_cat})")
+
+                if real_crit is None:
+                    st.info("**Criticidade:** Ignorada (Não há definição de criticidade no dataset original para este incidente).")
+                elif bool(real_crit) == bool(critico):
+                    st.success(f"**Criticidade:** Acerto ({'Crítico' if critico else 'Normal'})")
+                else:
+                    st.error(f"**Criticidade:** Erro (IA classificou como {'Crítico' if critico else 'Normal'} | Esperado: {'Crítico' if real_crit else 'Normal'})")
+
+            st.write("")
+
             col_det1, col_det2 = st.columns(2, gap="large")
 
             with col_det1:
@@ -205,6 +269,7 @@ with aba1:
                 st.json(resultado)
 
         except Exception as e:
+            st.session_state.inc_executando = False
             logger.exception(f"Erro na interface de incidente individual: {e}")
             st.error(f"Falha na execução: {str(e)}", icon=":material/error:")
 
@@ -264,25 +329,27 @@ with aba2:
 
             with st.spinner(f"Agente analisando ID: {incident_real['id']}..."):
                 try:
+                    logger.info(f"Processamento em lote: Analisando incidente {incident_real['id']}")
                     resp = incident_graph.invoke({"incident": incident_real})
                     llm_data = resp.get("incident", {})
 
-                    # Validação de categoria
                     cat_real = str(incident_real.get("category") or "none").strip().lower()
                     cat_ia = str(llm_data.get("category") or "none").strip().lower()
                     cat_ok = (cat_real == cat_ia)
 
-                    # Validação de criticidade (se existir no gabarito)
                     crit_real = incident_real.get("critical")
                     crit_ia = llm_data.get("critical")
-                    # Se gabarito não tem campo, considera acerto por ausência
-                    crit_ok = (crit_real is None) or (bool(crit_real) == bool(crit_ia))
+                    
+                    if crit_real is None:
+                        crit_ok = "Ignorado"
+                    else:
+                        crit_ok = (bool(crit_real) == bool(crit_ia))
 
-                    status_str = "✅ Sucesso" if (cat_ok and crit_ok) else "⚠️ Divergência"
+                    status_str = "✅ Sucesso" if (cat_ok and (crit_ok is True or crit_ok == "Ignorado")) else "⚠️ Divergência"
 
                     st.session_state.inc_resultados_lote.append({
                         "ID": incident_real["id"],
-                        "Resumo (Input)": incident_real["free_text"][:45] + "...",
+                        "Resumo (Input)": incident_real["free_text"],
                         "Cat. Real": incident_real.get("category"),
                         "Cat. IA": llm_data.get("category"),
                         "Crítico Real": "Sim" if crit_real else ("N/A" if crit_real is None else "Não"),
@@ -291,6 +358,8 @@ with aba2:
                         "Status": status_str,
                         "cat_ok": cat_ok,
                         "crit_ok": crit_ok,
+                        "incident_original": incident_real,
+                        "resposta_llm": llm_data
                     })
 
                 except Exception as e:
@@ -307,31 +376,119 @@ with aba2:
         st.markdown("#### Resultado da Amostragem Atual")
 
         lote_atual = st.session_state.inc_resultados_lote
+        total_lote = len(lote_atual)
 
         hits_cat = sum(1 for r in lote_atual if r["cat_ok"])
-        hits_crit = sum(1 for r in lote_atual if r["crit_ok"])
+        
+        testes_crit_validos = sum(1 for r in lote_atual if r["crit_ok"] in [True, False])
+        hits_crit = sum(1 for r in lote_atual if r["crit_ok"] is True)
 
         col_L1, col_L2 = st.columns(2)
         with st.container(border=True):
-            col_L1.metric("Acertos (Categoria)", f"{(hits_cat/len(lote_atual))*100:.0f}%", f"{hits_cat}/{len(lote_atual)}")
+            col_L1.metric("Acertos (Categoria)", f"{(hits_cat/total_lote)*100:.0f}%", f"{hits_cat}/{total_lote}")
         with st.container(border=True):
-            col_L2.metric("Acertos (Criticidade)", f"{(hits_crit/len(lote_atual))*100:.0f}%", f"{hits_crit}/{len(lote_atual)}")
+            if testes_crit_validos > 0:
+                col_L2.metric("Acertos (Criticidade)", f"{(hits_crit/testes_crit_validos)*100:.0f}%", f"{hits_crit}/{testes_crit_validos}")
+            else:
+                col_L2.metric("Acertos (Criticidade)", "N/A", "0/0")
 
         df_lote = pd.DataFrame(lote_atual)
-        df_display = df_lote.drop(columns=["cat_ok", "crit_ok"])
+        df_display = df_lote.drop(columns=["cat_ok", "crit_ok", "incident_original", "resposta_llm"])
 
         def colorir_status(val):
-            if val == "⚠️ Divergência":
-                return 'background-color: #5c1818; color: #ffb8b8'
-            elif val == "✅ Sucesso":
-                return 'background-color: #0f5132; color: #d1e7dd'
+            if val == "⚠️ Divergência": return 'background-color: #5c1818; color: #ffb8b8'
+            elif val == "✅ Sucesso": return 'background-color: #0f5132; color: #d1e7dd'
             return ''
 
-        st.dataframe(
+        evento_tabela = st.dataframe(
             df_display.style.map(colorir_status, subset=['Status']),
             use_container_width=True,
-            hide_index=True
+            hide_index=True,
+            selection_mode="single-row",
+            on_select="rerun",
+            column_config={
+                "Resumo (Input)": st.column_config.TextColumn("Resumo (Input)", width="large")
+            }
         )
+
+        # =========================================================
+        # VISÃO DETALHADA + JSON + LOGS DO INCIDENTE SELECIONADO
+        # =========================================================
+        linhas_selecionadas = evento_tabela.selection.rows
+        
+        if linhas_selecionadas:
+            st.divider()
+            idx_selecionado = linhas_selecionadas[0]
+            dados_linha = lote_atual[idx_selecionado]
+            
+            incident_detalhe = dados_linha["incident_original"]
+            llm_detalhe = dados_linha["resposta_llm"]
+            
+            st.markdown(f"### 🔍 Inspeção Detalhada: `{incident_detalhe['id']}`")
+            
+            with st.container(border=True):
+                st.markdown("**Relato do Usuário:**")
+                st.write(incident_detalhe['free_text'])
+                
+            st.write("")
+            
+            critico_ia = llm_detalhe.get('critical', False)
+            
+            col_det_m1, col_det_m2, col_det_m3 = st.columns(3)
+            with col_det_m1:
+                st.metric(label="Categoria IA", value=llm_detalhe.get('category', 'N/A'))
+            with col_det_m2:
+                st.metric(label="Criticidade IA", value="🔴 Crítico" if critico_ia else "🟡 Normal")
+            with col_det_m3:
+                st.metric(label="Escopo IA", value=llm_detalhe.get('scope', 'N/A'))
+
+            st.write("")
+            col_info1, col_info2 = st.columns(2, gap="large")
+
+            with col_info1:
+                st.markdown("##### :material/gavel: Justificativa da Categoria")
+                with st.container(border=True):
+                    st.info(llm_detalhe.get("category_justification", "Sem justificativa"), icon=":material/info:")
+
+                st.markdown("##### :material/computer: Sistemas Afetados")
+                with st.container(border=True):
+                    st.warning(llm_detalhe.get("affected_systems", "Não identificados"), icon=":material/dns:")
+
+                st.markdown("##### :material/person: Responsável")
+                with st.container(border=True):
+                    st.write(f"**{llm_detalhe.get('responsible_person', 'N/A')}**")
+                    st.caption(llm_detalhe.get("contact_info", "N/A"))
+
+            with col_info2:
+                st.markdown("##### :material/shield: Passos de Contenção")
+                with st.container(border=True):
+                    passos_ia = llm_detalhe.get("containment_steps", [])
+                    if passos_ia:
+                        for i, passo in enumerate(passos_ia, 1):
+                            st.write(f"{i}. {passo}")
+                        just_cont = llm_detalhe.get("containment_justification", "")
+                        if just_cont:
+                            st.caption(f"_Justificativa: {just_cont}_")
+                    else:
+                        st.write("Nenhum passo de contenção definido.")
+
+                st.markdown("##### :material/notifications_active: Rascunho de Alerta")
+                with st.container(border=True):
+                    st.error(llm_detalhe.get("alert_draft", "Sem alerta gerado"), icon=":material/campaign:")
+
+            relatorio_ia = llm_detalhe.get("report_template", "")
+            if relatorio_ia:
+                with st.expander(":material/description: Ver Template de Relatório Gerado"):
+                    st.text(relatorio_ia)
+
+            st.write("")
+            with st.expander(":material/data_object: Visualizar Estado Completo do Incidente (JSON)"):
+                st.json(llm_detalhe)
+                
+            st.write("")
+            st.markdown(f"##### :material/terminal: Histórico de Logs do Incidente `{incident_detalhe['id']}`")
+            with st.container(border=True):
+                st.code(get_incident_logs(incident_detalhe['id']), language="bash")
 
 
 # =========================================================
@@ -339,7 +496,7 @@ with aba2:
 # =========================================================
 st.write("")
 st.write("")
-with st.expander(":material/fullscreen: Visualizar Logs em Tela Cheia"):
+with st.expander(":material/fullscreen: Visualizar Logs em Tela Cheia (Geral)"):
     col_titulo, col_btn = st.columns([5, 1])
     with col_btn:
         if st.button("Limpar Logs", key="inc_limpar_full"):

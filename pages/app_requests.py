@@ -18,12 +18,7 @@ logger = setup_logger(__name__)
 # =========================================================
 # CONFIGURAÇÃO DE CAMINHOS
 # =========================================================
-# __file__ é o app_requests.py. 
-# .parent é a pasta 'pages'. 
-# .parent.parent é a raiz do projeto.
 ROOT_DIR = Path(__file__).resolve().parent.parent
-
-# Monta o caminho exato para o log
 LOG_FILE = ROOT_DIR / "general_process" / "artifacts" / "logs" / "execucao.log"
 
 # Grafo dedicado a requests
@@ -55,7 +50,7 @@ def limpar_logs():
     st.rerun()
 
 # =========================================================
-# BARRA LATERAL: TERMINAL DE LOGS
+# BARRA LATERAL: TERMINAL DE LOGS GLOBAL
 # =========================================================
 with st.sidebar:
     st.markdown("### :material/terminal: Terminal de Execução")
@@ -157,7 +152,7 @@ with aba1:
             st.stop()
 
         try:
-            logger.info("Processamento de request individual iniciado via Interface Web")
+            logger.info(f"Processamento de request individual iniciado via Interface Web para ID: {selected_ticket.get('id', 'MANUAL')}")
             ticket_payload = selected_ticket if usar_ticket_real else {
                 "id": "TKT-MANUAL-001",
                 "timestamp": datetime.now().isoformat(),
@@ -218,13 +213,11 @@ with aba1:
                 real_prio = normalizar_prioridade_ind(selected_ticket.get("resulting_priority"))
                 ia_prio = normalizar_prioridade_ind(prioridade)
                 
-                # Categoria
                 if str(real_cat).strip().lower() == str(categoria).strip().lower():
                     st.success(f"**Categoria:** Acerto ({categoria})")
                 else:
                     st.error(f"**Categoria:** Divergência (IA: {categoria} | Real: {real_cat})")
 
-                # Lógica de Prioridade e Draft
                 if real_prio == 0 and ia_prio == 0:
                     st.success("**Prioridade/Draft:** Acerto (O ticket foi corretamente classificado como Draft/Incompleto).")
                 elif real_prio == 0 and ia_prio != 0:
@@ -319,6 +312,7 @@ with aba2:
 
             with st.spinner(f"Agente analisando ID: {ticket_real['id']}..."):
                 try:
+                    logger.info(f"Processamento em lote: Analisando ticket {ticket_real['id']}")
                     resp = request_graph.invoke({"ticket": ticket_real})
                     llm_data = resp.get("response", {})
 
@@ -424,6 +418,7 @@ with aba2:
             elif val in ["🚨 Falha Crítica", "🚨 Erro de Draft"]: return 'background-color: #8b0000; color: #ffffff'
             return ''
 
+        # Caixa de seleção nativa integrada ao rerun
         evento_tabela = st.dataframe(
             df_display.style.map(colorir_status, subset=['Status']),
             use_container_width=True,
@@ -436,7 +431,7 @@ with aba2:
         )
 
         # =========================================================
-        # VISÃO DETALHADA DO ITEM SELECIONADO NA TABELA
+        # VISÃO DETALHADA + JSON DO ITEM SELECIONADO
         # =========================================================
         linhas_selecionadas = evento_tabela.selection.rows
         
@@ -448,7 +443,7 @@ with aba2:
             ticket_detalhe = dados_linha["ticket_original"]
             llm_detalhe = dados_linha["resposta_llm"]
             
-            st.markdown(f"### 🔍 Inspeção de Chamado: `{ticket_detalhe['id']}`")
+            st.markdown(f"### 🔍 Inspeção Detalhada: `{ticket_detalhe['id']}`")
             
             with st.container(border=True):
                 st.markdown("**Relato do Usuário:**")
@@ -480,12 +475,17 @@ with aba2:
                 with st.container(border=True):
                     st.success(llm_detalhe.get("response_draft", "Sem resposta"), icon=":material/mark_email_read:")
 
+            # EXPANDER COM O ESTADO DO JSON DO TICKETS EM LOTE
+            st.write("")
+            with st.expander(":material/data_object: Visualizar Estado Completo do Ticket (JSON)"):
+                st.json(llm_detalhe)
+
 # =========================================================
 # LOGS EM TELA CHEIA (RODAPÉ)
 # =========================================================
 st.write("")
 st.write("")
-with st.expander(":material/fullscreen: Visualizar Logs em Tela Cheia"):
+with st.expander(":material/fullscreen: Visualizar Logs em Tela Cheia (Geral)"):
     col_titulo, col_btn = st.columns([5, 1])
     with col_btn:
         if st.button("Limpar Logs", key="req_limpar_full"):
