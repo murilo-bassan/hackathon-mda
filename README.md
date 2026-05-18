@@ -20,7 +20,9 @@ Estão dispostas no Issues do repositório.
 ### Documentação
 Está localizada na pasta `docs` no arquivo `documentation.md` no repositório.
 
-### Link do vídeo do demoday
+### Vídeo do demoday
+Os slides usados na apresentação estão na pasta `docs` no arquivo `hackathon.pdf` no repositório.
+
 Link do Youtube: [https://www.youtube.com/watch?v=MUWsZPIKGfQ](https://www.youtube.com/watch?v=MUWsZPIKGfQ)
 
 ---
@@ -338,7 +340,8 @@ hackathon-mda-main/
 │
 ├── docs/
 │   ├── graph.png                   # Visualização do grafo (gerada automaticamente)
-│   └── documentation.md           # Documentação original da equipe
+│   ├── documentation.md            # Documentação original da equipe
+│   └── hackathon.pdf               # Slides da apresentação da equipe
 │
 ├── general_process/                # Grafo pai — orquestrador central
 │   ├── core/
