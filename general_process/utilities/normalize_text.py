@@ -1,5 +1,6 @@
 import re
 from general_process.utilities.clean_text import clean_text
+import unicodedata
 
 def normalize_text(text: str) -> str:
     """
@@ -25,3 +26,8 @@ def normalize_text(text: str) -> str:
     text = re.sub(r"(.)\1{3,}", r"\1\1", text)
 
     return text.strip()
+
+def normalize_str(s: str) -> str:
+    """Remove acentos, converte para minúsculas e strip."""
+    s = unicodedata.normalize("NFKD", s)
+    return s.encode("ascii", "ignore").decode().lower().strip()
