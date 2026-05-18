@@ -20,6 +20,9 @@ Estão dispostas no Issues do repositório.
 ### Documentação
 Está localizada na pasta `docs` no arquivo `documentation.md` no repositório.
 
+### Link do vídeo do demoday
+Link do Youtube: [https://www.youtube.com/watch?v=MUWsZPIKGfQ](https://www.youtube.com/watch?v=MUWsZPIKGfQ)
+
 ---
 
 ## Tipos de commit
