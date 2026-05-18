@@ -10,15 +10,15 @@ All keys and all values MUST be written in Brazilian Portuguese (PT-BR).
 Use this exact JSON structure:
 
 {
-  "critico": true,
-  "justificativa_critico": "...",
+  "critical": true,
+  "justification": "...",
 
-  "categoria": "...",
-  "justificativa_categoria": "...",
+  "category": "...",
+  "category_justification": "...",
 
-  "escopo": "...",
+  "scope": "...",
 
-  "sistemas_afetados": "..."
+  "affected_systems": "..."
 }
 
 Rules for "critico":
