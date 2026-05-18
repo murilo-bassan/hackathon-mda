@@ -101,7 +101,6 @@ def run_accuracy() -> list:
     print("=" * 60)
 
     print(f"Total de tickets avaliados: {processed_total}")
-    print(f"Pedidos de mais informação: {needs_more_info_total}")
 
     print("\nQUALIDADE DO MODELO")
     print(f"Accuracy Categoria:            {category_accuracy:.2f}%")
