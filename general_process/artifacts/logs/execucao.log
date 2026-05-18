@@ -1,0 +1,29 @@
+2026-05-17 20:44:02,747 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 20:44:02,749 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 20:44:02,751 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: webmail
+2026-05-17 20:44:02,752 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 20:44:02,755 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: sistema_inexistente_xpto
+2026-05-17 20:44:02,758 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: ETIR - Equipe de Tratamento e Resposta a Incidentes
+2026-05-17 20:44:02,763 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 20:44:02,764 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 20:44:02,766 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Institutional Email
+2026-05-17 20:44:02,766 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: João Silva
+2026-05-17 20:44:02,772 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 20:44:02,775 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 20:44:02,779 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Phishing | crítico: False
+2026-05-17 20:44:02,783 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: Indisponibilidade Crítica | crítico: True
+2026-05-17 20:44:02,788 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 20:44:02,791 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 20:44:02,794 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 20:44:02,798 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 20:44:02,801 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: João Silva | crítico: False
+2026-05-17 20:44:02,807 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 20:44:02,809 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 20:44:02,814 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 20:44:02,816 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 20:44:02,819 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-TEST-001
+2026-05-17 20:44:02,825 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 20:44:02,833 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 20:44:02,840 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 20:44:02,847 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
+2026-05-17 20:44:02,854 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-TEST-001
