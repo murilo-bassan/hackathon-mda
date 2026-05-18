@@ -1,0 +1,55 @@
+2026-05-18 01:34:56,937 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente 3971cbca-5758-425f-a959-e9ee8cb0a287
+2026-05-18 01:35:06,716 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente edfcd4db-5f8f-4609-b43f-f27550d474b0
+2026-05-18 01:35:06,722 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente ac628282-9596-4e32-ad6e-679ac65e78c9
+2026-05-18 01:39:17,784 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:39:17,785 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:39:21,339 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:39:21,341 | INFO | general_process.utilities.utils | Tokens — prompt: 765 | completion: 145 | total: 910
+2026-05-18 01:39:21,341 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:39:21,343 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: desconhecido
+2026-05-18 01:39:21,360 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: ETIR - Equipe de Tratamento e Resposta a Incidentes
+2026-05-18 01:39:21,361 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: ransomware | crítico: True
+2026-05-18 01:39:21,376 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:39:21,376 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:39:25,784 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:39:25,784 | INFO | general_process.utilities.utils | Tokens — prompt: 1006 | completion: 192 | total: 1198
+2026-05-18 01:39:25,785 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:39:25,786 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: ETIR - Equipe de Tratamento e Resposta a Incidentes | crítico: True
+2026-05-18 01:39:25,796 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:39:25,797 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:39:31,899 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:39:31,899 | INFO | general_process.utilities.utils | Tokens — prompt: 531 | completion: 340 | total: 871
+2026-05-18 01:39:31,899 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:39:31,901 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-2026-0035
+2026-05-18 01:39:31,908 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:39:31,909 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:39:47,040 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:39:47,040 | INFO | general_process.utilities.utils | Tokens — prompt: 533 | completion: 790 | total: 1323
+2026-05-18 01:39:47,040 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:39:47,042 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0035
+2026-05-18 01:39:47,127 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:39:47,127 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:39:52,744 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:39:52,744 | INFO | general_process.utilities.utils | Tokens — prompt: 768 | completion: 154 | total: 922
+2026-05-18 01:39:52,745 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:39:52,746 | INFO | process_incident.core.nodes.lookup_owner | Buscando responsável para sistemas: Passaporte UFMS
+2026-05-18 01:39:52,746 | INFO | process_incident.core.nodes.lookup_owner | Responsável identificado: Fernanda Lima
+2026-05-18 01:39:52,747 | INFO | process_incident.core.nodes.recommend_containment | Recomendando contenção para categoria: phishing | crítico: False
+2026-05-18 01:39:52,747 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:39:52,747 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:40:00,466 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:40:00,467 | INFO | general_process.utilities.utils | Tokens — prompt: 1005 | completion: 196 | total: 1201
+2026-05-18 01:40:00,467 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:40:00,468 | INFO | process_incident.core.nodes.draft_alert | Redigindo alerta para: Fernanda Lima | crítico: False
+2026-05-18 01:40:00,469 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:40:00,469 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:40:14,460 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:40:14,460 | INFO | general_process.utilities.utils | Tokens — prompt: 534 | completion: 358 | total: 892
+2026-05-18 01:40:14,460 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:40:14,462 | INFO | process_incident.core.nodes.request_report | Gerando template de relatório para incidente: INC-2026-0009
+2026-05-18 01:40:14,463 | INFO | general_process.utilities.utils | Model: google/gemma-3-27b-it
+2026-05-18 01:40:14,463 | INFO | general_process.utilities.utils | Enviando requisição para OpenRouter
+2026-05-18 01:40:29,473 | INFO | general_process.utilities.utils | Resposta recebida com sucesso
+2026-05-18 01:40:29,473 | INFO | general_process.utilities.utils | Tokens — prompt: 531 | completion: 694 | total: 1225
+2026-05-18 01:40:29,473 | INFO | general_process.utilities.utils | Resposta parseada com sucesso
+2026-05-18 01:40:29,475 | INFO | process_incident.core.nodes.emit_incident | Emitindo resultados para o incidente INC-2026-0009
