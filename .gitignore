@@ -5,7 +5,7 @@
 .coverage
 
 # logs
-
+.log
 
 human_queue
 
